@@ -1,1 +1,0 @@
-ALTER TABLE "server" ADD COLUMN "command" text DEFAULT '' NOT NULL;

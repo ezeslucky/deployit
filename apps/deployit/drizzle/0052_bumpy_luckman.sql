@@ -1,1 +1,0 @@
-ALTER TABLE "discord" ADD COLUMN "decoration" boolean;

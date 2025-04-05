@@ -1,1 +1,0 @@
-ALTER TABLE "gitlab" ADD COLUMN "gitlabUrl" text DEFAULT 'https://gitlab.com' NOT NULL;
