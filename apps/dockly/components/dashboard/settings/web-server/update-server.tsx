@@ -237,7 +237,7 @@ export const UpdateServer = ({
 							<div className="text-[#5B9DFF]">
 								We recommend reviewing the{" "}
 								<Link
-									href="https://github.com/Dokploy/dokploy/releases"
+									href="https://github.com/ezeslucky/deployit.git/releases"
 									target="_blank"
 									className="text-white underline hover:text-zinc-200"
 								>
