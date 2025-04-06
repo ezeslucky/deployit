@@ -1,0 +1,32 @@
+{
+	"name": "@dokploy/api",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "PORT=4000 tsx watch src/index.ts",
+		"build": "tsc --project tsconfig.json",
+		"start": "node dist/index.js",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@hono/node-server": "^1.14.0",
+		"@hono/zod-validator": "0.3.0",
+		"@nerimity/mimiqueue": "1.2.3",
+		"dotenv": "^16.4.7",
+		"hono": "^4.7.5",
+		"pino": "9.4.0",
+		"pino-pretty": "11.2.2",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"redis": "4.7.0",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@types/node": "^20.17.30",
+		"@types/react": "^18.3.20",
+		"@types/react-dom": "^18.3.6",
+		"tsx": "^4.19.3",
+		"typescript": "^5.8.2"
+	},
+	"packageManager": "pnpm@9.5.0"
+}
