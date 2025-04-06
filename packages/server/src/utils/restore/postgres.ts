@@ -1,5 +1,5 @@
-import type { Postgres } from "@dockly/server/services/postgres";
-import type { Destination } from "@dockly/server/services/destination";
+import type { Postgres } from "@deployit/server/services/postgres";
+import type { Destination } from "@deployit/server/services/destination";
 import {
 	getRemoteServiceContainer,
 	getServiceContainer,

@@ -2,7 +2,7 @@ name: Build Docker images
 
 on:
   push:
-    branches: [ "mainn" ]
+    branches: ["canary", "main", "feat/monitoring"]
 
 jobs:
   build-and-push-cloud-image:

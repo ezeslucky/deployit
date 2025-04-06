@@ -1,11 +1,11 @@
 import fs from "node:fs/promises";
 import path, { join } from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { Application } from "@dockly/server/services/application";
-import { findServerById } from "@dockly/server/services/server";
+import { paths } from "@deployit/server/constants";
+import type { Application } from "@deployit/server/services/application";
+import { findServerById } from "@deployit/server/services/server";
 import AdmZip from "adm-zip";
 import { Client, type SFTPWrapper } from "ssh2";
-import { 
+import {
 	recreateDirectory,
 	recreateDirectoryRemote,
 } from "../filesystem/directory";

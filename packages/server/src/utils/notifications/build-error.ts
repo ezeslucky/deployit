@@ -1,6 +1,6 @@
-import { db } from "@dockly/server/db";
-import { notifications } from "@dockly/server/db/schema";
-import BuildFailedEmail from "@dockly/server/emails/emails/build-failed";
+import { db } from "@deployit/server/db";
+import { notifications } from "@deployit/server/db/schema";
+import BuildFailedEmail from "@deployit/server/emails/emails/build-failed";
 import { renderAsync } from "@react-email/components";
 import { format } from "date-fns";
 import { and, eq } from "drizzle-orm";
@@ -58,7 +58,7 @@ export const sendBuildErrorNotifications = async ({
 					date: date.toLocaleString(),
 				}),
 			).catch();
-			await sendEmailNotification(email, "Build failed for dokploy", template);
+			await sendEmailNotification(email, "Build failed for deployit", template);
 		}
 
 		if (discord) {
@@ -110,7 +110,7 @@ export const sendBuildErrorNotifications = async ({
 				],
 				timestamp: date.toISOString(),
 				footer: {
-					text: "Dokploy Build Notification",
+					text: "deployit Build Notification",
 				},
 			});
 		}

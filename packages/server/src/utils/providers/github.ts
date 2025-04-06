@@ -1,16 +1,16 @@
 import { createWriteStream } from "node:fs";
 import { join } from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { InferResultType } from "@dockly/server/types/with";
+import { paths } from "@deployit/server/constants";
+import type { InferResultType } from "@deployit/server/types/with";
 import { createAppAuth } from "@octokit/auth-app";
 import { TRPCError } from "@trpc/server";
 import { Octokit } from "octokit";
 import { recreateDirectory } from "../filesystem/directory";
 import { spawnAsync } from "../process/spawnAsync";
 
-import type { apiFindGithubBranches } from "@dockly/server/db/schema";
-import type { Compose } from "@dockly/server/services/compose";
-import { type Github, findGithubById } from "@dockly/server/services/github";
+import type { apiFindGithubBranches } from "@deployit/server/db/schema";
+import type { Compose } from "@deployit/server/services/compose";
+import { type Github, findGithubById } from "@deployit/server/services/github";
 import { execAsyncRemote } from "../process/execAsync";
 
 export const authGithub = (githubProvider: Github): Octokit => {

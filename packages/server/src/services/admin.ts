@@ -1,10 +1,10 @@
-import { db } from "@dockly/server/db";
+import { db } from "@deployit/server/db";
 import {
 	invitation,
 	member,
 	organization,
 	users_temp,
-} from "@dockly/server/db/schema";
+} from "@deployit/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { IS_CLOUD } from "../constants";
@@ -103,9 +103,9 @@ export const removeUserById = async (userId: string) => {
 		.then((res) => res[0]);
 };
 
-export const getDokployUrl = async () => {
+export const getdeployitUrl = async () => {
 	if (IS_CLOUD) {
-		return "https://app.dokploy.com";
+		return "https://app.deployit.com";
 	}
 	const admin = await findAdmin();
 

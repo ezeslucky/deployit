@@ -35,7 +35,7 @@ export const initializeTraefik = async ({
 }: TraefikOptions = {}) => {
 	const { MAIN_TRAEFIK_PATH, DYNAMIC_TRAEFIK_PATH } = paths(!!serverId);
 	const imageName = `traefik:v${TRAEFIK_VERSION}`;
-	const containerName = "dokploy-traefik";
+	const containerName = "deployit-traefik";
 
 	const exposedPorts: Record<string, {}> = {
 		[`${TRAEFIK_PORT}/tcp`]: {},
@@ -67,7 +67,7 @@ export const initializeTraefik = async ({
 		Image: imageName,
 		NetworkingConfig: {
 			EndpointsConfig: {
-				"dokploy-network": {},
+				"deployit-network": {},
 			},
 		},
 		ExposedPorts: exposedPorts,
@@ -77,7 +77,7 @@ export const initializeTraefik = async ({
 			},
 			Binds: [
 				`${MAIN_TRAEFIK_PATH}/traefik.yml:/etc/traefik/traefik.yml`,
-				`${DYNAMIC_TRAEFIK_PATH}:/etc/dokploy/traefik/dynamic`,
+				`${DYNAMIC_TRAEFIK_PATH}:/etc/deployit/traefik/dynamic`,
 				"/var/run/docker.sock:/var/run/docker.sock",
 			],
 			PortBindings: portBindings,
@@ -88,7 +88,7 @@ export const initializeTraefik = async ({
 	const docker = await getRemoteDocker(serverId);
 	try {
 		try {
-			const service = docker.getService("dokploy-traefik");
+			const service = docker.getService("deployit-traefik");
 			await service?.remove({ force: true });
 
 			let attempts = 0;
@@ -96,7 +96,7 @@ export const initializeTraefik = async ({
 			while (attempts < maxAttempts) {
 				try {
 					await docker.listServices({
-						filters: { name: ["dokploy-traefik"] },
+						filters: { name: ["deployit-traefik"] },
 					});
 					console.log("Waiting for service cleanup...");
 					await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -149,14 +149,14 @@ export const initializeTraefik = async ({
 
 export const createDefaultServerTraefikConfig = () => {
 	const { DYNAMIC_TRAEFIK_PATH } = paths();
-	const configFilePath = path.join(DYNAMIC_TRAEFIK_PATH, "dokploy.yml");
+	const configFilePath = path.join(DYNAMIC_TRAEFIK_PATH, "deployit.yml");
 
 	if (existsSync(configFilePath)) {
 		console.log("Default traefik config already exists");
 		return;
 	}
 
-	const appName = "dokploy";
+	const appName = "deployit";
 	const serviceURLDefault = `http://${appName}:${process.env.PORT || 3000}`;
 	const config: FileConfig = {
 		http: {
@@ -205,11 +205,11 @@ export const getDefaultTraefikConfig = () => {
 						docker: {
 							exposedByDefault: false,
 							watch: true,
-							network: "dokploy-network",
+							network: "deployit-network",
 						},
 					}),
 			file: {
-				directory: "/etc/dokploy/traefik/dynamic",
+				directory: "/etc/deployit/traefik/dynamic",
 				watch: true,
 			},
 		},
@@ -239,7 +239,7 @@ export const getDefaultTraefikConfig = () => {
 				letsencrypt: {
 					acme: {
 						email: "test@localhost.com",
-						storage: "/etc/dokploy/traefik/dynamic/acme.json",
+						storage: "/etc/deployit/traefik/dynamic/acme.json",
 						httpChallenge: {
 							entryPoint: "web",
 						},
@@ -264,10 +264,10 @@ export const getDefaultServerTraefikConfig = () => {
 			docker: {
 				exposedByDefault: false,
 				watch: true,
-				network: "dokploy-network",
+				network: "deployit-network",
 			},
 			file: {
-				directory: "/etc/dokploy/traefik/dynamic",
+				directory: "/etc/deployit/traefik/dynamic",
 				watch: true,
 			},
 		},
@@ -294,7 +294,7 @@ export const getDefaultServerTraefikConfig = () => {
 			letsencrypt: {
 				acme: {
 					email: "test@localhost.com",
-					storage: "/etc/dokploy/traefik/dynamic/acme.json",
+					storage: "/etc/deployit/traefik/dynamic/acme.json",
 					httpChallenge: {
 						entryPoint: "web",
 					},

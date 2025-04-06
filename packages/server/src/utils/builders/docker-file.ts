@@ -1,5 +1,5 @@
 import type { WriteStream } from "node:fs";
-import { prepareEnvironmentVariables } from "@dockly/server/utils/docker/utils";
+import { prepareEnvironmentVariables } from "@deployit/server/utils/docker/utils";
 import type { ApplicationNested } from ".";
 import {
 	getBuildAppDirectory,

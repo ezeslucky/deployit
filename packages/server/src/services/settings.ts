@@ -1,10 +1,10 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
-import { docker } from "@dockly/server/constants";
+import { docker } from "@deployit/server/constants";
 import {
 	execAsync,
 	execAsyncRemote,
-} from "@dockly/server/utils/process/execAsync";
+} from "@deployit/server/utils/process/execAsync";
 
 export interface IUpdateData {
 	latestVersion: string | null;
@@ -16,17 +16,17 @@ export const DEFAULT_UPDATE_DATA: IUpdateData = {
 	updateAvailable: false,
 };
 
-/** Returns current Dokploy docker image tag or `latest` by default. */
-export const getDokployImageTag = () => {
+/** Returns current deployit docker image tag or `latest` by default. */
+export const getdeployitImageTag = () => {
 	return process.env.RELEASE_TAG || "latest";
 };
 
-export const getDokployImage = () => {
-	return `dokploy/dokploy:${getDokployImageTag()}`;
+export const getdeployitImage = () => {
+	return `deployit/deployit:${getdeployitImageTag()}`;
 };
 
 export const pullLatestRelease = async () => {
-	const stream = await docker.pull(getDokployImage());
+	const stream = await docker.pull(getdeployitImage());
 	await new Promise((resolve, reject) => {
 		docker.modem.followProgress(stream, (err, res) =>
 			err ? reject(err) : resolve(res),
@@ -34,10 +34,10 @@ export const pullLatestRelease = async () => {
 	});
 };
 
-/** Returns Dokploy docker service image digest */
+/** Returns deployit docker service image digest */
 export const getServiceImageDigest = async () => {
 	const { stdout } = await execAsync(
-		"docker service inspect dokploy --format '{{.Spec.TaskTemplate.ContainerSpec.Image}}'",
+		"docker service inspect deployit --format '{{.Spec.TaskTemplate.ContainerSpec.Image}}'",
 	);
 
 	const currentDigest = stdout.trim().split("@")[1];
@@ -57,11 +57,11 @@ export const getUpdateData = async (): Promise<IUpdateData> => {
 	} catch {
 		// Docker service might not exist locally
 		// You can run the # Installation command for docker service create mentioned in the below docs to test it locally:
-		// https://docs.dokploy.com/docs/core/manual-installation
+		// https://docs.deployit.com/docs/core/manual-installation
 		return DEFAULT_UPDATE_DATA;
 	}
 
-	const baseUrl = "https://hub.docker.com/v2/repositories/dokploy/dokploy/tags";
+	const baseUrl = "https://hub.docker.com/v2/repositories/deployit/deployit/tags";
 	let url: string | null = `${baseUrl}?page_size=100`;
 	let allResults: { digest: string; name: string }[] = [];
 	while (url) {
@@ -79,7 +79,7 @@ export const getUpdateData = async (): Promise<IUpdateData> => {
 		url = data?.next;
 	}
 
-	const imageTag = getDokployImageTag();
+	const imageTag = getdeployitImageTag();
 	const searchedDigest = allResults.find((t) => t.name === imageTag)?.digest;
 
 	if (!searchedDigest) {

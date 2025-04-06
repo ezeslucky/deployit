@@ -1,15 +1,15 @@
 import { existsSync, promises as fsPromises } from "node:fs";
 import path from "node:path";
-import { paths } from "@dockly/server/constants";
-import { db } from "@dockly/server/db";
+import { paths } from "@deployit/server/constants";
+import { db } from "@deployit/server/db";
 import {
 	type apiCreateDeployment,
 	type apiCreateDeploymentCompose,
 	type apiCreateDeploymentPreview,
 	type apiCreateDeploymentServer,
 	deployments,
-} from "@dockly/server/db/schema";
-import { removeDirectoryIfExistsContent } from "@dockly/server/utils/filesystem/directory";
+} from "@deployit/server/db/schema";
+import { removeDirectoryIfExistsContent } from "@deployit/server/utils/filesystem/directory";
 import { TRPCError } from "@trpc/server";
 import { format } from "date-fns";
 import { desc, eq } from "drizzle-orm";
@@ -21,7 +21,7 @@ import {
 import { type Compose, findComposeById, updateCompose } from "./compose";
 import { type Server, findServerById } from "./server";
 
-import { execAsyncRemote } from "@dockly/server/utils/process/execAsync";
+import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
 import {
 	type PreviewDeployment,
 	findPreviewDeploymentById,

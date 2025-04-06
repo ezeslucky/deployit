@@ -1,5 +1,5 @@
 import path from "node:path";
-import { getAllServers } from "@dockly/server/services/server";
+import { getAllServers } from "@deployit/server/services/server";
 import { scheduleJob } from "node-schedule";
 import { db } from "../../db/index";
 import {
@@ -16,7 +16,7 @@ import { findAdmin } from "../../services/admin";
 import { getS3Credentials } from "./utils";
 import { execAsync, execAsyncRemote } from "../process/execAsync";
 
-import type { BackupSchedule } from "@dockly/server/services/backup";
+import type { BackupSchedule } from "@deployit/server/services/backup";
 import { startLogCleanup } from "../access-log/handler";
 
 export const initCronJobs = async () => {

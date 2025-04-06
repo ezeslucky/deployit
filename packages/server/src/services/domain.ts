@@ -1,13 +1,13 @@
-import { db } from "@dockly/server/db";
-import { generateRandomDomain } from "@dockly/server/templates";
-import { manageDomain } from "@dockly/server/utils/traefik/domain";
+import { db } from "@deployit/server/db";
+import { generateRandomDomain } from "@deployit/server/templates";
+import { manageDomain } from "@deployit/server/utils/traefik/domain";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { type apiCreateDomain, domains } from "../db/schema";
 import { findUserById } from "./admin";
 import { findApplicationById } from "./application";
 import { findServerById } from "./server";
- 
+
 export type Domain = typeof domains.$inferSelect;
 
 export const createDomain = async (input: typeof apiCreateDomain._type) => {

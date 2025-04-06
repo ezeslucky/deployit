@@ -1,14 +1,14 @@
 import { createWriteStream } from "node:fs";
 import { join } from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { apiGitlabTestConnection } from "@dockly/server/db/schema";
-import type { Compose } from "@dockly/server/services/compose";
+import { paths } from "@deployit/server/constants";
+import type { apiGitlabTestConnection } from "@deployit/server/db/schema";
+import type { Compose } from "@deployit/server/services/compose";
 import {
 	type Gitlab,
 	findGitlabById,
 	updateGitlab,
-} from "@dockly/server/services/gitlab";
-import type { InferResultType } from "@dockly/server/types/with";
+} from "@deployit/server/services/gitlab";
+import type { InferResultType } from "@deployit/server/types/with";
 import { TRPCError } from "@trpc/server";
 import { recreateDirectory } from "../filesystem/directory";
 import { execAsyncRemote } from "../process/execAsync";

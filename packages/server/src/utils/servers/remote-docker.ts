@@ -1,5 +1,5 @@
-import { docker } from "@dockly/server/constants";
-import { findServerById } from "@dockly/server/services/server";
+import { docker } from "@deployit/server/constants";
+import { findServerById } from "@deployit/server/services/server";
 import Dockerode from "dockerode";
 
 export const getRemoteDocker = async (serverId?: string | null) => {

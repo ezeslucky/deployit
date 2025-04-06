@@ -1,5 +1,5 @@
-import type { MySql } from "@dockly/server/services/mysql";
-import type { Destination } from "@dockly/server/services/destination";
+import type { MySql } from "@deployit/server/services/mysql";
+import type { Destination } from "@deployit/server/services/destination";
 import {
 	getRemoteServiceContainer,
 	getServiceContainer,

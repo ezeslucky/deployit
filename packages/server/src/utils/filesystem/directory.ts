@@ -1,7 +1,7 @@
 import fs, { promises as fsPromises } from "node:fs";
 import path from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { Application } from "@dockly/server/services/application";
+import { paths } from "@deployit/server/constants";
+import type { Application } from "@deployit/server/services/application";
 import { execAsync, execAsyncRemote } from "../process/execAsync";
 
 export const recreateDirectory = async (pathFolder: string): Promise<void> => {

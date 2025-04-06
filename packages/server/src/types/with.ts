@@ -1,4 +1,4 @@
-import type * as schema from "@dockly/server/db/schema";
+import type * as schema from "@deployit/server/db/schema";
 import type {
 	BuildQueryResult,
 	DBQueryConfig,

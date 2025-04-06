@@ -7,7 +7,6 @@ export const connection = new IORedis(process.env.REDIS_URL!, {
 	maxRetriesPerRequest: null,
 });
 export const jobQueue = new Queue("backupQueue", {
-	//@ts-ignore
 	connection,
 	defaultJobOptions: {
 		removeOnComplete: true,

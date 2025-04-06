@@ -22,10 +22,10 @@ export type TemplateProps = {
 };
 
 export const BuildSuccessEmail = ({
-	projectName = "dokploy",
+	projectName = "deployit",
 	applicationName = "frontend",
 	applicationType = "application",
-	buildLink = "https://dokploy.com/projects/dokploy-test/applications/dokploy-test",
+	buildLink = "https://deployit.com/projects/deployit-test/applications/deployit-test",
 	date = "2023-05-01T00:00:00.000Z",
 }: TemplateProps) => {
 	const previewText = `Build success for ${applicationName}`;
@@ -49,11 +49,11 @@ export const BuildSuccessEmail = ({
 						<Section className="mt-[32px]">
 							<Img
 								src={
-									"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/apps/dokploy/logo.png"
+									"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/apps/deployit/logo.png"
 								}
 								width="100"
 								height="50"
-								alt="Dokploy"
+								alt="deployit"
 								className="my-0 mx-auto"
 							/>
 						</Section>

@@ -16,7 +16,7 @@ build({
 	format: "esm",
 	plugins: [
 		alias({
-			"@dockly/server": path.resolve(__dirname, "src"),
+			"@deployit/server": path.resolve(__dirname, "src"),
 		}),
 	],
 	packages: "external",

@@ -1,7 +1,7 @@
-import { paths } from "@dockly/server/constants";
+import { paths } from "@deployit/server/constants";
 import { execAsync } from "../process/execAsync";
-import { findAdmin } from "@dockly/server/services/admin";
-import { updateUser } from "@dockly/server/services/user";
+import { findAdmin } from "@deployit/server/services/admin";
+import { updateUser } from "@deployit/server/services/user";
 import { scheduleJob, scheduledJobs } from "node-schedule";
 
 const LOG_CLEANUP_JOB_NAME = "access-log-cleanup";
@@ -23,7 +23,7 @@ export const startLogCleanup = async (
 					`tail -n 1000 ${DYNAMIC_TRAEFIK_PATH}/access.log > ${DYNAMIC_TRAEFIK_PATH}/access.log.tmp && mv ${DYNAMIC_TRAEFIK_PATH}/access.log.tmp ${DYNAMIC_TRAEFIK_PATH}/access.log`,
 				);
 
-				await execAsync("docker exec dokploy-traefik kill -USR1 1");
+				await execAsync("docker exec deployit-traefik kill -USR1 1");
 			} catch (error) {
 				console.error("Error during log cleanup:", error);
 			}

@@ -1,6 +1,6 @@
 import { createWriteStream } from "node:fs";
 import { join } from "node:path";
-import type { InferResultType } from "@dockly/server/types/with";
+import type { InferResultType } from "@deployit/server/types/with";
 import type { CreateServiceOptions } from "dockerode";
 import { uploadImage, uploadImageRemoteCommand } from "../cluster/upload";
 import {
@@ -26,7 +26,7 @@ import { buildStatic, getStaticCommand } from "./static";
 export type ApplicationNested = InferResultType<
 	"applications",
 	{
-		mounts: true; 
+		mounts: true;
 		security: true;
 		redirects: true;
 		ports: true;

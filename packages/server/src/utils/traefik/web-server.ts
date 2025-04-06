@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { User } from "@dockly/server/services/user";
+import { paths } from "@deployit/server/constants";
+import type { User } from "@deployit/server/services/user";
 import { dump, load } from "js-yaml";
 import { loadOrCreateConfig, writeTraefikConfig } from "./application";
 import type { FileConfig } from "./file-types";
@@ -11,7 +11,7 @@ export const updateServerTraefik = (
 	user: User | null,
 	newHost: string | null,
 ) => {
-	const appName = "dokploy";
+	const appName = "deployit";
 	const config: FileConfig = loadOrCreateConfig(appName);
 
 	config.http = config.http || { routers: {}, services: {} };

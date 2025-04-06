@@ -1,44 +1,44 @@
-import { docker } from "@dockly/server/constants";
-import { db } from "@dockly/server/db";
+import { docker } from "@deployit/server/constants";
+import { db } from "@deployit/server/db";
 import {
 	type apiCreateApplication,
 	applications,
 	buildAppName,
-} from "@dockly/server/db/schema";
-import { getAdvancedStats } from "@dockly/server/monitoring/utils";
+} from "@deployit/server/db/schema";
+import { getAdvancedStats } from "@deployit/server/monitoring/utils";
 import {
 	buildApplication,
 	getBuildCommand,
 	mechanizeDockerContainer,
-} from "@dockly/server/utils/builders";
-import { sendBuildErrorNotifications } from "@dockly/server/utils/notifications/build-error";
-import { sendBuildSuccessNotifications } from "@dockly/server/utils/notifications/build-success";
-import { execAsyncRemote } from "@dockly/server/utils/process/execAsync";
+} from "@deployit/server/utils/builders";
+import { sendBuildErrorNotifications } from "@deployit/server/utils/notifications/build-error";
+import { sendBuildSuccessNotifications } from "@deployit/server/utils/notifications/build-success";
+import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
 import {
 	cloneBitbucketRepository,
 	getBitbucketCloneCommand,
-} from "@dockly/server/utils/providers/bitbucket";
+} from "@deployit/server/utils/providers/bitbucket";
 import {
 	buildDocker,
 	buildRemoteDocker,
-} from "@dockly/server/utils/providers/docker";
+} from "@deployit/server/utils/providers/docker";
 import {
 	cloneGitRepository,
 	getCustomGitCloneCommand,
-} from "@dockly/server/utils/providers/git";
+} from "@deployit/server/utils/providers/git";
 import {
 	cloneGithubRepository,
 	getGithubCloneCommand,
-} from "@dockly/server/utils/providers/github";
+} from "@deployit/server/utils/providers/github";
 import {
 	cloneGitlabRepository,
 	getGitlabCloneCommand,
-} from "@dockly/server/utils/providers/gitlab";
-import { createTraefikConfig } from "@dockly/server/utils/traefik/application";
+} from "@deployit/server/utils/providers/gitlab";
+import { createTraefikConfig } from "@deployit/server/utils/traefik/application";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { encodeBase64 } from "../utils/docker/utils";
-import { getDokployUrl } from "./admin";
+import { getdeployitUrl } from "./admin";
 import {
 	createDeployment,
 	createDeploymentPreview,
@@ -174,7 +174,7 @@ export const deployApplication = async ({
 }) => {
 	const application = await findApplicationById(applicationId);
 
-	const buildLink = `${await getDokployUrl()}/dashboard/project/${application.projectId}/services/application/${application.applicationId}?tab=deployments`;
+	const buildLink = `${await getdeployitUrl()}/dashboard/project/${application.projectId}/services/application/${application.applicationId}?tab=deployments`;
 	const deployment = await createDeployment({
 		applicationId: applicationId,
 		title: titleLog,
@@ -286,7 +286,7 @@ export const deployRemoteApplication = async ({
 }) => {
 	const application = await findApplicationById(applicationId);
 
-	const buildLink = `${await getDokployUrl()}/dashboard/project/${application.projectId}/services/application/${application.applicationId}?tab=deployments`;
+	const buildLink = `${await getdeployitUrl()}/dashboard/project/${application.projectId}/services/application/${application.applicationId}?tab=deployments`;
 	const deployment = await createDeployment({
 		applicationId: applicationId,
 		title: titleLog,
@@ -429,10 +429,10 @@ export const deployPreviewApplication = async ({
 		);
 		await updateIssueComment({
 			...issueParams,
-			body: `### Dokploy Preview Deployment\n\n${buildingComment}`,
+			body: `### deployit Preview Deployment\n\n${buildingComment}`,
 		});
 		application.appName = previewDeployment.appName;
-		application.env = `${application.previewEnv}\nDOKPLOY_DEPLOY_URL=${previewDeployment?.domain?.host}`;
+		application.env = `${application.previewEnv}\ndeployit_DEPLOY_URL=${previewDeployment?.domain?.host}`;
 		application.buildArgs = application.previewBuildArgs;
 
 		if (application.sourceType === "github") {
@@ -451,7 +451,7 @@ export const deployPreviewApplication = async ({
 		);
 		await updateIssueComment({
 			...issueParams,
-			body: `### Dokploy Preview Deployment\n\n${successComment}`,
+			body: `### deployit Preview Deployment\n\n${successComment}`,
 		});
 		await updateDeploymentStatus(deployment.deploymentId, "done");
 		await updatePreviewDeployment(previewDeploymentId, {
@@ -461,7 +461,7 @@ export const deployPreviewApplication = async ({
 		const comment = getIssueComment(application.name, "error", previewDomain);
 		await updateIssueComment({
 			...issueParams,
-			body: `### Dokploy Preview Deployment\n\n${comment}`,
+			body: `### deployit Preview Deployment\n\n${comment}`,
 		});
 		await updateDeploymentStatus(deployment.deploymentId, "error");
 		await updatePreviewDeployment(previewDeploymentId, {
@@ -536,10 +536,10 @@ export const deployRemotePreviewApplication = async ({
 		);
 		await updateIssueComment({
 			...issueParams,
-			body: `### Dokploy Preview Deployment\n\n${buildingComment}`,
+			body: `### deployit Preview Deployment\n\n${buildingComment}`,
 		});
 		application.appName = previewDeployment.appName;
-		application.env = `${application.previewEnv}\nDOKPLOY_DEPLOY_URL=${previewDeployment?.domain?.host}`;
+		application.env = `${application.previewEnv}\ndeployit_DEPLOY_URL=${previewDeployment?.domain?.host}`;
 		application.buildArgs = application.previewBuildArgs;
 
 		if (application.serverId) {
@@ -566,7 +566,7 @@ export const deployRemotePreviewApplication = async ({
 		);
 		await updateIssueComment({
 			...issueParams,
-			body: `### Dokploy Preview Deployment\n\n${successComment}`,
+			body: `### deployit Preview Deployment\n\n${successComment}`,
 		});
 		await updateDeploymentStatus(deployment.deploymentId, "done");
 		await updatePreviewDeployment(previewDeploymentId, {
@@ -576,7 +576,7 @@ export const deployRemotePreviewApplication = async ({
 		const comment = getIssueComment(application.name, "error", previewDomain);
 		await updateIssueComment({
 			...issueParams,
-			body: `### Dokploy Preview Deployment\n\n${comment}`,
+			body: `### deployit Preview Deployment\n\n${comment}`,
 		});
 		await updateDeploymentStatus(deployment.deploymentId, "error");
 		await updatePreviewDeployment(previewDeploymentId, {

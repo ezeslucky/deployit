@@ -1,17 +1,17 @@
 import path from "node:path";
-import { paths } from "@dockly/server/constants";
-import { db } from "@dockly/server/db";
+import { paths } from "@deployit/server/constants";
+import { db } from "@deployit/server/db";
 import {
 	type ServiceType,
 	type apiCreateMount,
 	mounts,
-} from "@dockly/server/db/schema";
+} from "@deployit/server/db/schema";
 import {
 	createFile,
 	getCreateFileCommand,
-} from "@dockly/server/utils/docker/utils";
-import { removeFileOrDirectory } from "@dockly/server/utils/filesystem/directory";
-import { execAsyncRemote } from "@dockly/server/utils/process/execAsync";
+} from "@deployit/server/utils/docker/utils";
+import { removeFileOrDirectory } from "@deployit/server/utils/filesystem/directory";
+import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
 import { TRPCError } from "@trpc/server";
 import { type SQL, eq, sql } from "drizzle-orm";
 

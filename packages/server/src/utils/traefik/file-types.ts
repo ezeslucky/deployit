@@ -7,7 +7,7 @@
 /**
  * Traefik v2 Dynamic Configuration File Provider
  */
-export interface FileConfig { 
+export interface FileConfig {
 	http?: {
 		routers?: {
 			[k: string]: HttpRouter;

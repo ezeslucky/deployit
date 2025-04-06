@@ -1,4 +1,4 @@
-import { findComposeById } from "@dockly/server/services/compose";
+import { findComposeById } from "@deployit/server/services/compose";
 import { dump, load } from "js-yaml";
 import { addAppNameToAllServiceNames } from "./collision/root-network";
 import { generateRandomHash } from "./compose";

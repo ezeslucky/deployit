@@ -1,7 +1,7 @@
 import path from "node:path";
-import type { BackupSchedule } from "@dockly/server/services/backup";
-import type { MySql } from "@dockly/server/services/mysql";
-import { findProjectById } from "@dockly/server/services/project";
+import type { BackupSchedule } from "@deployit/server/services/backup";
+import type { MySql } from "@deployit/server/services/mysql";
+import { findProjectById } from "@deployit/server/services/project";
 import {
 	getRemoteServiceContainer,
 	getServiceContainer,

@@ -1,8 +1,8 @@
-import { findServerById } from "@dockly/server/services/server";
+import { findServerById } from "@deployit/server/services/server";
 import type { ContainerCreateOptions } from "dockerode";
 import { IS_CLOUD } from "../constants";
 import { findUserById } from "../services/admin";
-import { getDokployImageTag } from "../services/settings";
+import { getdeployitImageTag } from "../services/settings";
 import { pullImage, pullRemoteImage } from "../utils/docker/utils";
 import { execAsync, execAsyncRemote } from "../utils/process/execAsync";
 import { getRemoteDocker } from "../utils/servers/remote-docker";
@@ -10,15 +10,15 @@ import { getRemoteDocker } from "../utils/servers/remote-docker";
 export const setupMonitoring = async (serverId: string) => {
 	const server = await findServerById(serverId);
 
-	const containerName = "dokploy-monitoring";
-	let imageName = "dokploy/monitoring:latest";
+	const containerName = "deployit-monitoring";
+	let imageName = "deployit/monitoring:latest";
 
 	if (
-		(getDokployImageTag() !== "latest" ||
+		(getdeployitImageTag() !== "latest" ||
 			process.env.NODE_ENV === "development") &&
 		!IS_CLOUD
 	) {
-		imageName = "dokploy/monitoring:canary";
+		imageName = "deployit/monitoring:canary";
 	}
 
 	const settings: ContainerCreateOptions = {
@@ -42,7 +42,7 @@ export const setupMonitoring = async (serverId: string) => {
 				"/sys:/host/sys:ro",
 				"/etc/os-release:/etc/os-release:ro",
 				"/proc:/host/proc:ro",
-				"/etc/dokploy/monitoring/monitoring.db:/app/monitoring.db",
+				"/etc/deployit/monitoring/monitoring.db:/app/monitoring.db",
 			],
 			NetworkMode: "host",
 		},
@@ -54,7 +54,7 @@ export const setupMonitoring = async (serverId: string) => {
 	try {
 		await execAsyncRemote(
 			serverId,
-			"mkdir -p /etc/dokploy/monitoring && touch /etc/dokploy/monitoring/monitoring.db",
+			"mkdir -p /etc/deployit/monitoring && touch /etc/deployit/monitoring/monitoring.db",
 		);
 		if (serverId) {
 			await pullRemoteImage(imageName, serverId);
@@ -83,15 +83,15 @@ export const setupMonitoring = async (serverId: string) => {
 export const setupWebMonitoring = async (userId: string) => {
 	const user = await findUserById(userId);
 
-	const containerName = "dokploy-monitoring";
-	let imageName = "dokploy/monitoring:latest";
+	const containerName = "deployit-monitoring";
+	let imageName = "deployit/monitoring:latest";
 
 	if (
-		(getDokployImageTag() !== "latest" ||
+		(getdeployitImageTag() !== "latest" ||
 			process.env.NODE_ENV === "development") &&
 		!IS_CLOUD
 	) {
-		imageName = "dokploy/monitoring:canary";
+		imageName = "deployit/monitoring:canary";
 	}
 
 	const settings: ContainerCreateOptions = {
@@ -115,7 +115,7 @@ export const setupWebMonitoring = async (userId: string) => {
 				"/sys:/host/sys:ro",
 				"/etc/os-release:/etc/os-release:ro",
 				"/proc:/host/proc:ro",
-				"/etc/dokploy/monitoring/monitoring.db:/app/monitoring.db",
+				"/etc/deployit/monitoring/monitoring.db:/app/monitoring.db",
 			],
 			// NetworkMode: "host",
 		},
@@ -126,7 +126,7 @@ export const setupWebMonitoring = async (userId: string) => {
 	const docker = await getRemoteDocker();
 	try {
 		await execAsync(
-			"mkdir -p /etc/dokploy/monitoring && touch /etc/dokploy/monitoring/monitoring.db",
+			"mkdir -p /etc/deployit/monitoring && touch /etc/deployit/monitoring/monitoring.db",
 		);
 		await pullImage(imageName);
 

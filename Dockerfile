@@ -3,57 +3,64 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-# Common dependencies for build
 FROM base AS build
+COPY . /usr/src/app
 WORKDIR /usr/src/app
-COPY . .
+
 RUN apt-get update && apt-get install -y python3 make g++ git python3-pip pkg-config libsecret-1-dev && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies (filtered by app)
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    pnpm install --frozen-lockfile
+# Install dependencies
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-# Build and deploy each app
+# Deploy only the deployit app
+
 ENV NODE_ENV=production
-RUN pnpm --filter=@dockly/server build
-RUN pnpm --filter=./apps/dockly run build && pnpm --filter=./apps/dockly --prod deploy /prod/dockly
-RUN pnpm --filter=./apps/schedules run build && pnpm --filter=./apps/schedules --prod deploy /prod/schedules
-RUN pnpm --filter=./apps/api run build && pnpm --filter=./apps/api --prod deploy /prod/api
+RUN pnpm --filter=@deployit/server build
+RUN pnpm --filter=./apps/deployit run build
 
-# Copy built artifacts
-RUN cp -R /usr/src/app/apps/dockly/.next /prod/dockly/.next \
-    && cp -R /usr/src/app/apps/dockly/dist /prod/dockly/dist \
-    && cp -R /usr/src/app/apps/schedules/dist /prod/schedules/dist \
-    && cp -R /usr/src/app/apps/api/dist /prod/api/dist
+RUN pnpm --filter=./apps/deployit --prod deploy /prod/deployit
 
-# Go application build stage
-FROM golang:1.21-alpine3.19 AS golang-builder
-WORKDIR /app
-RUN apk add --no-cache gcc musl-dev sqlite-dev
-COPY . .
-WORKDIR /app/apps/monitoring
-RUN go mod download && CGO_ENABLED=1 GOOS=linux go build -o main main.go
+RUN cp -R /usr/src/app/apps/deployit/.next /prod/deployit/.next
+RUN cp -R /usr/src/app/apps/deployit/dist /prod/deployit/dist
 
-# Final production image
-FROM base AS production
+FROM base AS deployit
 WORKDIR /app
 
-# Install runtime dependencies
-RUN apt-get update && apt-get install -y curl unzip apache2-utils iproute2 docker-cli sqlite-libs && rm -rf /var/lib/apt/lists/*
+# Set production
+ENV NODE_ENV=production
 
-# Copy built applications
-COPY --from=build /prod/dockly /app/dockly
-COPY --from=build /prod/schedules /app/schedules
-COPY --from=build /prod/api /app/api
-COPY --from=golang-builder /app/apps/monitoring/main /app/monitoring/main
+RUN apt-get update && apt-get install -y curl unzip apache2-utils iproute2 && rm -rf /var/lib/apt/lists/*
 
-# Install utilities
-RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm get-docker.sh
-RUN curl https://rclone.org/install.sh | bash
-RUN pnpm install -g tsx
-RUN curl -sSL https://nixpacks.com/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+# Copy only the necessary files
+COPY --from=build /prod/deployit/.next ./.next
+COPY --from=build /prod/deployit/dist ./dist
+COPY --from=build /prod/deployit/next.config.mjs ./next.config.mjs
+COPY --from=build /prod/deployit/public ./public
+COPY --from=build /prod/deployit/package.json ./package.json
+COPY --from=build /prod/deployit/drizzle ./drizzle
+COPY .env.production ./.env
+COPY --from=build /prod/deployit/components.json ./components.json
+COPY --from=build /prod/deployit/node_modules ./node_modules
+
+
+# Install docker
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm get-docker.sh && curl https://rclone.org/install.sh | bash
+
+# Install Nixpacks and tsx
+# | VERBOSE=1 VERSION=1.21.0 bash
+
+ARG NIXPACKS_VERSION=1.29.1
+RUN curl -sSL https://nixpacks.com/install.sh -o install.sh \
+    && chmod +x install.sh \
+    && ./install.sh \
+    && pnpm install -g tsx
+
+# Install Railpack
+ARG RAILPACK_VERSION=0.0.37
 RUN curl -sSL https://railpack.com/install.sh | bash
 
-# Expose necessary ports
-EXPOSE 3000 3001
-CMD ["pnpm", "start"]
+# Install buildpacks
+COPY --from=buildpacksio/pack:0.35.0 /usr/local/bin/pack /usr/local/bin/pack
+
+EXPOSE 3000
+CMD [ "pnpm", "start" ]

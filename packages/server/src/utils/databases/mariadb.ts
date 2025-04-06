@@ -1,4 +1,4 @@
-import type { InferResultType } from "@dockly/server/types/with";
+import type { InferResultType } from "@deployit/server/types/with";
 import type { CreateServiceOptions } from "dockerode";
 import {
 	calculateResources,
@@ -64,7 +64,7 @@ export const buildMariadb = async (mariadb: MariadbNested) => {
 						}
 					: {}),
 			},
-			Networks: [{ Target: "dokploy-network" }],
+			Networks: [{ Target: "deployit-network" }],
 			Resources: {
 				...resources,
 			},

@@ -1,12 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import { paths } from "@dockly/server/constants";
-import { db } from "@dockly/server/db";
+import { paths } from "@deployit/server/constants";
+import { db } from "@deployit/server/db";
 import {
 	type apiCreateCertificate,
 	certificates,
-} from "@dockly/server/db/schema";
-import { removeDirectoryIfExistsContent } from "@dockly/server/utils/filesystem/directory";
+} from "@deployit/server/db/schema";
+import { removeDirectoryIfExistsContent } from "@deployit/server/utils/filesystem/directory";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { dump } from "js-yaml";

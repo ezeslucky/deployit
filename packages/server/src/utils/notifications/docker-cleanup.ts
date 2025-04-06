@@ -1,6 +1,6 @@
-import { db } from "@dockly/server/db";
-import { notifications } from "@dockly/server/db/schema";
-import DockerCleanupEmail from "@dockly/server/emails/emails/docker-cleanup";
+import { db } from "@deployit/server/db";
+import { notifications } from "@deployit/server/db/schema";
+import DockerCleanupEmail from "@deployit/server/emails/emails/docker-cleanup";
 import { renderAsync } from "@react-email/components";
 import { format } from "date-fns";
 import { and, eq } from "drizzle-orm";
@@ -14,7 +14,7 @@ import {
 
 export const sendDockerCleanupNotifications = async (
 	organizationId: string,
-	message = "Docker cleanup for dokploy",
+	message = "Docker cleanup for deployit",
 ) => {
 	const date = new Date();
 	const unixDate = ~~(Number(date) / 1000);
@@ -42,7 +42,7 @@ export const sendDockerCleanupNotifications = async (
 
 			await sendEmailNotification(
 				email,
-				"Docker cleanup for dokploy",
+				"Docker cleanup for deployit",
 				template,
 			);
 		}
@@ -77,7 +77,7 @@ export const sendDockerCleanupNotifications = async (
 				],
 				timestamp: date.toISOString(),
 				footer: {
-					text: "Dokploy Docker Cleanup Notification",
+					text: "deployit Docker Cleanup Notification",
 				},
 			});
 		}
