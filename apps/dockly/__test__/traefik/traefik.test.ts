@@ -1,7 +1,7 @@
-import type { Domain } from "@dockly/server";
-import type { Redirect } from "@dockly/server";
-import type { ApplicationNested } from "@dockly/server";
-import { createRouterConfig } from "@dockly/server";
+import type { Domain } from "../../../../packages/server/src/services/domain";
+import type { Redirect } from "../../../../packages/server/src/services/redirect";
+import type { ApplicationNested } from "../../../../packages/server/src/utils/builders/index";
+import { createRouterConfig } from "../../../../packages/server/src/utils/traefik/domain";
 import { expect, test } from "vitest";
 
 const baseApp: ApplicationNested = {

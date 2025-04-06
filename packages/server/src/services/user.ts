@@ -5,7 +5,7 @@ import { and, eq } from "drizzle-orm";
 import { auth } from "../lib/auth";
 
 export type User = typeof users_temp.$inferSelect;
-
+ 
 export const addNewProject = async (
 	userId: string,
 	projectId: string,

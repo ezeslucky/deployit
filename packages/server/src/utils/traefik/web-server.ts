@@ -8,7 +8,7 @@ import type { FileConfig } from "./file-types";
 import type { MainTraefikConfig } from "./types";
 
 export const updateServerTraefik = (
-	user: User | null,
+	user: User | null,  
 	newHost: string | null,
 ) => {
 	const appName = "dokploy";

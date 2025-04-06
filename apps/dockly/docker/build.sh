@@ -3,8 +3,8 @@
 # Determine the type of build based on the first script argument
 BUILD_TYPE=${1:-production}
 
-if [ "$BUILD_TYPE" == "canary" ]; then
-    TAG="canary"
+if [ "$BUILD_TYPE" == "main" ]; then
+    TAG="main"
 else
     VERSION=$(node -p "require('./package.json').version")
     TAG="$VERSION"

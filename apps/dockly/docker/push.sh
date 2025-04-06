@@ -5,8 +5,8 @@ BUILD_TYPE=${1:-production}
 
 BUILDER=$(docker buildx create --use)
 
-if [ "$BUILD_TYPE" == "canary" ]; then
-    TAG="canary"
+if [ "$BUILD_TYPE" == "main" ]; then
+    TAG="main"
     echo PUSHING CANARY
         docker buildx build --platform linux/amd64,linux/arm64 --pull --rm -t "dokploy/dokploy:${TAG}" -f 'Dockerfile' --push .
 else

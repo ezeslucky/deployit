@@ -151,17 +151,7 @@ export const apiFindOneToken = createSchema
 export const apiAssignPermissions = createSchema
 	.pick({
 		id: true,
-		// canCreateProjects: true,
-		// canCreateServices: true,
-		// canDeleteProjects: true,
-		// canDeleteServices: true,
-		// accessedProjects: true,
-		// accessedServices: true,
-		// canAccessToTraefikFiles: true,
-		// canAccessToDocker: true,
-		// canAccessToAPI: true,
-		// canAccessToSSHKeys: true,
-		// canAccessToGitProviders: true,
+		
 	})
 	.extend({
 		accessedProjects: z.array(z.string()).optional(),

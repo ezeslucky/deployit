@@ -5,14 +5,14 @@ vi.mock("node:fs", () => ({
 	default: fs,
 }));
 
-import type { FileConfig, User } from "../../../../../packages/server/src/utils/traefik/file-types";
+import type { FileConfig } from "../../../../../packages/server/src/utils/traefik/file-types";
+import {User} from "../../../../../packages/server/src/services/user"
+import {updateServerTraefik} from "../../../../../packages/server/src/utils/traefik/web-server"
 import {
-	createDefaultServerTraefikConfig,
-	loadOrCreateConfig,
-	updateServerTraefik,
+	createDefaultServerTraefikConfig
 } from "../../../../../packages/server/src/setup/traefik-setup";
 import { beforeEach, expect, test, vi } from "vitest";
-
+import {loadOrCreateConfig} from "../../../../../packages/server/src/utils/traefik/application"
 const baseAdmin: User = {
 	enablePaidFeatures: false,
 	metricsConfig: {

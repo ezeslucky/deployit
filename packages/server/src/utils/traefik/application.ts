@@ -80,7 +80,7 @@ export const removeTraefikConfigRemote = async (
 		await execAsyncRemote(serverId, `rm ${configPath}`);
 	} catch (_error) {}
 };
-
+ 
 export const loadOrCreateConfig = (appName: string): FileConfig => {
 	const { DYNAMIC_TRAEFIK_PATH } = paths();
 	const configPath = path.join(DYNAMIC_TRAEFIK_PATH, `${appName}.yml`);
