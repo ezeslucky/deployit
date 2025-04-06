@@ -3,7 +3,7 @@ import path from "node:path";
 import {
 	buildStatic,
 	getStaticCommand,
-} from "@deployit/server/utils/builders/static";
+} from "@dockly/server/utils/builders/static";
 import { nanoid } from "nanoid";
 import type { ApplicationNested } from ".";
 import { prepareEnvironmentVariables } from "../docker/utils";

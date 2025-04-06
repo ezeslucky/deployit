@@ -1,4 +1,4 @@
-import { findServerById } from "@deployit/server/services/server";
+import { findServerById } from "@dockly/server/services/server";
 import type { ContainerCreateOptions } from "dockerode";
 import { IS_CLOUD } from "../constants";
 import { findUserById } from "../services/admin";

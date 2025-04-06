@@ -1,7 +1,7 @@
-import { paths } from "@deployit/server/constants";
+import { paths } from "@dockly/server/constants";
 import { execAsync } from "../process/execAsync";
-import { findAdmin } from "@deployit/server/services/admin";
-import { updateUser } from "@deployit/server/services/user";
+import { findAdmin } from "@dockly/server/services/admin";
+import { updateUser } from "@dockly/server/services/user";
 import { scheduleJob, scheduledJobs } from "node-schedule";
 
 const LOG_CLEANUP_JOB_NAME = "access-log-cleanup";

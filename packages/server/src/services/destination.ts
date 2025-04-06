@@ -1,8 +1,8 @@
-import { db } from "@deployit/server/db";
+import { db } from "@dockly/server/db";
 import {
 	type apiCreateDestination,
 	destinations,
-} from "@deployit/server/db/schema";
+} from "@dockly/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 

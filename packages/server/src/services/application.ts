@@ -1,40 +1,40 @@
-import { docker } from "@deployit/server/constants";
-import { db } from "@deployit/server/db";
+import { docker } from "@dockly/server/constants";
+import { db } from "@dockly/server/db";
 import {
 	type apiCreateApplication,
 	applications,
 	buildAppName,
-} from "@deployit/server/db/schema";
-import { getAdvancedStats } from "@deployit/server/monitoring/utils";
+} from "@dockly/server/db/schema";
+import { getAdvancedStats } from "@dockly/server/monitoring/utils";
 import {
 	buildApplication,
 	getBuildCommand,
 	mechanizeDockerContainer,
-} from "@deployit/server/utils/builders";
-import { sendBuildErrorNotifications } from "@deployit/server/utils/notifications/build-error";
-import { sendBuildSuccessNotifications } from "@deployit/server/utils/notifications/build-success";
-import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
+} from "@dockly/server/utils/builders";
+import { sendBuildErrorNotifications } from "@dockly/server/utils/notifications/build-error";
+import { sendBuildSuccessNotifications } from "@dockly/server/utils/notifications/build-success";
+import { execAsyncRemote } from "@dockly/server/utils/process/execAsync";
 import {
 	cloneBitbucketRepository,
 	getBitbucketCloneCommand,
-} from "@deployit/server/utils/providers/bitbucket";
+} from "@dockly/server/utils/providers/bitbucket";
 import {
 	buildDocker,
 	buildRemoteDocker,
-} from "@deployit/server/utils/providers/docker";
+} from "@dockly/server/utils/providers/docker";
 import {
 	cloneGitRepository,
 	getCustomGitCloneCommand,
-} from "@deployit/server/utils/providers/git";
+} from "@dockly/server/utils/providers/git";
 import {
 	cloneGithubRepository,
 	getGithubCloneCommand,
-} from "@deployit/server/utils/providers/github";
+} from "@dockly/server/utils/providers/github";
 import {
 	cloneGitlabRepository,
 	getGitlabCloneCommand,
-} from "@deployit/server/utils/providers/gitlab";
-import { createTraefikConfig } from "@deployit/server/utils/traefik/application";
+} from "@dockly/server/utils/providers/gitlab";
+import { createTraefikConfig } from "@dockly/server/utils/traefik/application";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { encodeBase64 } from "../utils/docker/utils";

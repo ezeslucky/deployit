@@ -1,10 +1,10 @@
-import { db } from "@deployit/server/db";
+import { db } from "@dockly/server/db";
 import {
 	type apiCreateBitbucket,
 	type apiUpdateBitbucket,
 	bitbucket,
 	gitProvider,
-} from "@deployit/server/db/schema";
+} from "@dockly/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 

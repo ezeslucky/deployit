@@ -129,8 +129,8 @@ export function Hero() {
 								<div className="mx-auto flex w-full max-w-sm flex-wrap items-center justify-center gap-3 md:flex-nowrap">
 									<Button className="w-full  rounded-full" asChild>
 										<Link
-											href="https://github.com/ezeslucky/deployit"
-											aria-label="deployit on GitHub"
+											href="https://github.com/ezeslucky/dockly"
+											aria-label="Dockly on GitHub"
 											target="_blank"
 											className="flex flex-row items-center gap-2"
 										>

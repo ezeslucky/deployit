@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { findComposeById } from "@deployit/server/services/compose";
+import { findComposeById } from "@dockly/server/services/compose";
 import { dump, load } from "js-yaml";
 import { addSuffixToAllConfigs } from "./compose/configs";
 import { addSuffixToAllNetworks } from "./compose/network";

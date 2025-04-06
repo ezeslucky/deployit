@@ -1,5 +1,5 @@
-import type { Mongo } from "@deployit/server/services/mongo";
-import type { Destination } from "@deployit/server/services/destination";
+import type { Mongo } from "@dockly/server/services/mongo";
+import type { Destination } from "@dockly/server/services/destination";
 import {
 	getRemoteServiceContainer,
 	getServiceContainer,

@@ -1,4 +1,4 @@
-import { db } from "@deployit/server/db";
+import { db } from "@dockly/server/db";
 import {
 	type apiCreateProject,
 	applications,
@@ -8,7 +8,7 @@ import {
 	postgres,
 	projects,
 	redis,
-} from "@deployit/server/db/schema";
+} from "@dockly/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 

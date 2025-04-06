@@ -1,11 +1,11 @@
-import { db } from "@deployit/server/db";
+import { db } from "@dockly/server/db";
 import {
 	type apiCreateSshKey,
 	type apiFindOneSshKey,
 	type apiRemoveSshKey,
 	type apiUpdateSshKey,
 	sshKeys,
-} from "@deployit/server/db/schema";
+} from "@dockly/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 

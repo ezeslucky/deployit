@@ -18,7 +18,7 @@
 			"register": "Register"
 		},
 		"hero": {
-			"cloud": "Introducing deployit Cloud",
+			"cloud": "Introducing Dockly Cloud",
 			"deploy": "Deploy",
 			"anywhere": "Anywhere",
 			"with": "with Total Freedom and Ease.",
@@ -26,7 +26,7 @@
 			"featuredIn": "Featured in",
 			"sponsors": {
 				"title": "Sponsors",
-				"description": "deployit is an open source project that is maintained by a community of volunteers. We would like to thank our sponsors for their support and contributions to the project, which help us to continue to develop and improve deployit.",
+				"description": "Dockly is an open source project that is maintained by a community of volunteers. We would like to thank our sponsors for their support and contributions to the project, which help us to continue to develop and improve Dockly.",
 				"level": {
 					"hero": "Hero Sponsors",
 					"premium": "Premium Supporters",
@@ -76,35 +76,35 @@
 			"terminalDes": "Provides an interface to access the command line of any active container, allowing developers to execute commands, manage services, and troubleshoot directly from the dashboard"
 		},
 		"callToAction": {
-			"title": "Unlock Your Deployment Potential with deployit Cloud",
-			"des": "Say goodbye to infrastructure hassles—deployit Cloud handles it all. Effortlessly deploy, manage Docker containers, and secure your traffic with Traefik. Focus on building, we'll handle the rest.",
+			"title": "Unlock Your Deployment Potential with Dockly Cloud",
+			"des": "Say goodbye to infrastructure hassles—Dockly Cloud handles it all. Effortlessly deploy, manage Docker containers, and secure your traffic with Traefik. Focus on building, we'll handle the rest.",
 			"button": "Get Started Now"
 		},
 		"faq": {
 			"title": "Frequently asked questions",
 			"des": "If you can't find what you're looking for, please submit an issue through our GitHub repository or ask questions on our Discord.",
-			"q1": "What is deployit?",
-			"a1": "deployit is a stable, easy-to-use deployment solution designed to simplify the application management process. Think of deployit as a free alternative self-hostable solution to platforms like Heroku, Vercel, and Netlify.",
-			"q2": "Why Choose deployit?",
-			"a2": "deployit offers simplicity, flexibility, and speed in application deployment and management.",
+			"q1": "What is Dockly?",
+			"a1": "Dockly is a stable, easy-to-use deployment solution designed to simplify the application management process. Think of Dockly as a free alternative self-hostable solution to platforms like Heroku, Vercel, and Netlify.",
+			"q2": "Why Choose Dockly?",
+			"a2": "Dockly offers simplicity, flexibility, and speed in application deployment and management.",
 			"q4": "Is it open source?",
-			"a4": "Yes, deployit is open source and free to use.",
-			"q5": "What types of languages can I deploy with deployit?",
-			"a5": "deployit does not restrict programming languages. You are free to choose your preferred language and framework.",
+			"a4": "Yes, Dockly is open source and free to use.",
+			"q5": "What types of languages can I deploy with Dockly?",
+			"a5": "Dockly does not restrict programming languages. You are free to choose your preferred language and framework.",
 			"q6": "How do I request a feature or report a bug?",
 			"a6": "To request a feature or report a bug, please create an issue on our GitHub repository or ask in our Discord channel.",
-			"q7": "Do you track the usage of deployit?",
+			"q7": "Do you track the usage of Dockly?",
 			"a7": "No, we don't track any usage data.",
 			"q8": "Are there any user forums or communities where I can interact with other users?",
 			"a8": "Yes, we have active GitHub discussions and Discord where you can share ideas, ask for help, and connect with other users.",
-			"q9": "What types of applications can I deploy with deployit?",
-			"a9": "You can deploy any application that can be Dockerized, with no limits. deployit supports builds from Git repositories, Dockerfiles, Nixpacks, and Buildpacks like Heroku and Paketo.",
-			"q10": "How does deployit handle database management?",
-			"a10": "deployit supports multiple database systems including Postgres, MySQL, MariaDB, MongoDB, and Redis, providing tools for easy deployment and management and backups directly from the dashboard.",
-			"q11": "How does deployit's Open Source plan work?",
-			"a11": "You can host deployit UI on your own infrastructure and you will be responsible for the maintenance and updates.",
+			"q9": "What types of applications can I deploy with Dockly?",
+			"a9": "You can deploy any application that can be Dockerized, with no limits. Dockly supports builds from Git repositories, Dockerfiles, Nixpacks, and Buildpacks like Heroku and Paketo.",
+			"q10": "How does Dockly handle database management?",
+			"a10": "Dockly supports multiple database systems including Postgres, MySQL, MariaDB, MongoDB, and Redis, providing tools for easy deployment and management and backups directly from the dashboard.",
+			"q11": "How does Dockly's Open Source plan work?",
+			"a11": "You can host Dockly UI on your own infrastructure and you will be responsible for the maintenance and updates.",
 			"q12": "Do I need to provide my own server for the managed plan?",
-			"a12": "Yes, in the managed plan, you provide your own server e.g. (Hetzner, Hostinger, AWS, ETC.) VPS, and we manage the deployit UI infrastructure for you.",
+			"a12": "Yes, in the managed plan, you provide your own server e.g. (Hetzner, Hostinger, AWS, ETC.) VPS, and we manage the Dockly UI infrastructure for you.",
 			"q13": "What happens if I need more than one server?",
 			"a13": "The first server costs $4.50/month, if you buy more than one it will be $3.50/month per server.",
 			"q14": "Is there a limit on the number of deployments?",
@@ -119,7 +119,7 @@
 			"a18": "Nothing, you link your server(VPS) to your account and you can deploy unlimited applications, databases, and users and you get unlimited updates, deployments, backups and more."
 		},
 		"footer": {
-			"copyright": "Copyright © {year} deployit. All rights reserved."
+			"copyright": "Copyright © {year} Dockly. All rights reserved."
 		}
 	},
 	"404": {
@@ -129,8 +129,8 @@
 	},
 	"Link": {
 		"docs": {
-			"intro": "https://docs.deployit.com/docs/core",
-			"install": "https://docs.deployit.com/docs/core/installation"
+			"intro": "https://docs.dockly.com/docs/core",
+			"install": "https://docs.dockly.com/docs/core/installation"
 		}
 	},
 	"Pricing": {
@@ -146,11 +146,11 @@
 				"title": "Free",
 				"subTitle": "Open Source",
 				"section": {
-					"title": "deployit Open Source",
-					"description": "Manage your own infrastructure, installing deployit UI on your own server."
+					"title": "Dockly Open Source",
+					"description": "Manage your own infrastructure, installing Dockly UI on your own server."
 				},
 				"features": {
-					"f1": "Complete Flexibility: Install deployit UI on your own infrastructure",
+					"f1": "Complete Flexibility: Install Dockly UI on your own infrastructure",
 					"f2": "Self-hosted Infrastructure",
 					"f3": "Community Support",
 					"f4": "Access to Core Features",
@@ -162,8 +162,8 @@
 			"cloud": {
 				"title": "Recommended",
 				"section": {
-					"title": "deployit Plan",
-					"description": " to manage deployit UI infrastructure, we take care of it for you."
+					"title": "Dockly Plan",
+					"description": " to manage Dockly UI infrastructure, we take care of it for you."
 				},
 				"servers": "{serverQuantity} Servers (You bring the servers)",
 				"features": {
@@ -182,10 +182,10 @@
 		"faq": {
 			"title": "Frequently asked questions",
 			"description": "If you can't find what you're looking for, please send us an email to",
-			"q1": "How does deployit's Open Source plan work?",
-			"a1": "You can host deployit UI on your own infrastructure and you will be responsible for the maintenance and updates.",
+			"q1": "How does Dockly's Open Source plan work?",
+			"a1": "You can host Dockly UI on your own infrastructure and you will be responsible for the maintenance and updates.",
 			"q2": "Do I need to provide my own server for the managed plan?",
-			"a2": "Yes, in the managed plan, you provide your own server eg(Hetzner, Hostinger, AWS, ETC.) VPS, and we manage the deployit UI infrastructure for you.",
+			"a2": "Yes, in the managed plan, you provide your own server eg(Hetzner, Hostinger, AWS, ETC.) VPS, and we manage the Dockly UI infrastructure for you.",
 			"q3": "What happens if I need more than one server?",
 			"a3": "The first server costs $4.50/month, if you buy more than one it will be $3.50/month per server.",
 			"q4": "Is there a limit on the number of deployments?",
@@ -196,13 +196,13 @@
 			"a6": "We do not offer refunds. However, you can cancel your subscription at any time. Feel free to try our open-source version for free before making a purchase.",
 			"q7": "What kind of support do you offer?",
 			"a7": "We offer community support for the open source version and priority support for paid plans.",
-			"q8": "Is deployit open-source?",
-			"a8": "Yes, deployit is fully open-source. You can contribute or modify it as needed for your projects."
+			"q8": "Is Dockly open-source?",
+			"a8": "Yes, Dockly is fully open-source. You can contribute or modify it as needed for your projects."
 		}
 	},
 	"blog": {
 		"title": "Blog",
-		"description": "Latest news, updates, and articles from deployit",
+		"description": "Latest news, updates, and articles from Dockly",
 		"noPosts": "No posts available",
 		"noResults": "No posts found matching your criteria",
 		"searchPlaceholder": "Search posts...",

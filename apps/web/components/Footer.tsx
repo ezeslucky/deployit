@@ -46,7 +46,7 @@ export function Footer() {
 					<div className="flex flex-col items-center gap-2">
 						<Image src="/icon.svg"  alt="logo" width={25} height={25} />
 						<span className="text-center text-sm font-medium text-primary">
-						deployit
+						Dockly
 						</span>
 					
 					</div>
@@ -66,7 +66,7 @@ export function Footer() {
 						<Link
 							href="https://x.com/ezeslucky"
 							className="group"
-							aria-label="deployit on Twitter"
+							aria-label="Dockly on Twitter"
 						>
 							<svg
 								stroke="currentColor"
@@ -80,9 +80,9 @@ export function Footer() {
 							</svg>
 						</Link>
 						<Link
-							href="https://github.com/ezeslucky/deployit"
+							href="https://github.com/ezeslucky/dockly"
 							className="group"
-							aria-label="deployit on GitHub"
+							aria-label="Dockly on GitHub"
 						>
 							<svg
 								aria-hidden="true"

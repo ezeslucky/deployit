@@ -360,7 +360,7 @@ export function Pricing() {
 									>
 										<div className="w-full justify-end">
 											<Link
-												href="../deployit/register"
+												href="../dockly/register"
 												target="_blank"
 												className={buttonVariants({
 													className: "w-full",

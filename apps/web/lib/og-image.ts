@@ -13,8 +13,8 @@ interface GenerateOGImageOptions {
 	readingTime?: number;
 }
 
-// Logo de deployit como SVG string (versión simplificada)
-const deployit_LOGO = {
+// Logo de dockly como SVG string (versión simplificada)
+const dockly_LOGO = {
 	type: "svg",
 	props: {
 		width: "100%",
@@ -87,7 +87,7 @@ export async function generateOGImage({
 							color: "#fff",
 							zIndex: 1,
 						},
-						children: "deployit - Blog Post",
+						children: "dockly - Blog Post",
 					},
 				},
 				{
@@ -106,7 +106,7 @@ export async function generateOGImage({
 							transform: "rotate(-10deg)",
 							color: "#ffffff",
 						},
-						children: deployit_LOGO,
+						children: dockly_LOGO,
 					},
 				},
 				{

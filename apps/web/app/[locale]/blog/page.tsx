@@ -13,8 +13,8 @@ interface Tag {
 }
 
 export const metadata: Metadata = {
-	title: "Blog | deployit",
-	description: "Latest news, updates, and articles from deployit",
+	title: "Blog | Dockly",
+	description: "Latest news, updates, and articles from Dockly",
 };
 
 export default async function BlogPage({
@@ -53,7 +53,7 @@ export default async function BlogPage({
 					<p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
 						BLOG
 					</p>
-					<h1 className="text-4xl font-bold">deployit Latest News & Updates</h1>
+					<h1 className="text-4xl font-bold">Dockly Latest News & Updates</h1>
 				</div>
 				<Link
 					href="/rss.xml"

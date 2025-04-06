@@ -83,61 +83,61 @@ const reviews = [
 	{
 		name: "apis",
 		username: "@apis",
-		body: "I replaced my previous setup with deployit today. It’s stable, easy to use, and offers excellent support!",
+		body: "I replaced my previous setup with Dockly today. It’s stable, easy to use, and offers excellent support!",
 		img: "https://avatar.vercel.sh/apis",
 	},
 	{
 		name: "yayza_",
 		username: "@yayza_",
-		body: "Migrated all my services to deployit—it worked seamlessly! The level of configuration is perfect for all kinds of projects.",
+		body: "Migrated all my services to Dockly—it worked seamlessly! The level of configuration is perfect for all kinds of projects.",
 		img: "https://avatar.vercel.sh/yayza",
 	},
 	{
 		name: "Vaurion",
 		username: "@vaurion",
-		body: "deployit makes my deployments incredibly easy. I just test locally, push a preview to GitHub, and deployit takes care of the rest.",
+		body: "Dockly makes my deployments incredibly easy. I just test locally, push a preview to GitHub, and Dockly takes care of the rest.",
 		img: "https://avatar.vercel.sh/vaurion",
 	},
 	{
 		name: "vinum?",
 		username: "@vinum",
-		body: "deployit is everything I wanted in a PaaS. The functionality is impressive, and it's completely free!",
+		body: "Dockly is everything I wanted in a PaaS. The functionality is impressive, and it's completely free!",
 		img: "https://avatar.vercel.sh/vinum",
 	},
 	{
 		name: "vadzim",
 		username: "@vadzim",
-		body: "deployit is fantastic! I rarely encounter any deployment issues, and the community support is top-notch.",
+		body: "dockly is fantastic! I rarely encounter any deployment issues, and the community support is top-notch.",
 		img: "https://avatar.vercel.sh/vadzim",
 	},
 	{
 		name: "Slurpy Beckerman",
 		username: "@slurpy",
-		body: "This is exactly what I want in a deployment system. I’ve restructured my dev process around deployit!",
+		body: "This is exactly what I want in a deployment system. I’ve restructured my dev process around dockly!",
 		img: "https://avatar.vercel.sh/slurpy",
 	},
 	{
 		name: "lua",
 		username: "@lua",
-		body: "deployit is genuinely so nice to use. The hard work behind it really shows.",
+		body: "dockly is genuinely so nice to use. The hard work behind it really shows.",
 		img: "https://avatar.vercel.sh/lua",
 	},
 	{
 		name: "johnnygri",
 		username: "@johnnygri",
-		body: "deployit is a complete joy to use. I’m running a mix of critical and low-priority services seamlessly across servers.",
+		body: "dockly is a complete joy to use. I’m running a mix of critical and low-priority services seamlessly across servers.",
 		img: "https://avatar.vercel.sh/johnnygri",
 	},
 	{
 		name: "HiJoe",
 		username: "@hijoe",
-		body: "Setting up deployit was great—simple, intuitive, and reliable. Perfect for small to medium-sized businesses.",
+		body: "Setting up dockly was great—simple, intuitive, and reliable. Perfect for small to medium-sized businesses.",
 		img: "https://avatar.vercel.sh/hijoe",
 	},
 	{
 		name: "johannes0910",
 		username: "@johannes0910",
-		body: "deployit has been a game-changer for my side projects. Solid UI, straightforward Docker abstraction, and great design.",
+		body: "dockly has been a game-changer for my side projects. Solid UI, straightforward Docker abstraction, and great design.",
 		img: "https://avatar.vercel.sh/johannes0910",
 	},
 ];
@@ -189,11 +189,11 @@ export function Testimonials() {
 		>
 			<div className="mx-auto max-w-2xl md:text-center px-4">
 				<h2 className="font-display text-3xl tracking-tight  sm:text-4xl text-center">
-					Why Developers Love deployit
+					Why Developers Love dockly
 				</h2>
 				<p className="mt-4 text-lg tracking-tight text-muted-foreground text-center">
 					Think we’re bragging? Hear from the devs who once doubted too—until
-					deployit made their lives (and deployments) surprisingly easier.
+					dockly made their lives (and deployments) surprisingly easier.
 				</p>
 			</div>
 

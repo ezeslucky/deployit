@@ -5,12 +5,12 @@ export default function Home() {
 
 			<section className="flex flex-col gap-2">
 				<p>
-					At deployit, we are committed to protecting your privacy. This Privacy
+					At Dockly, we are committed to protecting your privacy. This Privacy
 					Policy explains how we collect, use, and safeguard your personal
 					information when you use our website and services.
 				</p>
 				<p>
-					By using deployit, you agree to the collection and use of information
+					By using Dockly, you agree to the collection and use of information
 					in accordance with this Privacy Policy. If you do not agree with these
 					practices, please do not use our services.
 				</p>
@@ -73,7 +73,7 @@ export default function Home() {
 			<section className="">
 				<h2 className="text-2xl font-semibold mb-4">5. Cookies</h2>
 				<p className="mb-4">
-					deployit does not use cookies to track user activity. Umami Analytics
+					Dockly does not use cookies to track user activity. Umami Analytics
 					is cookie-free and does not require any tracking cookies for its
 					functionality.
 				</p>

@@ -16,7 +16,7 @@ const nextConfig = {
 			"testing-ghost-8423be-31-220-108-27.traefik.me",
 			"images.unsplash.com",
 			"www.gravatar.com",
-			// "cms.deployit.com",
+			// "cms.dockly.com",
 		],
 	},
 };

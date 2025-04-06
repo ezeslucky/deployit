@@ -1,6 +1,6 @@
 import path from "node:path";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { defineConfig } from "vitest/config.js";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
 	test: {

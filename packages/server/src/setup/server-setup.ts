@@ -1,10 +1,10 @@
 import path from "node:path";
-import { paths } from "@deployit/server/constants";
+import { paths } from "@dockly/server/constants";
 import {
 	createServerDeployment,
 	updateDeploymentStatus,
-} from "@deployit/server/services/deployment";
-import { findServerById } from "@deployit/server/services/server";
+} from "@dockly/server/services/deployment";
+import { findServerById } from "@dockly/server/services/server";
 import {
 	TRAEFIK_PORT,
 	TRAEFIK_SSL_PORT,
@@ -12,7 +12,7 @@ import {
 	TRAEFIK_HTTP3_PORT,
 	getDefaultMiddlewares,
 	getDefaultServerTraefikConfig,
-} from "@deployit/server/setup/traefik-setup";
+} from "@dockly/server/setup/traefik-setup";
 import { Client } from "ssh2";
 import { recreateDirectory } from "../utils/filesystem/directory";
 

@@ -5,8 +5,8 @@ import {
 	writeFileSync,
 } from "node:fs";
 import { dirname, join } from "node:path";
-import { paths } from "@deployit/server/constants";
-import type { InferResultType } from "@deployit/server/types/with";
+import { paths } from "@dockly/server/constants";
+import type { InferResultType } from "@dockly/server/types/with";
 import boxen from "boxen";
 import {
 	writeDomainsToCompose,
