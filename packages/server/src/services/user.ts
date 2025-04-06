@@ -1,11 +1,11 @@
-import { db } from "@dockly/server/db";
-import { apikey, member, users_temp } from "@dockly/server/db/schema";
+import { db } from "@deployit/server/db";
+import { apikey, member, users_temp } from "@deployit/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 import { auth } from "../lib/auth";
 
 export type User = typeof users_temp.$inferSelect;
- 
+
 export const addNewProject = async (
 	userId: string,
 	projectId: string,

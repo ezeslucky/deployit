@@ -9,9 +9,9 @@ import {
 	runMongoBackup,
 	runMySqlBackup,
 	runPostgresBackup,
-} from "@dockly/server";
-import { db } from "@dockly/server/dist/db";
-import { backups, server } from "@dockly/server/dist/db/schema";
+} from "@deployit/server";
+import { db } from "@deployit/server/dist/db";
+import { backups, server } from "@deployit/server/dist/db/schema";
 import { eq } from "drizzle-orm";
 import { logger } from "./logger.js";
 import { scheduleJob } from "./queue.js";
@@ -113,5 +113,3 @@ export const initializeJobs = async () => {
 	}
 	logger.info({ Quantity: backupsResult.length }, "Backups Initialized");
 };
-
-

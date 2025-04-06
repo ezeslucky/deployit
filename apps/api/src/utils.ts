@@ -1,16 +1,13 @@
-
- import {
+import {
 	deployRemoteApplication,
-	
+	deployRemoteCompose,
 	deployRemotePreviewApplication,
 	rebuildRemoteApplication,
-	
+	rebuildRemoteCompose,
 	updateApplicationStatus,
-	
-	
-} from "../../../packages/server/src/services/application";
-import {deployRemoteCompose,rebuildRemoteCompose,updateCompose} from "../../../packages/server/src/services/compose"
-import {updatePreviewDeployment} from "../../../packages/server/src/services/preview-deployment"
+	updateCompose,
+	updatePreviewDeployment,
+} from "@deployit/server";
 import type { DeployJob } from "./schema";
 
 export const deploy = async (job: DeployJob) => {

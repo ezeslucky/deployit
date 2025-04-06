@@ -43,7 +43,7 @@ body:
         Operating System:
           OS: Ubuntu 20.04
           Arch: arm64
-        Dokploy version: 0.2.2'
+        deployit version: 0.2.2'
         VPS Provider: DigitalOcean, Hetzner, Linode, etc.
         What applications/services are you tying to deploy?
          eg - Database, Nextjs App, laravel, etc.
@@ -67,9 +67,9 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: Are you deploying the applications where Dokploy is installed or on a remote server?
+      label: Are you deploying the applications where deployit is installed or on a remote server?
       options:
-        - "Same server where Dokploy is installed"
+        - "Same server where deployit is installed"
         - "Remote server"
         - "Both"
     validations:

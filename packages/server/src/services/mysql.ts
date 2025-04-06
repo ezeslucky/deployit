@@ -1,14 +1,14 @@
-import { db } from "@dockly/server/db";
-import { type apiCreateMySql, backups, mysql } from "@dockly/server/db/schema";
-import { buildAppName } from "@dockly/server/db/schema";
-import { generatePassword } from "@dockly/server/templates";
-import { buildMysql } from "@dockly/server/utils/databases/mysql";
-import { pullImage } from "@dockly/server/utils/docker/utils";
+import { db } from "@deployit/server/db";
+import { type apiCreateMySql, backups, mysql } from "@deployit/server/db/schema";
+import { buildAppName } from "@deployit/server/db/schema";
+import { generatePassword } from "@deployit/server/templates";
+import { buildMysql } from "@deployit/server/utils/databases/mysql";
+import { pullImage } from "@deployit/server/utils/docker/utils";
 import { TRPCError } from "@trpc/server";
 import { eq, getTableColumns } from "drizzle-orm";
 import { validUniqueServerAppName } from "./project";
 
-import { execAsyncRemote } from "@dockly/server/utils/process/execAsync";
+import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
 
 export type MySql = typeof mysql.$inferSelect;
 

@@ -1,4 +1,4 @@
-import type { Security } from "@dockly/server/services/security";
+import type { Security } from "@deployit/server/services/security";
 import * as bcrypt from "bcrypt";
 import type { ApplicationNested } from "../builders";
 import {

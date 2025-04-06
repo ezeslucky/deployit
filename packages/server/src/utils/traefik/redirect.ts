@@ -1,4 +1,4 @@
-import type { Redirect } from "@dockly/server/services/redirect";
+import type { Redirect } from "@deployit/server/services/redirect";
 import type { ApplicationNested } from "../builders";
 import {
 	loadOrCreateConfig,

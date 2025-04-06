@@ -1,5 +1,5 @@
-import type { Mariadb } from "@dockly/server/services/mariadb";
-import type { Destination } from "@dockly/server/services/destination";
+import type { Mariadb } from "@deployit/server/services/mariadb";
+import type { Destination } from "@deployit/server/services/destination";
 import {
 	getRemoteServiceContainer,
 	getServiceContainer,

@@ -1,4 +1,4 @@
-import type { Domain } from "@dockly/server/services/domain";
+import type { Domain } from "@deployit/server/services/domain";
 import type { ApplicationNested } from "../builders";
 import {
 	createServiceConfig,

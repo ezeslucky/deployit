@@ -44,7 +44,7 @@ export const sendDiscordNotificationWelcome = async (email: string) => {
 			],
 			timestamp: new Date(),
 			footer: {
-				text: "Dokploy User Registration Notification",
+				text: "deployit User Registration Notification",
 			},
 		},
 	);

@@ -1,4 +1,4 @@
-import { generatePassword } from "@dockly/server/templates";
+import { generatePassword } from "@deployit/server/templates";
 import { faker } from "@faker-js/faker";
 import { customAlphabet } from "nanoid";
 

@@ -1,3 +1,7 @@
 packages:
-  - "apps/*"
-  - "packages/*"
+  - "apps/deployit"
+  - "apps/api"
+  - "apps/monitoring"
+  - "apps/schedules"
+  - "apps/models"
+  - "packages/server"

@@ -1,9 +1,9 @@
 import fs, { existsSync, readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { Compose } from "@dockly/server/services/compose";
-import type { Domain } from "@dockly/server/services/domain";
+import { paths } from "@deployit/server/constants";
+import type { Compose } from "@deployit/server/services/compose";
+import type { Domain } from "@deployit/server/services/domain";
 import { dump, load } from "js-yaml";
 import { execAsyncRemote } from "../process/execAsync";
 import {
@@ -244,16 +244,16 @@ export const addDomainToCompose = async (
 		}
 
 		if (!compose.isolatedDeployment) {
-			// Add the dokploy-network to the service
-			result.services[serviceName].networks = addDokployNetworkToService(
+			// Add the deployit-network to the service
+			result.services[serviceName].networks = adddeployitNetworkToService(
 				result.services[serviceName].networks,
 			);
 		}
 	}
 
-	// Add dokploy-network to the root of the compose file
+	// Add deployit-network to the root of the compose file
 	if (!compose.isolatedDeployment) {
-		result.networks = addDokployNetworkToRoot(result.networks);
+		result.networks = adddeployitNetworkToRoot(result.networks);
 	}
 
 	return result;
@@ -318,11 +318,11 @@ export const createDomainLabels = (
 	return labels;
 };
 
-export const addDokployNetworkToService = (
+export const adddeployitNetworkToService = (
 	networkService: DefinitionsService["networks"],
 ) => {
 	let networks = networkService;
-	const network = "dokploy-network";
+	const network = "deployit-network";
 	if (!networks) {
 		networks = [];
 	}
@@ -340,11 +340,11 @@ export const addDokployNetworkToService = (
 	return networks;
 };
 
-export const addDokployNetworkToRoot = (
+export const adddeployitNetworkToRoot = (
 	networkRoot: PropertiesNetworks | undefined,
 ) => {
 	let networks = networkRoot;
-	const network = "dokploy-network";
+	const network = "deployit-network";
 
 	if (!networks) {
 		networks = {};

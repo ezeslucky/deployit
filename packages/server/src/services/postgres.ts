@@ -1,18 +1,18 @@
-import { db } from "@dockly/server/db";
+import { db } from "@deployit/server/db";
 import {
 	type apiCreatePostgres,
 	backups,
 	postgres,
-} from "@dockly/server/db/schema";
-import { buildAppName } from "@dockly/server/db/schema";
-import { generatePassword } from "@dockly/server/templates";
-import { buildPostgres } from "@dockly/server/utils/databases/postgres";
-import { pullImage } from "@dockly/server/utils/docker/utils";
+} from "@deployit/server/db/schema";
+import { buildAppName } from "@deployit/server/db/schema";
+import { generatePassword } from "@deployit/server/templates";
+import { buildPostgres } from "@deployit/server/utils/databases/postgres";
+import { pullImage } from "@deployit/server/utils/docker/utils";
 import { TRPCError } from "@trpc/server";
 import { eq, getTableColumns } from "drizzle-orm";
 import { validUniqueServerAppName } from "./project";
 
-import { execAsyncRemote } from "@dockly/server/utils/process/execAsync";
+import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
 
 export type Postgres = typeof postgres.$inferSelect;
 

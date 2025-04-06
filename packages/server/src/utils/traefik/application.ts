@@ -1,7 +1,7 @@
 import fs, { writeFileSync } from "node:fs";
 import path from "node:path";
-import { paths } from "@dockly/server/constants";
-import type { Domain } from "@dockly/server/services/domain";
+import { paths } from "@deployit/server/constants";
+import type { Domain } from "@deployit/server/services/domain";
 import { dump, load } from "js-yaml";
 import { encodeBase64 } from "../docker/utils";
 import { execAsyncRemote } from "../process/execAsync";
@@ -80,7 +80,7 @@ export const removeTraefikConfigRemote = async (
 		await execAsyncRemote(serverId, `rm ${configPath}`);
 	} catch (_error) {}
 };
- 
+
 export const loadOrCreateConfig = (appName: string): FileConfig => {
 	const { DYNAMIC_TRAEFIK_PATH } = paths();
 	const configPath = path.join(DYNAMIC_TRAEFIK_PATH, `${appName}.yml`);
@@ -158,7 +158,7 @@ export const readMonitoringConfig = (readAll = false) => {
 							trimmed.endsWith("}")
 						) {
 							const log = JSON.parse(trimmed);
-							if (log.ServiceName !== "dokploy-service-app@file") {
+							if (log.ServiceName !== "deployit-service-app@file") {
 								content += chunk;
 								validCount++;
 								if (validCount >= 500) {

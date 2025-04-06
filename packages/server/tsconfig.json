@@ -23,7 +23,7 @@
 		/* Path Aliases */
 		"baseUrl": ".",
 		"paths": {
-			"@dockly/server/*": ["./src/*"]
+			"@deployit/server/*": ["./src/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "./src/**/*.ts"],
@@ -31,7 +31,7 @@
 	"exclude": [
 		"tsup.ts",
 		"node_modules",
-		"dokploy",
+		"deployit",
 		"config",
 		"dist",
 		"webpack.config.server.js",

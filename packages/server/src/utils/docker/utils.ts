@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Readable } from "node:stream";
-import { docker, paths } from "@dockly/server/constants";
+import { docker, paths } from "@deployit/server/constants";
 import type { ContainerInfo, ResourceRequirements } from "dockerode";
 import { parse } from "dotenv";
 import type { ApplicationNested } from "../builders";
@@ -403,7 +403,7 @@ export const generateConfigContainer = (application: ApplicationNested) => {
 					Networks: networkSwarm,
 				}
 			: {
-					Networks: [{ Target: "dokploy-network" }],
+					Networks: [{ Target: "deployit-network" }],
 				}),
 	};
 };

@@ -1,9 +1,9 @@
-import { db } from "@dockly/server/db";
+import { db } from "@deployit/server/db";
 import {
 	type apiCreateGithub,
 	gitProvider,
 	github,
-} from "@dockly/server/db/schema";
+} from "@deployit/server/db/schema";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { authGithub } from "../utils/providers/github";
@@ -183,7 +183,7 @@ export const createPreviewDeploymentComment = async ({
 		owner: owner || "",
 		repo: repository || "",
 		issue_number: Number.parseInt(issue_number),
-		body: `### Dokploy Preview Deployment\n\n${runningComment}`,
+		body: `### deployit Preview Deployment\n\n${runningComment}`,
 	});
 
 	return await updatePreviewDeployment(previewDeploymentId, {

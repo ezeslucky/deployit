@@ -21,7 +21,7 @@ const { handler, api } = betterAuth({
 	logger: {
 		disabled: process.env.NODE_ENV === "production",
 	},
-	appName: "Dokploy",
+	appName: "deployit",
 	socialProviders: {
 		github: {
 			clientId: process.env.GITHUB_CLIENT_ID as string,
@@ -94,10 +94,10 @@ const { handler, api } = betterAuth({
 			create: {
 				before: async (_user, context) => {
 					if (!IS_CLOUD) {
-						const xDokployToken =
-							context?.request?.headers?.get("x-dokploy-token");
-						if (xDokployToken) {
-							const user = await getUserByToken(xDokployToken);
+						const xdeployitToken =
+							context?.request?.headers?.get("x-deployit-token");
+						if (xdeployitToken) {
+							const user = await getUserByToken(xdeployitToken);
 							if (!user) {
 								throw new APIError("BAD_REQUEST", {
 									message: "User not found",
@@ -201,14 +201,14 @@ const { handler, api } = betterAuth({
 					const host =
 						process.env.NODE_ENV === "development"
 							? "http://localhost:3000"
-							: "https://dokploy.com";
+							: "https://deployit.com";
 					const inviteLink = `${host}/invitation?token=${data.id}`;
 
 					await sendEmail({
 						email: data.email,
 						subject: "Invitation to join organization",
 						text: `
-					<p>You are invited to join ${data.organization.name} on Dokploy. Click the link to accept the invitation: <a href="${inviteLink}">Accept Invitation</a></p>
+					<p>You are invited to join ${data.organization.name} on deployit. Click the link to accept the invitation: <a href="${inviteLink}">Accept Invitation</a></p>
 					`,
 					});
 				}

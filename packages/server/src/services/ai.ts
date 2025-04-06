@@ -1,6 +1,6 @@
-import { db } from "@dockly/server/db";
-import { ai } from "@dockly/server/db/schema";
-import { selectAIProvider } from "@dockly/server/utils/ai/select-ai-provider";
+import { db } from "@deployit/server/db";
+import { ai } from "@deployit/server/db/schema";
+import { selectAIProvider } from "@deployit/server/utils/ai/select-ai-provider";
 import { TRPCError } from "@trpc/server";
 import { generateObject } from "ai";
 import { desc, eq } from "drizzle-orm";
