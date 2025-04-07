@@ -1,1 +1,0 @@
-ALTER TYPE "public"."buildType" ADD VALUE 'railpack';

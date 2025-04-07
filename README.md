@@ -1,6 +1,29 @@
 # DeployIT
   DeployIt is a powerful and optimized platform designed for effortless **React project deployment**. It offers a seamless experience with features such as **one-click deployment, private project management, custom URLs, and collaborative workflows**. With **built-in support for environment variables, a global CDN, instant deployments, and enterprise
 
+##  Tech Stack
+
+### Frontend:
+- **React.js**
+- **TailwindCSS**
+- **ShadCN**
+- **Redux**
+- **TanStack Query**
+
+### Backend:
+- **Node.js**
+- **Express**
+- **PostgreSQL** (via Prisma)
+- **Redis** (PubSub for real-time logs)
+- **CassandraDB** (for persistent storage of deployment logs)
+
+### DevOps and Cloud:
+- **AWS S3** (for storing deployed projects)
+- **AWS CloudFront** (for serving projects via CDN)
+- **AWS Lambda** (for handling deployment triggers)
+- **AWS ECS** (for running Docker containers to build projects)
+- **AWS SQS** (for job queuing)
+- **Docker** (for containerizing builds)
   
 ## 🛠 Installation
 
