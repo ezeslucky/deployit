@@ -1,1 +1,0 @@
-ALTER TABLE "mount" ADD COLUMN "filePath" text;

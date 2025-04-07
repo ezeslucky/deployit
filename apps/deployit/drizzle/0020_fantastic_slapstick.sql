@@ -1,1 +1,0 @@
-ALTER TABLE "notification" ADD COLUMN "dockerCleanup" boolean DEFAULT false NOT NULL;
