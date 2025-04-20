@@ -195,6 +195,7 @@ const TemplateDialog: React.FC<TemplateDialogProps> = ({
                         </Label>
                         <div className="relative w-full rounded-md overflow-hidden border">
                           <CodeEditor
+                          //@ts-ignore
                             value={templateFiles.dockerCompose || ""}
                             language="yaml"
                             className="font-mono w-full [&_*]:!break-words"
@@ -227,6 +228,7 @@ const TemplateDialog: React.FC<TemplateDialogProps> = ({
                         </Label>
                         <div className="relative w-full rounded-md overflow-hidden border">
                           <CodeEditor
+                          //@ts-ignore
                             value={templateFiles.config || ""}
                             language="toml"
                             className="font-mono w-full [&_*]:!break-words"

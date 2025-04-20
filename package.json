@@ -26,11 +26,18 @@
     "node": ">=18"
   },
   "dependencies": {
+    "@dokploy/trpc-openapi": "^0.0.4",
+    "@trpc/server": "^10.45.2",
     "bcrypt": "^5.1.1",
+    "better-auth": "1.2.4",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
+    "drizzle-orm": "^0.39.3",
     "lucide-react": "^0.487.0",
     "micromatch": "^4.0.8",
-    "sonner": "^2.0.3"
+    "postgres": "3.4.4",
+    "sonner": "^2.0.3",
+    "superjson": "^2.2.2",
+    "zid": "^0.4.0"
   }
 }
