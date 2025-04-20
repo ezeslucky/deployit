@@ -11,6 +11,7 @@ const SelectedTags = () => {
       {selectedTags.map((tag) => (
         <Badge
           key={tag}
+          //@ts-ignore
           variant="default"
           className="cursor-pointer pr-1 flex items-center gap-1"
         >

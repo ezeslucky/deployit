@@ -2,7 +2,7 @@ import { ModeToggle } from "@/mode-toggle";
 import { Plus, StarIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
-import DeployitLogo from "./ui/Deployit-logo";
+import DeployitLogo from "./ui/deployit-logo";
 
 const Navigation = () => {
   const [githubStars, setGithubStars] = useState(0);
@@ -10,7 +10,7 @@ const Navigation = () => {
     const fetchGithubStars = async () => {
       try {
         const response = await fetch(
-          "https://api.github.com/repos/Deployit/Deployit"
+          "https://api.github.com/repos/ezeslucky/deployit"
         );
         const data = await response.json();
         setGithubStars(data.stargazers_count);

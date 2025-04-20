@@ -20,6 +20,7 @@ const Tags = () => {
           .map((tag) => (
             <Badge
               key={tag}
+              //@ts-ignore
               variant="secondary"
               className="cursor-pointer hover:bg-blue-100 transition-colors"
               onClick={() => addSelectedTag(tag)}
