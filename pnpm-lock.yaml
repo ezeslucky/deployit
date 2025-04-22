@@ -201,6 +201,9 @@ importers:
       better-auth:
         specifier: 1.2.4
         version: 1.2.4(typescript@5.8.3)
+      bullmq:
+        specifier: ^5.49.1
+        version: 5.49.1
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -225,6 +228,9 @@ importers:
       lucide-react:
         specifier: ^0.487.0
         version: 0.487.0(react@19.1.0)
+      nanoid:
+        specifier: ^3.3.11
+        version: 3.3.11
       next:
         specifier: 15.2.4
         version: 15.2.4(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -270,6 +276,9 @@ importers:
       zod:
         specifier: ^3.24.3
         version: 3.24.3
+      zod-form-data:
+        specifier: ^2.0.7
+        version: 2.0.7(zod@3.24.3)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.3.1
@@ -3186,6 +3195,9 @@ packages:
 
   '@rushstack/eslint-patch@1.11.0':
     resolution: {integrity: sha512-zxnHvoMQVqewTJr/W4pKjF0bMGiKJv1WX7bSrkl46Hg0QjESbzBROWK0Wg4RphzSOS5Jiy7eFimmM3UgMrMZbQ==}
+
+  '@rvf/set-get@7.0.1':
+    resolution: {integrity: sha512-GkTSn9K1GrTYoTUqlUs36k6nJnzjQaFBTTEIqUYmzBcsGsoJM8xG7EAx2WLHWAA4QzFjcwWUSHQ3vM3Fbw50Tg==}
 
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
@@ -7273,6 +7285,11 @@ packages:
   zid@0.4.0:
     resolution: {integrity: sha512-HXK7sPumQkh5O35P4d0fe3dH3S1iAAdH2bcfT1xUCEVlPomuxibwVnzsBuF8tBLY9k0NFuCDlsulkjLzVCj7Pw==}
 
+  zod-form-data@2.0.7:
+    resolution: {integrity: sha512-O27uzKMx7qc7z51KXER326Fp966jqHGvZX3i18CbvElF/QqVsQQN6Q7BnzepkzeBzTJnU3golibVSagf4dp7RQ==}
+    peerDependencies:
+      zod: '>= 3.11.0'
+
   zod-to-json-schema@3.24.5:
     resolution: {integrity: sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==}
     peerDependencies:
@@ -9519,6 +9536,8 @@ snapshots:
   '@rtsao/scc@1.1.0': {}
 
   '@rushstack/eslint-patch@1.11.0': {}
+
+  '@rvf/set-get@7.0.1': {}
 
   '@selderee/plugin-htmlparser2@0.11.0':
     dependencies:
@@ -14156,6 +14175,11 @@ snapshots:
   zid@0.4.0:
     dependencies:
       math-random: 1.0.4
+
+  zod-form-data@2.0.7(zod@3.24.3):
+    dependencies:
+      '@rvf/set-get': 7.0.1
+      zod: 3.24.3
 
   zod-to-json-schema@3.24.5(zod@3.24.2):
     dependencies:
