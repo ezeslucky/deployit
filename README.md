@@ -6,44 +6,23 @@
 
 ## 🧩 Features
 
-- **📦 Applications**  
-  Deploy any type of application—Node.js,  Go, Typescript.
 
-- **🗃️ Databases**  
-  Create and manage databases with built-in support for MySQL, PostgreSQL, MongoDB, MariaDB, and Redis.
 
-- **🔁 Backups**  
-  Automate database backups to external storage destinations for peace of mind.
+Deployit includes multiple features to make your life easier.
 
-- **🐳 Docker Compose**  
-  Native support for Docker Compose to seamlessly manage complex, multi-service applications.
-
-- **📈 Multi Node Scaling**  
-  Scale applications across multiple nodes using Docker Swarm for high availability and performance.
-
-- **⚙️ Templates**  
-  Deploy open-source templates like Plausible, Pocketbase, Cal.com, and more with a single click.
-
-- **🛡️ Traefik Integration**  
-  Built-in Traefik integration for automated routing, SSL management, and load balancing.
-
-- **📊 Real-time Monitoring**  
-  Monitor CPU, memory, disk, and network usage for all resources in real-time.
-
-- **🧱 Docker Management**  
-  Easily deploy and manage Docker containers with an intuitive interface.
-
-- **🧪 CLI & API**  
-  Full-featured CLI and REST API to manage deployments programmatically or through the command line.
-
-- **🔔 Notifications**  
-  Receive instant notifications via Slack, Discord, Telegram, Email, and more on deployment success/failure.
-
-- **🌍 Multi-Server Deployment**  
-  Remotely deploy and manage applications across multiple external servers.
-
-- **🔐 Self-Hosted**  
-  DeployIt can be fully self-hosted on your own VPS for complete control and customization.
+- **Applications**: Deploy any type of application (Node.js, PHP, Python, Go, Ruby, etc.).
+- **Databases**: Create and manage databases with support for MySQL, PostgreSQL, MongoDB, MariaDB, and Redis.
+- **Backups**: Automate backups for databases to an external storage destination.
+- **Docker Compose**: Native support for Docker Compose to manage complex applications.
+- **Multi Node**: Scale applications to multiple nodes using Docker Swarm to manage the cluster.
+- **Templates**: Deploy open-source templates (Plausible, Pocketbase, Calcom, etc.) with a single click.
+- **Traefik Integration**: Automatically integrates with Traefik for routing and load balancing.
+- **Real-time Monitoring**: Monitor CPU, memory, storage, and network usage for every resource.
+- **Docker Management**: Easily deploy and manage Docker containers.
+- **CLI/API**: Manage your applications and databases using the command line or through the API.
+- **Notifications**: Get notified when your deployments succeed or fail (via Slack, Discord, Telegram, Email, etc.).
+- **Multi Server**: Deploy and manage your applications remotely to external servers.
+- **Self-Hosted**: Self-host Deployit on your VPS.
 
 ---
 
