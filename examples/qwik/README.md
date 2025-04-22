@@ -1,10 +1,10 @@
 # Qwikjs Example
 
-This repository contains an example of Qwikjs application that is deployed on Dokploy.
+This repository contains an example of Qwikjs application that is deployed on Deployit.
 
 
 1. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/examples.git`
+   - Repository: `https://github.com/ezeslucky/deployit.git`
    - Branch: `main`
    - Build path: `/qwik`
    - Publish Directory: `./dist` (Nixpacks)

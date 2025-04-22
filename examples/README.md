@@ -1,7 +1,7 @@
-# Dokploy Examples
+# Deployit Examples
 
 ---
-This repository contains examples of how to deploy applications using Dokploy.
+This repository contains examples of how to deploy applications using Deployit.
 
 - [x] Django
 - [x] Flask

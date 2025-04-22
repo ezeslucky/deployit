@@ -1,6 +1,6 @@
-# Dokploy Example
+# Deployit Example
 
-This repository contains an example blog deployment for Dokploy.
+This repository contains an example blog deployment for Deployit.
 
 You have two options to get started:
 
@@ -8,7 +8,7 @@ You have two options to get started:
    - Fork this repo to your own GitHub account.
 
 2. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/astro-example.git`
+   - Repository: `https://github.com/ezeslucky/deployit.git`
    - Branch: `main`
    - Build path: `/`
 
@@ -26,4 +26,3 @@ You have two options to get started:
    - Path: `/`
    - Container port: `3000`
 
-If you need further assistance, join our [Discord server](https://discord.com/invite/2tBnJ3jDJc).

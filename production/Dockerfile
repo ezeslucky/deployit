@@ -11,7 +11,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 ENV NODE_ENV=production
 RUN pnpm run build
 
-FROM base AS dokploy
+FROM base AS deployit
 WORKDIR /app
 ENV NODE_ENV=production
 

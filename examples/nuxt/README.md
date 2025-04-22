@@ -1,6 +1,6 @@
 # Nuxt Example
 
-This repository contains an example of a Nuxt application that is deployed on Dokploy. There are two ways to deploy this application:
+This repository contains an example of a Nuxt application that is deployed on Deployit. There are two ways to deploy this application:
 
 - With server side rendering
 - As a static site
@@ -10,7 +10,7 @@ All examples assume you use `Nixpacks` as the build type.
 ## Server side rendering
 
 1. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/examples.git`
+   - Repository: `https://github.com/ezeslucky/deployit.git`
    - Branch: `main`
    - Build path: `/nuxt`
 
@@ -33,7 +33,7 @@ All examples assume you use `Nixpacks` as the build type.
 ## Static site
 
 1. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/examples.git`
+   - Repository: `https://github.com/ezeslucky/deployit.git`
    - Branch: `main`
    - Build path: `/nuxt`
 

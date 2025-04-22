@@ -30,7 +30,7 @@ export const adminRouter = createTRCRouter({
 				await updateUser(user.id, {
 					metricsConfig: {
 						server: {
-							type: "Dokploy",
+							type: "Deployit",
 							refreshRate: input.metricsConfig.server.refreshRate,
 							port: input.metricsConfig.server.port,
 							token: input.metricsConfig.server.token,

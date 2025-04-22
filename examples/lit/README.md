@@ -1,10 +1,10 @@
 # Lit Example
 
-This repository contains an example of Lit application that is deployed on Dokploy.
+This repository contains an example of Lit application that is deployed on Deployit.
 
 
 1. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/examples.git`
+   - Repository: `https://github.com/ezeslucky/deployit.git`
    - Branch: `main`
    - Build path: `/lit`
    - Publish Directory: `./dist` (Nixpacks)
