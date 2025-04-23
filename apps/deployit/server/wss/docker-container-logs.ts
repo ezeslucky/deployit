@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type http from "node:http";
 import { findServerById, validateRequest } from "../../../../packages/server/src/index";
@@ -7,12 +6,12 @@ import { Client } from "ssh2";
 import { WebSocketServer } from "ws";
 import { getShell } from "./utils";
 
-export const setupDockerContainerTerminalWebSocketServer = (
+export const setupDockerContainerLogsWebSocketServer = (
 	server: http.Server<typeof http.IncomingMessage, typeof http.ServerResponse>,
 ) => {
 	const wssTerm = new WebSocketServer({
 		noServer: true,
-		path: "/docker-container-terminal",
+		path: "/docker-container-logs",
 	});
 
 	server.on("upgrade", (req, socket, head) => {
@@ -21,7 +20,7 @@ export const setupDockerContainerTerminalWebSocketServer = (
 		if (pathname === "/_next/webpack-hmr") {
 			return;
 		}
-		if (pathname === "/docker-container-terminal") {
+		if (pathname === "/docker-container-logs") {
 			wssTerm.handleUpgrade(req, socket, head, function done(ws) {
 				wssTerm.emit("connection", ws, req);
 			});
@@ -32,8 +31,11 @@ export const setupDockerContainerTerminalWebSocketServer = (
 	wssTerm.on("connection", async (ws, req) => {
 		const url = new URL(req.url || "", `http://${req.headers.host}`);
 		const containerId = url.searchParams.get("containerId");
-		const activeWay = url.searchParams.get("activeWay");
+		const tail = url.searchParams.get("tail");
+		const search = url.searchParams.get("search");
+		const since = url.searchParams.get("since");
 		const serverId = url.searchParams.get("serverId");
+		const runType = url.searchParams.get("runType");
 		const { user, session } = await validateRequest(req);
 
 		if (!containerId) {
@@ -48,58 +50,46 @@ export const setupDockerContainerTerminalWebSocketServer = (
 		try {
 			if (serverId) {
 				const server = await findServerById(serverId);
-				if (!server.sshKeyId)
-					throw new Error("No SSH key available for this server");
 
-				const conn = new Client();
-				let _stdout = "";
-				let _stderr = "";
-				conn
+				if (!server.sshKeyId) return;
+				const client = new Client();
+				client
 					.once("ready", () => {
-						conn.exec(
-							`docker exec -it ${containerId} ${activeWay}`,
-							{ pty: true },
-							//@ts-ignore
-							(err, stream) => {
-								if (err) throw err;
-
-								stream
-									.on("close", (code: number, _signal: string) => {
-										ws.send(`\nContainer closed with code: ${code}\n`);
-										conn.end();
-									})
-									.on("data", (data: string) => {
-										_stdout += data.toString();
-										ws.send(data.toString());
-									})
-									//@ts-ignore
-									.stderr.on("data", (data) => {
-										_stderr += data.toString();
-										ws.send(data.toString());
-										console.error("Error: ", data.toString());
-									});
-
-								ws.on("message", (message) => {
-									try {
-										let command: string | Buffer[] | Buffer | ArrayBuffer;
-										if (Buffer.isBuffer(message)) {
-											command = message.toString("utf8");
-										} else {
-											command = message;
-										}
-										stream.write(command.toString());
-									} catch (error) {
-										// @ts-ignore
-										const errorMessage = error?.message as unknown as string;
-										ws.send(errorMessage);
-									}
+						const baseCommand = `docker ${runType === "swarm" ? "service" : "container"} logs --timestamps ${
+							runType === "swarm" ? "--raw" : ""
+						} --tail ${tail} ${
+							since === "all" ? "" : `--since ${since}`
+						} --follow ${containerId}`;
+						const escapedSearch = search ? search.replace(/'/g, "'\\''") : "";
+						const command = search
+							? `${baseCommand} 2>&1 | grep --line-buffered -iF "${escapedSearch}"`
+							: baseCommand;
+						client.exec(command, (err, stream) => {
+							if (err) {
+								console.error("Execution error:", err);
+								ws.close();
+								client.end();
+								return;
+							}
+							stream
+								.on("close", () => {
+									client.end();
+									ws.close();
+								})
+								.on("data", (data: string) => {
+									ws.send(data.toString());
+								})
+								//@ts-ignore
+								.stderr.on("data", (data) => {
+									ws.send(data.toString());
 								});
-
-								ws.on("close", () => {
-									stream.end();
-								});
-							},
-						);
+						});
+					})
+					.on("error", (err) => {
+						console.error("SSH connection error:", err);
+						ws.send(`SSH error: ${err.message}`);
+						ws.close(); // Cierra el WebSocket si hay un error con SSH
+						client.end();
 					})
 					.connect({
 						host: server.ipAddress,
@@ -107,13 +97,27 @@ export const setupDockerContainerTerminalWebSocketServer = (
 						username: server.username,
 						privateKey: server.sshKey?.privateKey,
 					});
+				ws.on("close", () => {
+					client.end();
+				});
 			} else {
 				const shell = getShell();
-				const ptyProcess = spawn(
-					shell,
-					["-c", `docker exec -it ${containerId} ${activeWay}`],
-					{},
-				);
+				const baseCommand = `docker ${runType === "swarm" ? "service" : "container"} logs --timestamps ${
+					runType === "swarm" ? "--raw" : ""
+				} --tail ${tail} ${
+					since === "all" ? "" : `--since ${since}`
+				} --follow ${containerId}`;
+				const command = search
+					? `${baseCommand} 2>&1 | grep -iF '${search}'`
+					: baseCommand;
+				const ptyProcess = spawn(shell, ["-c", command], {
+					name: "xterm-256color",
+					cwd: process.env.HOME,
+					env: process.env,
+					encoding: "utf8",
+					cols: 80,
+					rows: 30,
+				});
 
 				ptyProcess.onData((data) => {
 					ws.send(data);
