@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
+	//@ts-ignore
 	createTRPCRouter,
 	protectedProcedure,
 	uploadProcedure,
