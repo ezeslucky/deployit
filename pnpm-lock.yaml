@@ -240,6 +240,9 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      public-ip:
+        specifier: 6.0.2
+        version: 6.0.2
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -264,6 +267,9 @@ importers:
       sonner:
         specifier: ^2.0.3
         version: 2.0.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      ssh2:
+        specifier: 1.15.0
+        version: 1.15.0
       superjson:
         specifier: ^2.2.2
         version: 2.2.2
@@ -276,6 +282,9 @@ importers:
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      ws:
+        specifier: 8.16.0
+        version: 8.16.0
       zod:
         specifier: ^3.24.3
         version: 3.24.3
@@ -301,6 +310,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.1.2
         version: 19.1.2(@types/react@19.1.2)
+      '@types/ws':
+        specifier: 8.5.10
+        version: 8.5.10
       eslint:
         specifier: ^9.25.0
         version: 9.25.0(jiti@2.4.2)
@@ -10856,7 +10868,7 @@ snapshots:
   '@types/jsonwebtoken@9.0.9':
     dependencies:
       '@types/ms': 2.1.0
-      '@types/node': 18.19.86
+      '@types/node': 20.17.30
 
   '@types/lodash@4.17.4': {}
 
@@ -10938,7 +10950,7 @@ snapshots:
 
   '@types/ws@8.5.10':
     dependencies:
-      '@types/node': 18.19.86
+      '@types/node': 20.17.30
 
   '@typescript-eslint/eslint-plugin@8.30.1(@typescript-eslint/parser@8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
