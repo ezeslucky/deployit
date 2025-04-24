@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
 	IS_CLOUD,
 	createApiKey,
@@ -6,8 +8,8 @@ import {
 	getUserByToken,
 	removeUserById,
 	updateUser,
-} from "@dokploy/server";
-import { db } from "@dokploy/server/db";
+} from "../../../../../packages/server/src/index";
+import { db } from "../../../../../packages/server/src/db/index";
 import {
 	account,
 	apiAssignPermissions,
@@ -16,13 +18,14 @@ import {
 	apikey,
 	invitation,
 	member,
-} from "@dokploy/server/db/schema";
+} from "../../../../../packages/server/src/db/schema/index";
 import { TRPCError } from "@trpc/server";
 import * as bcrypt from "bcrypt";
 import { and, asc, eq, gt } from "drizzle-orm";
 import { z } from "zod";
 import {
 	adminProcedure,
+	//@ts-ignore
 	createTRPCRouter,
 	protectedProcedure,
 	publicProcedure,

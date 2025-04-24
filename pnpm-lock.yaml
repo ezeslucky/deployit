@@ -198,6 +198,9 @@ importers:
       '@uiw/react-codemirror':
         specifier: ^4.23.10
         version: 4.23.10(@babel/runtime@7.27.0)(@codemirror/autocomplete@6.18.6)(@codemirror/language@6.11.0)(@codemirror/lint@6.8.5)(@codemirror/search@6.5.10)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.36.5)(codemirror@6.0.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      bcrypt:
+        specifier: ^5.1.1
+        version: 5.1.1
       better-auth:
         specifier: 1.2.4
         version: 1.2.4(typescript@5.8.3)
@@ -246,6 +249,9 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      node-schedule:
+        specifier: 2.1.1
+        version: 2.1.1
       public-ip:
         specifier: 6.0.2
         version: 6.0.2
@@ -276,6 +282,9 @@ importers:
       ssh2:
         specifier: 1.15.0
         version: 1.15.0
+      stripe:
+        specifier: ^18.0.0
+        version: 18.0.0
       superjson:
         specifier: ^2.2.2
         version: 2.2.2
@@ -304,6 +313,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.1.4
         version: 4.1.4
+      '@types/bcrypt':
+        specifier: 5.0.2
+        version: 5.0.2
       '@types/js-cookie':
         specifier: ^3.0.6
         version: 3.0.6
@@ -316,6 +328,9 @@ importers:
       '@types/node':
         specifier: ^20.17.30
         version: 20.17.30
+      '@types/node-schedule':
+        specifier: 2.1.6
+        version: 2.1.6
       '@types/react':
         specifier: ^19.1.2
         version: 19.1.2
@@ -7457,6 +7472,10 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
+  stripe@18.0.0:
+    resolution: {integrity: sha512-3Fs33IzKUby//9kCkCa1uRpinAoTvj6rJgQ2jrBEysoxEvfsclvXdna1amyEYbA2EKkjynuB4+L/kleCCaWTpA==}
+    engines: {node: '>=12.*'}
+
   strnum@1.1.2:
     resolution: {integrity: sha512-vrN+B7DBIoTTZjnPNewwhx6cBA/H+IS7rfW68n7XxC1y7uoiGQBxaKzqucGUgavX15dJgiGztLJ8vxuEzwqBdA==}
 
@@ -10800,7 +10819,7 @@ snapshots:
 
   '@types/bcrypt@5.0.2':
     dependencies:
-      '@types/node': 18.19.86
+      '@types/node': 20.17.30
 
   '@types/braces@3.0.5': {}
 
@@ -10808,7 +10827,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 18.19.86
+      '@types/node': 20.17.30
 
   '@types/cookie@0.6.0': {}
 
@@ -10904,7 +10923,7 @@ snapshots:
 
   '@types/node-schedule@2.1.6':
     dependencies:
-      '@types/node': 18.19.86
+      '@types/node': 20.17.30
 
   '@types/node@17.0.45': {}
 
@@ -15612,6 +15631,11 @@ snapshots:
   strip-final-newline@3.0.0: {}
 
   strip-json-comments@3.1.1: {}
+
+  stripe@18.0.0:
+    dependencies:
+      '@types/node': 20.17.30
+      qs: 6.14.0
 
   strnum@1.1.2: {}
 

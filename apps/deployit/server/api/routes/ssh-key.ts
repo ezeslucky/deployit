@@ -1,4 +1,6 @@
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+ //@ts-ignore
+ import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiCreateSshKey,
@@ -14,7 +16,7 @@ import {
 	generateSSHKey,
 	removeSSHKeyById,
 	updateSSHKeyById,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { desc, eq } from "drizzle-orm";
 

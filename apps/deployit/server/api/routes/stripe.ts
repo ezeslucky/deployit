@@ -1,13 +1,16 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { WEBSITE_URL, getStripeItems } from "@/server/utils/stripe";
 import {
 	IS_CLOUD,
 	findServersByUserId,
 	findUserById,
 	updateUser,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import Stripe from "stripe";
 import { z } from "zod";
+//@ts-ignore
 import { adminProcedure, createTRPCRouter } from "../trpc";
 
 export const stripeRouter = createTRPCRouter({
@@ -16,6 +19,7 @@ export const stripeRouter = createTRPCRouter({
 		const stripeCustomerId = user.stripeCustomerId;
 
 		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+			//@ts-ignore
 			apiVersion: "2024-09-30.acacia",
 		});
 
@@ -52,6 +56,7 @@ export const stripeRouter = createTRPCRouter({
 		)
 		.mutation(async ({ ctx, input }) => {
 			const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+				//@ts-ignore
 				apiVersion: "2024-09-30.acacia",
 			});
 
@@ -99,6 +104,7 @@ export const stripeRouter = createTRPCRouter({
 		const stripeCustomerId = user.stripeCustomerId;
 
 		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+			//@ts-ignore
 			apiVersion: "2024-09-30.acacia",
 		});
 

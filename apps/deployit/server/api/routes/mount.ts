@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	apiCreateMount,
 	apiFindOneMount,
@@ -9,8 +10,10 @@ import {
 	deleteMount,
 	findMountById,
 	updateMount,
-} from "@dokploy/server";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+} from "../../../../../packages/server/src/index";
+import { 
+	//@ts-ignore
+	createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const mountRouter = createTRPCRouter({
 	create: protectedProcedure

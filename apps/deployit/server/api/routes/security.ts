@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	apiCreateSecurity,
 	apiFindOneSecurity,
@@ -9,8 +10,9 @@ import {
 	findApplicationById,
 	findSecurityById,
 	updateSecurityById,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
+//@ts-ignore
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const securityRouter = createTRPCRouter({

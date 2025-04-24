@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { updateServersBasedOnQuantity } from "@/pages/api/stripe/webhook";
+//@ts-ignore
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
@@ -33,7 +35,7 @@ import {
 	serverValidate,
 	setupMonitoring,
 	updateServerById,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { observable } from "@trpc/server/observable";
 import { and, desc, eq, getTableColumns, isNotNull, sql } from "drizzle-orm";

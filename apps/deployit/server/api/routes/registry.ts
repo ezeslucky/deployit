@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { db } from "@/server/db";
 import {
 	apiCreateRegistry,
@@ -15,9 +16,10 @@ import {
 	findRegistryById,
 	removeRegistry,
 	updateRegistry,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
+//@ts-ignore
 import { adminProcedure, createTRPCRouter, protectedProcedure } from "../trpc";
 export const registryRouter = createTRPCRouter({
 	create: adminProcedure

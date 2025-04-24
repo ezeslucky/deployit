@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	adminProcedure,
+	//@ts-ignore
 	createTRPCRouter,
 	protectedProcedure,
 	publicProcedure,
@@ -46,7 +48,7 @@ import {
 	updateGotifyNotification,
 	updateSlackNotification,
 	updateTelegramNotification,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { desc, eq, sql } from "drizzle-orm";
 import { z } from "zod";

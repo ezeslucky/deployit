@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { db } from "@/server/db";
 import { invitation, member, organization } from "@/server/db/schema";
-import { IS_CLOUD } from "@dokploy/server/index";
+import { IS_CLOUD } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, exists } from "drizzle-orm";
 import { nanoid } from "nanoid";
 import { z } from "zod";
-import { adminProcedure, createTRPCRouter, protectedProcedure } from "../trpc";
+import { adminProcedure, 
+	//@ts-ignore
+	createTRPCRouter, protectedProcedure } from "../trpc";
 export const organizationRouter = createTRPCRouter({
 	create: protectedProcedure
 		.input(

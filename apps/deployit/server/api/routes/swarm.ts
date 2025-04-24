@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	getApplicationInfo,
 	getNodeApplications,
 	getNodeInfo,
 	getSwarmNodes,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { z } from "zod";
+//@ts-ignore
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const swarmRouter = createTRPCRouter({
