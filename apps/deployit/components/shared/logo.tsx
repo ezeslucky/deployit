@@ -17,13 +17,49 @@ export const Logo = ({ className = "size-14", logoUrl }: Props) => {
 		);
 	}
     return (
-		// <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-		<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-		  <rect width="200" height="200" fill="#1E1E2F"/>
-		  <circle cx="100" cy="100" r="80" fill="#4A90E2"/>
-		  <path d="M100,60 L120,100 L100,140 L80,100 Z" fill="#FFFFFF"/>
-		  <text x="50%" y="180" font-size="20" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif">DeployIt</text>
-		</svg>
+		<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 559 446"
+		className={className}
+	  >
+		{/* <!-- Outer shape of the D --> */}
+		<path
+		  className="fill-primary stroke-primary"
+		  d="M84 22 H279 V424 H84 C84 424 28 424 28 379 S28 67 84 22 Z"
+		/>
+		
+		{/* <!-- Inner cutout of the D --> */}
+		<path
+		  className="fill-primary stroke-primary"
+		  d="M223 67 H140 C140 67 84 67 84 112 V335 C84 379 140 379 140 379 H223 V67 Z"
+		/>
+		
+		{/* <!-- Diagonal line --> */}
+		<path
+		  className="fill-primary stroke-primary"
+		  d="M84 67 L475 379"
+		  fill="none"
+		  stroke-width="60"
+		/>
+		
+		{/* <!-- First arrow rectangle --> */}
+		<rect
+		  className="fill-primary stroke-primary"
+		  x="363"
+		  y="290"
+		  width="112"
+		  height="36"
+		/>
+		
+		{/* <!-- Second arrow rectangle --> */}
+		<rect
+		  className="fill-primary stroke-primary"
+		  x="419"
+		  y="335"
+		  width="56"
+		  height="36"
+		/>
+	  </svg>
 		
     )
 }
