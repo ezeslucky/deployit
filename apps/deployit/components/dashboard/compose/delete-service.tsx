@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { api } from "@/utils/api";
-import type { ServiceType } from "@dokploy/server/db/schema";
+import type { ServiceType } from "@deployit/server/db/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import copy from "copy-to-clipboard";
 import { Copy, Trash2 } from "lucide-react";

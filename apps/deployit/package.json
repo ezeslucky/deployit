@@ -47,6 +47,7 @@
     "@trpc/server": "^10.45.2",
     "@uiw/codemirror-theme-github": "^4.23.11",
     "@uiw/react-codemirror": "^4.23.11",
+    "adm-zip": "^0.5.16",
     "bcrypt": "^5.1.1",
     "better-auth": "1.2.4",
     "bullmq": "^5.51.1",
@@ -60,6 +61,7 @@
     "js-yaml": "4.1.0",
     "lodash": "4.17.21",
     "lucide-react": "^0.487.0",
+    "memfs": "^4.17.0",
     "nanoid": "^3.3.11",
     "next": "15.2.4",
     "next-i18next": "^15.4.2",
@@ -80,6 +82,8 @@
     "tailwind-merge": "^3.2.0",
     "tw-animate-css": "^1.2.8",
     "vaul": "^1.1.2",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.2",
     "ws": "8.16.0",
     "zod": "^3.24.3",
     "zod-form-data": "^2.0.7"
@@ -87,6 +91,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.4",
+    "@types/adm-zip": "^0.5.7",
     "@types/bcrypt": "5.0.2",
     "@types/js-cookie": "^3.0.6",
     "@types/js-yaml": "4.0.9",

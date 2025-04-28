@@ -12,7 +12,7 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { api } from "@/utils/api";
-import type { IUpdateData } from "@dokploy/server/index";
+import type { IUpdateData } from "@deployit/server/index";
 import {
 	Bug,
 	Download,
