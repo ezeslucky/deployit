@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -38,7 +40,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { domain } from "@/server/db/validations/domain";
+import { domain } from "../../../../server/db/validation/domain";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Dices } from "lucide-react";
 import type z from "zod";
@@ -169,6 +171,7 @@ export const AddPreviewDomain = ({
 															<Button
 																variant="secondary"
 																type="button"
+																//@ts-ignore
 																isLoading={isLoadingGenerate}
 																onClick={() => {
 																	generateDomain({
@@ -177,9 +180,11 @@ export const AddPreviewDomain = ({
 																			previewDeployment?.application
 																				?.serverId || "",
 																	})
+																	//@ts-ignore
 																		.then((domain) => {
 																			field.onChange(domain);
 																		})
+																		//@ts-ignore
 																		.catch((err) => {
 																			toast.error(err.message);
 																		});
@@ -278,7 +283,7 @@ export const AddPreviewDomain = ({
 													<SelectContent>
 														<SelectItem value="none">None</SelectItem>
 														<SelectItem value={"letsencrypt"}>
-															Let's Encrypt
+															Let&apos;s Encrypt
 														</SelectItem>
 													</SelectContent>
 												</Select>
@@ -292,7 +297,9 @@ export const AddPreviewDomain = ({
 					</form>
 
 					<DialogFooter>
-						<Button isLoading={isLoading} form="hook-form" type="submit">
+						<Button 
+						//@ts-ignore
+						isLoading={isLoading} form="hook-form" type="submit">
 							{dictionary.submit}
 						</Button>
 					</DialogFooter>

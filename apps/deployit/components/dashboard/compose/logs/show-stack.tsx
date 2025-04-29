@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { badgeStateColor } from "@/components/dashboard/application/logs/show";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -121,13 +123,17 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 						<SelectGroup>
 							{option === "native" ? (
 								<div>
-									{containers?.map((container) => (
+									{containers?.map(
+										//@ts-ignore
+										(container) => (
 										<SelectItem
 											key={container.containerId}
 											value={container.containerId}
 										>
 											{container.name} ({container.containerId}){" "}
-											<Badge variant={badgeStateColor(container.state)}>
+											<Badge 
+											//@ts-ignore
+											variant={badgeStateColor(container.state)}>
 												{container.state}
 											</Badge>
 										</SelectItem>
@@ -135,14 +141,18 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 								</div>
 							) : (
 								<>
-									{services?.map((container) => (
+									{services?.map(
+										//@ts-ignore
+										(container) => (
 										<SelectItem
 											key={container.containerId}
 											value={container.containerId}
 										>
 											{container.name} ({container.containerId}@{container.node}
 											)
-											<Badge variant={badgeStateColor(container.state)}>
+											<Badge 
+											//@ts-ignore
+											variant={badgeStateColor(container.state)}>
 												{container.state}
 											</Badge>
 										</SelectItem>

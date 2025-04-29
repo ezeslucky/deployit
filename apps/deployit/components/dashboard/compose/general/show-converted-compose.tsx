@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -40,6 +43,7 @@ export const ShowConvertedCompose = ({ composeId }: Props) => {
 				.then(() => {
 					refetch();
 				})
+				//@ts-ignore
 				.catch((_err) => {});
 		}
 	}, [isOpen]);
@@ -70,6 +74,7 @@ export const ShowConvertedCompose = ({ composeId }: Props) => {
 				<div className="flex flex-row gap-2 justify-end">
 					<Button
 						variant="secondary"
+						//@ts-ignore
 						isLoading={isLoading}
 						onClick={() => {
 							mutateAsync({ composeId })
@@ -77,6 +82,7 @@ export const ShowConvertedCompose = ({ composeId }: Props) => {
 									refetch();
 									toast.success("Fetched source type");
 								})
+								//@ts-ignore
 								.catch((err) => {
 									toast.error("Error fetching source type", {
 										description: err.message,

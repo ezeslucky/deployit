@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { BitbucketIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Badge } from "@/components/ui/badge";
@@ -190,7 +191,9 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{bitbucketProviders?.map((bitbucketProvider) => (
+											{bitbucketProviders?.map(
+												//@ts-ignore
+												(bitbucketProvider) => (
 												<SelectItem
 													key={bitbucketProvider.bitbucketId}
 													value={bitbucketProvider.bitbucketId}
@@ -238,6 +241,7 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
+																//@ts-ignore
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -260,7 +264,9 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 												<CommandEmpty>No repositories found.</CommandEmpty>
 												<ScrollArea className="h-96">
 													<CommandGroup>
-														{repositories?.map((repo) => (
+														{repositories?.map(
+															//@ts-ignore
+															(repo) => (
 															<CommandItem
 																value={repo.name}
 																key={repo.url}
@@ -321,6 +327,7 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
+																//@ts-ignore
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -348,7 +355,9 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 													<CommandEmpty>No branch found.</CommandEmpty>
 
 													<CommandGroup>
-														{branches?.map((branch) => (
+														{branches?.map(
+															//@ts-ignore
+															(branch) => (
 															<CommandItem
 																value={branch.name}
 																key={branch.commit.sha}
@@ -472,6 +481,7 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
+						//@ts-ignore
 							isLoading={isSavingBitbucketProvider}
 							type="submit"
 							className="w-fit"

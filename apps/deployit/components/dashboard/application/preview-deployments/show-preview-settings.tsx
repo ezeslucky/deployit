@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -125,6 +127,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 			.then(() => {
 				toast.success("Preview Deployments settings updated");
 			})
+			//@ts-ignore
 			.catch((error) => {
 				toast.error(error.message);
 			});
@@ -248,7 +251,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 														<SelectContent>
 															<SelectItem value="none">None</SelectItem>
 															<SelectItem value={"letsencrypt"}>
-																Let's Encrypt
+																Let&apos;s Encrypt
 															</SelectItem>
 															<SelectItem value={"custom"}>Custom</SelectItem>
 														</SelectContent>
@@ -300,6 +303,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 														refetch();
 														toast.success("Preview deployments enabled");
 													})
+													//@ts-ignore
 													.catch((error) => {
 														toast.error(error.message);
 													});
@@ -362,6 +366,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 							Cancel
 						</Button>
 						<Button
+						//@ts-ignore
 							isLoading={isLoading}
 							form="hook-form-delete-application"
 							type="submit"

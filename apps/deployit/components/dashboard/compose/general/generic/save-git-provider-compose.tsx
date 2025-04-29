@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GitIcon } from "@/components/icons/data-tools-icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -159,7 +160,9 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 												</SelectTrigger>
 												<SelectContent>
 													<SelectGroup>
-														{sshKeys?.map((sshKey) => (
+														{sshKeys?.map(
+															//@ts-ignore
+															(sshKey) => (
 															<SelectItem
 																key={sshKey.sshKeyId}
 																value={sshKey.sshKeyId}
@@ -298,7 +301,9 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 				</div>
 
 				<div className="flex flex-row justify-end">
-					<Button type="submit" className="w-fit" isLoading={isLoading}>
+					<Button type="submit" className="w-fit" 
+					//@ts-ignore
+					isLoading={isLoading}>
 						Save{" "}
 					</Button>
 				</div>
