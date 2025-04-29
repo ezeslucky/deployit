@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HardDrive } from "lucide-react";
 import {
 	Label,

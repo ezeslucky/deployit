@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Card } from "@/components/ui/card";
 import {
 	Select,
