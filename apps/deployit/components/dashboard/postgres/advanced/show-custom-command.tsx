@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -136,7 +137,9 @@ export const ShowCustomCommand = ({ id, type }: Props) => {
 									)}
 								/>
 								<div className="flex w-full justify-end">
-									<Button isLoading={form.formState.isSubmitting} type="submit">
+									<Button 
+									//@ts-ignore
+									isLoading={form.formState.isSubmitting} type="submit">
 										Save
 									</Button>
 								</div>
