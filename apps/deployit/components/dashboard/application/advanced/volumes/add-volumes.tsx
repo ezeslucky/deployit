@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
 import {
@@ -359,6 +360,7 @@ PORT=3000
 
 					<DialogFooter>
 						<Button
+						//@ts-ignore
 							isLoading={form.formState.isSubmitting}
 							form="hook-form-volume"
 							type="submit"

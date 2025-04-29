@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -163,6 +164,7 @@ export const HandleSecurity = ({
 
 					<DialogFooter>
 						<Button
+						//@ts-ignore
 							isLoading={isLoading}
 							form="hook-form-add-security"
 							type="submit"

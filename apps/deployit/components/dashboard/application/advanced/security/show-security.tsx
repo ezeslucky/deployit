@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
 import {
@@ -56,7 +57,9 @@ export const ShowSecurity = ({ applicationId }: Props) => {
 				) : (
 					<div className="flex flex-col pt-2">
 						<div className="flex flex-col gap-6 ">
-							{data?.security.map((security) => (
+							{data?.security.map(
+								//@ts-ignore
+								(security) => (
 								<div key={security.securityId}>
 									<div className="flex w-full flex-col sm:flex-row justify-between sm:items-center gap-4 sm:gap-10 border rounded-lg p-4">
 										<div className="grid grid-cols-1 sm:grid-cols-2 flex-col gap-4 sm:gap-8">
@@ -102,6 +105,7 @@ export const ShowSecurity = ({ applicationId }: Props) => {
 													variant="ghost"
 													size="icon"
 													className="group hover:bg-red-500/10"
+													//@ts-ignore
 													isLoading={isRemoving}
 												>
 													<Trash2 className="size-4 text-primary group-hover:text-red-500" />

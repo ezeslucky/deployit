@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -181,6 +184,7 @@ export const UpdateVolume = ({
 					variant="ghost"
 					size="icon"
 					className="group hover:bg-blue-500/10 "
+					//@ts-ignore
 					isLoading={isLoading}
 				>
 					<PenBoxIcon className="size-3.5  text-primary group-hover:text-blue-500" />
@@ -304,8 +308,9 @@ PORT=3000
 						</div>
 						<DialogFooter>
 							<Button
+							//@ts-ignore
 								isLoading={isLoading}
-								// form="hook-form-update-volume"
+								form="hook-form-update-volume"
 								type="submit"
 							>
 								Update

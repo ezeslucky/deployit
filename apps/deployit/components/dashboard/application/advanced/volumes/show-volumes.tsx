@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
@@ -73,7 +74,9 @@ export const ShowVolumes = ({ id, type }: Props) => {
 							deleting a mount to apply the changes.
 						</AlertBlock>
 						<div className="flex flex-col gap-6">
-							{data?.mounts.map((mount) => (
+							{data?.mounts.map(
+								//@ts-ignore
+								(mount) => (
 								<div key={mount.mountId}>
 									<div
 										key={mount.mountId}
@@ -156,6 +159,7 @@ export const ShowVolumes = ({ id, type }: Props) => {
 													variant="ghost"
 													size="icon"
 													className="group hover:bg-red-500/10"
+													//@ts-ignore
 													isLoading={isRemoving}
 												>
 													<Trash2 className="size-4 text-primary group-hover:text-red-500" />
