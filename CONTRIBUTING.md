@@ -1,6 +1,6 @@
 # Contributing
 
-Hey, thanks for your interest in contributing to Dokploy! We appreciate your help and taking your time to contribute.
+Hey, thanks for your interest in contributing to Deployit! We appreciate your help and taking your time to contribute.
 
 Before you start, please first discuss the feature/bug you want to add with the owners and comunity via github issues.
 
@@ -124,7 +124,7 @@ bunx lt --port 3000
 If you run into permission issues of docker run the following command
 
 ```bash
-sudo chown -R USERNAME dokploy or sudo chown -R $(whoami) ~/.docker
+sudo chown -R USERNAME deployit or sudo chown -R $(whoami) ~/.docker
 ```
 
 ## Application deploy
@@ -155,7 +155,7 @@ curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.32.1/pack-v0.
 - The `main` branch is the source of truth and should always reflect the latest stable release.
 - Create a new branch for each feature or bug fix.
 - Make sure to add tests for your changes.
-- Make sure to update the documentation for any changes Go to the [docs.dokploy.com](https://docs.dokploy.com) website to see the changes.
+- Make sure to update the documentation for any changes Go to the [docs.deployit.com](https://docs.deployit.com) website to see the changes.
 - When creating a pull request, please provide a clear and concise description of the changes made.
 - If you include a video or screenshot, would be awesome so we can see the changes in action.
 - If your pull request fixes an open issue, please reference the issue in the pull request description.
@@ -177,4 +177,4 @@ To add a new template, go to `https://github.com/ezeslucky/deployit/templates` r
 
 ## Docs & Website
 
-To contribute to the Dokploy docs or website, please go to this [repository](https://github.com/ezeslucky/deployit).
+To contribute to the deployit docs or website, please go to this [repository](https://github.com/ezeslucky/deployit).

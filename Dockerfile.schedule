@@ -10,19 +10,19 @@ WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y python3 make g++ git python3-pip pkg-config libsecret-1-dev && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm --filter=@dokploy/server --filter=./apps/schedules install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm --filter=@deployit/server --filter=./apps/schedules install --frozen-lockfile
 
-# Deploy only the dokploy app
+# Deploy only the deployit app
 
 ENV NODE_ENV=production
-RUN pnpm --filter=@dokploy/server build
+RUN pnpm --filter=@deployit/server build
 RUN pnpm --filter=./apps/schedules run build
 
 RUN pnpm --filter=./apps/schedules --prod deploy /prod/schedules
 
 RUN cp -R /usr/src/app/apps/schedules/dist /prod/schedules/dist
 
-FROM base AS dokploy
+FROM base AS deployit
 WORKDIR /app
 
 # Set production

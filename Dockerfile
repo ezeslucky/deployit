@@ -12,18 +12,18 @@ RUN apt-get update && apt-get install -y python3 make g++ git python3-pip pkg-co
 # Install dependencies
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-# Deploy only the dokploy app
+# Deploy only the deployit app
 
 ENV NODE_ENV=production
-RUN pnpm --filter=@dokploy/server build
-RUN pnpm --filter=./apps/dokploy run build
+RUN pnpm --filter=@deployit/server build
+RUN pnpm --filter=./apps/deployit run build
 
-RUN pnpm --filter=./apps/dokploy --prod deploy /prod/dokploy
+RUN pnpm --filter=./apps/deployit --prod deploy /prod/deployit
 
-RUN cp -R /usr/src/app/apps/dokploy/.next /prod/dokploy/.next
-RUN cp -R /usr/src/app/apps/dokploy/dist /prod/dokploy/dist
+RUN cp -R /usr/src/app/apps/deployit/.next /prod/deployit/.next
+RUN cp -R /usr/src/app/apps/deployit/dist /prod/deployit/dist
 
-FROM base AS dokploy
+FROM base AS deployit
 WORKDIR /app
 
 # Set production
@@ -32,15 +32,15 @@ ENV NODE_ENV=production
 RUN apt-get update && apt-get install -y curl unzip zip apache2-utils iproute2 && rm -rf /var/lib/apt/lists/*
 
 # Copy only the necessary files
-COPY --from=build /prod/dokploy/.next ./.next
-COPY --from=build /prod/dokploy/dist ./dist
-COPY --from=build /prod/dokploy/next.config.mjs ./next.config.mjs
-COPY --from=build /prod/dokploy/public ./public
-COPY --from=build /prod/dokploy/package.json ./package.json
-COPY --from=build /prod/dokploy/drizzle ./drizzle
+COPY --from=build /prod/deployit/.next ./.next
+COPY --from=build /prod/deployit/dist ./dist
+COPY --from=build /prod/deployit/next.config.mjs ./next.config.mjs
+COPY --from=build /prod/deployit/public ./public
+COPY --from=build /prod/deployit/package.json ./package.json
+COPY --from=build /prod/deployit/drizzle ./drizzle
 COPY .env.production ./.env
-COPY --from=build /prod/dokploy/components.json ./components.json
-COPY --from=build /prod/dokploy/node_modules ./node_modules
+COPY --from=build /prod/deployit/components.json ./components.json
+COPY --from=build /prod/deployit/node_modules ./node_modules
 
 
 # Install docker

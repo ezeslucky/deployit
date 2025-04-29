@@ -13,14 +13,14 @@ RUN apt-get update && apt-get install -y python3 make g++ git && rm -rf /var/lib
 # Install dependencies
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-# Build only the dokploy app
-RUN pnpm run dokploy:build 
+# Build only the deployit app
+RUN pnpm run deployit:build 
 
-# Deploy only the dokploy app
-RUN pnpm deploy --filter=dokploy --prod /prod/dokploy
+# Deploy only the deployit app
+RUN pnpm deploy --filter=deployit --prod /prod/deployit
 
-FROM base AS dokploy
-COPY --from=build /prod/dokploy /prod/dokploy
-WORKDIR /prod/dokploy
+FROM base AS deployit
+COPY --from=build /prod/deployit /prod/deployit
+WORKDIR /prod/deployit
 EXPOSE 3000
 CMD [ "pnpm", "start" ]
