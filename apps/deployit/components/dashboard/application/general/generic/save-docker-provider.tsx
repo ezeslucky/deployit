@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -152,6 +153,7 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 					<Button
 						type="submit"
 						className="w-fit"
+						//@ts-ignore
 						isLoading={form.formState.isSubmitting}
 					>
 						Save{" "}

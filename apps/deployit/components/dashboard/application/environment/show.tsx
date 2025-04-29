@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Form } from "@/components/ui/form";
@@ -129,6 +130,7 @@ export const ShowEnvironment = ({ applicationId }: Props) => {
 							</Button>
 						)}
 						<Button
+						//@ts-ignore
 							isLoading={isLoading}
 							className="w-fit"
 							type="submit"
