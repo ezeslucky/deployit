@@ -18,7 +18,7 @@ export const OnboardingLayout = ({ children }: Props) => {
 					className="relative z-20 flex items-center text-lg font-medium gap-4  text-primary"
 				>
 					<Logo className="size-10" />
-					DeployIt
+					Dokploy
 				</Link>
 				<div className="relative z-20 mt-auto">
 					<blockquote className="space-y-2">
@@ -35,12 +35,12 @@ export const OnboardingLayout = ({ children }: Props) => {
 				</div>
 				<div className="flex items-center gap-4 justify-center absolute bottom-4 right-4 text-muted-foreground">
 					<Button variant="ghost" size="icon">
-						<Link href="https://github.com/ezeslucky/deployit">
+						<Link href="https://github.com/dokploy/dokploy">
 							<GithubIcon />
 						</Link>
 					</Button>
 					<Button variant="ghost" size="icon">
-						<Link href="https://x.com/ezeslucky">
+						<Link href="https://x.com/getdokploy">
 							<svg
 								stroke="currentColor"
 								fill="currentColor"
