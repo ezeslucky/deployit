@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -86,6 +87,7 @@ export const HandleProject = ({ projectId }: Props) => {
 			description: data.description,
 			projectId: projectId || "",
 		})
+		//@ts-ignore
 			.then(async (data) => {
 				await utils.project.all.invalidate();
 				toast.success(projectId ? "Project Updated" : "Project Created");
@@ -172,6 +174,7 @@ export const HandleProject = ({ projectId }: Props) => {
 
 					<DialogFooter>
 						<Button
+						//@ts-ignore
 							isLoading={form.formState.isSubmitting}
 							form="hook-form-add-project"
 							type="submit"

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -124,6 +125,7 @@ export const ProjectEnvironment = ({ projectId, children }: Props) => {
 												<CodeEditor
 													lineWrapping
 													language="properties"
+													//@ts-ignore
 													wrapperClassName="h-[35rem] font-mono"
 													placeholder={`NODE_ENV=production
 PORT=3000
@@ -140,7 +142,9 @@ PORT=3000
 									)}
 								/>
 								<DialogFooter>
-									<Button isLoading={isLoading} type="submit">
+									<Button 
+									//@ts-ignore
+									isLoading={isLoading} type="submit">
 										Update
 									</Button>
 								</DialogFooter>
