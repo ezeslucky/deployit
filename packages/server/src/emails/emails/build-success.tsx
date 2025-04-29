@@ -34,6 +34,7 @@ export const BuildSuccessEmail = ({
 			<Head />
 			<Preview>{previewText}</Preview>
 			<Tailwind
+			//@ts-ignore
 				config={{
 					theme: {
 						extend: {

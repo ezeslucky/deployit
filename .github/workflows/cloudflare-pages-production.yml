@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Pages (Production)
 on:
   push:
     branches:
-      - mainee
+      - main
 
 jobs:
   publish:
