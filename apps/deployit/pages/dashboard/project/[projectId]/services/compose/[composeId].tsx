@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ShowImport } from "@/components/dashboard/application/advanced/import/show-import";
 import { ShowVolumes } from "@/components/dashboard/application/advanced/volumes/show-volumes";
 import { ShowEnvironment } from "@/components/dashboard/application/environment/show-enviroment";
@@ -11,8 +13,8 @@ import { ShowDockerLogsStack } from "@/components/dashboard/compose/logs/show-st
 import { UpdateCompose } from "@/components/dashboard/compose/update-compose";
 import { ComposeFreeMonitoring } from "@/components/dashboard/monitoring/free/container/show-free-compose-monitoring";
 import { ComposePaidMonitoring } from "@/components/dashboard/monitoring/paid/container/show-paid-compose-monitoring";
-import { ProjectLayout } from "@/components/layouts/project-layout";
-import { BreadcrumbSidebar } from "@/components/shared/breadcrumb-sidebar";
+import { ProjectLayout } from "@/components/layout/project-layout";
+import { BreadcrumbSidebar } from "@/components/shared/breacrumb-sidebar";
 import { StatusTooltip } from "@/components/shared/status-tooltip";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -33,7 +35,7 @@ import {
 import { cn } from "@/lib/utils";
 import { appRouter } from "@/server/api/root";
 import { api } from "@/utils/api";
-import { validateRequest } from "@dokploy/server/lib/auth";
+import { validateRequest } from "../../../../../../../../packages/server/src/lib/auth";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import copy from "copy-to-clipboard";
 import { CircuitBoard, ServerOff } from "lucide-react";
@@ -187,7 +189,7 @@ const Service = (
 										<span className="text-center text-base text-muted-foreground">
 											This service is hosted on the server {data.server.name},
 											but this server has been disabled because your current
-											plan doesn't include enough servers. Please purchase more
+											plan doesn&apos;t include enough servers. Please purchase more
 											servers to regain access to this application.
 										</span>
 										<span className="text-center text-base text-muted-foreground">
@@ -261,31 +263,7 @@ const Service = (
 													/>
 												) : (
 													<>
-														{/* {monitoring?.enabledFeatures &&
-															isCloud &&
-															data?.serverId && (
-																<div className="flex flex-row border w-fit p-4 rounded-lg items-center gap-2 m-4">
-																	<Label className="text-muted-foreground">
-																		Change Monitoring
-																	</Label>
-																	<Switch
-																		checked={toggleMonitoring}
-																		onCheckedChange={setToggleMonitoring}
-																	/>
-																</div>
-															)}
-
-														{toggleMonitoring ? (
-															<ComposePaidMonitoring
-																appName={data?.appName || ""}
-																baseUrl={`http://${monitoring?.serverIp}:${monitoring?.metricsConfig?.server?.port}`}
-																token={
-																	monitoring?.metricsConfig?.server?.token || ""
-																}
-																appType={data?.composeType || "docker-compose"}
-															/>
-														) : ( */}
-														{/* <div> */}
+														
 														<ComposeFreeMonitoring
 															serverId={data?.serverId || ""}
 															appName={data?.appName || ""}

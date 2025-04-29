@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShowInvitations } from "@/components/dashboard/settings/users/show-invitations";
 import { ShowUsers } from "@/components/dashboard/settings/users/show-users";
-import { DashboardLayout } from "@/components/layouts/dashboard-layout";
+import { DashboardLayout } from "@/components/layout/dashboard-layout";
 
 import { appRouter } from "@/server/api/root";
-import { validateRequest } from "@dokploy/server";
+import { validateRequest } from "../../../../../packages/server/src/index";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetServerSidePropsContext } from "next";
 import type { ReactElement } from "react";

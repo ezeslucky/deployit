@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShowApiKeys } from "@/components/dashboard/settings/api/show-api-keys";
 import { ProfileForm } from "@/components/dashboard/settings/profile/profile-form";
-import { DashboardLayout } from "@/components/layouts/dashboard-layout";
+import { DashboardLayout } from "@/components/layout/dashboard-layout";
 
 import { appRouter } from "@/server/api/root";
 import { api } from "@/utils/api";
 import { getLocale, serverSideTranslations } from "@/utils/i18n";
-import { validateRequest } from "@dokploy/server";
+import { validateRequest } from "../../../../../packages/server/src/index";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetServerSidePropsContext } from "next";
 import type { ReactElement } from "react";

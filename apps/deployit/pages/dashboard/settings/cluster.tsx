@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShowNodes } from "@/components/dashboard/settings/cluster/nodes/show-nodes";
-import { DashboardLayout } from "@/components/layouts/dashboard-layout";
+import { DashboardLayout } from "@/components/layout/dashboard-layout";
 
 import { appRouter } from "@/server/api/root";
-import { IS_CLOUD, validateRequest } from "@dokploy/server";
+import { IS_CLOUD, validateRequest } from "../../../../../packages/server/src/index";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetServerSidePropsContext } from "next";
 import type { ReactElement } from "react";

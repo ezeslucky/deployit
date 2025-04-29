@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShowBilling } from "@/components/dashboard/settings/billing/show-billing";
-import { DashboardLayout } from "@/components/layouts/dashboard-layout";
+import { DashboardLayout } from "@/components/layout/dashboard-layout";
 
 import { appRouter } from "@/server/api/root";
-import { IS_CLOUD } from "@dokploy/server/constants";
-import { validateRequest } from "@dokploy/server/lib/auth";
+import { IS_CLOUD } from "../../../../../packages/server/src/constants/index";
+import { validateRequest } from "../../../../../packages/server/src/lib/auth";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetServerSidePropsContext } from "next";
 import type { ReactElement } from "react";
