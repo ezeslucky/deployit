@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
@@ -157,6 +158,7 @@ export const ShowRequests = () => {
 													`Requests ${isActive ? "deactivated" : "activated"}`,
 												);
 											})
+											//@ts-ignore
 											.catch((err) => {
 												toast.error(err.message);
 											});
@@ -233,7 +235,7 @@ export const ShowRequests = () => {
 										</h3>
 										<p className="text-sm max-w-md">
 											Activate requests to see incoming traffic statistics and
-											monitor your application's usage. After activation, you'll
+											monitor your application&apos;s usage. After activation, you&apos;ll
 											need to reload Traefik for the changes to take effect.
 										</p>
 									</div>

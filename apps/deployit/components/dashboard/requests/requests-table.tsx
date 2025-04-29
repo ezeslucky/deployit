@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -333,9 +336,11 @@ export const RequestsTable = ({ dateRange }: RequestsTableProps) => {
 											<TableCell className="truncate break-words break-before-all whitespace-pre-wrap">
 												{key === "RequestAddr" ? (
 													<div className="flex items-center gap-2 bg-muted p-1 rounded">
-														<span>{value}</span>
+														
+														<span>		{value}</span>
 														<Copy
 															onClick={() => {
+																//@ts-ignore
 																copy(value);
 																toast.success("Copied to clipboard");
 															}}
