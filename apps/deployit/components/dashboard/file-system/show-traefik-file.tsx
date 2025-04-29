@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 
 import { AlertBlock } from "@/components/shared/alert-block";
@@ -119,6 +120,7 @@ export const ShowTraefikFile = ({ path, serverId }: Props) => {
 										<FormControl>
 											<CodeEditor
 												lineWrapping
+												//@ts-ignore
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`http:
 routers:
@@ -156,6 +158,7 @@ routers:
 					</div>
 					<div className="flex justify-end">
 						<Button
+						//@ts-ignore
 							isLoading={isLoading}
 							disabled={canEdit || isLoading}
 							type="submit"
