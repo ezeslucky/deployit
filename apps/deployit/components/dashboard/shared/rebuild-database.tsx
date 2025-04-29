@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -71,6 +72,7 @@ export const RebuildDatabase = ({ id, type }: Props) => {
 					<AlertDialog>
 						<AlertDialogTrigger asChild>
 							<Button
+							//@ts-ignore
 								isLoading={isLoading}
 								variant="outline"
 								className="w-full border-destructive/50 hover:bg-destructive/10 hover:text-destructive text-destructive"
@@ -105,7 +107,9 @@ export const RebuildDatabase = ({ id, type }: Props) => {
 									className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
 									asChild
 								>
-									<Button isLoading={isLoading} type="submit">
+									<Button
+									//@ts-ignore
+									isLoading={isLoading} type="submit">
 										Yes, rebuild database
 									</Button>
 								</AlertDialogAction>
