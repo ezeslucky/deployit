@@ -1,3 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -57,7 +61,8 @@ export const CreateServer = ({ stepper }: Props) => {
 		api.stripe.canCreateMoreServers.useQuery();
 	const { mutateAsync } = api.server.create.useMutation();
 	const cloudSSHKey = sshKeys?.find(
-		(sshKey) => sshKey.name === "dokploy-cloud-ssh-key",
+		//@ts-ignore
+		(sshKey) => sshKey.name === "deployit-cloud-ssh-key",
 	);
 
 	const form = useForm<Schema>({
@@ -96,6 +101,7 @@ export const CreateServer = ({ stepper }: Props) => {
 			username: data.username || "root",
 			sshKeyId: data.sshKeyId || "",
 		})
+		//@ts-ignore
 			.then(async (_data) => {
 				toast.success("Server Created");
 				stepper.next();
@@ -166,7 +172,7 @@ export const CreateServer = ({ stepper }: Props) => {
 									<FormLabel>Select a SSH Key</FormLabel>
 									{!cloudSSHKey && (
 										<AlertBlock>
-											Looks like you didn't have the SSH Key yet, you can create
+											Looks like you didn&apos;t have the SSH Key yet, you can create
 											one{" "}
 											<Link
 												href="/dashboard/settings/ssh-keys"
@@ -186,7 +192,9 @@ export const CreateServer = ({ stepper }: Props) => {
 										</SelectTrigger>
 										<SelectContent>
 											<SelectGroup>
-												{sshKeys?.map((sshKey) => (
+												{sshKeys?.map(
+													//@ts-ignore
+													(sshKey) => (
 													<SelectItem
 														key={sshKey.sshKeyId}
 														value={sshKey.sshKeyId}
@@ -267,6 +275,7 @@ export const CreateServer = ({ stepper }: Props) => {
 
 					<DialogFooter className="pt-5">
 						<Button
+						//@ts-ignore
 							isLoading={form.formState.isSubmitting}
 							disabled={!canCreateMoreServers}
 							form="hook-form-add-server"

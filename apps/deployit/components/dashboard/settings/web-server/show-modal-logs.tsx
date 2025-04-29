@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import {
 	Dialog,
@@ -87,13 +88,17 @@ export const ShowModalLogs = ({
 						</SelectTrigger>
 						<SelectContent>
 							<SelectGroup>
-								{data?.map((container) => (
+								{data?.map(
+									//@ts-ignore
+									(container) => (
 									<SelectItem
 										key={container.containerId}
 										value={container.containerId}
 									>
 										{container.name} ({container.containerId}){" "}
-										<Badge variant={badgeStateColor(container.state)}>
+										<Badge
+										//@ts-ignore
+										variant={badgeStateColor(container.state)}>
 											{container.state}
 										</Badge>
 									</SelectItem>

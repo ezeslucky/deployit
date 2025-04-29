@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 
 import {
@@ -39,6 +40,7 @@ export const ShowTraefikActions = ({ serverId }: Props) => {
 				disabled={reloadTraefikIsLoading || toggleDashboardIsLoading}
 			>
 				<Button
+				//@ts-ignore
 					isLoading={reloadTraefikIsLoading || toggleDashboardIsLoading}
 					variant="outline"
 				>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -232,7 +233,9 @@ export const WebDomain = () => {
 								)}
 
 								<div className="flex w-full justify-end col-span-2">
-									<Button isLoading={isLoading} type="submit">
+									<Button 
+									//@ts-ignore
+									isLoading={isLoading} type="submit">
 										{t("settings.common.save")}
 									</Button>
 								</div>

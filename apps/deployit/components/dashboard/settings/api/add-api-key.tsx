@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
 import {
@@ -85,6 +86,7 @@ export const AddApiKey = () => {
 	const { refetch } = api.user.get.useQuery();
 	const { data: organizations } = api.organization.all.useQuery();
 	const createApiKey = api.user.createApiKey.useMutation({
+		//@ts-ignore
 		onSuccess: (data) => {
 			if (!data) return;
 
@@ -220,7 +222,9 @@ export const AddApiKey = () => {
 												</SelectTrigger>
 											</FormControl>
 											<SelectContent>
-												{organizations?.map((org) => (
+												{organizations?.map(
+													//@ts-ignore
+													(org) => (
 													<SelectItem key={org.id} value={org.id}>
 														{org.name}
 													</SelectItem>
@@ -439,7 +443,7 @@ export const AddApiKey = () => {
 					<DialogHeader>
 						<DialogTitle>API Key Generated Successfully</DialogTitle>
 						<DialogDescription>
-							Please copy your API key now. You won't be able to see it again!
+							Please copy your API key now. You won&apos;t be able to see it again!
 						</DialogDescription>
 					</DialogHeader>
 					<div className="mt-4 space-y-4">

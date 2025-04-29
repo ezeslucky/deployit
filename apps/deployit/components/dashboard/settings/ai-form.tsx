@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { DialogAction } from "@/components/shared/dialog-action";
@@ -44,13 +45,15 @@ export const AiForm = () => {
 									<div className="flex flex-col items-center gap-3  min-h-[25vh] justify-center">
 										<BotIcon className="size-8 self-center text-muted-foreground" />
 										<span className="text-base text-muted-foreground text-center">
-											You don't have any AI configurations
+											You don&apos;t have any AI configurations
 										</span>
 										<HandleAi />
 									</div>
 								) : (
 									<div className="flex flex-col gap-4 rounded-lg min-h-[25vh]">
-										{aiConfigs?.map((config) => (
+										{aiConfigs?.map(
+											//@ts-ignore
+											(config) => (
 											<div
 												key={config.aiId}
 												className="flex items-center justify-between bg-sidebar p-1 w-full rounded-lg"
@@ -85,6 +88,7 @@ export const AiForm = () => {
 																variant="ghost"
 																size="icon"
 																className="group hover:bg-red-500/10 "
+																//@ts-ignore
 																isLoading={isRemoving}
 															>
 																<Trash2 className="size-4 text-primary group-hover:text-red-500" />

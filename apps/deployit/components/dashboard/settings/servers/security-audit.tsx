@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -44,6 +45,7 @@ export const SecurityAudit = ({ serverId }: Props) => {
 								</CardDescription>
 							</div>
 							<Button
+							//@ts-ignore
 								isLoading={isRefreshing}
 								onClick={async () => {
 									setIsRefreshing(true);

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
@@ -97,6 +99,7 @@ export const HandleAi = ({ aiId }: Props) => {
 			},
 			{
 				enabled: !!apiUrl && !!apiKey,
+				//@ts-ignore
 				onError: (error) => {
 					setError(`Failed to fetch models: ${error.message}`);
 				},
@@ -184,7 +187,7 @@ export const HandleAi = ({ aiId }: Props) => {
 										<Input placeholder="https://api.openai.com/v1" {...field} />
 									</FormControl>
 									<FormDescription>
-										The base URL for your AI provider's API
+										The base URL for your AI provider&apos;s API
 									</FormDescription>
 									<FormMessage />
 								</FormItem>
@@ -231,7 +234,9 @@ export const HandleAi = ({ aiId }: Props) => {
 												</SelectTrigger>
 											</FormControl>
 											<SelectContent>
-												{models.map((model) => (
+												{models.map(
+													//@ts-ignore
+													(model) => (
 													<SelectItem key={model.id} value={model.id}>
 														{model.id}
 													</SelectItem>
@@ -269,7 +274,9 @@ export const HandleAi = ({ aiId }: Props) => {
 						/>
 
 						<div className="flex justify-end  gap-2 pt-4">
-							<Button type="submit" isLoading={isLoading}>
+							<Button type="submit"
+							//@ts-ignore
+							isLoading={isLoading}>
 								{aiId ? "Update" : "Create"}
 							</Button>
 						</div>

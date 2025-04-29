@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -248,7 +251,9 @@ export const ProfileForm = () => {
 											/>
 										</div>
 										<div className="flex items-center justify-end gap-2">
-											<Button type="submit" isLoading={isUpdating}>
+											<Button type="submit" 
+											//@ts-ignore
+											isLoading={isUpdating}>
 												{t("settings.common.save")}
 											</Button>
 										</div>

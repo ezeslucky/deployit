@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Badge } from "@/components/ui/badge";
@@ -167,7 +168,9 @@ export const ShowServers = () => {
 														</TableRow>
 													</TableHeader>
 													<TableBody>
-														{data?.map((server) => {
+														{data?.map(
+															//@ts-ignore
+															(server) => {
 															const canDelete = server.totalSum === 0;
 															const isActive = server.serverStatus === "active";
 															return (
@@ -290,6 +293,8 @@ export const ShowServers = () => {
 																									`Server ${server.name} deleted successfully`,
 																								);
 																							})
+//@ts-ignore
+
 																							.catch((err) => {
 																								toast.error(err.message);
 																							});

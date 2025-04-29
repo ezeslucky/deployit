@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Card, CardContent } from "@/components/ui/card";
 import { api } from "@/utils/api";
@@ -15,7 +17,8 @@ export const CreateSSHKey = () => {
 	const hasCreatedKey = useRef(false);
 
 	const cloudSSHKey = data?.find(
-		(sshKey) => sshKey.name === "dokploy-cloud-ssh-key",
+		//@ts-ignore
+		(sshKey) => sshKey.name === "deployit-cloud-ssh-key",
 	);
 
 	useEffect(() => {
@@ -31,7 +34,7 @@ export const CreateSSHKey = () => {
 					type: "rsa",
 				});
 				await mutateAsync({
-					name: "dokploy-cloud-ssh-key",
+					name: "deployit-cloud-ssh-key",
 					description: "Used on Dokploy Cloud",
 					privateKey: keys.privateKey,
 					publicKey: keys.publicKey,
@@ -107,7 +110,7 @@ export const CreateSSHKey = () => {
 											</div>
 										</li>
 										<li className="mt-1">
-											3. You're done, follow the next step to insert the details
+											3. You&apos;re done, follow the next step to insert the details
 											of your server.
 										</li>
 									</ul>

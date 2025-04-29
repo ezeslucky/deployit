@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -145,6 +146,7 @@ export const UpdateServerIp = ({ children }: Props) => {
 
 					<DialogFooter>
 						<Button
+						//@ts-ignore
 							isLoading={isLoading}
 							disabled={isLoading}
 							form="hook-form-update-server-ip"

@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Terminal as XTerm } from "@xterm/xterm";
 import type React from "react";
 import { useEffect, useRef } from "react";

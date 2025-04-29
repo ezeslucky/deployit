@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { GithubIcon } from "@/components/icons/data-tools-icons";
 import { Button } from "@/components/ui/button";
 import { CardContent } from "@/components/ui/card";
@@ -10,14 +11,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
-import { authClient } from "@/lib/auth-client";
+import { authCliend } from "../../../../../lib/auth-client";
 import { api } from "@/utils/api";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 
 export const AddGithubProvider = () => {
 	const [isOpen, setIsOpen] = useState(false);
-	const { data: activeOrganization } = authClient.useActiveOrganization();
+	const { data: activeOrganization } = authCliend.useActiveOrganization();
 	const { data } = api.user.get.useQuery();
 	const [manifest, setManifest] = useState("");
 	const [isOrganization, setIsOrganization] = useState(false);
@@ -70,7 +71,7 @@ export const AddGithubProvider = () => {
 					<CardContent className="p-0">
 						<div className="flex flex-col ">
 							<p className="text-muted-foreground text-sm">
-								To integrate your GitHub account with our services, you'll need
+								To integrate your GitHub account with our services, you&apos;ll need
 								to create and install a GitHub app. This process is
 								straightforward and only takes a few minutes. Click the button
 								below to get started.

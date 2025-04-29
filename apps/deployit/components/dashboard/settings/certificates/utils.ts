@@ -34,7 +34,7 @@ export const extractExpirationDate = (certData: string): Date | null => {
 				}
 
 				if (dateType === 0x17) {
-					// UTCTime (YYMMDDhhmmssZ)
+					
 					const year = Number.parseInt(dateStr.slice(0, 2));
 					const fullYear = year >= 50 ? 1900 + year : 2000 + year;
 					return new Date(
