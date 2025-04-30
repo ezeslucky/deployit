@@ -22,7 +22,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile.api # You can name this or move each Dockerfile into folders for clarity
+      dockerfile: Dockerfile.api
       target: deployit
     container_name: deployit_api
     ports:
@@ -50,3 +50,17 @@ services:
       - "3001:3001"
     environment:
       PORT: 3001
+
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deployit  # Final stage of your multi-stage Dockerfile
+    container_name: deployit_docs
+    image: docs-app
+    ports:
+      - "3004:3000"  # Expose docs on a different port (3004) to avoid conflict with web
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+    restart: unless-stopped

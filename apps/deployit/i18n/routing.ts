@@ -1,16 +1,20 @@
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// i18n/routing.ts
 import { defineRouting } from "next-intl/routing";
+//@ts-expect-error
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
 
+// Define routing configuration
 export const routing = defineRouting({
-	// A list of all locales that are supported
-	locales: ["en", "fr", "zh-Hans"],
-
-	// Used when no locale matches
-	defaultLocale: "en",
-	localePrefix: "as-needed",
+  locales: ["en", "fr", "zh-Hans"], // Supported locales
+  defaultLocale: "en",              // Default locale fallback
+  localePrefix: "as-needed",        // Optional prefix based on default locale
 });
 
-// Lightweight wrappers around Next.js' navigation APIs
-// that will consider the routing configuration
-export const { Link, redirect, usePathname, useRouter } =
-	createSharedPathnamesNavigation(routing);
+// Export Next.js-compatible navigation helpers
+export const {
+  Link,
+  redirect,
+  usePathname,
+  useRouter
+} = createSharedPathnamesNavigation({ routing });

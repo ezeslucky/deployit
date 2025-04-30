@@ -1,0 +1,31 @@
+FROM node:20.9-alpine AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+FROM base AS build
+WORKDIR /usr/src/app
+COPY . .
+
+# Install dependencies
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --filter=./apps/docs --frozen-lockfile
+
+# Build the app
+RUN pnpm --filter=./apps/docs run build
+
+# Prepare output
+RUN mkdir -p /prod/docs
+RUN cp -R ./apps/docs/.next /prod/docs/
+RUN cp -R ./apps/docs/public /prod/docs/
+RUN cp ./apps/docs/package.json /prod/docs/
+RUN cp -R ./apps/docs/node_modules /prod/docs/
+
+FROM base AS deployit
+WORKDIR /app
+ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
+
+COPY --from=build /prod/docs ./
+
+EXPOSE 3000
+CMD ["pnpm", "start"]

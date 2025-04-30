@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { useEffect } from "react";
@@ -5,10 +6,10 @@ import initializeGA from ".";
 
 export default function GoogleAnalytics() {
 	useEffect(() => {
-		// @ts-ignore
+		// @ts-expect-error
 		if (!window.GA_INITIALIZED) {
 			initializeGA();
-			// @ts-ignore
+			// @ts-expect-error
 			window.GA_INITIALIZED = true;
 		}
 	}, []);

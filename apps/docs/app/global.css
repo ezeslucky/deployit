@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+  :root {
+    --fd-background: 0 0% 0%; 
+    --background: 0 0% 100%;
+    --card: 0 0% 97.6%;
+  }
+
+  .dark{
+    --fd-background: 0 0% 100%;
+    --background: 0 0% 0%; 
+    --card: 0 0% 6.0%;
+  }

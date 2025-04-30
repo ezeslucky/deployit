@@ -1,0 +1,59 @@
+---
+title: Domains
+description: This section outlines how to configure domains for your applications in Dokploy, ensuring that your applications are accessible via custom URLs.
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Link } from 'next/link';
+
+Dokploy Provide 2 ways to add a domain to your service:
+
+1. **Free Domains** from Traefik.me
+2. **Buy a domain** from one of the providers above
+
+<Callout type="warn">
+   `traefik.me` domains are free, but they are limited to HTTP only, if you want to configure HTTPS for free domains
+   you can [Create a certificate](/docs/core/certificates#traefikme-https-setup) and use it in the domain settings.
+</Callout>
+
+If you don't have a domain, you can use our integrated free domains from Traefik.me in the Dokploy panel, without doing any configuration however is only for HTTP, if you want to have a HTTPS domain you need to buy a domain from one of the providers above.
+
+Domains are supported for:
+
+- **Applications**
+- **Docker Compose**
+
+
+## Requirements (Optional)
+
+We recommend this if you want to have a HTTPS domain, you need to buy a domain from one of the providers above.
+
+- [Cloudflare](https://www.cloudflare.com/)
+- [Porkbun](https://porkbun.com/)
+- [Namecheap](https://www.namecheap.com/domains/)
+- [Name.com](https://www.name.com/)
+- [GoDaddy](https://www.godaddy.com/)
+- [Domain.com](https://www.domain.com/)
+
+### Add Domain
+
+Associate custom domains with your application to make it accessible over the internet.
+
+- **Host**: The domain name that you want to link to your application (e.g., `api.dokploy.com`).
+- **Path**: The specific path within the domain where the application should be accessible.
+- **Container Port**: The port on the container that the domain should route to.
+- **HTTPS**: Toggle this on to enable HTTPS for your domain, providing secure, encrypted connections.
+- **Certificate**: Select (letsencrypt) or (None)
+
+
+### Note
+
+Proper domain configuration is crucial for the accessibility and security of your application. Always verify domain settings and ensure that DNS configurations are properly set up to point to the correct IP addresses. Enable HTTPS to enhance security and trust, especially for production environments.
+
+
+### Important Clarification on Container Ports
+
+The "Container Port" specified in the domain settings is exclusively for routing traffic to the correct application container through Traefik, and does not expose the port directly to the internet. This is fundamentally different from the port settings in the "Advanced -> Ports" section, which are used to directly expose application ports. The container port in the domain settings ensures that Traefik can internally direct traffic to the specified port within the container based on the domain configuration.
+
+
+

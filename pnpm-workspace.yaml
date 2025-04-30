@@ -3,5 +3,6 @@ packages:
   - "apps/monitoring"
   - "apps/schedules"
   - "apps/models"
+  - "apps/docs"
   - "packages/server"
   - "packages/api"
