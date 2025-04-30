@@ -408,7 +408,7 @@ export const AddUserPermissions = ({ userId }: Props) => {
 																)}
 																{applications?.map((item, index) => (
 																	<FormField
-																	//@ts-expect-error
+																	
 
 																		key={`project-${index}`}
 																		//@ts-expect-error

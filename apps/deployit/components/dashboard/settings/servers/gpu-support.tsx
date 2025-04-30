@@ -62,7 +62,7 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 			await utils.settings.checkGPUStatus.invalidate({ serverId });
 			await refetch();
 		} 
-		//@ts-expect-error
+		
 
 		catch (_error) {
 			toast.error("Failed to refresh GPU status");
@@ -83,7 +83,7 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 		try {
 			await setupGPU.mutateAsync({ serverId });
 		} 
-		//@ts-expect-error
+		
 
 		catch (_error) {
 			// Error handling is done in mutation's onError

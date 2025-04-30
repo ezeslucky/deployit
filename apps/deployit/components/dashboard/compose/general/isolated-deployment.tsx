@@ -73,7 +73,7 @@ export const IsolatedDeployment = ({ composeId }: Props) => {
 			composeId,
 			isolatedDeployment: formData?.isolatedDeployment || false,
 		})
-		//@ts-expect-error
+		
 
 			.then(
 				//@ts-expect-error

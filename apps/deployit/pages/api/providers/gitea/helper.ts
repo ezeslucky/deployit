@@ -1,4 +1,4 @@
-import { findGiteaById } from "@dokploy/server";
+import { findGiteaById } from "../../../../../../packages/server/src/index";
 import type { NextApiResponse } from "next";
 
 export interface Gitea {

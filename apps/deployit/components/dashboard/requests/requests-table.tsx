@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+ 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Badge } from "@/components/ui/badge";
@@ -340,7 +340,7 @@ export const RequestsTable = ({ dateRange }: RequestsTableProps) => {
 														<span>		{value}</span>
 														<Copy
 															onClick={() => {
-																//@ts-expect-error
+																
 
 																copy(value);
 																toast.success("Copied to clipboard");

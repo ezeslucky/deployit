@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/jsx-no-comment-textnodes */
+ 
 "use client";
 import {
 	Activity,
@@ -585,9 +585,11 @@ function SidebarLogo() {
 								<DropdownMenuLabel className="text-xs text-muted-foreground">
 									Organizations
 								</DropdownMenuLabel>
-								//@ts-expect-error
+								
 
-								{organizations?.map((org) => (
+								{organizations?.map(
+									//@ts-expect-error
+									(org) => (
 									<div className="flex flex-row justify-between" key={org.name}>
 										<DropdownMenuItem
 											onClick={async () => {

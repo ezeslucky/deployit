@@ -152,7 +152,7 @@ export const RestoreBackup = ({
 			},
 		},
 	);
-//@ts-expect-error
+
 
 	const onSubmit = async (_data: RestoreBackup) => {
 		setIsDeploying(true);

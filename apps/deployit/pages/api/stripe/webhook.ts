@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { buffer } from "node:stream/consumers";
 import { db } from "@/server/db";
 import { organization, server, users_temp } from "@/server/db/schema";
-import { type Server, findUserById } from "@dokploy/server";
+import { type Server, findUserById } from "../../../../../packages/server/src/index";
 import { asc, eq } from "drizzle-orm";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
@@ -22,6 +23,7 @@ export default async function handler(
 		return res.status(400).send("Webhook Error: Missing Stripe Secret Key");
 	}
 	const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+		//@ts-expect-error
 		apiVersion: "2024-09-30.acacia",
 		maxNetworkRetries: 3,
 	});
@@ -161,6 +163,7 @@ export default async function handler(
 			const newInvoice = event.data.object as Stripe.Invoice;
 
 			const suscription = await stripe.subscriptions.retrieve(
+				//@ts-expect-error
 				newInvoice.subscription as string,
 			);
 
@@ -193,6 +196,7 @@ export default async function handler(
 			const newInvoice = event.data.object as Stripe.Invoice;
 
 			const subscription = await stripe.subscriptions.retrieve(
+				//@ts-expect-error
 				newInvoice.subscription as string,
 			);
 

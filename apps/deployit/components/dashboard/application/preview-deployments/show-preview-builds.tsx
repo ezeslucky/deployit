@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+ 
 import { DateTooltip } from "@/components/shared/date-tooltip";
 import { StatusTooltip } from "@/components/shared/status-tooltip";
 import { Button } from "@/components/ui/button";
@@ -50,7 +50,7 @@ export const ShowPreviewBuilds = ({
 				</DialogHeader>
 				<div className="grid gap-4">
 					{deployments?.map(
-						//@ts-expect-error
+						
 
 						(deployment) => (
 						<div
