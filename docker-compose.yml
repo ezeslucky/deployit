@@ -1,0 +1,52 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deployit
+    container_name: deployit_web
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_UMAMI_HOST: ${NEXT_PUBLIC_UMAMI_HOST}
+      NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+    depends_on:
+      - api
+      - schedules
+      - monitoring
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api # You can name this or move each Dockerfile into folders for clarity
+      target: deployit
+    container_name: deployit_api
+    ports:
+      - "3002:3002"
+    environment:
+      NODE_ENV: production
+
+  schedules:
+    build:
+      context: .
+      dockerfile: Dockerfile.schedules
+      target: deployit
+    container_name: deployit_schedules
+    ports:
+      - "3003:3003"
+    environment:
+      NODE_ENV: production
+
+  monitoring:
+    build:
+      context: .
+      dockerfile: Dockerfile.monitoring
+    container_name: deployit_monitoring
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001

@@ -1,36 +1,56 @@
-FROM node:20.9-slim AS base
+# Use a safer Node base image with fewer vulnerabilities
+FROM node:20.19-slim AS base
+
+# Set up PNPM
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
+# Build stage
 FROM base AS build
-COPY . /usr/src/app
+
+# Set working directory and copy project
 WORKDIR /usr/src/app
+COPY . .
 
-RUN apt-get update && apt-get install -y python3 make g++ git python3-pip pkg-config libsecret-1-dev && rm -rf /var/lib/apt/lists/*
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y python3 make g++ git python3-pip pkg-config libsecret-1-dev && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm --filter=@deployit/server --filter=./apps/api install --frozen-lockfile
+# Install Node dependencies using pnpm with cache
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm --filter=@deployit/server --filter=./apps/api install --frozen-lockfile
 
-# Deploy only the deployit app
-
+# Set production environment
 ENV NODE_ENV=production
+
+# Build both server and API
 RUN pnpm --filter=@deployit/server build
 RUN pnpm --filter=./apps/api run build
 
-RUN pnpm --filter=./apps/api --prod deploy /prod/api
+# Prepare deploy directory
+RUN mkdir -p /prod/api && \
+    pnpm --filter=./apps/api --prod deploy /prod/api && \
+    cp -R /usr/src/app/apps/api/dist /prod/api/dist
 
-RUN cp -R /usr/src/app/apps/api/dist /prod/api/dist
-
+# Final deployable image
 FROM base AS deployit
+
 WORKDIR /app
 
-# Set production
+# Set environment
 ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
 
-# Copy only the necessary files
+# Copy built files and dependencies
 COPY --from=build /prod/api/dist ./dist
 COPY --from=build /prod/api/package.json ./package.json
 COPY --from=build /prod/api/node_modules ./node_modules
 
-CMD HOSTNAME=0.0.0.0 && pnpm start
+# Optional metadata
+
+LABEL org.opencontainers.image.source="https://github.com/ezeslucky/deployit"
+
+# Run the app
+CMD ["pnpm", "start"]

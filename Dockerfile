@@ -1,66 +1,78 @@
-FROM node:20.9-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+# ---------- Base Layer ----------
+    FROM node:20.9-slim AS base
 
-FROM base AS build
-COPY . /usr/src/app
-WORKDIR /usr/src/app
-
-RUN apt-get update && apt-get install -y python3 make g++ git python3-pip pkg-config libsecret-1-dev && rm -rf /var/lib/apt/lists/*
-
-# Install dependencies
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-
-# Deploy only the deployit app
-
-ENV NODE_ENV=production
-RUN pnpm --filter=@deployit/server build
-RUN pnpm --filter=./apps/deployit run build
-
-RUN pnpm --filter=./apps/deployit --prod deploy /prod/deployit
-
-RUN cp -R /usr/src/app/apps/deployit/.next /prod/deployit/.next
-RUN cp -R /usr/src/app/apps/deployit/dist /prod/deployit/dist
-
-FROM base AS deployit
-WORKDIR /app
-
-# Set production
-ENV NODE_ENV=production
-
-RUN apt-get update && apt-get install -y curl unzip zip apache2-utils iproute2 && rm -rf /var/lib/apt/lists/*
-
-# Copy only the necessary files
-COPY --from=build /prod/deployit/.next ./.next
-COPY --from=build /prod/deployit/dist ./dist
-COPY --from=build /prod/deployit/next.config.mjs ./next.config.mjs
-COPY --from=build /prod/deployit/public ./public
-COPY --from=build /prod/deployit/package.json ./package.json
-COPY --from=build /prod/deployit/drizzle ./drizzle
-COPY .env.production ./.env
-COPY --from=build /prod/deployit/components.json ./components.json
-COPY --from=build /prod/deployit/node_modules ./node_modules
-
-
-# Install docker
-RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm get-docker.sh && curl https://rclone.org/install.sh | bash
-
-# Install Nixpacks and tsx
-# | VERBOSE=1 VERSION=1.21.0 bash
-
-ARG NIXPACKS_VERSION=1.29.1
-RUN curl -sSL https://nixpacks.com/install.sh -o install.sh \
-    && chmod +x install.sh \
-    && ./install.sh \
-    && pnpm install -g tsx
-
-# Install Railpack
-ARG RAILPACK_VERSION=0.0.37
-RUN curl -sSL https://railpack.com/install.sh | bash
-
-# Install buildpacks
-COPY --from=buildpacksio/pack:0.35.0 /usr/local/bin/pack /usr/local/bin/pack
-
-EXPOSE 3000
-CMD [ "pnpm", "start" ]
+    ENV PNPM_HOME="/pnpm"
+    ENV PATH="$PNPM_HOME:$PATH"
+    
+    RUN corepack enable && corepack prepare pnpm@latest --activate
+    
+    
+    # ---------- Build Layer ----------
+    FROM base AS build
+    
+    WORKDIR /usr/src/app
+    COPY . .
+    
+    # Install build dependencies
+    RUN apt-get update && apt-get install -y \
+        python3 make g++ git python3-pip pkg-config libsecret-1-dev \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install dependencies with cache
+    RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+        pnpm install --frozen-lockfile
+    
+    # Set environment variables
+    ENV NODE_ENV=production
+    
+    # Build filtered apps
+    RUN pnpm --filter=@deployit/server build \
+        && pnpm --filter=./apps/deployit run build
+    
+    # Create deploy directory
+    RUN mkdir -p /prod/deployit \
+        && cp -R apps/deployit/.next /prod/deployit/.next \
+        && cp -R apps/deployit/dist /prod/deployit/dist \
+        && cp -R apps/deployit/public /prod/deployit/public \
+        && cp apps/deployit/package.json /prod/deployit/package.json \
+        && cp apps/deployit/next.config.mjs /prod/deployit/next.config.mjs \
+        && cp -R apps/deployit/drizzle /prod/deployit/drizzle \
+        && cp apps/deployit/components.json /prod/deployit/components.json \
+        && cp -R apps/deployit/node_modules /prod/deployit/node_modules
+    
+    
+    # ---------- Runtime Layer ----------
+    FROM base AS deployit
+    
+    WORKDIR /app
+    ENV NODE_ENV=production
+    
+    # Install minimal runtime tools
+    RUN apt-get update && apt-get install -y \
+        curl unzip apache2-utils iproute2 \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Copy production build artifacts
+    COPY --from=build /prod/deployit .
+    
+    # Optional: Load production env
+    COPY .env.production ./.env
+    
+    # Optional CLI tools
+    RUN curl https://rclone.org/install.sh | bash \
+        && pnpm install -g tsx
+    
+    # Optional: Nixpacks & Railpack
+    ARG NIXPACKS_VERSION=1.29.1
+    RUN curl -sSL https://nixpacks.com/install.sh -o install.sh \
+        && chmod +x install.sh && ./install.sh
+    
+    ARG RAILPACK_VERSION=0.0.37
+    RUN curl -sSL https://railpack.com/install.sh | bash
+    
+    # Optional: Buildpacks (if needed)
+    COPY --from=buildpacksio/pack:0.35.0 /usr/local/bin/pack /usr/local/bin/pack
+    
+    EXPOSE 3000
+    CMD ["pnpm", "start"]
+    

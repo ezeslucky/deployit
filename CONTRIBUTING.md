@@ -12,9 +12,7 @@ We have a few guidelines to follow when contributing to this project:
 - [Build](#build)
 - [Pull Request](#pull-request)
 
-## Commit Convention
 
-Before you create a Pull Request, please make sure your commit message follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
 ### Commit Message Format
 
@@ -50,7 +48,7 @@ feat: add new feature
 
 ## Setup
 
-Before you start, please make the clone based on the `canary` branch, since the `main` branch is the source of truth and should always reflect the latest stable release, also the PRs will be merged to the `canary` branch.
+Before you start, please make the clone based on the `main` branch, since the `main` branch is the source of truth and should always reflect the latest stable release, also the PRs will be merged to the `main` branch.
 
 We use Node v20.9.0
 
