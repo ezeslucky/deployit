@@ -2,7 +2,7 @@
 import {
 	adminProcedure,
 	//@ts-ignore
-	createTRPCRouter,
+	createTRCRouter,
 	protectedProcedure,
 } from "@/server/api/trpc";
 import { db } from "@/server/db";
@@ -25,7 +25,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { desc, eq } from "drizzle-orm";
 
-export const destinationRouter = createTRPCRouter({
+export const destinationRouter = createTRCRouter({
 	create: adminProcedure
 		.input(apiCreateDestination)
 		.mutation(async ({ input, ctx }) => {

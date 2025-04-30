@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
-  //@ts-ignore  
-    createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+  
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiCreateBackup,
 	apiFindOneBackup,
@@ -54,7 +54,7 @@ import { observable } from "@trpc/server/observable";
 import { z } from "zod";
 
 
-export const backupRouter = createTRPCRouter({
+export const backupRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateBackup)
 		.mutation(async ({ input }) => {

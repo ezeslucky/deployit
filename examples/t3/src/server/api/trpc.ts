@@ -71,7 +71,7 @@ export const createCallerFactory = t.createCallerFactory;
  *
  * @see https://trpc.io/docs/router
  */
-export const createTRPCRouter = t.router;
+export const createTRCRouter = t.router;
 
 /**
  * Public (unauthenticated) procedure

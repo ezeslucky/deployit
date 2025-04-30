@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiChangeRedisStatus,
 	apiCreateRedis,
@@ -39,7 +39,7 @@ import { rebuildDatabase } from "../../../../../packages/server/src/index";
 import { observable } from "@trpc/server/observable";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
-export const redisRouter = createTRPCRouter({
+export const redisRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateRedis)
 		.mutation(async ({ input, ctx }) => {

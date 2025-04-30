@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiCreateDomain,
 	apiFindCompose,
@@ -28,7 +28,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-export const domainRouter = createTRPCRouter({
+export const domainRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateDomain)
 		.mutation(async ({ input, ctx }) => {

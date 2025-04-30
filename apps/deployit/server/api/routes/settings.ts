@@ -69,12 +69,12 @@ import { appRouter } from "../root";
 import {
 	adminProcedure,
 	//@ts-ignore
-	createTRPCRouter,
+	createTRCRouter,
 	protectedProcedure,
 	publicProcedure,
 } from "../trpc";
 
-export const settingsRouter = createTRPCRouter({
+export const settingsRouter = createTRCRouter({
 	reloadServer: adminProcedure.mutation(async () => {
 		if (IS_CLOUD) {
 			return true;

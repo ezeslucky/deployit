@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { adminProcedure, 
     //@ts-ignore
-    createTRPCRouter } from "@/server/api/trpc";
+    createTRCRouter } from "@/server/api/trpc";
 import {
 	apiCreateCertificate,
 	apiFindCertificate,
@@ -19,7 +19,7 @@ import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 
 
-export const certificateRouter = createTRPCRouter({
+export const certificateRouter = createTRCRouter({
 	create: adminProcedure
 		.input(apiCreateCertificate)
 		.mutation(async ({ input, ctx }) => {

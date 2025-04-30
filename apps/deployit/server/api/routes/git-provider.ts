@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import { apiRemoveGitProvider, gitProvider } from "@/server/db/schema";
 import { findGitProviderById, removeGitProvider } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { desc, eq } from "drizzle-orm";
 
-export const gitProviderRouter = createTRPCRouter({
+export const gitProviderRouter = createTRCRouter({
 	getAll: protectedProcedure.query(async ({ ctx }) => {
 		return await db.query.gitProvider.findMany({
 			with: {

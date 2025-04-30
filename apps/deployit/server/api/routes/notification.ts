@@ -2,7 +2,7 @@
 import {
 	adminProcedure,
 	//@ts-ignore
-	createTRPCRouter,
+	createTRCRouter,
 	protectedProcedure,
 	publicProcedure,
 } from "@/server/api/trpc";
@@ -53,7 +53,7 @@ import { TRPCError } from "@trpc/server";
 import { desc, eq, sql } from "drizzle-orm";
 import { z } from "zod";
 
-export const notificationRouter = createTRPCRouter({
+export const notificationRouter = createTRCRouter({
 	createSlack: adminProcedure
 		.input(apiCreateSlack)
 		.mutation(async ({ input, ctx }) => {

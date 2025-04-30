@@ -7,9 +7,9 @@ import {
 } from "../../../../../packages/server/src/index";
 import { z } from "zod";
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRCRouter, protectedProcedure } from "../trpc";
 
-export const swarmRouter = createTRPCRouter({
+export const swarmRouter = createTRCRouter({
 	getNodes: protectedProcedure
 		.input(
 			z.object({

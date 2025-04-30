@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
     //@ts-ignore
-    createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+    createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiBitbucketTestConnection,
@@ -21,7 +21,7 @@ import {
 import { TRPCError } from "@trpc/server";
 
 
-export const bitbucketRouter = createTRPCRouter({
+export const bitbucketRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateBitbucket)
 		.mutation(async ({ input, ctx }) => {

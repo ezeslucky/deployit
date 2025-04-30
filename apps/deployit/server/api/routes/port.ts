@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiCreatePort,
 	apiFindOnePort,
@@ -15,7 +15,7 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 
-export const portRouter = createTRPCRouter({
+export const portRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreatePort)
 		.mutation(async ({ input }) => {

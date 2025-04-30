@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiChangePostgresStatus,
@@ -39,7 +39,7 @@ import { TRPCError } from "@trpc/server";
 import { observable } from "@trpc/server/observable";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
-export const postgresRouter = createTRPCRouter({
+export const postgresRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreatePostgres)
 		//@ts-ignore

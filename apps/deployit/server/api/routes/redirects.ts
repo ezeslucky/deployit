@@ -13,9 +13,9 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRCRouter, protectedProcedure } from "../trpc";
 
-export const redirectsRouter = createTRPCRouter({
+export const redirectsRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateRedirect)
 		.mutation(async ({ input, ctx }) => {

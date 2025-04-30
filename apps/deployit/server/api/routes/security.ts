@@ -13,9 +13,9 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRCRouter, protectedProcedure } from "../trpc";
 
-export const securityRouter = createTRPCRouter({
+export const securityRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateSecurity)
 		.mutation(async ({ input, ctx }) => {

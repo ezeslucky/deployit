@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiChangeMariaDBStatus,
@@ -40,7 +40,7 @@ import { TRPCError } from "@trpc/server";
 import { observable } from "@trpc/server/observable";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
-export const mariadbRouter = createTRPCRouter({
+export const mariadbRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateMariaDB)
 		.mutation(async ({ input, ctx }) => {

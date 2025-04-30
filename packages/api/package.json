@@ -1,10 +1,13 @@
 {
   "name": "@deployit/api",
   "version": "1.0.0",
- "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "type": "module",
+	"scripts": {
+		"dev": "PORT=4000 tsx watch src/index.ts",
+		"build": "tsc --project tsconfig.json",
+		"start": "node dist/index.js",
+		"typecheck": "tsc --noEmit"
+	},
   "keywords": [],
   "author": "",
   "license": "ISC",

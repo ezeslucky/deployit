@@ -11,9 +11,9 @@ import {
 import { z } from "zod";
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "../trpc";
+	createTRCRouter, protectedProcedure } from "../trpc";
 
-export const dockerRouter = createTRPCRouter({
+export const dockerRouter = createTRCRouter({
 	getContainers: protectedProcedure
 		.input(
 			z.object({

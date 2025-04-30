@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiChangeMySqlStatus,
 	apiCreateMySql,
@@ -44,7 +44,7 @@ import { observable } from "@trpc/server/observable";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 
-export const mysqlRouter = createTRPCRouter({
+export const mysqlRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateMySql)
 		.mutation(async ({ input, ctx }) => {

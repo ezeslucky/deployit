@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
-	//@ts-ignore
-	createTRPCRouter,
+	
+	createTRCRouter,
 	protectedProcedure,
 	uploadProcedure,
 } from "@/server/api/trpc";
@@ -61,7 +61,7 @@ import { nanoid } from "nanoid";
 import { z } from "zod";
 
 
-export const applicationRouter = createTRPCRouter({
+export const applicationRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateApplication)
 		.mutation(async ({ input, ctx }) => {

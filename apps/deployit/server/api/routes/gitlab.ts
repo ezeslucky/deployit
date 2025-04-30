@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiCreateGitlab,
 	apiFindGitlabBranches,
@@ -23,7 +23,7 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 
-export const gitlabRouter = createTRPCRouter({
+export const gitlabRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateGitlab)
 		.mutation(async ({ input, ctx }) => {

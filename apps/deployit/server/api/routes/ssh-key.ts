@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
  //@ts-ignore
- import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+ import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiCreateSshKey,
@@ -20,7 +20,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { desc, eq } from "drizzle-orm";
 
-export const sshRouter = createTRPCRouter({
+export const sshRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateSshKey)
 		.mutation(async ({ input, ctx }) => {

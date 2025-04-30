@@ -9,9 +9,9 @@ import {
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRCRouter, protectedProcedure } from "../trpc";
 
-export const previewDeploymentRouter = createTRPCRouter({
+export const previewDeploymentRouter = createTRCRouter({
 	all: protectedProcedure
 		.input(apiFindAllByApplication)
 		.query(async ({ input, ctx }) => {

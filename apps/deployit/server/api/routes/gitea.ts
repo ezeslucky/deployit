@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiCreateGitea,
 	apiFindGiteaBranches,
@@ -25,7 +25,7 @@ import {
 
 import { TRPCError } from "@trpc/server";
 
-export const giteaRouter = createTRPCRouter({
+export const giteaRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateGitea)
 		.mutation(async ({ input, ctx }) => {

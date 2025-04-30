@@ -12,7 +12,7 @@
 		"server:script": "pnpm --filter=server run switch:dev",
 		"server:dev": "pnpm --filter=server run dev",
 		"server:build": "pnpm --filter=server run build",
-		"docker:build:canary": "./apps/deployit/docker/build.sh canary",
+		"docker:build:main": "./apps/deployit/docker/build.sh main",
 		"typecheck": "pnpm -r run typecheck",
 		"build": "pnpm -r run build",
 		"format-and-lint": "biome check .",

@@ -10,7 +10,6 @@ import { WebSocketServer } from "ws";
 import { getDockerHost } from "../utils/docker";
 import { setupLocalServerSSHKey } from "./utils";
 
-
 const COMMAND_TO_ALLOW_LOCAL_ACCESS = `
 # ----------------------------------------
 mkdir -p $HOME/.ssh && \\
@@ -27,228 +26,205 @@ sudo chown -R $USER:$USER /etc/deployit/ssh
 # ----------------------------------------
 `;
 
+// @ts-ignore
+export const getPublicIpWithFallback = async () => {
+    let ip = null;
+    try {
+        ip = await publicIpv4();
+    } catch (error: unknown) { // Explicitly type 'error' as 'unknown'
+        console.log(
+            "Error to obtain public IPv4 address, falling back to IPv6",
+            (error as Error).message // Type assertion for 'error' as 'Error'
+        );
 
-
-//@ts-ignore
-export const getPublicIpWithFallback = async () =>{
-
-    let ip = null
-    try{
-        //@ts-ignore
-        ip= await publicIpv4()
-    }catch(error){
-        console.log("Error to obtain public IPv4 address, falling back to IPv6", 
-            //@ts-ignore
-            error.message)
-
-            try{
-                ip = await publicIpv6()
-            }catch(error){
-                //@ts-ignore
-                console.log("Error to obtain public IPv6 address", error.message)
-                //@ts-ignore
-                ip = null
-            }
+        try {
+            ip = await publicIpv6();
+        } catch (error: unknown) {
+            console.error(
+                "Error to obtain public IPv6 address",
+                (error as Error).message // Type assertion for 'error' as 'Error'
+            );
+            ip = null;
+        }
     }
 
-    return ip
-}
-
-//@ts-ignore
-export const getPublicIpWithFallback = async () => {
-	// @ts-ignore
-	let ip = null;
-	try {
-		ip = await publicIpv4();
-	} catch (error) {
-		console.log(
-			"Error to obtain public IPv4 address, falling back to IPv6",
-			// @ts-ignore
-			error.message,
-		);
-		try {
-			ip = await publicIpv6();
-		} catch (error) {
-			// @ts-ignore
-			console.error("Error to obtain public IPv6 address", error.message);
-			ip = null;
-		}
-	}
-	return ip;
+    return ip;
 };
 
+// @ts-ignore
 export const setupTerminalWebSocketServer = (
-	server: http.Server<typeof http.IncomingMessage, typeof http.ServerResponse>,
+    server: http.Server<typeof http.IncomingMessage, typeof http.ServerResponse>
 ) => {
-	const wssTerm = new WebSocketServer({
-		noServer: true,
-		path: "/terminal",
-	});
+    const wssTerm = new WebSocketServer({
+        noServer: true,
+        path: "/terminal",
+    });
 
-	server.on("upgrade", (req, socket, head) => {
-		const { pathname } = new URL(req.url || "", `http://${req.headers.host}`);
-		if (pathname === "/_next/webpack-hmr") {
-			return;
-		}
-		if (pathname === "/terminal") {
-			wssTerm.handleUpgrade(req, socket, head, function done(ws) {
-				wssTerm.emit("connection", ws, req);
-			});
-		}
-	});
-//@ts-ignore
-	wssTerm.on("connection", async (ws, req) => {
-		const url = new URL(req.url || "", `http://${req.headers.host}`);
-		const serverId = url.searchParams.get("serverId");
-		const { user, session } = await validateRequest(req);
-		if (!user || !session || !serverId) {
-			ws.close();
-			return;
-		}
-//@ts-ignore
-		let connectionDetails: ConnectConfig = {
-           
-        };
+    server.on("upgrade", (req, socket, head) => {
+        const { pathname } = new URL(req.url || "", `http://${req.headers.host}`);
+        if (pathname === "/_next/webpack-hmr") {
+            return;
+        }
+        if (pathname === "/terminal") {
+            wssTerm.handleUpgrade(req, socket, head, function done(ws) {
+                wssTerm.emit("connection", ws, req);
+            });
+        }
+    });
 
-		const isLocalServer = serverId === "local";
+    // @ts-ignore
+    wssTerm.on("connection", async (ws, req) => {
+        const url = new URL(req.url || "", `http://${req.headers.host}`);
+        const serverId = url.searchParams.get("serverId");
+        const { user, session } = await validateRequest(req);
+        if (!user || !session || !serverId) {
+            ws.close();
+            return;
+        }
 
-		if (isLocalServer && !IS_CLOUD) {
-			const port = Number(url.searchParams.get("port"));
-			const username = url.searchParams.get("username");
+        // @ts-ignore
+        let connectionDetails: ConnectConfig = {};
 
-			if (!port || !username) {
-				ws.close();
-				return;
-			}
+        const isLocalServer = serverId === "local";
 
-			try {
-				ws.send("Setting up private SSH key...\n");
-				const privateKey = await setupLocalServerSSHKey();
+        if (isLocalServer && !IS_CLOUD) {
+            const port = Number(url.searchParams.get("port"));
+            const username = url.searchParams.get("username");
 
-				if (!privateKey) {
-					ws.close();
-					return;
-				}
+            if (!port || !username) {
+                ws.close();
+                return;
+            }
 
-				const dockerHost = await getDockerHost();
+            try {
+                ws.send("Setting up private SSH key...\n");
+                const privateKey = await setupLocalServerSSHKey();
 
-				ws.send(`Found Docker host: ${dockerHost}\n`);
+                if (!privateKey) {
+                    ws.close();
+                    return;
+                }
 
-				connectionDetails = {
-					host: dockerHost,
-					port,
-					username,
-					privateKey,
-				};
-			} catch (error) {
-				console.error(`Error setting up private SSH key: ${error}`);
-				ws.send(`Error setting up private SSH key: ${error}\n`);
+                const dockerHost = await getDockerHost();
 
-				if (
-					error instanceof Error &&
-					error.message.includes("Permission denied")
-				) {
-					ws.send(
-						`Please run the following command on your server to grant permission access and then reopen this window to reconnect:${COMMAND_TO_GRANT_PERMISSION_ACCESS}`,
-					);
-				}
+                ws.send(`Found Docker host: ${dockerHost}\n`);
 
-				ws.close();
-				return;
-			}
-		} else {
-			const server = await findServerById(serverId);
+                connectionDetails = {
+                    host: dockerHost,
+                    port,
+                    username,
+                    privateKey,
+                };
+            } catch (error) {
+                console.error(`Error setting up private SSH key: ${error}`);
+                ws.send(`Error setting up private SSH key: ${error}\n`);
 
-			if (!server) {
-				ws.close();
-				return;
-			}
+                if (
+                    error instanceof Error &&
+                    error.message.includes("Permission denied")
+                ) {
+                    ws.send(
+                        `Please run the following command on your server to grant permission access and then reopen this window to reconnect:${COMMAND_TO_GRANT_PERMISSION_ACCESS}`
+                    );
+                }
 
-			const { ipAddress: host, port, username, sshKey, sshKeyId } = server;
+                ws.close();
+                return;
+            }
+        } else {
+            const server = await findServerById(serverId);
 
-			if (!sshKeyId) {
-				throw new Error("No SSH key available for this server");
-			}
+            if (!server) {
+                ws.close();
+                return;
+            }
 
-			connectionDetails = {
-				host,
-				port,
-				username,
-				privateKey: sshKey?.privateKey,
-			};
-		}
+            const { ipAddress: host, port, username, sshKey, sshKeyId } = server;
 
-		const conn = new Client();
-        //@ts-ignore
-		let _stdout = "";
-        //@ts-ignore
-		let _stderr = "";
+            if (!sshKeyId) {
+                throw new Error("No SSH key available for this server");
+            }
 
-		ws.send("Connecting...\n");
+            connectionDetails = {
+                host,
+                port,
+                username,
+                privateKey: sshKey?.privateKey,
+            };
+        }
 
-		conn
-			.once("ready", () => {
-				// Clear terminal content once connected
-				ws.send("\x1bc");
-//@ts-ignore
-				conn.shell({}, (err, stream) => {
-					if (err) throw err;
+        const conn = new Client();
+        // @ts-ignore
+        let _stdout = "";
+        // @ts-ignore
+        let _stderr = "";
 
-					stream
-                    //@ts-ignore
-						.on("close", (code: number, _signal: string) => {
-							ws.send(`\nContainer closed with code: ${code}\n`);
-							conn.end();
-						})
-						.on("data", (data: string) => {
-							_stdout += data.toString();
-							ws.send(data.toString());
-						})
-                        //@ts-ignore
-						.stderr.on("data", (data) => {
-							_stderr += data.toString();
-							ws.send(data.toString());
-							console.error("Error: ", data.toString());
-						});
-//@ts-ignore
-					ws.on("message", (message) => {
-						try {
-							let command: string | Buffer[] | Buffer | ArrayBuffer;
-							if (Buffer.isBuffer(message)) {
-								command = message.toString("utf8");
-							} else {
-								command = message;
-							}
-							stream.write(command.toString());
-						} catch (error) {
-							// @ts-ignore
-							const errorMessage = error?.message as unknown as string;
-							ws.send(errorMessage);
-						}
-					});
+        ws.send("Connecting...\n");
 
-					ws.on("close", () => {
-						stream.end();
-					});
-				});
-			})
-            //@ts-ignore
-			.on("error", (err) => {
-				if (err.level === "client-authentication") {
-					if (isLocalServer) {
-						ws.send(
-							`Authentication failed: Please run the command below on your server to allow access. Make sure to run it as the same user as the one configured in connection settings:${COMMAND_TO_ALLOW_LOCAL_ACCESS}\nAfter running the command, reopen this window to reconnect. This procedure is required only once.`,
-						);
-					} else {
-						ws.send(
-							`Authentication failed: Unauthorized private SSH key or username.\n❌  Error: ${err.message} ${err.level}`,
-						);
-					}
-				} else {
-					ws.send(`SSH connection error: ${err.message} ❌ `);
-				}
-				conn.end();
-			})
-			.connect(connectionDetails);
-	});
+        conn
+            .once("ready", () => {
+                // Clear terminal content once connected
+                ws.send("\x1bc");
+                // @ts-ignore
+                conn.shell({}, (err, stream) => {
+                    if (err) throw err;
+
+                    stream
+                        // @ts-ignore
+                        .on("close", (code: number, _signal: string) => {
+                            ws.send(`\nContainer closed with code: ${code}\n`);
+                            conn.end();
+                        })
+                        .on("data", (data: string) => {
+                            _stdout += data.toString();
+                            ws.send(data.toString());
+                        })
+                        // @ts-ignore
+                        .stderr.on("data", (data) => {
+                            _stderr += data.toString();
+                            ws.send(data.toString());
+                            console.error("Error: ", data.toString());
+                        });
+
+                    // @ts-ignore
+                    ws.on("message", (message) => {
+                        try {
+                            let command: string | Buffer[] | Buffer | ArrayBuffer;
+                            if (Buffer.isBuffer(message)) {
+                                command = message.toString("utf8");
+                            } else {
+                                command = message;
+                            }
+                            stream.write(command.toString());
+                        } catch (error) {
+                            // @ts-ignore
+                            const errorMessage = (error as Error).message; // Type assertion for 'error' as 'Error'
+                            ws.send(errorMessage);
+                        }
+                    });
+
+                    ws.on("close", () => {
+                        stream.end();
+                    });
+                });
+            })
+            // @ts-ignore
+            .on("error", (err) => {
+                if (err.level === "client-authentication") {
+                    if (isLocalServer) {
+                        ws.send(
+                            `Authentication failed: Please run the command below on your server to allow access. Make sure to run it as the same user as the one configured in connection settings:${COMMAND_TO_ALLOW_LOCAL_ACCESS}\nAfter running the command, reopen this window to reconnect. This procedure is required only once.`
+                        );
+                    } else {
+                        ws.send(
+                            `Authentication failed: Unauthorized private SSH key or username.\n❌  Error: ${err.message} ${err.level}`
+                        );
+                    }
+                } else {
+                    ws.send(`SSH connection error: ${err.message} ❌ `);
+                }
+                conn.end();
+            })
+            .connect(connectionDetails);
+    });
 };

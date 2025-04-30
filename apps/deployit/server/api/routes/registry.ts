@@ -20,8 +20,8 @@ import {
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 //@ts-ignore
-import { adminProcedure, createTRPCRouter, protectedProcedure } from "../trpc";
-export const registryRouter = createTRPCRouter({
+import { adminProcedure, createTRCRouter, protectedProcedure } from "../trpc";
+export const registryRouter = createTRCRouter({
 	create: adminProcedure
 		.input(apiCreateRegistry)
 		.mutation(async ({ ctx, input }) => {

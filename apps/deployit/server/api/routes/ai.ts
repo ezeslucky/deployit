@@ -35,8 +35,8 @@ import {
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-//@ts-ignore
-export const aiRouter = createTRPCRouter({
+
+export const aiRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(z.object({ aiId: z.string() }))
 		.query(async ({ ctx, input }) => {

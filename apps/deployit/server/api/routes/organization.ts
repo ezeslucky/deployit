@@ -8,8 +8,8 @@ import { nanoid } from "nanoid";
 import { z } from "zod";
 import { adminProcedure, 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "../trpc";
-export const organizationRouter = createTRPCRouter({
+	createTRCRouter, protectedProcedure } from "../trpc";
+export const organizationRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(
 			z.object({

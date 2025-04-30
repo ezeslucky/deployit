@@ -60,9 +60,9 @@ import { nanoid } from "nanoid";
 import { z } from "zod";
 import {
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+	createTRCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
-export const composeRouter = createTRPCRouter({
+export const composeRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateCompose)
 		.mutation(async ({ ctx, input }) => {

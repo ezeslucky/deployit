@@ -26,7 +26,7 @@ import { z } from "zod";
 import {
 	adminProcedure,
 	//@ts-ignore
-	createTRPCRouter,
+	createTRCRouter,
 	protectedProcedure,
 	publicProcedure,
 } from "../trpc";
@@ -48,7 +48,7 @@ const apiCreateApiKey = z.object({
 	refillInterval: z.number().optional(),
 });
 
-export const userRouter = createTRPCRouter({
+export const userRouter = createTRCRouter({
 	all: adminProcedure.query(async ({ ctx }) => {
 		return await db.query.member.findMany({
 			where: eq(member.organizationId, ctx.session.activeOrganizationId),

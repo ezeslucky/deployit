@@ -11,6 +11,9 @@ declare module 'ssh2' {
     }
   
     export class Client extends EventEmitter {
+	  shell(arg0: {}, arg1: (err: any, stream: any) => void) {
+		  throw new Error("Method not implemented.");
+	  }
       connect(config: ConnectConfig): void;
       exec(command: string, callback: (err: Error | null, stream: any) => void): void;
       end(): void;

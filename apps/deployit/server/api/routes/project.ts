@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiCreateProject,
@@ -55,7 +55,7 @@ import { TRPCError } from "@trpc/server";
 import { and, desc, eq, sql } from "drizzle-orm";
 import type { AnyPgColumn } from "drizzle-orm/pg-core";
 
-export const projectRouter = createTRPCRouter({
+export const projectRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateProject)
 		.mutation(async ({ ctx, input }) => {

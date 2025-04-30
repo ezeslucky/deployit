@@ -11,9 +11,9 @@ import { TRPCError } from "@trpc/server";
 import Stripe from "stripe";
 import { z } from "zod";
 //@ts-ignore
-import { adminProcedure, createTRPCRouter } from "../trpc";
+import { adminProcedure, createTRCRouter } from "../trpc";
 
-export const stripeRouter = createTRPCRouter({
+export const stripeRouter = createTRCRouter({
 	getProducts: adminProcedure.query(async ({ ctx }) => {
 		const user = await findUserById(ctx.user.ownerId);
 		const stripeCustomerId = user.stripeCustomerId;

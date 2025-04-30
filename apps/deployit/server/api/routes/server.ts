@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { updateServersBasedOnQuantity } from "@/pages/api/stripe/webhook";
 //@ts-ignore
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiCreateServer,
@@ -41,7 +41,7 @@ import { observable } from "@trpc/server/observable";
 import { and, desc, eq, getTableColumns, isNotNull, sql } from "drizzle-orm";
 import { z } from "zod";
 
-export const serverRouter = createTRPCRouter({
+export const serverRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateServer)
 		.mutation(async ({ ctx, input }) => {

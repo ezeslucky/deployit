@@ -13,9 +13,9 @@ import {
 } from "../../../../../packages/server/src/index";
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "../trpc";
+	createTRCRouter, protectedProcedure } from "../trpc";
 
-export const mountRouter = createTRPCRouter({
+export const mountRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreateMount)
 		.mutation(async ({ input }) => {

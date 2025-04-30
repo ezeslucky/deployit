@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
 	//@ts-ignore
-	createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
 	apiFindGithubBranches,
@@ -17,7 +17,7 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 
-export const githubRouter = createTRPCRouter({
+export const githubRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneGithub)
 		.query(async ({ input, ctx }) => {
