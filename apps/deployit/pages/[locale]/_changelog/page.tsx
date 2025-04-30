@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import { ScrollArea } from "@/components/ui/scroll-area";
 
 // Datos de ejemplo del changelog

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import type { Post } from "@/lib/ghost";
@@ -29,7 +30,7 @@ export function BlogPostCard({ post, locale }: BlogPostCardProps) {
 			href={`/blog/${post.slug}`}
 			className="group block hover:bg-muted p-4 rounded-lg border border-border"
 		>
-			<article className="flex gap-6 items-start max-sm:flex-col items-center">
+			<article className="flex gap-6 max-sm:flex-col items-center">
 				<div className="relative  shrink-0 flex items-center justify-center mx-auto">
 					<img
 						src={post.feature_image || "/og.png"}

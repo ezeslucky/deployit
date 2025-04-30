@@ -101,7 +101,7 @@ export default function Home() {
 					6. Limitations of Liability
 				</h2>
 				<p className="">
-					Dokploy is provided "as is" without any warranties, express or
+					Dokploy is provided &quot;as is&quot; without any warranties, express or
 					implied, including but not limited to the availability, reliability,
 					or accuracy of the service.
 				</p>
@@ -169,7 +169,7 @@ export default function Home() {
 				<p className="mb-4">
 					Dokploy reserves the right to update these Terms & Conditions at any
 					time. Changes will be effective immediately upon posting on the
-					website. It is the user's responsibility to review these terms
+					website. It is the user&apos;s responsibility to review these terms
 					periodically.
 				</p>
 			</section>
@@ -178,7 +178,7 @@ export default function Home() {
 				<h2 className="text-2xl font-semibold mb-4">11. Governing Law</h2>
 				<p className="mb-4">
 					These Terms & Conditions are governed by applicable laws based on the
-					user's location. Any disputes arising under these terms will be
+					user&apos;s location. Any disputes arising under these terms will be
 					resolved in accordance with the legal jurisdiction relevant to the
 					user’s location, unless otherwise required by applicable law.
 				</p>

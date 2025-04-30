@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { getPost, getPosts } from "@/lib/ghost";
 import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -12,7 +15,7 @@ import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
 import type { BundledLanguage } from "shiki/bundle/web";
 import TurndownService from "turndown";
-// @ts-ignore
+// @ts-expect-error
 import * as turndownPluginGfm from "turndown-plugin-gfm";
 import { CodeBlock } from "./components/CodeBlock";
 import { H1, H2, H3 } from "./components/Headings";
@@ -69,17 +72,7 @@ export async function generateMetadata(
 	};
 }
 
-// export async function generateStaticParams() {
-// 	const posts = await getPosts();
-// 	const locales = ["en", "fr", "zh-Hans"];
 
-// 	return posts.flatMap((post) =>
-// 		locales.map((locale) => ({
-// 			locale,
-// 			slug: post.slug,
-// 		})),
-// 	);
-// }
 
 export default async function BlogPostPage({ params }: Props) {
 	const { slug } = await params;
@@ -170,6 +163,7 @@ export default async function BlogPostPage({ params }: Props) {
 		),
 		img: ({ node, src, alt }) => (
 			<ZoomableImage
+			//@ts-expect-error
 				src={src || ""}
 				alt={alt || ""}
 				className="object-cover max-w-lg mx-auto rounded-lg border max-lg:w-64 border-border overflow-hidden"

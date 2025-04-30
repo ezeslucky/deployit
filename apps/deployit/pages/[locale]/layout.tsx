@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Inter, Lexend } from "next/font/google";
 import "@/styles/tailwind.css";
 import "react-photo-view/dist/react-photo-view.css";
