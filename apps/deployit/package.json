@@ -118,6 +118,8 @@
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^2.1.9",
     "recharts": "^2.15.3",
+    "satori": "^0.12.2",
+    "sharp": "^0.34.1",
     "slugify": "^1.6.6",
     "sonner": "^2.0.3",
     "ssh2": "1.15.0",
