@@ -30,7 +30,8 @@ export const SaveDragNDrop = ({ applicationId }: Props) => {
 
 	const form = useForm<UploadFile>({
 		defaultValues: {},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(uploadFileSchema),
 	});
 
@@ -65,14 +66,16 @@ export const SaveDragNDrop = ({ applicationId }: Props) => {
 	return (
 		<Form {...form}>
 			<form
-			//@ts-ignore
+			//@ts-expect-error
+
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="flex flex-col gap-4"
 			>
 				<div className="grid md:grid-cols-2 gap-4 ">
 					<div className="md:col-span-2 space-y-4">
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="dropBuildPath"
 							render={({ field }) => (
@@ -86,7 +89,8 @@ export const SaveDragNDrop = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="zip"
 							render={({ field }) => (
@@ -134,7 +138,8 @@ export const SaveDragNDrop = ({ applicationId }: Props) => {
 					<Button
 						type="submit"
 						className="w-fit"
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading}
 						disabled={!zip || isLoading}
 					>

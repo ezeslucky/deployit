@@ -12,7 +12,8 @@ import {
 	updateMount,
 } from "../../../../../packages/server/src/index";
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "../trpc";
 
 export const mountRouter = createTRCRouter({

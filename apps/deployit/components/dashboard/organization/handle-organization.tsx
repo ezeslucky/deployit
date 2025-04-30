@@ -87,7 +87,8 @@ export function AddOrganization({ organizationId }: Props) {
 				utils.organization.all.invalidate();
 				setOpen(false);
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((error) => {
 				console.error(error);
 				toast.error(
@@ -173,7 +174,8 @@ export function AddOrganization({ organizationId }: Props) {
 						/>
 						<DialogFooter className="mt-4">
 							<Button type="submit"
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isLoading}>
 								{organizationId ? "Update organization" : "Create organization"}
 							</Button>

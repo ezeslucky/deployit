@@ -17,7 +17,8 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-//@ts-ignore
+//@ts-expect-error
+
 import { authClient } from "../../lib/auth-client";
 import { Languages } from "@/lib/languages";
 import { api } from "@/utils/api";

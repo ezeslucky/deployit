@@ -57,7 +57,8 @@ export const ShowStorageActions = ({ serverId }: Props) => {
 				}
 			>
 				<Button
-				//@ts-ignore
+				//@ts-expect-error
+
 					isLoading={
 						cleanAllIsLoading ||
 						cleanDockerBuilderIsLoading ||

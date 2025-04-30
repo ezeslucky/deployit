@@ -61,7 +61,8 @@ export const CreateServer = ({ stepper }: Props) => {
 		api.stripe.canCreateMoreServers.useQuery();
 	const { mutateAsync } = api.server.create.useMutation();
 	const cloudSSHKey = sshKeys?.find(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(sshKey) => sshKey.name === "deployit-cloud-ssh-key",
 	);
 
@@ -101,7 +102,8 @@ export const CreateServer = ({ stepper }: Props) => {
 			username: data.username || "root",
 			sshKeyId: data.sshKeyId || "",
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(async (_data) => {
 				toast.success("Server Created");
 				stepper.next();
@@ -193,7 +195,8 @@ export const CreateServer = ({ stepper }: Props) => {
 										<SelectContent>
 											<SelectGroup>
 												{sshKeys?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(sshKey) => (
 													<SelectItem
 														key={sshKey.sshKeyId}
@@ -275,7 +278,8 @@ export const CreateServer = ({ stepper }: Props) => {
 
 					<DialogFooter className="pt-5">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={form.formState.isSubmitting}
 							disabled={!canCreateMoreServers}
 							form="hook-form-add-server"

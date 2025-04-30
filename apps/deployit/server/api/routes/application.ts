@@ -66,7 +66,8 @@ export const applicationRouter = createTRCRouter({
 		.input(apiCreateApplication)
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -91,7 +92,8 @@ export const applicationRouter = createTRCRouter({
 					});
 				}
 				const newApplication = await createApplication(input);
-//@ts-ignore
+//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -114,7 +116,8 @@ export const applicationRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneApplication)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -174,7 +177,8 @@ export const applicationRouter = createTRCRouter({
 	delete: protectedProcedure
 		.input(apiFindOneApplication)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,

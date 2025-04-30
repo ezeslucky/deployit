@@ -2,7 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiChangeMySqlStatus,
@@ -49,7 +50,8 @@ export const mysqlRouter = createTRCRouter({
 		.input(apiCreateMySql)
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -75,7 +77,8 @@ export const mysqlRouter = createTRCRouter({
 				}
 
 				const newMysql = await createMysql(input);
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -107,7 +110,8 @@ export const mysqlRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneMySql)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -268,7 +272,8 @@ export const mysqlRouter = createTRCRouter({
 	remove: protectedProcedure
 		.input(apiFindOneMySql)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,

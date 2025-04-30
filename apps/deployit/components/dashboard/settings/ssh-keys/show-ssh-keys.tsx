@@ -53,7 +53,8 @@ export const ShowDestinations = () => {
 									<div className="flex flex-col gap-4  min-h-[25vh]">
 										<div className="flex flex-col gap-4 rounded-lg ">
 											{data?.map(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(sshKey, index) => (
 												<div
 													key={sshKey.sshKeyId}
@@ -110,7 +111,8 @@ export const ShowDestinations = () => {
 																	variant="ghost"
 																	size="icon"
 																	className="group hover:bg-red-500/10 "
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	isLoading={isRemoving}
 																>
 																	<Trash2 className="size-4 text-primary group-hover:text-red-500" />

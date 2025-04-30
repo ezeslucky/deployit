@@ -35,7 +35,8 @@ export function NodeCard({ node, serverId }: Props) {
 					<CardTitle className="flex items-center justify-between text-lg">
 						<span className="flex items-center gap-2">{node.Hostname}</span>
 						<Badge
-						//@ts-ignore
+						//@ts-expect-error
+
 						variant="green">{node.ManagerStatus || "Worker"}</Badge>
 					</CardTitle>
 				</CardHeader>
@@ -62,15 +63,18 @@ export function NodeCard({ node, serverId }: Props) {
 							/>
 							<div className="font-medium">{node.Hostname}</div>
 							<Badge 
-							//@ts-ignore
+							//@ts-expect-error
+
 							variant="green">{node.ManagerStatus || "Worker"}</Badge>
 						</div>
 						<div className="flex flex-wrap items-center gap-4">
 							<Badge 
-							//@ts-ignore
+							//@ts-expect-error
+
 							variant="green">TLS Status: {node.TLSStatus}</Badge>
 							<Badge 
-							//@ts-ignore
+							//@ts-expect-error
+
 							variant="blue">Availability: {node.Availability}</Badge>
 						</div>
 					</div>

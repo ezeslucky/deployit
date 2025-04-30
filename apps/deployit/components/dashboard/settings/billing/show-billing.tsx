@@ -59,7 +59,8 @@ export const ShowBilling = () => {
 				serverQuantity: serverQuantity,
 				isAnnual,
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.then(async (session) => {
 				await stripe?.redirectToCheckout({
 					sessionId: session.sessionId,

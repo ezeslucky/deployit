@@ -129,7 +129,8 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 						</div>
 						<div className="flex justify-end">
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isLoading} type="submit" className="w-fit">
 								Save
 							</Button>

@@ -161,7 +161,8 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 												<SelectContent>
 													<SelectGroup>
 														{sshKeys?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(sshKey) => (
 															<SelectItem
 																key={sshKey.sshKeyId}
@@ -302,7 +303,8 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 
 				<div className="flex flex-row justify-end">
 					<Button type="submit" className="w-fit" 
-					//@ts-ignore
+					//@ts-expect-error
+
 					isLoading={isLoading}>
 						Save{" "}
 					</Button>

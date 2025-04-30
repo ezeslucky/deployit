@@ -102,7 +102,8 @@ export const ShowNodes = ({ serverId }: Props) => {
 									</TableHeader>
 									<TableBody>
 										{data?.map(
-											//@ts-ignore
+											//@ts-expect-error
+
 											(node) => {
 											const isManager = node.Spec.Role === "manager";
 											return (

@@ -101,7 +101,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 			branch: "",
 			watchPaths: [],
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(GiteaProviderSchema),
 	});
 
@@ -181,14 +182,16 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 		<div>
 			<Form {...form}>
 				<form
-				//@ts-ignore
+				//@ts-expect-error
+
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="grid w-full gap-4 py-3"
 				>
 					{error && <AlertBlock type="error">{error?.message}</AlertBlock>}
 					<div className="grid md:grid-cols-2 gap-4">
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="giteaId"
 							render={({ field }) => (
@@ -213,7 +216,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 										</FormControl>
 										<SelectContent>
 											{giteaProviders?.map(
-											//@ts-ignore	
+											//@ts-expect-error
+	
 												(giteaProvider) => (
 												<SelectItem
 													key={giteaProvider.giteaId}
@@ -230,7 +234,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 						/>
 
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="repository"
 							render={({ field }) => (
@@ -336,7 +341,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -414,7 +420,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="buildPath"
 							render={({ field }) => (
@@ -429,7 +436,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="watchPaths"
 							render={({ field }) => (
@@ -511,7 +519,8 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isSavingGiteaProvider}
 							type="submit"
 							className="w-fit"

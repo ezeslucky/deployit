@@ -6,7 +6,8 @@ import {
 	getSwarmNodes,
 } from "../../../../../packages/server/src/index";
 import { z } from "zod";
-//@ts-ignore
+
+
 import { createTRCRouter, protectedProcedure } from "../trpc";
 
 export const swarmRouter = createTRCRouter({

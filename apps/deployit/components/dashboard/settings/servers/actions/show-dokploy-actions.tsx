@@ -27,7 +27,8 @@ export const ShowDokployActions = () => {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild disabled={isLoading}>
 				<Button 
-				//@ts-ignore
+				//@ts-expect-error
+
 				isLoading={isLoading} variant="outline">
 					{t("settings.server.webServer.server.label")}
 				</Button>

@@ -50,7 +50,8 @@ export const Setup = () => {
 		},
 		{
 			enabled: isDeploying,
-			//@ts-ignore
+			//@ts-expect-error
+
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -62,7 +63,8 @@ export const Setup = () => {
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-ignore
+			//@ts-expect-error
+
 			onError(error) {
 				console.error("Deployment logs error:", error);
 				setIsDeploying(false);
@@ -83,7 +85,8 @@ export const Setup = () => {
 							<SelectContent>
 								<SelectGroup>
 									{servers?.map(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(server) => (
 										<SelectItem key={server.serverId} value={server.serverId}>
 											{server.name}

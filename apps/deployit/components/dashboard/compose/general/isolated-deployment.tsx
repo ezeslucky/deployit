@@ -73,9 +73,11 @@ export const IsolatedDeployment = ({ composeId }: Props) => {
 			composeId,
 			isolatedDeployment: formData?.isolatedDeployment || false,
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(
-				//@ts-ignore
+				//@ts-expect-error
+
 				async (_data) => {
 				randomizeCompose();
 				refetch();
@@ -91,7 +93,8 @@ export const IsolatedDeployment = ({ composeId }: Props) => {
 			composeId,
 			suffix: data?.appName || "",
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(async (data) => {
 				await utils.project.all.invalidate();
 				setCompose(data);

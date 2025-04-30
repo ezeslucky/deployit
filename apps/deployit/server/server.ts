@@ -8,8 +8,8 @@ import {
 	createDefaultTraefikConfig,
 	initCronJobs,
 	initializeNetwork,
-	//@ts-ignore
-	sendDokployRestartNotifications,
+	
+	senddeployitRestartNotifications,
 	setupDirectories,
 } from "../../../packages/server/src/index";
 import { config } from "dotenv";
@@ -50,7 +50,7 @@ void app.prepare().then(async () => {
 			createDefaultServerTraefikConfig();
 			await migration();
 			await initCronJobs();
-			await sendDokployRestartNotifications();
+			await senddeployitRestartNotifications();
 		}
 
 		if (IS_CLOUD && process.env.NODE_ENV === "production") {

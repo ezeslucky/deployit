@@ -130,7 +130,8 @@ export const ShowEnvironment = ({ applicationId }: Props) => {
 							</Button>
 						)}
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							className="w-fit"
 							type="submit"

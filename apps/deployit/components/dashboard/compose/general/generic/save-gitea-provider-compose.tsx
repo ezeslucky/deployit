@@ -198,7 +198,8 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 										</FormControl>
 										<SelectContent>
 											{giteaProviders?.map(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(giteaProvider) => (
 												<SelectItem
 													key={giteaProvider.giteaId}
@@ -247,7 +248,8 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -270,7 +272,8 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 												<ScrollArea className="h-96">
 													<CommandGroup>
 														{repositories?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(repo) => (
 															<CommandItem
 																key={repo.url}
@@ -333,7 +336,8 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -351,7 +355,8 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 												<ScrollArea className="h-96">
 													<CommandGroup>
 														{branches?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(branch) => (
 															<CommandItem
 																key={branch.name}
@@ -483,7 +488,8 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 
 					<div className="flex justify-end">
 						<Button type="submit" 
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isSavingGiteaProvider}>
 							Save
 						</Button>

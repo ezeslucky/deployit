@@ -699,7 +699,8 @@ const Project = (
 													<Button
 														variant="outline"
 														disabled={selectedServices.length === 0}
-														//@ts-ignore
+														//@ts-expect-error
+
 														isLoading={isBulkActionLoading}
 													>
 														Bulk Actions
@@ -784,7 +785,8 @@ const Project = (
 															</DialogHeader>
 															<div className="flex flex-col gap-4">
 																{allProjects?.filter(
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	(p) => p.projectId !== projectId,
 																).length === 0 ? (
 																	<div className="flex flex-col items-center justify-center gap-2 py-4">
@@ -805,11 +807,13 @@ const Project = (
 																		<SelectContent>
 																			{allProjects
 																				?.filter(
-	//@ts-ignore
+	//@ts-expect-error
+
 																					(p) => p.projectId !== projectId,
 																				)
 																				.map(
-	//@ts-ignore
+	//@ts-expect-error
+
 	
 	
 																					(project) => (
@@ -834,11 +838,13 @@ const Project = (
 																<Button
 																	onClick={handleBulkMove}
 
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	isLoading={isBulkActionLoading}
 																	disabled={
 																		allProjects?.filter(
-//@ts-ignore
+//@ts-expect-error
+
 
 
 																			(p) => p.projectId !== projectId,

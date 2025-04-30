@@ -131,7 +131,8 @@ export const RestoreBackup = ({
 		},
 		{
 			enabled: isDeploying,
-			//@ts-ignore
+			//@ts-expect-error
+
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -143,14 +144,16 @@ export const RestoreBackup = ({
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-ignore
+			//@ts-expect-error
+
 			onError(error) {
 				console.error("Restore logs error:", error);
 				setIsDeploying(false);
 			},
 		},
 	);
-//@ts-ignore
+//@ts-expect-error
+
 	const onSubmit = async (_data: RestoreBackup) => {
 		setIsDeploying(true);
 	};
@@ -198,7 +201,8 @@ export const RestoreBackup = ({
 												>
 													{field.value
 														? destinations.find(
-															//@ts-ignore
+															//@ts-expect-error
+
 																(d) => d.destinationId === field.value,
 															)?.name
 														: "Select Destination"}
@@ -216,7 +220,8 @@ export const RestoreBackup = ({
 												<ScrollArea className="h-64">
 													<CommandGroup>
 														{destinations.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(destination) => (
 															<CommandItem
 																value={destination.destinationId}
@@ -309,7 +314,8 @@ export const RestoreBackup = ({
 													<ScrollArea className="h-64">
 														<CommandGroup>
 															{files.map(
-																//@ts-ignore
+																//@ts-expect-error
+
 																(file) => (
 																<CommandItem
 																	value={file}
@@ -360,7 +366,8 @@ export const RestoreBackup = ({
 						/>
 						<DialogFooter>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isDeploying}
 								form="hook-form-restore-backup"
 								type="submit"

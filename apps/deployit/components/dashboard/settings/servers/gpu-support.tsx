@@ -45,7 +45,8 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 			setIsLoading(false);
 			await utils.settings.checkGPUStatus.invalidate({ serverId });
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		onError: (error) => {
 			toast.error(
 				error.message ||
@@ -61,7 +62,8 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 			await utils.settings.checkGPUStatus.invalidate({ serverId });
 			await refetch();
 		} 
-		//@ts-ignore
+		//@ts-expect-error
+
 		catch (_error) {
 			toast.error("Failed to refresh GPU status");
 		} finally {
@@ -81,7 +83,8 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 		try {
 			await setupGPU.mutateAsync({ serverId });
 		} 
-		//@ts-ignore
+		//@ts-expect-error
+
 		catch (_error) {
 			// Error handling is done in mutation's onError
 		}
@@ -109,7 +112,8 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 									onClick={handleEnableGPU}
 								>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 										isLoading={isLoading}
 										disabled={isLoading || serverId === undefined || isChecking}
 									>

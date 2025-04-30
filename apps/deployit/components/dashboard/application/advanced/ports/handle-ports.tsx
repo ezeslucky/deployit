@@ -226,7 +226,8 @@ export const HandlePorts = ({
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							form="hook-form-add-port"
 							type="submit"

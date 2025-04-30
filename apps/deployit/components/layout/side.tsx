@@ -77,7 +77,8 @@ import {
 	SidebarTrigger,
 	useSidebar,
 } from "@/components/ui/sidebar";
-//@ts-ignore
+//@ts-expect-error
+
 import { authClient } from "../../lib/auth-client";
 import { cn } from "@/lib/utils";
 import type { AppRouter } from "@/server/api/root";
@@ -584,7 +585,8 @@ function SidebarLogo() {
 								<DropdownMenuLabel className="text-xs text-muted-foreground">
 									Organizations
 								</DropdownMenuLabel>
-								//@ts-ignore
+								//@ts-expect-error
+
 								{organizations?.map((org) => (
 									<div className="flex flex-row justify-between" key={org.name}>
 										<DropdownMenuItem
@@ -624,7 +626,8 @@ function SidebarLogo() {
 																	"Organization deleted successfully",
 																);
 															})
-															//@ts-ignore
+															//@ts-expect-error
+
 															.catch((error) => {
 																toast.error(
 																	error?.message ||
@@ -637,7 +640,8 @@ function SidebarLogo() {
 														variant="ghost"
 														size="icon"
 														className="group hover:bg-red-500/10"
-														//@ts-ignore
+														//@ts-expect-error
+
 														isLoading={isRemoving}
 													>
 														<Trash2 className="size-4 text-primary group-hover:text-red-500" />
@@ -685,7 +689,8 @@ function SidebarLogo() {
 								<DropdownMenuLabel>Pending Invitations</DropdownMenuLabel>
 								<div className="flex flex-col gap-2">
 									{invitations && invitations.length > 0 ? (
-										//@ts-ignore
+										//@ts-expect-error
+
 										invitations.map((invitation) => (
 											<div key={invitation.id} className="flex flex-col gap-2">
 												<DropdownMenuItem

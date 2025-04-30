@@ -138,7 +138,8 @@ export const ShowCustomCommand = ({ id, type }: Props) => {
 								/>
 								<div className="flex w-full justify-end">
 									<Button 
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={form.formState.isSubmitting} type="submit">
 										Save
 									</Button>

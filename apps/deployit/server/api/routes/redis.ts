@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-//@ts-ignore
+
+
 import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import {
 	apiChangeRedisStatus,
@@ -44,7 +45,8 @@ export const redisRouter = createTRCRouter({
 		.input(apiCreateRedis)
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -69,7 +71,8 @@ export const redisRouter = createTRCRouter({
 					});
 				}
 				const newRedis = await createRedis(input);
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -94,7 +97,8 @@ export const redisRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneRedis)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -257,7 +261,8 @@ export const redisRouter = createTRCRouter({
 	remove: protectedProcedure
 		.input(apiFindOneRedis)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,

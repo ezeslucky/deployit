@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-//@ts-ignore
+
+
 import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
@@ -60,7 +61,8 @@ export const projectRouter = createTRCRouter({
 		.input(apiCreateProject)
 		.mutation(async ({ ctx, input }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkProjectAccess(
 						ctx.user.id,
@@ -82,7 +84,8 @@ export const projectRouter = createTRCRouter({
 					input,
 					ctx.session.activeOrganizationId,
 				);
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewProject(
 						ctx.user.id,
@@ -104,7 +107,8 @@ export const projectRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneProject)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				const { accessedServices } = await findMemberById(
 					ctx.user.id,
@@ -171,7 +175,8 @@ export const projectRouter = createTRCRouter({
 		}),
 	all: protectedProcedure.query(async ({ ctx }) => {
 		// console.log(ctx.user);
-		//@ts-ignore
+		//@ts-expect-error
+
 		if (ctx.user.rol === "member") {
 			const { accessedProjects, accessedServices } = await findMemberById(
 				ctx.user.id,
@@ -251,7 +256,8 @@ export const projectRouter = createTRCRouter({
 		.input(apiRemoveProject)
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkProjectAccess(
 						ctx.user.id,
@@ -324,7 +330,8 @@ export const projectRouter = createTRCRouter({
 		)
 		.mutation(async ({ ctx, input }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkProjectAccess(
 						ctx.user.id,
@@ -589,7 +596,8 @@ export const projectRouter = createTRCRouter({
 						await duplicateService(service.id, service.type);
 					}
 				}
-//@ts-ignore
+//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewProject(
 						ctx.user.id,

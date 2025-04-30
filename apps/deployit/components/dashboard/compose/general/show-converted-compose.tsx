@@ -43,7 +43,8 @@ export const ShowConvertedCompose = ({ composeId }: Props) => {
 				.then(() => {
 					refetch();
 				})
-				//@ts-ignore
+				//@ts-expect-error
+
 				.catch((_err) => {});
 		}
 	}, [isOpen]);
@@ -74,7 +75,8 @@ export const ShowConvertedCompose = ({ composeId }: Props) => {
 				<div className="flex flex-row gap-2 justify-end">
 					<Button
 						variant="secondary"
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading}
 						onClick={() => {
 							mutateAsync({ composeId })
@@ -82,7 +84,8 @@ export const ShowConvertedCompose = ({ composeId }: Props) => {
 									refetch();
 									toast.success("Fetched source type");
 								})
-								//@ts-ignore
+								//@ts-expect-error
+
 								.catch((err) => {
 									toast.error("Error fetching source type", {
 										description: err.message,

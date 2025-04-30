@@ -222,7 +222,8 @@ export const Enable2FA = () => {
 							<Button
 								type="submit"
 								className="w-full"
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={isPasswordLoading}
 							>
 								Continue
@@ -316,7 +317,8 @@ export const Enable2FA = () => {
 							<Button
 								type="submit"
 								className="w-full"
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={isPasswordLoading}
 							>
 								Enable 2FA

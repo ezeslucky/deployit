@@ -57,7 +57,8 @@ export const ShowExternalPostgresCredentials = ({ postgresId }: Props) => {
 
 	const form = useForm<DockerProvider>({
 		defaultValues: {},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(DockerProviderSchema),
 	});
 
@@ -129,14 +130,16 @@ export const ShowExternalPostgresCredentials = ({ postgresId }: Props) => {
 						)}
 						<Form {...form}>
 							<form
-							//@ts-ignore
+							//@ts-expect-error
+
 								onSubmit={form.handleSubmit(onSubmit)}
 								className="flex flex-col gap-4"
 							>
 								<div className="grid grid-cols-2 gap-4 ">
 									<div className="col-span-2 space-y-4">
 										<FormField
-										//@ts-ignore
+										//@ts-expect-error
+
 											control={form.control}
 											name="externalPort"
 											render={({ field }) => {
@@ -168,7 +171,8 @@ export const ShowExternalPostgresCredentials = ({ postgresId }: Props) => {
 
 								<div className="flex justify-end">
 									<Button type="submit"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading}>
 										Save
 									</Button>

@@ -99,7 +99,8 @@ export const HandleAi = ({ aiId }: Props) => {
 			},
 			{
 				enabled: !!apiUrl && !!apiKey,
-				//@ts-ignore
+				//@ts-expect-error
+
 				onError: (error) => {
 					setError(`Failed to fetch models: ${error.message}`);
 				},
@@ -235,7 +236,8 @@ export const HandleAi = ({ aiId }: Props) => {
 											</FormControl>
 											<SelectContent>
 												{models.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(model) => (
 													<SelectItem key={model.id} value={model.id}>
 														{model.id}
@@ -275,7 +277,8 @@ export const HandleAi = ({ aiId }: Props) => {
 
 						<div className="flex justify-end  gap-2 pt-4">
 							<Button type="submit"
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isLoading}>
 								{aiId ? "Update" : "Create"}
 							</Button>

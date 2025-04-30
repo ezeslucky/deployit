@@ -126,7 +126,8 @@ export const Disable2FA = () => {
 								Cancel
 							</Button>
 							<Button type="submit" variant="destructive"
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isLoading}>
 								Disable 2FA
 							</Button>

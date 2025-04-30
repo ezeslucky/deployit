@@ -86,7 +86,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 			branch: "",
 			watchPaths: [],
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(BitbucketProviderSchema),
 	});
 
@@ -159,7 +160,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 		<div>
 			<Form {...form}>
 				<form
-				//@ts-ignore
+				//@ts-expect-error
+
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="grid w-full gap-4 py-3"
 				>
@@ -168,7 +170,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 					)}
 					<div className="grid md:grid-cols-2 gap-4">
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="bitbucketId"
 							render={({ field }) => (
@@ -194,7 +197,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 										<SelectContent>
 											{bitbucketProviders?.map
 											(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(bitbucketProvider) => (
 												<SelectItem
 													key={bitbucketProvider.bitbucketId}
@@ -211,7 +215,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 						/>
 
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="repository"
 							render={({ field }) => (
@@ -244,7 +249,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -268,7 +274,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 												<ScrollArea className="h-96">
 													<CommandGroup>
 														{repositories?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(repo) => (
 															<CommandItem
 																value={repo.name}
@@ -311,7 +318,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -331,7 +339,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -360,7 +369,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 
 													<CommandGroup>
 														{branches?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(branch) => (
 															<CommandItem
 																value={branch.name}
@@ -391,7 +401,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="buildPath"
 							render={({ field }) => (
@@ -406,7 +417,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="watchPaths"
 							render={({ field }) => (
@@ -487,7 +499,8 @@ export const SaveBitbucketProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isSavingBitbucketProvider}
 							type="submit"
 							className="w-fit"

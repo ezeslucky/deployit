@@ -127,7 +127,8 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 			.then(() => {
 				toast.success("Preview Deployments settings updated");
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((error) => {
 				toast.error(error.message);
 			});
@@ -303,7 +304,8 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 														refetch();
 														toast.success("Preview deployments enabled");
 													})
-													//@ts-ignore
+													//@ts-expect-error
+
 													.catch((error) => {
 														toast.error(error.message);
 													});
@@ -366,7 +368,8 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 							Cancel
 						</Button>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							form="hook-form-delete-application"
 							type="submit"

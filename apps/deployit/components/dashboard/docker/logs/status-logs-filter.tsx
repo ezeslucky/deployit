@@ -41,7 +41,8 @@ export function StatusLogsFilter({
 		if (allSelected) {
 			return (
 				<Badge
-				//@ts-ignore
+				//@ts-expect-error
+
 				variant="blank" className="rounded-sm px-1 font-normal">
 					All
 				</Badge>
@@ -53,7 +54,8 @@ export function StatusLogsFilter({
 			return (
 				<>
 					<Badge
-					//@ts-ignore
+					//@ts-expect-error
+
 						variant={
 							selected?.value === "success"
 								? "green"
@@ -73,7 +75,8 @@ export function StatusLogsFilter({
 					</Badge>
 					{selectedValues.size > 1 && (
 						<Badge 
-						//@ts-ignore
+						//@ts-expect-error
+
 						variant="blank" className="rounded-sm px-1 font-normal">
 							+{selectedValues.size - 1}
 						</Badge>
@@ -118,7 +121,8 @@ export function StatusLogsFilter({
 									<CheckIcon className={cn("h-4 w-4")} />
 								</div>
 								<Badge
-								//@ts-ignore
+								//@ts-expect-error
+
 								variant="blank">All</Badge>
 							</CommandItem>
 							{options.map((option) => {
@@ -150,7 +154,8 @@ export function StatusLogsFilter({
 											<option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
 										)}
 										<Badge
-										//@ts-ignore
+										//@ts-expect-error
+
 											variant={
 												option.value === "success"
 													? "green"

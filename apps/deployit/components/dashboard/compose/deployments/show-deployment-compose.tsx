@@ -134,7 +134,8 @@ export const ShowDeploymentCompose = ({
 						<span>
 							See all the details of this deployment |{" "}
 							<Badge 
-							//@ts-ignore
+							//@ts-expect-error
+
 							variant="blank" className="text-xs">
 								{filteredLogs.length} lines
 							</Badge>

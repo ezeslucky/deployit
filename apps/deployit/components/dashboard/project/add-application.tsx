@@ -105,7 +105,8 @@ export const AddApplication = ({ projectId, projectName }: Props) => {
 					projectId,
 				});
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((_e) => {
 				toast.error("Error creating the service");
 			});
@@ -196,7 +197,8 @@ export const AddApplication = ({ projectId, projectName }: Props) => {
 										<SelectContent>
 											<SelectGroup>
 												{servers?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(server) => (
 													<SelectItem
 														key={server.serverId}
@@ -253,7 +255,8 @@ export const AddApplication = ({ projectId, projectName }: Props) => {
 
 					<DialogFooter>
 						<Button 
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading} form="hook-form" type="submit">
 							Create
 						</Button>

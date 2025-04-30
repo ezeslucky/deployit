@@ -184,7 +184,8 @@ export const UpdateVolume = ({
 					variant="ghost"
 					size="icon"
 					className="group hover:bg-blue-500/10 "
-					//@ts-ignore
+					//@ts-expect-error
+
 					isLoading={isLoading}
 				>
 					<PenBoxIcon className="size-3.5  text-primary group-hover:text-blue-500" />
@@ -308,7 +309,8 @@ PORT=3000
 						</div>
 						<DialogFooter>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isLoading}
 								form="hook-form-update-volume"
 								type="submit"

@@ -79,7 +79,8 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 			suffix: formData?.suffix || "",
 			randomize: formData?.randomize || false,
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(async (_data) => {
 				randomizeCompose();
 				refetch();
@@ -95,7 +96,8 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 			composeId,
 			suffix,
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(async (data) => {
 				await utils.project.all.invalidate();
 				setCompose(data);

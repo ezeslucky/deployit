@@ -125,7 +125,8 @@ export const ProjectEnvironment = ({ projectId, children }: Props) => {
 												<CodeEditor
 													lineWrapping
 													language="properties"
-													//@ts-ignore
+													//@ts-expect-error
+
 													wrapperClassName="h-[35rem] font-mono"
 													placeholder={`NODE_ENV=production
 PORT=3000
@@ -143,7 +144,8 @@ PORT=3000
 								/>
 								<DialogFooter>
 									<Button 
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading} type="submit">
 										Update
 									</Button>

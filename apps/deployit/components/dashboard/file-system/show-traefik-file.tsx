@@ -120,7 +120,8 @@ export const ShowTraefikFile = ({ path, serverId }: Props) => {
 										<FormControl>
 											<CodeEditor
 												lineWrapping
-												//@ts-ignore
+												//@ts-expect-error
+
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`http:
 routers:
@@ -158,7 +159,8 @@ routers:
 					</div>
 					<div className="flex justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							disabled={canEdit || isLoading}
 							type="submit"

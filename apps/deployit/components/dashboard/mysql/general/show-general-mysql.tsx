@@ -45,7 +45,8 @@ export const ShowGeneralMysql = ({ mysqlId }: Props) => {
 		},
 		{
 			enabled: isDeploying,
-			//@ts-ignore
+			//@ts-expect-error
+
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -57,7 +58,8 @@ export const ShowGeneralMysql = ({ mysqlId }: Props) => {
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-ignore
+			//@ts-expect-error
+
 			onError(error) {
 				console.error("Deployment logs error:", error);
 				setIsDeploying(false);
@@ -85,7 +87,8 @@ export const ShowGeneralMysql = ({ mysqlId }: Props) => {
 							>
 								<Button
 									variant="default"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={data?.applicationStatus === "running"}
 									className="flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-offset-2"
 								>
@@ -124,7 +127,8 @@ export const ShowGeneralMysql = ({ mysqlId }: Props) => {
 							>
 								<Button
 									variant="secondary"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isReloading}
 									className="flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-offset-2"
 								>
@@ -163,7 +167,8 @@ export const ShowGeneralMysql = ({ mysqlId }: Props) => {
 								>
 									<Button
 										variant="secondary"
-										//@ts-ignore
+										//@ts-expect-error
+
 										isLoading={isStarting}
 										className="flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-offset-2"
 									>
@@ -204,7 +209,8 @@ export const ShowGeneralMysql = ({ mysqlId }: Props) => {
 								>
 									<Button
 										variant="destructive"
-										//@ts-ignore
+										//@ts-expect-error
+
 										isLoading={isStopping}
 										className="flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-offset-2"
 									>

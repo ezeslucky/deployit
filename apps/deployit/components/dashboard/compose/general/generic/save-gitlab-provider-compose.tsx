@@ -200,7 +200,8 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 										</FormControl>
 										<SelectContent>
 											{gitlabProviders?.map(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(gitlabProvider) => (
 												<SelectItem
 													key={gitlabProvider.gitlabId}
@@ -248,7 +249,8 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -277,7 +279,8 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 															</CommandEmpty>
 														)}
 														{repositories?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(repo) => {
 															return (
 																<CommandItem
@@ -343,7 +346,8 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-//@ts-ignore
+//@ts-expect-error
+
 
 																	(branch) => branch.name === field.value,
 																)?.name
@@ -373,7 +377,8 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 
 													<CommandGroup>
 														{branches?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(branch) => (
 															<CommandItem
 																value={branch.name}
@@ -498,7 +503,8 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isSavingGitlabProvider}
 							type="submit"
 							className="w-fit"

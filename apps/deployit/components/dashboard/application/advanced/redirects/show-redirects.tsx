@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react/jsx-no-comment-textnodes */
+ 
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
 import {
@@ -64,7 +64,8 @@ export const ShowRedirects = ({ applicationId }: Props) => {
 						<div className="flex flex-col gap-6">
 						
 							{data?.redirects.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(redirect) => (
 								<div key={redirect.redirectId}>
 									<div className="flex w-full flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-10 border rounded-lg p-4">
@@ -118,7 +119,8 @@ export const ShowRedirects = ({ applicationId }: Props) => {
 													variant="ghost"
 													size="icon"
 													className="group hover:bg-red-500/10"
-													//@ts-ignore
+													//@ts-expect-error
+
 													isLoading={isRemoving}
 												>
 													<Trash2 className="size-4 text-primary group-hover:text-red-500" />

@@ -263,7 +263,8 @@ export const EditGiteaProvider = ({ giteaId }: Props) => {
 								type="button"
 								variant="outline"
 								onClick={handleTestConnection}
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={isTesting}
 							>
 								Test Connection
@@ -289,7 +290,8 @@ export const EditGiteaProvider = ({ giteaId }: Props) => {
 							</Button>
 
 							<Button type="submit"
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isUpdating}>
 								Save
 							</Button>

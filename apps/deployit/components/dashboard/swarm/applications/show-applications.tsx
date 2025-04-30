@@ -25,7 +25,8 @@ export const ShowNodeApplications = ({ serverId }: Props) => {
 
 	if (NodeApps && NodeApps.length > 0) {
 		applicationList = NodeApps.map(
-			//@ts-ignore
+			//@ts-expect-error
+
 			(app) => app.Name).join(" ");
 	}
 
@@ -53,11 +54,13 @@ export const ShowNodeApplications = ({ serverId }: Props) => {
 	}
 
 	const combinedData: ApplicationList[] = NodeApps.flatMap(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(app) => {
 		const appDetails =
 			NodeAppDetails?.filter(
-				//@ts-ignore
+				//@ts-expect-error
+
 				(detail) =>
 				detail.Name.startsWith(`${app.Name}.`),
 			) || [];
@@ -76,7 +79,8 @@ export const ShowNodeApplications = ({ serverId }: Props) => {
 		}
 
 		return appDetails.map(
-			//@ts-ignore
+			//@ts-expect-error
+
 			(detail) => ({
 			...app,
 			CurrentState: detail.CurrentState,

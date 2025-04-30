@@ -69,7 +69,8 @@ export const setupDeploymentLogsWebSocketServer = (
 								.on("data", (data: string) => {
 									ws.send(data.toString());
 								})
-                                //@ts-ignore
+                                //@ts-expect-error
+
 								.stderr.on("data", (data) => {
 									ws.send(data.toString());
 								});

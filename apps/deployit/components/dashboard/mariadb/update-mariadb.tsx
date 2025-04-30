@@ -147,7 +147,8 @@ export const UpdateMariadb = ({ mariadbId }: Props) => {
 								/>
 								<DialogFooter>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 										isLoading={isLoading}
 										form="hook-form-update-mariadb"
 										type="submit"

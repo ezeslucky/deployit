@@ -40,7 +40,8 @@ export const ShowTraefikActions = ({ serverId }: Props) => {
 				disabled={reloadTraefikIsLoading || toggleDashboardIsLoading}
 			>
 				<Button
-				//@ts-ignore
+				//@ts-expect-error
+
 					isLoading={reloadTraefikIsLoading || toggleDashboardIsLoading}
 					variant="outline"
 				>

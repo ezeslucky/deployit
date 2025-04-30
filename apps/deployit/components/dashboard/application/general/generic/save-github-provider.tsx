@@ -83,7 +83,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 			githubId: "",
 			branch: "",
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(GithubProviderSchema),
 	});
 
@@ -153,13 +154,15 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 		<div>
 			<Form {...form}>
 				<form
-				//@ts-ignore
+				//@ts-expect-error
+
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="grid w-full gap-4 py-3"
 				>
 					<div className="grid md:grid-cols-2 gap-4">
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="githubId"
 							render={({ field }) => (
@@ -184,7 +187,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 										</FormControl>
 										<SelectContent>
 											{githubProviders?.map(
-											//@ts-ignore	
+											//@ts-expect-error
+	
 												(githubProvider) => (
 												<SelectItem
 													key={githubProvider.githubId}
@@ -201,7 +205,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 						/>
 
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="repository"
 							render={({ field }) => (
@@ -234,7 +239,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -258,7 +264,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 												<ScrollArea className="h-96">
 													<CommandGroup>
 														{repositories?.map(
-														//@ts-ignore	
+														//@ts-expect-error
+	
 															(repo) => (
 															<CommandItem
 																value={repo.name}
@@ -301,7 +308,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -321,7 +329,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -350,7 +359,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 
 													<CommandGroup>
 														{branches?.map(
-														//@ts-ignore	
+														//@ts-expect-error
+	
 															(branch) => (
 															<CommandItem
 																value={branch.name}
@@ -381,7 +391,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="buildPath"
 							render={({ field }) => (
@@ -395,7 +406,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="watchPaths"
 							render={({ field }) => (
@@ -477,7 +489,8 @@ export const SaveGithubProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isSavingGithubProvider}
 							type="submit"
 							className="w-fit"

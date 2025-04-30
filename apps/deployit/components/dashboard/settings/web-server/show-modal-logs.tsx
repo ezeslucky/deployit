@@ -89,7 +89,8 @@ export const ShowModalLogs = ({
 						<SelectContent>
 							<SelectGroup>
 								{data?.map(
-									//@ts-ignore
+									//@ts-expect-error
+
 									(container) => (
 									<SelectItem
 										key={container.containerId}
@@ -97,7 +98,8 @@ export const ShowModalLogs = ({
 									>
 										{container.name} ({container.containerId}){" "}
 										<Badge
-										//@ts-ignore
+										//@ts-expect-error
+
 										variant={badgeStateColor(container.state)}>
 											{container.state}
 										</Badge>

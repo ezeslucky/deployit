@@ -10,7 +10,8 @@ import {
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "../trpc";
 export const clusterRouter = createTRCRouter({
 	getNodes: protectedProcedure

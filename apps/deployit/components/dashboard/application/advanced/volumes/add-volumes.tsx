@@ -360,7 +360,8 @@ PORT=3000
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={form.formState.isSubmitting}
 							form="hook-form-volume"
 							type="submit"

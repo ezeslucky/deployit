@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { AlertBlock } from "@/components/shared/alert-block";
@@ -180,7 +181,8 @@ export const ShowImport = ({ composeId }: Props) => {
 									type="button"
 									className="w-fit"
 									variant="outline"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoadingTemplate}
 									onClick={handleLoadTemplate}
 								>
@@ -307,7 +309,8 @@ export const ShowImport = ({ composeId }: Props) => {
 											Cancel
 										</Button>
 										<Button
-										//@ts-ignore
+										//@ts-expect-error
+
 											isLoading={isImporting}
 											type="submit"
 											onClick={form.handleSubmit(onSubmit)}

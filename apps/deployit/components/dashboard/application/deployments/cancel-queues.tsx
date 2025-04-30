@@ -32,7 +32,8 @@ export const CancelQueues = ({ applicationId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="destructive" className="w-fit"
-				//@ts-ignore
+				//@ts-expect-error
+
 				isLoading={isLoading}>
 					Cancel Queues
 					<Paintbrush className="size-4" />
@@ -57,7 +58,8 @@ export const CancelQueues = ({ applicationId }: Props) => {
 								.then(() => {
 									toast.success("Queues are being cleaned");
 								})
-								//@ts-ignore
+								//@ts-expect-error
+
 								.catch((err) => {
 									toast.error(err.message);
 								});

@@ -52,7 +52,8 @@ export const Verify = () => {
 								<SelectContent>
 									<SelectGroup>
 										{servers?.map(
-											//@ts-ignore
+											//@ts-expect-error
+
 											(server) => (
 											<SelectItem key={server.serverId} value={server.serverId}>
 												{server.name}
@@ -74,7 +75,8 @@ export const Verify = () => {
 								</CardDescription>
 							</div>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isRefreshing}
 								onClick={async () => {
 									setIsRefreshing(true);

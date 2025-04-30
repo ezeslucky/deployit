@@ -44,7 +44,8 @@ export const ValidateServer = ({ serverId }: Props) => {
 								</CardDescription>
 							</div>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isRefreshing}
 								onClick={async () => {
 									setIsRefreshing(true);

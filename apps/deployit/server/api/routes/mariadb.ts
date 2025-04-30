@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
@@ -45,7 +46,8 @@ export const mariadbRouter = createTRCRouter({
 		.input(apiCreateMariaDB)
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -70,7 +72,8 @@ export const mariadbRouter = createTRCRouter({
 					});
 				}
 				const newMariadb = await createMariadb(input);
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -98,7 +101,8 @@ export const mariadbRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneMariaDB)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -226,7 +230,8 @@ export const mariadbRouter = createTRCRouter({
 	remove: protectedProcedure
 		.input(apiFindOneMariaDB)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,

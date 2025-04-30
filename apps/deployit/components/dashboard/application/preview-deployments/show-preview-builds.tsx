@@ -50,7 +50,8 @@ export const ShowPreviewBuilds = ({
 				</DialogHeader>
 				<div className="grid gap-4">
 					{deployments?.map(
-						//@ts-ignore
+						//@ts-expect-error
+
 						(deployment) => (
 						<div
 							key={deployment.deploymentId}

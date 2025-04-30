@@ -252,7 +252,8 @@ export const ProfileForm = () => {
 										</div>
 										<div className="flex items-center justify-end gap-2">
 											<Button type="submit" 
-											//@ts-ignore
+											//@ts-expect-error
+
 											isLoading={isUpdating}>
 												{t("settings.common.save")}
 											</Button>

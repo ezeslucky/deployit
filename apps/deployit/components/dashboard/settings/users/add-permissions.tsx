@@ -70,7 +70,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 			accessedProjects: [],
 			accessedServices: [],
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(addPermissions),
 	});
 
@@ -135,12 +136,14 @@ export const AddUserPermissions = ({ userId }: Props) => {
 				<Form {...form}>
 					<form
 						id="hook-form-add-permissions"
-						//@ts-ignore
+						//@ts-expect-error
+
 						onSubmit={form.handleSubmit(onSubmit)}
 						className="grid  grid-cols-1 md:grid-cols-2  w-full gap-4"
 					>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canCreateProjects"
 							render={({ field }) => (
@@ -161,7 +164,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canDeleteProjects"
 							render={({ field }) => (
@@ -182,7 +186,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canCreateServices"
 							render={({ field }) => (
@@ -203,7 +208,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canDeleteServices"
 							render={({ field }) => (
@@ -224,7 +230,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canAccessToTraefikFiles"
 							render={({ field }) => (
@@ -245,7 +252,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canAccessToDocker"
 							render={({ field }) => (
@@ -266,7 +274,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canAccessToAPI"
 							render={({ field }) => (
@@ -287,7 +296,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canAccessToSSHKeys"
 							render={({ field }) => (
@@ -308,7 +318,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="canAccessToGitProviders"
 							render={({ field }) => (
@@ -329,7 +340,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="accessedProjects"
 							render={() => (
@@ -347,13 +359,15 @@ export const AddUserPermissions = ({ userId }: Props) => {
 									)}
 									<div className="grid md:grid-cols-2  gap-4">
 										{projects?.map(
-											//@ts-ignore
+											//@ts-expect-error
+
 											(item, index) => {
 											const applications = extractServices(item);
 											return (
 												<FormField
 													key={`project-${index}`}
-													//@ts-ignore
+													//@ts-expect-error
+
 													control={form.control}
 													name="accessedProjects"
 													render={({ field }) => {
@@ -394,9 +408,11 @@ export const AddUserPermissions = ({ userId }: Props) => {
 																)}
 																{applications?.map((item, index) => (
 																	<FormField
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																		key={`project-${index}`}
-																		//@ts-ignore
+																		//@ts-expect-error
+
 																		control={form.control}
 																		name="accessedServices"
 																		render={({ field }) => {
@@ -447,7 +463,8 @@ export const AddUserPermissions = ({ userId }: Props) => {
 						/>
 						<DialogFooter className="flex w-full flex-row justify-end md:col-span-2">
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isLoading}
 								form="hook-form-add-permissions"
 								type="submit"

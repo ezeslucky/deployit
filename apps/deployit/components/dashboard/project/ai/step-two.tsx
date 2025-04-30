@@ -45,14 +45,16 @@ export const StepTwo = ({ templateInfo, setTemplateInfo }: StepProps) => {
 			serverId: templateInfo.server?.serverId || "",
 			input: templateInfo.userInput,
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then((data) => {
 				setTemplateInfo({
 					...templateInfo,
 					suggestions: data,
 				});
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((error) => {
 				toast.error("Error generating suggestions", {
 					description: error.message,
@@ -267,7 +269,8 @@ export const StepTwo = ({ templateInfo, setTemplateInfo }: StepProps) => {
 										<AccordionContent>
 											<ScrollArea className=" w-full rounded-md border p-4">
 												<ReactMarkdown
-												//@ts-ignore
+												//@ts-expect-error
+
 												 className="text-muted-foreground text-sm">
 													{selectedVariant?.description}
 												</ReactMarkdown>

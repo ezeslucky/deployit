@@ -55,7 +55,8 @@ export const ShowPreviewDeployments = ({ applicationId }: Props) => {
 				refetchPreviewDeployments();
 				toast.success("Preview deployment deleted");
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((error) => {
 				toast.error(error.message);
 			});
@@ -92,7 +93,8 @@ export const ShowPreviewDeployments = ({ applicationId }: Props) => {
 						) : (
 							<div className="flex flex-col gap-4">
 								{previewDeployments?.map(
-									//@ts-ignore
+									//@ts-expect-error
+
 									(deployment) => {
 									const deploymentUrl = `${deployment.domain?.https ? "https" : "http"}://${deployment.domain?.host}${deployment.domain?.path || "/"}`;
 									const status = deployment.previewStatus;
@@ -211,7 +213,8 @@ export const ShowPreviewDeployments = ({ applicationId }: Props) => {
 															<Button
 																variant="ghost"
 																size="sm"
-																//@ts-ignore
+																//@ts-expect-error
+
 																isLoading={isLoading}
 																className="text-red-600 hover:text-red-700 hover:bg-red-50"
 															>

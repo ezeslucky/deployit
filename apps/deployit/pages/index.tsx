@@ -229,7 +229,8 @@ export default function Home({ IS_CLOUD }: Props) {
 								type="button"
 								className="w-full mb-4"
 								onClick={handleGithubSignIn}
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={isGithubLoading}
 							>
 								<svg viewBox="0 0 438.549 438.549" className="mr-2 size-4">
@@ -247,7 +248,8 @@ export default function Home({ IS_CLOUD }: Props) {
 								type="button"
 								className="w-full mb-4"
 								onClick={handleGoogleSignIn}
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={isGoogleLoading}
 							>
 								<svg viewBox="0 0 24 24" className="mr-2 size-4">
@@ -310,7 +312,8 @@ export default function Home({ IS_CLOUD }: Props) {
 								<Button
 									className="w-full"
 									type="submit"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoginLoading}
 								>
 									Login
@@ -371,7 +374,8 @@ export default function Home({ IS_CLOUD }: Props) {
 								<Button
 									className="w-full"
 									type="submit"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isTwoFactorLoading}
 								>
 									Verify
@@ -421,7 +425,8 @@ export default function Home({ IS_CLOUD }: Props) {
 										<Button
 											className="w-full"
 											type="submit"
-											//@ts-ignore
+											//@ts-expect-error
+
 											isLoading={isBackupCodeLoading}
 										>
 											Verify

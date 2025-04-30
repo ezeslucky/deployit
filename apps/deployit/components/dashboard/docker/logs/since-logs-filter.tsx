@@ -77,7 +77,8 @@ export function SinceLogsFilter({
 					<Separator orientation="vertical" className="mx-2 h-4" />
 					<div className="space-x-1 flex">
 						<Badge 
-						//@ts-ignore
+						//@ts-expect-error
+
 						variant="blank" className="rounded-sm px-1 font-normal">
 							{selectedLabel}
 						</Badge>

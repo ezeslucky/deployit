@@ -157,7 +157,8 @@ export default function Home({ tokenResetPassword }: Props) {
 
 									<Button
 										type="submit"
-                                        //@ts-ignore
+                                        //@ts-expect-error
+
 										isLoading={isLoading}
 										className="w-full"
 									>

@@ -77,7 +77,8 @@ export const ComposeFileEditor = ({ composeId }: Props) => {
 					composeId,
 				});
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((_e) => {
 				toast.error("Error updating the Compose config");
 			});
@@ -103,7 +104,8 @@ export const ComposeFileEditor = ({ composeId }: Props) => {
 												language="yaml"
 												value={field.value}
 												className="font-mono"
-												//@ts-ignore
+												//@ts-expect-error
+
 												wrapperClassName="compose-file-editor"
 												placeholder={`version: '3'
 services:
@@ -134,7 +136,8 @@ services:
 					<Button
 						type="submit"
 						form="hook-form-save-compose-file"
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading}
 						className="lg:w-fit w-full"
 					>

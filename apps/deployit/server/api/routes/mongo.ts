@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
@@ -45,7 +46,8 @@ export const mongoRouter = createTRCRouter({
 		.input(apiCreateMongo)
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -70,7 +72,8 @@ export const mongoRouter = createTRCRouter({
 					});
 				}
 				const newMongo = await createMongo(input);
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -102,7 +105,8 @@ export const mongoRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOneMongo)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -267,9 +271,11 @@ export const mongoRouter = createTRCRouter({
 		}),
 	remove: protectedProcedure
 		.input(apiFindOneMongo)
-		//@ts-ignore
+		
+
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,

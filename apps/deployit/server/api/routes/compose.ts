@@ -59,7 +59,8 @@ import _ from "lodash";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import {
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const composeRouter = createTRCRouter({
@@ -67,7 +68,8 @@ export const composeRouter = createTRCRouter({
 		.input(apiCreateCompose)
 		.mutation(async ({ ctx, input }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -91,7 +93,8 @@ export const composeRouter = createTRCRouter({
 					});
 				}
 				const newService = await createCompose(input);
-//@ts-ignore
+//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -109,7 +112,8 @@ export const composeRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindCompose)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -144,7 +148,8 @@ export const composeRouter = createTRCRouter({
 	delete: protectedProcedure
 		.input(apiDeleteCompose)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -416,7 +421,8 @@ export const composeRouter = createTRCRouter({
 			}),
 		)
 		.mutation(async ({ ctx, input }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -463,7 +469,8 @@ export const composeRouter = createTRCRouter({
 				appName: `${projectName}-${generatePassword(6)}`,
 				isolatedDeployment: true,
 			});
-//@ts-ignore
+//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await addNewService(
 					ctx.user.id,

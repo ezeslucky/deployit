@@ -65,7 +65,8 @@ export const SearchCommand = () => {
 					<CommandGroup heading={"Projects"}>
 						<CommandList>
 							{data?.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(project) => (
 								<CommandItem
 									key={project.projectId}
@@ -84,7 +85,8 @@ export const SearchCommand = () => {
 					<CommandGroup heading={"Services"}>
 						<CommandList>
 							{data?.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(project) => {
 								const applications: Services[] = extractServices(project);
 								return applications.map((application) => (

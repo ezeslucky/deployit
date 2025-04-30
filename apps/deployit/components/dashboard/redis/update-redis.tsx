@@ -147,7 +147,8 @@ export const UpdateRedis = ({ redisId }: Props) => {
 								/>
 								<DialogFooter>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 										isLoading={isLoading}
 										form="hook-form-update-redis"
 										type="submit"

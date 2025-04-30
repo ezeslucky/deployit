@@ -164,7 +164,8 @@ export const HandleSecurity = ({
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							form="hook-form-add-security"
 							type="submit"

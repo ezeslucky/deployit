@@ -84,7 +84,8 @@ export const ShowInvitations = () => {
 											</TableHeader>
 											<TableBody>
 												{data?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(invitation) => {
 													const isExpired = isPast(
 														new Date(invitation.expiresAt),

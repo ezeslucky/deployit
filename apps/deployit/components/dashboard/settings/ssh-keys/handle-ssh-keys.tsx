@@ -104,7 +104,8 @@ export const HandleSSHKeys = ({ sshKeyId }: Props) => {
 	const onGenerateSSHKey = (type: z.infer<typeof sshKeyType>) =>
 		generateMutation
 			.mutateAsync(type)
-			//@ts-ignore
+			//@ts-expect-error
+
 			.then(async (data) => {
 				toast.success("SSH Key Generated");
 				form.setValue("privateKey", data.privateKey);
@@ -301,7 +302,8 @@ export const HandleSSHKeys = ({ sshKeyId }: Props) => {
 								)}
 							</div>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isLoading} type="submit">
 								{sshKeyId ? "Update" : "Create"}
 							</Button>

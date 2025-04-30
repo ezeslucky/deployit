@@ -124,7 +124,8 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 							{option === "native" ? (
 								<div>
 									{containers?.map(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(container) => (
 										<SelectItem
 											key={container.containerId}
@@ -132,7 +133,8 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 										>
 											{container.name} ({container.containerId}){" "}
 											<Badge 
-											//@ts-ignore
+											//@ts-expect-error
+
 											variant={badgeStateColor(container.state)}>
 												{container.state}
 											</Badge>
@@ -142,7 +144,8 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 							) : (
 								<>
 									{services?.map(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(container) => (
 										<SelectItem
 											key={container.containerId}
@@ -151,7 +154,8 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 											{container.name} ({container.containerId}@{container.node}
 											)
 											<Badge 
-											//@ts-ignore
+											//@ts-expect-error
+
 											variant={badgeStateColor(container.state)}>
 												{container.state}
 											</Badge>

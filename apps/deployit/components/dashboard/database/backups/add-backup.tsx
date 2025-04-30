@@ -179,7 +179,8 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 															? "Loading...."
 															: field.value
 																? data?.find(
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																		(destination) =>
 																			destination.destinationId === field.value,
 																	)?.name
@@ -204,7 +205,8 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 													<ScrollArea className="h-64">
 														<CommandGroup>
 															{data?.map(
-																//@ts-ignore
+																//@ts-expect-error
+
 																(destination) => (
 																<CommandItem
 																	value={destination.destinationId}
@@ -337,7 +339,8 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 						</div>
 						<DialogFooter>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isCreatingPostgresBackup}
 								form="hook-form-add-backup"
 								type="submit"

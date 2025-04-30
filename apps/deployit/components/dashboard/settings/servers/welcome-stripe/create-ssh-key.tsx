@@ -17,7 +17,8 @@ export const CreateSSHKey = () => {
 	const hasCreatedKey = useRef(false);
 
 	const cloudSSHKey = data?.find(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(sshKey) => sshKey.name === "deployit-cloud-ssh-key",
 	);
 

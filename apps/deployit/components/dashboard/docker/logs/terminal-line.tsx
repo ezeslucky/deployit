@@ -114,7 +114,8 @@ export function TerminalLine({ log, noTimestamp, searchTerm }: LogLineProps) {
 				)}
 
 				<Badge
-				//@ts-ignore
+				//@ts-expect-error
+
 					variant={variant}
 					className="w-14 justify-center text-[10px] px-1 py-0"
 				>

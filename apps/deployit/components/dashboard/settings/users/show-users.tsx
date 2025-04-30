@@ -85,7 +85,8 @@ export const ShowUsers = () => {
 											</TableHeader>
 											<TableBody>
 												{data?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(member) => {
 													return (
 														<TableRow key={member.id}>

@@ -174,18 +174,21 @@ export const EditGitlabProvider = ({ gitlabId }: Props) => {
 									<Button
 										type="button"
 										variant={"secondary"}
-										//@ts-ignore
+										//@ts-expect-error
+
 										isLoading={isLoading}
 										onClick={async () => {
 											await testConnection({
 												gitlabId,
 												groupName: groupName || "",
 											})
-											//@ts-ignore
+											//@ts-expect-error
+
 												.then(async (message) => {
 													toast.info(`Message: ${message}`);
 												})
-												//@ts-ignore
+												//@ts-expect-error
+
 												.catch((error) => {
 													toast.error(`Error: ${error.message}`);
 												});
@@ -194,7 +197,8 @@ export const EditGitlabProvider = ({ gitlabId }: Props) => {
 										Test Connection
 									</Button>
 									<Button type="submit" 
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={form.formState.isSubmitting}>
 										Update
 									</Button>

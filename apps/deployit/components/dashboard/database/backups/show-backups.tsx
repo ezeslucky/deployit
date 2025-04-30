@@ -137,7 +137,8 @@ export const ShowBackups = ({ id, type }: Props) => {
 							<div className="flex flex-col pt-2">
 								<div className="flex flex-col gap-6">
 									{postgres?.backups.map(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(backup) => (
 										<div key={backup.backupId}>
 											<div className="flex w-full flex-col md:flex-row md:items-center justify-between gap-4 md:gap-10 border rounded-lg p-4">
@@ -186,7 +187,8 @@ export const ShowBackups = ({ id, type }: Props) => {
 																<Button
 																	type="button"
 																	variant="ghost"
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	isLoading={
 																		isManualBackup &&
 																		activeManualBackup === backup.backupId
@@ -241,7 +243,8 @@ export const ShowBackups = ({ id, type }: Props) => {
 															variant="ghost"
 															size="icon"
 															className="group hover:bg-red-500/10"
-															//@ts-ignore
+															//@ts-expect-error
+
 															isLoading={isRemoving}
 														>
 															<Trash2 className="size-4 text-primary group-hover:text-red-500" />

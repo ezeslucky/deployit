@@ -94,7 +94,8 @@ export const WelcomeSuscription = () => {
 						<div className="flex items-center gap-2">
 							<span className="text-sm text-muted-foreground">
 								Step {
-								//@ts-ignore
+								//@ts-expect-error
+
 								stepper.current.index + 1} of {steps.length}
 							</span>
 							<div />
@@ -113,7 +114,8 @@ export const WelcomeSuscription = () => {
 												type="button"
 												role="tab"
 												variant={
-													//@ts-ignore
+													//@ts-expect-error
+
 													index <= stepper.current.index ? "secondary" : "ghost"
 												}
 												aria-current={
@@ -132,7 +134,8 @@ export const WelcomeSuscription = () => {
 										{index < array.length - 1 && (
 											<Separator
 												className={`flex-1 ${
-													//@ts-ignore
+													//@ts-expect-error
+
 													index < stepper.current.index
 														? "bg-primary"
 														: "bg-muted"

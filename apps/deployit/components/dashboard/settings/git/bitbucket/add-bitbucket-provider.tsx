@@ -215,7 +215,8 @@ export const AddBitbucketProvider = () => {
 								/>
 
 								<Button
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={form.formState.isSubmitting}>
 									Configure Bitbucket
 								</Button>

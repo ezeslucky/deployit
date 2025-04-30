@@ -8,7 +8,8 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-//@ts-ignore
+
+
 import { createTRCRouter, protectedProcedure } from "../trpc";
 
 export const previewDeploymentRouter = createTRCRouter({

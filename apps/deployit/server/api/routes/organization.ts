@@ -7,7 +7,8 @@ import { and, desc, eq, exists } from "drizzle-orm";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import { adminProcedure, 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "../trpc";
 export const organizationRouter = createTRCRouter({
 	create: protectedProcedure

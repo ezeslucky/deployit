@@ -176,7 +176,8 @@ export const EditBitbucketProvider = ({ bitbucketId }: Props) => {
 									<Button
 										type="button"
 										variant={"secondary"}
-										//@ts-ignore
+										//@ts-expect-error
+
 										isLoading={isLoading}
 										onClick={async () => {
 											await testConnection({
@@ -184,11 +185,13 @@ export const EditBitbucketProvider = ({ bitbucketId }: Props) => {
 												bitbucketUsername: username,
 												workspaceName: workspaceName,
 											})
-											//@ts-ignore
+											//@ts-expect-error
+
 												.then(async (message) => {
 													toast.info(`Message: ${message}`);
 												})
-												//@ts-ignore
+												//@ts-expect-error
+
 												.catch((error) => {
 													toast.error(`Error: ${error.message}`);
 												});
@@ -197,7 +200,8 @@ export const EditBitbucketProvider = ({ bitbucketId }: Props) => {
 										Test Connection
 									</Button>
 									<Button type="submit" 
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={form.formState.isSubmitting}>
 										Update
 									</Button>

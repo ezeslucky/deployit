@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from "@/server/db";
 import { applications, compose, github } from "@/server/db/schema";
 import type { DeploymentJob } from "@/server/queues/queue-types";
@@ -10,7 +11,7 @@ import {
 	findPreviewDeploymentsByPullRequestId,
 	removePreviewDeployment,
 	shouldDeploy,
-} from "@dokploy/server";
+} from "../../../../../packages/server/src/index";
 import { Webhooks } from "@octokit/webhooks";
 import { and, eq } from "drizzle-orm";
 import type { NextApiRequest, NextApiResponse } from "next";

@@ -60,7 +60,8 @@ export const ShowProjects = () => {
 	const filteredProjects = useMemo(() => {
 		if (!data) return [];
 		return data.filter(
-			//@ts-ignore
+			//@ts-expect-error
+
 			(project) =>
 				project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				project.description?.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -120,7 +121,8 @@ export const ShowProjects = () => {
 									)}
 									<div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 flex-wrap gap-5">
 										{filteredProjects?.map(
-											//@ts-ignore
+											//@ts-expect-error
+
 											(project) => {
 												const emptyServices =
 													project?.mariadb.length === 0 &&
@@ -171,7 +173,8 @@ export const ShowProjects = () => {
 																						Applications
 																					</DropdownMenuLabel>
 																					{project.applications.map(
-																						//@ts-ignore	
+																						//@ts-expect-error
+	
 																						(app) => (
 																							<div key={app.applicationId}>
 																								<DropdownMenuSeparator />
@@ -184,7 +187,8 @@ export const ShowProjects = () => {
 																									</DropdownMenuLabel>
 																									<DropdownMenuSeparator />
 																									{app.domains.map(
-																										//@ts-ignore																					
+																										//@ts-expect-error
+																					
 																										(domain) => (
 																											<DropdownMenuItem
 																												key={domain.domainId}
@@ -213,7 +217,8 @@ export const ShowProjects = () => {
 																						Compose
 																					</DropdownMenuLabel>
 																					{project.compose.map(
-																						//@ts-ignore
+																						//@ts-expect-error
+
 
 																						(comp) => (
 																							<div key={comp.composeId}>
@@ -227,7 +232,8 @@ export const ShowProjects = () => {
 																									</DropdownMenuLabel>
 																									<DropdownMenuSeparator />
 																									{comp.domains.map(
-																										//@ts-ignore																					
+																										//@ts-expect-error
+																					
 																										(domain) => (
 																											<DropdownMenuItem
 																												key={domain.domainId}

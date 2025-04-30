@@ -180,7 +180,8 @@ export const HandleDestinations = ({ destinationId }: Props) => {
 			.then(() => {
 				toast.success("Connection Success");
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 			.catch((e) => {
 				toast.error("Error connecting to provider", {
 					description: `${e.message}\n\nTry manually: rclone ls ${connectionString}`,
@@ -388,7 +389,8 @@ export const HandleDestinations = ({ destinationId }: Props) => {
 														<SelectGroup>
 															<SelectLabel>Servers</SelectLabel>
 															{servers?.map(
-																//@ts-ignore
+																//@ts-expect-error
+
 																(server) => (
 																<SelectItem
 																	key={server.serverId}
@@ -410,7 +412,8 @@ export const HandleDestinations = ({ destinationId }: Props) => {
 								<Button
 									type="button"
 									variant={"secondary"}
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoadingConnection}
 									onClick={async () => {
 										await handleTestConnection(form.getValues("serverId"));
@@ -421,7 +424,8 @@ export const HandleDestinations = ({ destinationId }: Props) => {
 							</div>
 						) : (
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isLoadingConnection}
 								type="button"
 								variant="secondary"
@@ -434,7 +438,8 @@ export const HandleDestinations = ({ destinationId }: Props) => {
 						)}
 
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							form="hook-form-destination-add"
 							type="submit"

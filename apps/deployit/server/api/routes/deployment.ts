@@ -14,7 +14,8 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "../trpc";
 
 export const deploymentRouter = createTRCRouter({

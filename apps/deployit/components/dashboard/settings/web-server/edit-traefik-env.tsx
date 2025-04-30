@@ -104,7 +104,8 @@ export const EditTraefikEnv = ({ children, serverId }: Props) => {
 										<FormControl>
 											<CodeEditor
 												language="properties"
-												//@ts-ignore
+												//@ts-expect-error
+
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL=test@localhost.com
 TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_STORAGE=/etc/dokploy/traefik/dynamic/acme.json
@@ -141,7 +142,8 @@ TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_HTTP_CHALLENGE_DNS_PROVIDER=cloudflare
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							disabled={canEdit || isLoading}
 							form="hook-form-update-server-traefik-config"

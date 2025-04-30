@@ -54,7 +54,8 @@ export const ShowExternalMariadbCredentials = ({ mariadbId }: Props) => {
 	const getIp = data?.server?.ipAddress || ip;
 	const form = useForm<DockerProvider>({
 		defaultValues: {},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(DockerProviderSchema),
 	});
 
@@ -126,14 +127,16 @@ export const ShowExternalMariadbCredentials = ({ mariadbId }: Props) => {
 						)}
 						<Form {...form}>
 							<form
-							//@ts-ignore
+							//@ts-expect-error
+
 								onSubmit={form.handleSubmit(onSubmit)}
 								className="flex flex-col gap-4"
 							>
 								<div className="grid md:grid-cols-2 gap-4 ">
 									<div className="md:col-span-2 space-y-4">
 										<FormField
-										//@ts-ignore
+										//@ts-expect-error
+
 											control={form.control}
 											name="externalPort"
 											render={({ field }) => {
@@ -166,7 +169,8 @@ export const ShowExternalMariadbCredentials = ({ mariadbId }: Props) => {
 
 								<div className="flex justify-end">
 									<Button type="submit"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading}>
 										Save
 									</Button>

@@ -52,7 +52,8 @@ export const AiForm = () => {
 								) : (
 									<div className="flex flex-col gap-4 rounded-lg min-h-[25vh]">
 										{aiConfigs?.map(
-											//@ts-ignore
+											//@ts-expect-error
+
 											(config) => (
 											<div
 												key={config.aiId}
@@ -88,7 +89,8 @@ export const AiForm = () => {
 																variant="ghost"
 																size="icon"
 																className="group hover:bg-red-500/10 "
-																//@ts-ignore
+																//@ts-expect-error
+
 																isLoading={isRemoving}
 															>
 																<Trash2 className="size-4 text-primary group-hover:text-red-500" />

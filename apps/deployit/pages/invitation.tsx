@@ -266,7 +266,8 @@ const Invitation = ({
 
 												<Button
 													type="submit"
-													//@ts-ignore
+													//@ts-expect-error
+
 													isLoading={form.formState.isSubmitting}
 													className="w-full"
 												>

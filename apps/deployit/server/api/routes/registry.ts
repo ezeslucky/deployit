@@ -19,7 +19,8 @@ import {
 } from "../../../../../packages/server/src/index";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
-//@ts-ignore
+
+
 import { adminProcedure, createTRCRouter, protectedProcedure } from "../trpc";
 export const registryRouter = createTRCRouter({
 	create: adminProcedure

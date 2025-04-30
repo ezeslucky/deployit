@@ -72,7 +72,8 @@ export const RebuildDatabase = ({ id, type }: Props) => {
 					<AlertDialog>
 						<AlertDialogTrigger asChild>
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isLoading}
 								variant="outline"
 								className="w-full border-destructive/50 hover:bg-destructive/10 hover:text-destructive text-destructive"
@@ -108,7 +109,8 @@ export const RebuildDatabase = ({ id, type }: Props) => {
 									asChild
 								>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading} type="submit">
 										Yes, rebuild database
 									</Button>

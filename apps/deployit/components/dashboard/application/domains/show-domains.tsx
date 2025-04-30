@@ -71,7 +71,8 @@ export const ShowDomains = ({ applicationId }: Props) => {
 					) : (
 						<div className="flex w-full flex-col gap-4">
 							{data?.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(item) => {
 								return (
 									<div
@@ -130,7 +131,8 @@ export const ShowDomains = ({ applicationId }: Props) => {
 														variant="ghost"
 														size="icon"
 														className="group hover:bg-red-500/10"
-														//@ts-ignore
+														//@ts-expect-error
+
 														isLoading={isRemoving}
 													>
 														<Trash2 className="size-4 text-primary group-hover:text-red-500" />

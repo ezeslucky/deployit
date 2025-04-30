@@ -86,7 +86,8 @@ export const AddApiKey = () => {
 	const { refetch } = api.user.get.useQuery();
 	const { data: organizations } = api.organization.all.useQuery();
 	const createApiKey = api.user.createApiKey.useMutation({
-		//@ts-ignore
+		//@ts-expect-error
+
 		onSuccess: (data) => {
 			if (!data) return;
 
@@ -223,7 +224,8 @@ export const AddApiKey = () => {
 											</FormControl>
 											<SelectContent>
 												{organizations?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(org) => (
 													<SelectItem key={org.id} value={org.id}>
 														{org.name}

@@ -85,7 +85,8 @@ export const EditScript = ({ serverId }: Props) => {
 				command: formData.command || "",
 				serverId,
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 				.then((_data) => {
 					toast.success("Script modified successfully");
 				})
@@ -132,7 +133,8 @@ export const EditScript = ({ serverId }: Props) => {
 										<FormControl className="max-h-[75vh] max-w-[60rem] overflow-y-scroll overflow-x-hidden">
 											<CodeEditor
 												language="shell"
-												//@ts-ignore
+												//@ts-expect-error
+
 												wrapperClassName="font-mono"
 												{...field}
 												placeholder={`
@@ -160,7 +162,8 @@ echo "Hello world"
 						Reset
 					</Button>
 					<Button
-					//@ts-ignore
+					//@ts-expect-error
+
 						isLoading={isLoading}
 						form="hook-form-delete-application"
 						type="submit"

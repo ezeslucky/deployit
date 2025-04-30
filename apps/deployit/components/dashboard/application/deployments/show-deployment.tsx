@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react/jsx-no-comment-textnodes */
+ 
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -135,7 +135,8 @@ export const ShowDeployment = ({
 							See all the details of this deployment |{" "}
 							
 							<Badge
-							//@ts-ignore
+							//@ts-expect-error
+
 							variant="blank" className="text-xs">
 								{filteredLogs.length} lines
 							</Badge>

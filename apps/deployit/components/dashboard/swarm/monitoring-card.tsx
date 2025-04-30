@@ -58,19 +58,23 @@ export default function SwarmMonitorCard({ serverId }: Props) {
 
 	const totalNodes = nodes.length;
 	const activeNodesCount = nodes.filter(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(node) => node.Status === "Ready",
 	).length;
 	const managerNodesCount = nodes.filter(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(node) =>
 			node.ManagerStatus === "Leader" || node.ManagerStatus === "Reachable",
 	).length;
 	const activeNodes = nodes.filter(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(node) => node.Status === "Ready");
 	const managerNodes = nodes.filter(
-		//@ts-ignore
+		//@ts-expect-error
+
 		(node) =>
 			node.ManagerStatus === "Leader" || node.ManagerStatus === "Reachable",
 	);
@@ -120,7 +124,8 @@ export default function SwarmMonitorCard({ serverId }: Props) {
 									Active Nodes
 								</CardTitle>
 								<Badge 
-								//@ts-ignore
+								//@ts-expect-error
+
 								variant="green">Online</Badge>
 							</div>
 							<div className="p-2 bg-emerald-600/20 text-emerald-600 rounded-md">
@@ -138,7 +143,8 @@ export default function SwarmMonitorCard({ serverId }: Props) {
 									<TooltipContent>
 										<div className="max-h-48 overflow-y-auto">
 											{activeNodes.map(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(node) => (
 												<div key={node.ID} className="flex items-center gap-2">
 													{node.Hostname}
@@ -158,7 +164,8 @@ export default function SwarmMonitorCard({ serverId }: Props) {
 									Manager Nodes
 								</CardTitle>
 								<Badge 
-								//@ts-ignore
+								//@ts-expect-error
+
 								variant="green">Online</Badge>
 							</div>
 							<div className="p-2 bg-emerald-600/20 text-emerald-600 rounded-md">
@@ -176,7 +183,8 @@ export default function SwarmMonitorCard({ serverId }: Props) {
 									<TooltipContent>
 										<div className="max-h-48 overflow-y-auto">
 											{managerNodes.map(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(node) => (
 												<div key={node.ID} className="flex items-center gap-2">
 													{node.Hostname}
@@ -192,7 +200,8 @@ export default function SwarmMonitorCard({ serverId }: Props) {
 
 				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
 					{nodes.map(
-						//@ts-ignore
+						//@ts-expect-error
+
 						(node) => (
 						<NodeCard key={node.ID} node={node} serverId={serverId} />
 					))}

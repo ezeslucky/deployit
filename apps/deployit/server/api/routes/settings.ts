@@ -13,7 +13,7 @@ import {
 	apiUpdateDockerCleanup,
 } from "@/server/db/schema";
 import { removeJob, schedule } from "@/server/utils/backup";
-//@ts-ignore
+
 import {
 	DEFAULT_UPDATE_DATA,
 	IS_CLOUD,
@@ -27,10 +27,10 @@ import {
 	execAsyncRemote,
 	findServerById,
 	findUserById,
-	//@ts-ignore
-	getDokployImage,
-	//@ts-ignore
-	getDokployImageTag,
+	
+	getdeployitImage,
+	
+	getdeployitImageTag,
 	getLogCleanupStatus,
 	getUpdateData,
 	initializeTraefik,
@@ -68,7 +68,8 @@ import packageInfo from "../../../package.json";
 import { appRouter } from "../root";
 import {
 	adminProcedure,
-	//@ts-ignore
+	
+
 	createTRCRouter,
 	protectedProcedure,
 	publicProcedure,
@@ -369,8 +370,8 @@ export const settingsRouter = createTRCRouter({
 			"update",
 			"--force",
 			"--image",
-			getDokployImage(),
-			"dokploy",
+			getdeployitImage(),
+			"deployit",
 		]);
 
 		return true;
@@ -380,13 +381,14 @@ export const settingsRouter = createTRCRouter({
 		return packageInfo.version;
 	}),
 	getReleaseTag: protectedProcedure.query(() => {
-		return getDokployImageTag();
+		return getdeployitImageTag();
 	}),
 	readDirectories: protectedProcedure
 		.input(apiServerSchema)
 		.query(async ({ ctx, input }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					const canAccess = await canAccessToTraefikFiles(
 						ctx.user.id,
@@ -408,7 +410,8 @@ export const settingsRouter = createTRCRouter({
 	updateTraefikFile: protectedProcedure
 		.input(apiModifyTraefikConfig)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				const canAccess = await canAccessToTraefikFiles(
 					ctx.user.id,
@@ -430,7 +433,8 @@ export const settingsRouter = createTRCRouter({
 	readTraefikFile: protectedProcedure
 		.input(apiReadTraefikConfig)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				const canAccess = await canAccessToTraefikFiles(
 					ctx.user.id,

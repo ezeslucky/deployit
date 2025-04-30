@@ -108,7 +108,8 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 
 	const haveAtleasOneProviderEnabled = aiSettings?.some(
 
-		//@ts-ignore
+		//@ts-expect-error
+
 		(ai) => ai.isEnabled === true,
 	);
 
@@ -177,7 +178,8 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 							<span className="text-sm text-muted-foreground">
 							
 								Step {
-								//@ts-ignore
+								//@ts-expect-error
+
 								stepper.current.index + 1} of {steps.length}
 							</span>
 							<div />
@@ -196,7 +198,8 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 												type="button"
 												role="tab"
 												variant={
-													//@ts-ignore
+													//@ts-expect-error
+
 													index <= stepper.current.index ? "secondary" : "ghost"
 												}
 												aria-current={
@@ -214,7 +217,8 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 										{index < array.length - 1 && (
 											<Separator
 												className={`flex-1 ${
-													//@ts-ignore
+													//@ts-expect-error
+
 													index < stepper.current.index
 														? "bg-primary"
 														: "bg-muted"
@@ -272,7 +276,8 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 														<SelectContent>
 														
 															{aiSettings.map(
-																//@ts-ignore
+																//@ts-expect-error
+
 																(ai) => (
 																<SelectItem key={ai.aiId} value={ai.aiId}>
 																	{ai.name} ({ai.model})

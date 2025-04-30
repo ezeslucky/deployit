@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import { apiRemoveGitProvider, gitProvider } from "@/server/db/schema";

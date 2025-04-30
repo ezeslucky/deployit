@@ -58,7 +58,8 @@ export const ShowSecurity = ({ applicationId }: Props) => {
 					<div className="flex flex-col pt-2">
 						<div className="flex flex-col gap-6 ">
 							{data?.security.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(security) => (
 								<div key={security.securityId}>
 									<div className="flex w-full flex-col sm:flex-row justify-between sm:items-center gap-4 sm:gap-10 border rounded-lg p-4">
@@ -105,7 +106,8 @@ export const ShowSecurity = ({ applicationId }: Props) => {
 													variant="ghost"
 													size="icon"
 													className="group hover:bg-red-500/10"
-													//@ts-ignore
+													//@ts-expect-error
+
 													isLoading={isRemoving}
 												>
 													<Trash2 className="size-4 text-primary group-hover:text-red-500" />

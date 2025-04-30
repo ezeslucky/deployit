@@ -61,7 +61,8 @@ export const SetupServer = ({ serverId }: Props) => {
 		},
 		{
 			enabled: isDeploying,
-			//@ts-ignore
+			//@ts-expect-error
+
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -73,7 +74,8 @@ export const SetupServer = ({ serverId }: Props) => {
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-ignore
+			//@ts-expect-error
+
 			onError(error) {
 				console.error("Deployment logs error:", error);
 				setIsDeploying(false);

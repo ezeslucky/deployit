@@ -167,7 +167,8 @@ export const aiRouter = createTRCRouter({
 	deploy: protectedProcedure
 		.input(deploySuggestionSchema)
 		.mutation(async ({ ctx, input }) => {
-            //@ts-ignore
+            //@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.session.activeOrganizationId,
@@ -220,7 +221,8 @@ export const aiRouter = createTRCRouter({
 					});
 				}
 			}
-//@ts-ignore
+//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await addNewService(
 					ctx.session.activeOrganizationId,

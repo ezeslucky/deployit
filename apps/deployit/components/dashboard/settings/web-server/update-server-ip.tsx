@@ -146,7 +146,8 @@ export const UpdateServerIp = ({ children }: Props) => {
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							disabled={isLoading}
 							form="hook-form-update-server-ip"

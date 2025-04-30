@@ -59,7 +59,8 @@ export const setupDockerContainerTerminalWebSocketServer = (
 						conn.exec(
 							`docker exec -it ${containerId} ${activeWay}`,
 							{ pty: true },
-							//@ts-ignore
+							//@ts-expect-error
+
 							(err, stream) => {
 								if (err) throw err;
 
@@ -72,7 +73,8 @@ export const setupDockerContainerTerminalWebSocketServer = (
 										_stdout += data.toString();
 										ws.send(data.toString());
 									})
-									//@ts-ignore
+									//@ts-expect-error
+
 									.stderr.on("data", (data) => {
 										_stderr += data.toString();
 										ws.send(data.toString());

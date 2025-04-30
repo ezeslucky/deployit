@@ -128,12 +128,14 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 		api.compose.deployTemplate.useMutation();
 
 	const templates =
-	//@ts-ignore
+	//@ts-expect-error
+
 		data?.filter((template) => {
 			const matchesTags =
 				selectedTags.length === 0 ||
 				template.tags.some(
-					//@ts-ignore
+					//@ts-expect-error
+
 					(tag) => selectedTags.includes(tag));
 			const matchesQuery =
 				query === "" ||
@@ -210,7 +212,8 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 											<ScrollArea className="h-96">
 												<CommandGroup>
 													{tags?.map(
-														//@ts-ignore
+														//@ts-expect-error
+
 														(tag) => (
 														<CommandItem
 															value={tag}
@@ -313,7 +316,8 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 								)}
 							>
 								{templates?.map(
-									//@ts-ignore
+									//@ts-expect-error
+
 									(template) => (
 									<div
 										key={template?.id}
@@ -324,7 +328,8 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 										)}
 									>
 										<Badge className="absolute top-2 right-2" 
-										//@ts-ignore
+										//@ts-expect-error
+
 										variant="blue">
 											{template?.version}
 										</Badge>
@@ -350,11 +355,13 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 													template?.tags?.length > 0 && (
 														<div className="flex flex-wrap justify-center gap-1.5">
 															{template?.tags?.map(
-																//@ts-ignore
+																//@ts-expect-error
+
 																(tag) => (
 																<Badge
 																	key={tag}
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	variant="green"
 																	className="text-[10px] px-2 py-0"
 																>
@@ -474,7 +481,8 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 																<SelectContent>
 																	<SelectGroup>
 																		{servers?.map(
-																			//@ts-ignore
+																			//@ts-expect-error
+
 																			(server) => (
 																			<SelectItem
 																				key={server.serverId}

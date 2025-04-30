@@ -10,7 +10,8 @@ import {
 } from "../../../../../packages/server/src/index";
 import { z } from "zod";
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "../trpc";
 
 export const dockerRouter = createTRCRouter({

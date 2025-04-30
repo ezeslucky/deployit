@@ -94,7 +94,8 @@ export const ManageTraefikPorts = ({ children, serverId }: Props) => {
 			toast.success(t("settings.server.webServer.traefik.portsUpdated"));
 			setOpen(false);
 		} 
-		//@ts-ignore
+		//@ts-expect-error
+
 		catch (_error) {}
 	};
 
@@ -263,7 +264,8 @@ export const ManageTraefikPorts = ({ children, serverId }: Props) => {
 									type="submit"
 									variant="default"
 									className="text-sm"
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading}
 									
 								>

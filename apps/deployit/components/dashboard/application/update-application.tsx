@@ -149,7 +149,8 @@ export const UpdateApplication = ({ applicationId }: Props) => {
 								/>
 								<DialogFooter>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 										isLoading={isLoading}
 										form="hook-form-update-application"
 										type="submit"

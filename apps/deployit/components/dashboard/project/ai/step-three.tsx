@@ -19,7 +19,8 @@ export const StepThree = ({ templateInfo }: StepProps) => {
 						<div>
 							<h3 className="text-sm font-semibold">Description</h3>
 							<ReactMarkdown 
-							//@ts-ignore
+							//@ts-expect-error
+
 							className="text-sm text-muted-foreground">
 								{templateInfo?.details?.description}
 							</ReactMarkdown>

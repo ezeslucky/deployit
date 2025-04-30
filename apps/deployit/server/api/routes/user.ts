@@ -25,7 +25,6 @@ import { and, asc, eq, gt } from "drizzle-orm";
 import { z } from "zod";
 import {
 	adminProcedure,
-	//@ts-ignore
 	createTRCRouter,
 	protectedProcedure,
 	publicProcedure,

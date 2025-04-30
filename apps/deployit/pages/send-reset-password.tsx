@@ -122,7 +122,8 @@ export default function Home() {
 
 										<Button
 											type="submit"
-                                            //@ts-ignore
+                                            //@ts-expect-error
+
 											isLoading={isLoading}
 											className="w-full"
 										>

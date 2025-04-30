@@ -263,7 +263,8 @@ export const AddGitlabProvider = () => {
 								/>
 
 								<Button 
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={form.formState.isSubmitting}>
 									Configure GitLab App
 								</Button>

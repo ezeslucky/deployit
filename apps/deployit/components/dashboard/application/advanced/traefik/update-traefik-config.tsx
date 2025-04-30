@@ -123,7 +123,8 @@ export const UpdateTraefikConfig = ({ applicationId }: Props) => {
 		>
 			<DialogTrigger asChild>
 				<Button 
-				//@ts-ignore
+				//@ts-expect-error
+
 				isLoading={isLoading}>Modify</Button>
 			</DialogTrigger>
 			<DialogContent className="max-h-screen  overflow-y-auto sm:max-w-4xl">
@@ -149,7 +150,8 @@ export const UpdateTraefikConfig = ({ applicationId }: Props) => {
 										<FormControl>
 											<CodeEditor
 												lineWrapping
-												//@ts-ignore
+												//@ts-expect-error
+
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`http:
 routers:
@@ -176,7 +178,8 @@ routers:
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							form="hook-form-update-traefik-config"
 							type="submit"

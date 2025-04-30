@@ -340,7 +340,8 @@ export const RequestsTable = ({ dateRange }: RequestsTableProps) => {
 														<span>		{value}</span>
 														<Copy
 															onClick={() => {
-																//@ts-ignore
+																//@ts-expect-error
+
 																copy(value);
 																toast.success("Copied to clipboard");
 															}}

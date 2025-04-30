@@ -171,7 +171,8 @@ export const AddPreviewDomain = ({
 															<Button
 																variant="secondary"
 																type="button"
-																//@ts-ignore
+																//@ts-expect-error
+
 																isLoading={isLoadingGenerate}
 																onClick={() => {
 																	generateDomain({
@@ -180,11 +181,13 @@ export const AddPreviewDomain = ({
 																			previewDeployment?.application
 																				?.serverId || "",
 																	})
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																		.then((domain) => {
 																			field.onChange(domain);
 																		})
-																		//@ts-ignore
+																		//@ts-expect-error
+
 																		.catch((err) => {
 																			toast.error(err.message);
 																		});
@@ -298,7 +301,8 @@ export const AddPreviewDomain = ({
 
 					<DialogFooter>
 						<Button 
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading} form="hook-form" type="submit">
 							{dictionary.submit}
 						</Button>

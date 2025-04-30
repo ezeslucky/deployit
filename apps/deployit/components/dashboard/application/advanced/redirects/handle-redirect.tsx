@@ -111,7 +111,8 @@ export const HandleRedirect = ({
 			regex: "",
 			replacement: "",
 		},
-	//@ts-ignore
+	//@ts-expect-error
+
 		resolver: zodResolver(AddRedirectchema),
 	});
 
@@ -197,7 +198,8 @@ export const HandleRedirect = ({
 						<SelectContent>
 							{redirectPresets.map((preset) => (
 								<SelectItem key={preset.label}
-								//@ts-ignore
+								//@ts-expect-error
+
 								value={preset.id}>
 									{preset.label}
 								</SelectItem>
@@ -211,13 +213,15 @@ export const HandleRedirect = ({
 				<Form {...form}>
 					<form
 						id="hook-form-add-redirect"
-						//@ts-ignore
+						//@ts-expect-error
+
 						onSubmit={form.handleSubmit(onSubmit)}
 						className="grid w-full gap-4"
 					>
 						<div className="flex flex-col gap-4">
 							<FormField
-							//@ts-ignore
+							//@ts-expect-error
+
 								control={form.control}
 								name="regex"
 								render={({ field }) => (
@@ -232,7 +236,8 @@ export const HandleRedirect = ({
 								)}
 							/>
 							<FormField
-							//@ts-ignore
+							//@ts-expect-error
+
 								control={form.control}
 								name="replacement"
 								render={({ field }) => (
@@ -248,7 +253,8 @@ export const HandleRedirect = ({
 							/>
 
 							<FormField
-							//@ts-ignore
+							//@ts-expect-error
+
 								control={form.control}
 								name="permanent"
 								render={({ field }) => (
@@ -274,7 +280,8 @@ export const HandleRedirect = ({
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							form="hook-form-add-redirect"
 							type="submit"

@@ -152,7 +152,8 @@ export const AddInvitation = () => {
 						/>
 						<DialogFooter className="flex w-full flex-row">
 							<Button
-							//@ts-ignore
+							//@ts-expect-error
+
 								isLoading={isLoading}
 								form="hook-form-add-invitation"
 								type="submit"

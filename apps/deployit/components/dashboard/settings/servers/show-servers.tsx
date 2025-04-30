@@ -169,7 +169,8 @@ export const ShowServers = () => {
 													</TableHeader>
 													<TableBody>
 														{data?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(server) => {
 															const canDelete = server.totalSum === 0;
 															const isActive = server.serverStatus === "active";
@@ -293,7 +294,8 @@ export const ShowServers = () => {
 																									`Server ${server.name} deleted successfully`,
 																								);
 																							})
-//@ts-ignore
+//@ts-expect-error
+
 
 																							.catch((err) => {
 																								toast.error(err.message);

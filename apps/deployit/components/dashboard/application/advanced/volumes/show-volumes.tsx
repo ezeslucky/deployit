@@ -75,7 +75,8 @@ export const ShowVolumes = ({ id, type }: Props) => {
 						</AlertBlock>
 						<div className="flex flex-col gap-6">
 							{data?.mounts.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(mount) => (
 								<div key={mount.mountId}>
 									<div
@@ -159,7 +160,8 @@ export const ShowVolumes = ({ id, type }: Props) => {
 													variant="ghost"
 													size="icon"
 													className="group hover:bg-red-500/10"
-													//@ts-ignore
+													//@ts-expect-error
+
 													isLoading={isRemoving}
 												>
 													<Trash2 className="size-4 text-primary group-hover:text-red-500" />

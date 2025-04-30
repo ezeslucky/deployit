@@ -192,7 +192,8 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 										</FormControl>
 										<SelectContent>
 											{bitbucketProviders?.map(
-												//@ts-ignore
+												//@ts-expect-error
+
 												(bitbucketProvider) => (
 												<SelectItem
 													key={bitbucketProvider.bitbucketId}
@@ -241,7 +242,8 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -265,7 +267,8 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 												<ScrollArea className="h-96">
 													<CommandGroup>
 														{repositories?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(repo) => (
 															<CommandItem
 																value={repo.name}
@@ -327,7 +330,8 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -356,7 +360,8 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 
 													<CommandGroup>
 														{branches?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(branch) => (
 															<CommandItem
 																value={branch.name}
@@ -481,7 +486,8 @@ export const SaveBitbucketProviderCompose = ({ composeId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isSavingBitbucketProvider}
 							type="submit"
 							className="w-fit"

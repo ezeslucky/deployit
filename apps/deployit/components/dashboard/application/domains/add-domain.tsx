@@ -221,18 +221,21 @@ export const AddDomain = ({
 															<Button
 																variant="secondary"
 																type="button"
-																//@ts-ignore
+																//@ts-expect-error
+
 																isLoading={isLoadingGenerate}
 																onClick={() => {
 																	generateDomain({
 																		appName: application?.appName || "",
 																		serverId: application?.serverId || "",
 																	})
-																	//@ts-ignore
+																	//@ts-expect-error
+
 			.then((domain) => {
 																			field.onChange(domain);
 																		})
-																		//@ts-ignore
+																		//@ts-expect-error
+
 																		.catch((err) => {
 																			toast.error(err.message);
 																		});
@@ -385,7 +388,8 @@ export const AddDomain = ({
 
 					<DialogFooter>
 						<Button 
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading} form="hook-form" type="submit">
 							{dictionary.submit}
 						</Button>

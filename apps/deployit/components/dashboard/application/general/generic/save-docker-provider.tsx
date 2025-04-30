@@ -153,7 +153,8 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 					<Button
 						type="submit"
 						className="w-fit"
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={form.formState.isSubmitting}
 					>
 						Save{" "}

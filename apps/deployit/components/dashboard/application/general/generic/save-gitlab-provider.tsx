@@ -88,7 +88,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 			gitlabId: "",
 			branch: "",
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(GitlabProviderSchema),
 	});
 
@@ -166,14 +167,16 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 		<div>
 			<Form {...form}>
 				<form
-				//@ts-ignore
+				//@ts-expect-error
+
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="grid w-full gap-4 py-3"
 				>
 					{error && <AlertBlock type="error">{error?.message}</AlertBlock>}
 					<div className="grid md:grid-cols-2 gap-4">
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="gitlabId"
 							render={({ field }) => (
@@ -200,7 +203,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 										</FormControl>
 										<SelectContent>
 											{gitlabProviders?.map(
-											//@ts-ignore	
+											//@ts-expect-error
+	
 												(gitlabProvider) => (
 												<SelectItem
 													key={gitlabProvider.gitlabId}
@@ -217,7 +221,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 						/>
 
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="repository"
 							render={({ field }) => (
@@ -251,7 +256,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 														: field.value.owner
 															? repositories?.find(
 
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -280,7 +286,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 															</CommandEmpty>
 														)}
 														{repositories?.map(
-														//@ts-ignore	
+														//@ts-expect-error
+	
 															(repo) => {
 															return (
 																<CommandItem
@@ -327,7 +334,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -348,7 +356,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 														: field.value
 															? branches?.find(
 
-																//@ts-ignore
+																//@ts-expect-error
+
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -377,7 +386,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 
 													<CommandGroup>
 														{branches?.map(
-														//@ts-ignore	
+														//@ts-expect-error
+	
 															(branch) => (
 															<CommandItem
 																value={branch.name}
@@ -408,7 +418,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="buildPath"
 							render={({ field }) => (
@@ -422,7 +433,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="watchPaths"
 							render={({ field }) => (
@@ -504,7 +516,8 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isSavingGitlabProvider}
 							type="submit"
 							className="w-fit"

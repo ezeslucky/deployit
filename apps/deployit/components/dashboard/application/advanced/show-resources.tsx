@@ -277,7 +277,8 @@ export const ShowResources = ({ id, type }: Props) => {
 						</div>
 						<div className="flex w-full justify-end">
 							<Button 
-							//@ts-ignore
+							//@ts-expect-error
+
 							isLoading={isLoading} type="submit">
 								Save
 							</Button>

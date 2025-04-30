@@ -82,7 +82,8 @@ export const ComposePaidMonitoring = ({
 								setContainerAppName(value);
 								setContainerId(
 									data?.find(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(container) => container.name === value)
 										?.containerId,
 								);
@@ -102,7 +103,8 @@ export const ComposePaidMonitoring = ({
 							<SelectContent>
 								<SelectGroup>
 									{data?.map(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(container) => (
 										<SelectItem
 											key={container.containerId}
@@ -110,7 +112,8 @@ export const ComposePaidMonitoring = ({
 										>
 											{container.name} ({container.containerId}){" "}
 											<Badge 
-											//@ts-ignore
+											//@ts-expect-error
+
 											variant={badgeStateColor(container.state)}>
 												{container.state}
 											</Badge>
@@ -121,7 +124,8 @@ export const ComposePaidMonitoring = ({
 							</SelectContent>
 						</Select>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isRestarting}
 							onClick={async () => {
 								if (!containerId) return;

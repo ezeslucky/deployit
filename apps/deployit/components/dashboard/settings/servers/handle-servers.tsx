@@ -121,7 +121,8 @@ export const HandleServers = ({ serverId }: Props) => {
 			sshKeyId: data.sshKeyId || "",
 			serverId: serverId || "",
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(async (_data) => {
 				await utils.server.all.invalidate();
 				refetchServer();
@@ -225,7 +226,8 @@ export const HandleServers = ({ serverId }: Props) => {
 										<SelectContent>
 											<SelectGroup>
 												{sshKeys?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(sshKey) => (
 													<SelectItem
 														key={sshKey.sshKeyId}
@@ -307,7 +309,8 @@ export const HandleServers = ({ serverId }: Props) => {
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={isLoading}
 							disabled={!canCreateMoreServers && !serverId}
 							form="hook-form-add-server"

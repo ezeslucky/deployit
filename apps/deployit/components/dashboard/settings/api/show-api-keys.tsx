@@ -53,7 +53,8 @@ export const ShowApiKeys = () => {
 						<div className="flex flex-col gap-4">
 							{data?.user.apiKeys && data.user.apiKeys.length > 0 ? (
 								data.user.apiKeys.map(
-									//@ts-ignore
+									//@ts-expect-error
+
 									(apiKey) => (
 									<div
 										key={apiKey.id}
@@ -115,7 +116,8 @@ export const ShowApiKeys = () => {
 												<Button
 													variant="ghost"
 													size="icon"
-													//@ts-ignore
+													//@ts-expect-error
+
 													isLoading={isLoadingDelete}
 												>
 													<Trash2 className="size-4" />

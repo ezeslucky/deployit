@@ -56,7 +56,8 @@ export const StepOne = ({ setTemplateInfo, templateInfo }: any) => {
 						<Select
 							value={templateInfo.server?.serverId}
 							onValueChange={(value) => {
-								//@ts-ignore
+								//@ts-expect-error
+
 								const server = servers?.find((s) => s.serverId === value);
 								if (server) {
 									setTemplateInfo({
@@ -73,7 +74,8 @@ export const StepOne = ({ setTemplateInfo, templateInfo }: any) => {
 								<SelectGroup>
 								
 									{servers?.map(
-										//@ts-ignore
+										//@ts-expect-error
+
 										(server) => (
 										<SelectItem key={server.serverId} value={server.serverId}>
 											{server.name}

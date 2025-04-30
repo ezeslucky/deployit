@@ -234,7 +234,8 @@ export const WebDomain = () => {
 
 								<div className="flex w-full justify-end col-span-2">
 									<Button 
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading} type="submit">
 										{t("settings.common.save")}
 									</Button>

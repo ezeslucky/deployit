@@ -202,7 +202,8 @@ export const AddCompose = ({ projectId, projectName }: Props) => {
 										<SelectContent>
 											<SelectGroup>
 												{servers?.map(
-													//@ts-ignore
+													//@ts-expect-error
+
 													(server) => (
 													<SelectItem
 														key={server.serverId}
@@ -285,7 +286,8 @@ export const AddCompose = ({ projectId, projectName }: Props) => {
 
 					<DialogFooter>
 						<Button 
-						//@ts-ignore
+						//@ts-expect-error
+
 						isLoading={isLoading} form="hook-form" type="submit">
 							Create
 						</Button>

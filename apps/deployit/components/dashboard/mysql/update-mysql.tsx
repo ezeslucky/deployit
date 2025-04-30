@@ -147,7 +147,8 @@ export const UpdateMysql = ({ mysqlId }: Props) => {
 								/>
 								<DialogFooter>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 										isLoading={isLoading}
 										form="hook-form-mysql-update"
 										type="submit"

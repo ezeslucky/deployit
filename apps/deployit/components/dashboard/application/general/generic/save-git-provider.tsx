@@ -69,7 +69,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 			sshKey: undefined,
 			watchPaths: [],
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(GitProviderSchema),
 	});
 
@@ -106,7 +107,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 	return (
 		<Form {...form}>
 			<form
-			//@ts-ignore
+			//@ts-expect-error
+
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="flex flex-col gap-4"
 			>
@@ -114,7 +116,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 					<div className="flex items-end col-span-2 gap-4">
 						<div className="grow">
 							<FormField
-							//@ts-ignore
+							//@ts-expect-error
+
 								control={form.control}
 								name="repositoryURL"
 								render={({ field }) => (
@@ -143,7 +146,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 						</div>
 						{sshKeys && sshKeys.length > 0 ? (
 							<FormField
-							//@ts-ignore
+							//@ts-expect-error
+
 								control={form.control}
 								name="sshKey"
 								render={({ field }) => (
@@ -165,7 +169,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 												<SelectContent>
 													<SelectGroup>
 														{sshKeys?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(sshKey) => (
 															<SelectItem
 																key={sshKey.sshKeyId}
@@ -195,7 +200,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="space-y-4">
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -211,7 +217,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 					</div>
 
 					<FormField
-					//@ts-ignore
+					//@ts-expect-error
+
 						control={form.control}
 						name="buildPath"
 						render={({ field }) => (
@@ -225,7 +232,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 						)}
 					/>
 					<FormField
-					//@ts-ignore
+					//@ts-expect-error
+
 						control={form.control}
 						name="watchPaths"
 						render={({ field }) => (
@@ -308,7 +316,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 
 				<div className="flex flex-row justify-end">
 					<Button type="submit" className="w-fit"
-					//@ts-ignore
+					//@ts-expect-error
+
 					isLoading={isLoading}>
 						Save
 					</Button>

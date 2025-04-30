@@ -10,7 +10,8 @@ import {
 import { TRPCError } from "@trpc/server";
 import Stripe from "stripe";
 import { z } from "zod";
-//@ts-ignore
+
+
 import { adminProcedure, createTRCRouter } from "../trpc";
 
 export const stripeRouter = createTRCRouter({
@@ -19,7 +20,8 @@ export const stripeRouter = createTRCRouter({
 		const stripeCustomerId = user.stripeCustomerId;
 
 		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-			//@ts-ignore
+			//@ts-expect-error
+
 			apiVersion: "2024-09-30.acacia",
 		});
 
@@ -56,7 +58,8 @@ export const stripeRouter = createTRCRouter({
 		)
 		.mutation(async ({ ctx, input }) => {
 			const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-				//@ts-ignore
+				//@ts-expect-error
+
 				apiVersion: "2024-09-30.acacia",
 			});
 
@@ -104,7 +107,8 @@ export const stripeRouter = createTRCRouter({
 		const stripeCustomerId = user.stripeCustomerId;
 
 		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-			//@ts-ignore
+			//@ts-expect-error
+
 			apiVersion: "2024-09-30.acacia",
 		});
 

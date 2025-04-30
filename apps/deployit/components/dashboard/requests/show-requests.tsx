@@ -158,7 +158,8 @@ export const ShowRequests = () => {
 													`Requests ${isActive ? "deactivated" : "activated"}`,
 												);
 											})
-											//@ts-ignore
+											//@ts-expect-error
+
 											.catch((err) => {
 												toast.error(err.message);
 											});

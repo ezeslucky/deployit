@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { 
-	//@ts-ignore
+	
+
 	createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
@@ -42,10 +43,12 @@ import { z } from "zod";
 export const postgresRouter = createTRCRouter({
 	create: protectedProcedure
 		.input(apiCreatePostgres)
-		//@ts-ignore
+		
+
 		.mutation(async ({ input, ctx }) => {
 			try {
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await checkServiceAccess(
 						ctx.user.id,
@@ -70,7 +73,8 @@ export const postgresRouter = createTRCRouter({
 					});
 				}
 				const newPostgres = await createPostgres(input);
-				//@ts-ignore
+				//@ts-expect-error
+
 				if (ctx.user.rol === "member") {
 					await addNewService(
 						ctx.user.id,
@@ -102,7 +106,8 @@ export const postgresRouter = createTRCRouter({
 	one: protectedProcedure
 		.input(apiFindOnePostgres)
 		.query(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,
@@ -251,7 +256,8 @@ export const postgresRouter = createTRCRouter({
 	remove: protectedProcedure
 		.input(apiFindOnePostgres)
 		.mutation(async ({ input, ctx }) => {
-			//@ts-ignore
+			//@ts-expect-error
+
 			if (ctx.user.rol === "member") {
 				await checkServiceAccess(
 					ctx.user.id,

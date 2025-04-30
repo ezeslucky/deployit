@@ -100,7 +100,8 @@ export const DeleteService = ({ id, type }: Props) => {
 				composeId: id || "",
 				deleteVolumes,
 			})
-			//@ts-ignore
+			//@ts-expect-error
+
 				.then((result) => {
 					push(`/dashboard/project/${result?.projectId}`);
 					toast.success("deleted successfully");
@@ -123,7 +124,8 @@ export const DeleteService = ({ id, type }: Props) => {
 					variant="ghost"
 					size="icon"
 					className="group hover:bg-red-500/10 "
-					//@ts-ignore
+					//@ts-expect-error
+
 					isLoading={isLoading}
 				>
 					<Trash2 className="size-4 text-primary group-hover:text-red-500" />
@@ -215,7 +217,8 @@ export const DeleteService = ({ id, type }: Props) => {
 						Cancel
 					</Button>
 					<Button
-					//@ts-ignore
+					//@ts-expect-error
+
 						isLoading={isLoading}
 						form="hook-form-delete-compose"
 						type="submit"

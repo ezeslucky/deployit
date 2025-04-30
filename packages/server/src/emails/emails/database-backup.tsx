@@ -33,7 +33,8 @@ export const DatabaseBackupEmail = ({
 		<Html>
 			<Preview>{previewText}</Preview>
 			<Tailwind
-			//@ts-ignore
+			//@ts-expect-error
+
 				config={{
 					theme: {
 						extend: {

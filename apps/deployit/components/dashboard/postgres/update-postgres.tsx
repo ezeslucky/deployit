@@ -149,7 +149,8 @@ export const UpdatePostgres = ({ postgresId }: Props) => {
 								/>
 								<DialogFooter>
 									<Button
-									//@ts-ignore
+									//@ts-expect-error
+
 										isLoading={isLoading}
 										form="hook-form-update-postgres"
 										type="submit"

@@ -76,7 +76,8 @@ export const ComposeFreeMonitoring = ({
 							setContainerAppName(value);
 							setContainerId(
 								data?.find(
-									//@ts-ignore
+									//@ts-expect-error
+
 									(container) => container.name === value)
 									?.containerId,
 							);
@@ -96,7 +97,8 @@ export const ComposeFreeMonitoring = ({
 						<SelectContent>
 							<SelectGroup>
 								{data?.map(
-									//@ts-ignore
+									//@ts-expect-error
+
 									(container) => (
 									<SelectItem
 										key={container.containerId}
@@ -104,7 +106,8 @@ export const ComposeFreeMonitoring = ({
 									>
 										{container.name} ({container.containerId}){" "}
 										<Badge 
-										//@ts-ignore
+										//@ts-expect-error
+
 										variant={badgeStateColor(container.state)}>
 											{container.state}
 										</Badge>
@@ -115,7 +118,8 @@ export const ComposeFreeMonitoring = ({
 						</SelectContent>
 					</Select>
 					<Button
-					//@ts-ignore
+					//@ts-expect-error
+
 						isLoading={isRestarting}
 						onClick={async () => {
 							if (!containerId) return;

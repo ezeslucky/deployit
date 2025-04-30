@@ -235,7 +235,8 @@ export const AddDomainCompose = ({
 
 														<SelectContent>
 															{services?.map(
-															//@ts-ignore	
+															//@ts-expect-error
+	
 																(service, index) => (
 																<SelectItem
 																	value={service}
@@ -255,7 +256,8 @@ export const AddDomainCompose = ({
 																<Button
 																	variant="secondary"
 																	type="button"
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	isLoading={isLoadingServices}
 																	onClick={() => {
 																		if (cacheType === "fetch") {
@@ -286,7 +288,8 @@ export const AddDomainCompose = ({
 																<Button
 																	variant="secondary"
 																	type="button"
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																	isLoading={isLoadingServices}
 																	onClick={() => {
 																		if (cacheType === "cache") {
@@ -351,18 +354,21 @@ export const AddDomainCompose = ({
 															<Button
 																variant="secondary"
 																type="button"
-																//@ts-ignore
+																//@ts-expect-error
+
 																isLoading={isLoadingGenerate}
 																onClick={() => {
 																	generateDomain({
 																		serverId: compose?.serverId || "",
 																		appName: compose?.appName || "",
 																	})
-																	//@ts-ignore
+																	//@ts-expect-error
+
 																		.then((domain) => {
 																			field.onChange(domain);
 																		})
-																		//@ts-ignore
+																		//@ts-expect-error
+
 																		.catch((err) => {
 																			toast.error(err.message);
 																		});
@@ -498,7 +504,8 @@ export const AddDomainCompose = ({
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={form.formState.isSubmitting}
 							form="hook-form"
 							type="submit"

@@ -176,7 +176,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 			databaseUser: "",
 			serverId: null,
 		},
-		//@ts-ignore
+		//@ts-expect-error
+
 		resolver: zodResolver(mySchema),
 	});
 	const type = form.watch("type");
@@ -293,12 +294,14 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 				<Form {...form}>
 					<form
 						id="hook-form"
-						//@ts-ignore
+						//@ts-expect-error
+
 						onSubmit={form.handleSubmit(onSubmit)}
 						className="grid w-full gap-8 "
 					>
 						<FormField
-						//@ts-ignore
+						//@ts-expect-error
+
 							control={form.control}
 							defaultValue={form.control._defaultValues.type}
 							name="type"
@@ -356,7 +359,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 							</FormLabel>
 							<div className="flex flex-col gap-2">
 								<FormField
-								//@ts-ignore
+								//@ts-expect-error
+
 									control={form.control}
 									name="name"
 									render={({ field }) => (
@@ -382,7 +386,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 									)}
 								/>
 								<FormField
-								//@ts-ignore
+								//@ts-expect-error
+
 									control={form.control}
 									name="serverId"
 									render={({ field }) => (
@@ -398,7 +403,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 												<SelectContent>
 													<SelectGroup>
 														{servers?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(server) => (
 															<SelectItem
 																key={server.serverId}
@@ -418,7 +424,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 									)}
 								/>
 								<FormField
-								//@ts-ignore
+								//@ts-expect-error
+
 									control={form.control}
 									name="appName"
 									render={({ field }) => (
@@ -433,7 +440,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 								/>
 
 								<FormField
-								//@ts-ignore
+								//@ts-expect-error
+
 									control={form.control}
 									name="description"
 									render={({ field }) => (
@@ -456,7 +464,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 									type === "mariadb" ||
 									type === "postgres") && (
 									<FormField
-									//@ts-ignore
+									//@ts-expect-error
+
 										control={form.control}
 										name="databaseName"
 										render={({ field }) => (
@@ -476,7 +485,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 									type === "postgres" ||
 									type === "mongo") && (
 									<FormField
-									//@ts-ignore
+									//@ts-expect-error
+
 										control={form.control}
 										name="databaseUser"
 										render={({ field }) => (
@@ -497,7 +507,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 								)}
 
 								<FormField
-								//@ts-ignore
+								//@ts-expect-error
+
 									control={form.control}
 									name="databasePassword"
 									render={({ field }) => (
@@ -518,7 +529,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 								/>
 								{(type === "mysql" || type === "mariadb") && (
 									<FormField
-									//@ts-ignore
+									//@ts-expect-error
+
 										control={form.control}
 										name="databaseRootPassword"
 										render={({ field }) => (
@@ -539,7 +551,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 								)}
 
 								<FormField
-								//@ts-ignore
+								//@ts-expect-error
+
 									control={form.control}
 									name="dockerImage"
 									defaultValue={form.formState.defaultValues?.dockerImage}
@@ -562,7 +575,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 
 								{type === "mongo" && (
 									<FormField
-									//@ts-ignore
+									//@ts-expect-error
+
 										control={form.control}
 										name="replicaSets"
 										render={({ field }) => {
@@ -590,7 +604,8 @@ export const AddDatabase = ({ projectId, projectName }: Props) => {
 
 					<DialogFooter>
 						<Button
-						//@ts-ignore
+						//@ts-expect-error
+
 							isLoading={form.formState.isSubmitting}
 							form="hook-form"
 							type="submit"

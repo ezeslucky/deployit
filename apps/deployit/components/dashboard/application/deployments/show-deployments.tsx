@@ -76,7 +76,8 @@ export const ShowDeployments = ({ applicationId }: Props) => {
 					<div className="flex flex-col gap-4">
 						
 						{deployments?.map(
-							//@ts-ignore
+							//@ts-expect-error
+
 							(deployment, index) => (
 							<div
 								key={deployment.deploymentId}

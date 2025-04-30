@@ -134,7 +134,8 @@ export const HandleRegistry = ({ registryId }: Props) => {
 			serverId: data.serverId,
 			registryId: registryId || "",
 		})
-		//@ts-ignore
+		//@ts-expect-error
+
 			.then(async (_data) => {
 				await utils.registry.all.invalidate();
 				toast.success(registryId ? "Registry updated" : "Registry added");
@@ -301,7 +302,8 @@ export const HandleRegistry = ({ registryId }: Props) => {
 													<SelectGroup>
 														<SelectLabel>Servers</SelectLabel>
 														{servers?.map(
-															//@ts-ignore
+															//@ts-expect-error
+
 															(server) => (
 															<SelectItem
 																key={server.serverId}
@@ -327,7 +329,8 @@ export const HandleRegistry = ({ registryId }: Props) => {
 								<Button
 									type="button"
 									variant={"secondary"}
-									//@ts-ignore
+									//@ts-expect-error
+
 									isLoading={isLoading}
 									onClick={async () => {
 										const validationResult = AddRegistrySchema.safeParse({
@@ -358,7 +361,8 @@ export const HandleRegistry = ({ registryId }: Props) => {
 											imagePrefix: imagePrefix,
 											serverId: serverId,
 										})
-										//@ts-ignore
+										//@ts-expect-error
+
 											.then((data) => {
 												if (data) {
 													toast.success("Registry Tested Successfully");
@@ -374,7 +378,8 @@ export const HandleRegistry = ({ registryId }: Props) => {
 									Test Registry
 								</Button>
 								<Button 
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={form.formState.isSubmitting} type="submit">
 									{registryId ? "Update" : "Create"}
 								</Button>

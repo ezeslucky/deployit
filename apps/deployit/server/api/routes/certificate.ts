@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { adminProcedure, 
-    //@ts-ignore
+    
+
     createTRCRouter } from "@/server/api/trpc";
 import {
 	apiCreateCertificate,

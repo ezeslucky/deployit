@@ -108,7 +108,8 @@ export const DockerTerminalModal = ({ children, appName, serverId }: Props) => {
 					<SelectContent>
 						<SelectGroup>
 							{data?.map(
-								//@ts-ignore
+								//@ts-expect-error
+
 								(container) => (
 								<SelectItem
 									key={container.containerId}
@@ -116,7 +117,8 @@ export const DockerTerminalModal = ({ children, appName, serverId }: Props) => {
 								>
 									{container.name} ({container.containerId}){" "}
 									<Badge 
-									//@ts-ignore
+									//@ts-expect-error
+
 									variant={badgeStateColor(container.state)}>
 										{container.state}
 									</Badge>

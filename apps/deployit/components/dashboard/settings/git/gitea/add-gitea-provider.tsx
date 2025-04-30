@@ -276,7 +276,8 @@ export const AddGiteaProvider = () => {
 								/>
 
 								<Button 
-								//@ts-ignore
+								//@ts-expect-error
+
 								isLoading={form.formState.isSubmitting}>
 									Configure Gitea App
 								</Button>

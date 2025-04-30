@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { updateServersBasedOnQuantity } from "@/pages/api/stripe/webhook";
-//@ts-ignore
+
+
 import { createTRCRouter, protectedProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import {
