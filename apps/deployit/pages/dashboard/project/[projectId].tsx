@@ -607,7 +607,7 @@ const Project = (
 				]}
 			/>
 			<Head>
-				<title>Project: {data?.name} | Dokploy</title>
+				<title>Project: {data?.name} | deployit</title>
 			</Head>
 			<div className="w-full">
 				<Card className="h-full bg-sidebar  p-2.5 rounded-xl  ">

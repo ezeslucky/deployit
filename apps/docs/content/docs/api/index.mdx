@@ -1,9 +1,9 @@
 ---
-title: Dokploy API
-description: How to interact with the dokploy API for administrators and users
+title: deployit API
+description: How to interact with the deployit API for administrators and users
 ---
 
-In some cases, you may need to interact directly with the dokploy API. Here's how both administrators and users can do this.
+In some cases, you may need to interact directly with the deployit API. Here's how both administrators and users can do this.
 
 ## For Administrators
 
@@ -23,7 +23,7 @@ Note: The API provides advanced functionalities. Make sure you understand the op
 
 ## Usage
 
-By default the OpenApi base url is `http://localhost:3000/api`, you need to replace with the ip of your dokploy instance or the domain name.
+By default the OpenApi base url is `http://localhost:3000/api`, you need to replace with the ip of your deployit instance or the domain name.
 
 ### Authentication
 
@@ -32,7 +32,7 @@ The API uses JWT tokens for authentication. You can generate a token by going to
 Let's take a example of authenticated request:
 ```bash
 curl -X 'GET' \
-  'https://dokploy.com/api/project.all' \
+  'https://deployit.com/api/project.all' \
   -H 'accept: application/json'
   -H 'x-api-key: YOUR-GENERATED-API-KEY'
 ```

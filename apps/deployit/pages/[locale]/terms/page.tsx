@@ -7,8 +7,8 @@ export default function Home() {
 
 			<section className="flex flex-col gap-2">
 				<p>
-					Welcome to Dokploy! These Terms and Conditions outline the rules and
-					regulations for the use of Dokploy’s website and services.
+					Welcome to deployit! These Terms and Conditions outline the rules and
+					regulations for the use of deployit’s website and services.
 				</p>
 				<p>
 					By accessing or using our services, you agree to be bound by the
@@ -17,21 +17,21 @@ export default function Home() {
 				</p>
 				<h2 className="text-2xl font-semibold mb-4">1. Definitions</h2>
 				<p className="">
-					Website: Refers to the website of Dokploy (
+					Website: Refers to the website of deployit (
 					<a
-						href="https://dokploy.com"
+						href="https://deployit.com"
 						className="text-blue-500 hover:underline"
 					>
-						https://dokploy.com
+						https://deployit.com
 					</a>
 					) and its subdomains.
 				</p>
 				<p>
-					Services: The platform and related services offered by Dokploy for
+					Services: The platform and related services offered by deployit for
 					deploying and managing applications using Docker and other related
 					tools.
 				</p>
-				<p>User: Any individual or organization using Dokploy.</p>
+				<p>User: Any individual or organization using deployit.</p>
 				<p>
 					Subscription: The paid plan for using additional features, resources,
 					or server capacity.
@@ -41,9 +41,9 @@ export default function Home() {
 			<section className="">
 				<h2 className="text-2xl font-semibold mb-4">2. Service Description</h2>
 				<p className="mb-4">
-					Dokploy is a platform that allows users to deploy and manage web
+					deployit is a platform that allows users to deploy and manage web
 					applications on their own servers using custom builders and Docker
-					technology. Dokploy offers both free and paid services, including
+					technology. deployit offers both free and paid services, including
 					subscriptions for adding additional servers, features, or increased
 					capacity.
 				</p>
@@ -55,7 +55,7 @@ export default function Home() {
 				</h2>
 				<p className="">
 					Users are responsible for maintaining the security of their accounts,
-					servers, and applications deployed through Dokploy.
+					servers, and applications deployed through deployit.
 				</p>
 				<p className="">
 					Users must not use the platform for illegal activities, including but
@@ -64,7 +64,7 @@ export default function Home() {
 				</p>
 				<p className="">
 					Users must comply with all local, state, and international laws in
-					connection with their use of Dokploy.
+					connection with their use of deployit.
 				</p>
 			</section>
 
@@ -87,9 +87,9 @@ export default function Home() {
 			<section className="">
 				<h2 className="text-2xl font-semibold mb-4">5. Refund Policy</h2>
 				<p className="mb-4">
-					Due to the nature of our digital services, Dokploy operates on a
+					Due to the nature of our digital services, deployit operates on a
 					no-refund policy for any paid subscriptions, except where required by
-					law. We offer a self-hosted version of Dokploy with the same core
+					law. We offer a self-hosted version of deployit with the same core
 					functionalities, which users can deploy and use without any cost. We
 					recommend users try the self-hosted version to evaluate the platform
 					before committing to a paid subscription.
@@ -101,17 +101,17 @@ export default function Home() {
 					6. Limitations of Liability
 				</h2>
 				<p className="">
-					Dokploy is provided &quot;as is&quot; without any warranties, express or
+					deployit is provided &quot;as is&quot; without any warranties, express or
 					implied, including but not limited to the availability, reliability,
 					or accuracy of the service.
 				</p>
 				<p className="">
 					Users are fully responsible for any modifications made to their remote
-					servers or the environment where Dokploy is deployed. Any changes to
+					servers or the environment where deployit is deployed. Any changes to
 					the server configuration, system settings, security policies, or other
-					environments that deviate from the recommended use of Dokploy may
+					environments that deviate from the recommended use of deployit may
 					result in compatibility issues, performance degradation, or security
-					vulnerabilities. Additionally, Dokploy may not function properly on
+					vulnerabilities. Additionally, deployit may not function properly on
 					unsupported operating systems or environments. We do not guarantee the
 					platform will operate correctly or reliably under modified server
 					conditions or on unsupported systems, and we will not be held liable
@@ -137,12 +137,12 @@ export default function Home() {
 					8. Intellectual Property
 				</h2>
 				<p className="">
-					Dokploy retains all intellectual property rights to the platform,
+					deployit retains all intellectual property rights to the platform,
 					including code, design, and content.
 				</p>
 				<p className="">
 					Users are granted a limited, non-exclusive, and non-transferable
-					license to use Dokploy in accordance with these terms.
+					license to use deployit in accordance with these terms.
 				</p>
 				<p className="">
 					Users may not modify, reverse-engineer, or distribute any part of the
@@ -153,7 +153,7 @@ export default function Home() {
 			<section className="">
 				<h2 className="text-2xl font-semibold mb-4">9. Termination</h2>
 				<p className="mb-4">
-					Dokploy reserves the right to suspend or terminate access to the
+					deployit reserves the right to suspend or terminate access to the
 					platform for users who violate these terms or engage in harmful
 					behavior.
 				</p>
@@ -167,7 +167,7 @@ export default function Home() {
 			<section className="">
 				<h2 className="text-2xl font-semibold mb-4">10. Changes to Terms</h2>
 				<p className="mb-4">
-					Dokploy reserves the right to update these Terms & Conditions at any
+					deployit reserves the right to update these Terms & Conditions at any
 					time. Changes will be effective immediately upon posting on the
 					website. It is the user&apos;s responsibility to review these terms
 					periodically.
@@ -193,10 +193,10 @@ export default function Home() {
 				<p className="mb-4">
 					Email:
 					<a
-						href="mailto:support@dokploy.com"
+						href="mailto:support@deployit.com"
 						className="text-blue-500 hover:underline"
 					>
-						support@dokploy.com
+						support@deployit.com
 					</a>
 				</p>
 			</section>

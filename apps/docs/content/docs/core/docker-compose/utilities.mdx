@@ -3,7 +3,7 @@ title: Utilities
 description: "Utilities for your Docker Compose application"
 ---
 
-Dokploy provides a set of utilities to enhance your Docker Compose application deployment experience.
+deployit provides a set of utilities to enhance your Docker Compose application deployment experience.
 
 ## Isolated Deployments
 
@@ -11,7 +11,7 @@ All open source templates come with this feature enabled by default.
 
 This feature allows you to deploy your application in a separate network, isolated from other applications. This isolation is particularly useful when you need to deploy multiple instances of the same application.
 
-For example, if you want to deploy two WordPress instances, you would typically encounter service naming conflicts since they share the same network (dokploy-network). Docker doesn't allow services with identical names in the same network. Consider this typical WordPress service:
+For example, if you want to deploy two WordPress instances, you would typically encounter service naming conflicts since they share the same network (deployit-network). Docker doesn't allow services with identical names in the same network. Consider this typical WordPress service:
 
 ```yaml
 services:
@@ -28,17 +28,17 @@ services:
   height={600}
 />
 
-When Isolated Deployments is enabled, Dokploy will:
+When Isolated Deployments is enabled, deployit will:
 
 1. Add a prefix to all your defined volumes and networks
 2. Create a network based on your service's appName and associate it with each service in your compose file
 3. Connect the Traefik load balancer to this isolated network, maintaining service isolation while ensuring proper routing
 
-When using this feature, you don't need to explicitly define dokploy-network in your networks section, as isolation is handled automatically.
+When using this feature, you don't need to explicitly define deployit-network in your networks section, as isolation is handled automatically.
 
 ## Randomize Compose
 
-Dokploy offers functionality to randomize various compose properties:
+deployit offers functionality to randomize various compose properties:
 
 1. Volumes
 2. Networks

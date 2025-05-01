@@ -1,14 +1,14 @@
 ---
 title: Zero Downtime
-description: Learn how to configure zero downtime deployments in Dokploy.
+description: Learn how to configure zero downtime deployments in deployit.
 ---
 
 
-Dokploy allows you to configure zero downtime deployments, which means that you can deploy your application without any downtime.
+deployit allows you to configure zero downtime deployments, which means that you can deploy your application without any downtime.
 
 By default when you create a new deployment it will stop the latest running container and start the new one. This is the default behavior of Docker Swarm and this leads to Bad Gateway since
 the containers are initializing at the same time,
-but Dokploy allows you to configure zero downtime deployments.
+but deployit allows you to configure zero downtime deployments.
 
 ## Steps to configure Zero Downtime Deployments
 
@@ -37,13 +37,13 @@ Make sure the API Route exists in your application
 
 ## Example
 
-1. We will use this example [Github Repo](https://github.com/Dokploy/swarm-test)
-2. It Have a endpoint called `health` [endpoint](https://github.com/Dokploy/swarm-test/blob/main/index.js#L20) which is the one that will tell us if our application is healthy.
+1. We will use this example [Github Repo](https://github.com/deployit/swarm-test)
+2. It Have a endpoint called `health` [endpoint](https://github.com/deployit/swarm-test/blob/main/index.js#L20) which is the one that will tell us if our application is healthy.
 3. For testing purpose I've added a sleep to simulate the delay between the deployments and you can see the bad gateway error.
 
 
 1. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/swarm-test`
+   - Repository: `https://github.com/deployit/swarm-test`
    - Branch: `main`
    - Build path: `/`
 

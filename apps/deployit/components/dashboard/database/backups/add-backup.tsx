@@ -87,7 +87,7 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 
 	useEffect(() => {
 		form.reset({
-			database: databaseType === "web-server" ? "dokploy" : "",
+			database: databaseType === "web-server" ? "deployit" : "",
 			destinationId: "",
 			enabled: true,
 			prefix: "/",
@@ -249,7 +249,7 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 											<FormControl>
 												<Input
 													disabled={databaseType === "web-server"}
-													placeholder={"dokploy"}
+													placeholder={"deployit"}
 													{...field}
 												/>
 											</FormControl>
@@ -281,7 +281,7 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 										<FormItem>
 											<FormLabel>Prefix Destination</FormLabel>
 											<FormControl>
-												<Input placeholder={"dokploy/"} {...field} />
+												<Input placeholder={"deployit/"} {...field} />
 											</FormControl>
 											<FormDescription>
 												Use if you want to back up in a specific path of your

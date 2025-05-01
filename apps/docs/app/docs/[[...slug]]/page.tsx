@@ -89,7 +89,7 @@ export async function generateMetadata(props: {
 		},
 		twitter: {
 			card: "summary_large_image",
-			creator: "@getdokploy",
+			creator: "@getdeployit",
 			title: page.data.title,
 			description: page.data.description,
 			images: [
@@ -101,9 +101,9 @@ export async function generateMetadata(props: {
 				},
 			],
 		},
-		applicationName: "Dokploy Docs",
+		applicationName: "deployit Docs",
 		keywords: [
-			"dokploy",
+			"deployit",
 			"vps",
 			"open source",
 			"cloud",

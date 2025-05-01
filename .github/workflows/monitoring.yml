@@ -1,11 +1,11 @@
-name: Dokploy Monitoring Build
+name: deployit Monitoring Build
 
 on:
   push:
     branches: [main, main]
 
 env:
-  IMAGE_NAME: dokploy/monitoring
+  IMAGE_NAME: deployit/monitoring
 
 jobs:
   docker-amd:

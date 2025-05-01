@@ -28,7 +28,7 @@ export const Sponsors = () => {
 					<Tooltip>
 						<TooltipTrigger className="z-10 m-0 p-0">
 							<Link
-								href={"https://opencollective.com/dokploy"}
+								href={"https://opencollective.com/deployit"}
 								target="_blank"
 								className={buttonVariants({
 									variant: "secondary",

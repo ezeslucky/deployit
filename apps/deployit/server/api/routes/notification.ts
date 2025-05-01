@@ -96,7 +96,7 @@ export const notificationRouter = createTRCRouter({
 			try {
 				await sendSlackNotification(input, {
 					channel: input.channel,
-					text: "Hi, From Dokploy 👋",
+					text: "Hi, From deployit 👋",
 				});
 				return true;
 			} catch (error) {
@@ -151,7 +151,7 @@ export const notificationRouter = createTRCRouter({
 		.input(apiTestTelegramConnection)
 		.mutation(async ({ input }) => {
 			try {
-				await sendTelegramNotification(input, "Hi, From Dokploy 👋");
+				await sendTelegramNotification(input, "Hi, From deployit 👋");
 				return true;
 			} catch (error) {
 				throw new TRPCError({
@@ -211,7 +211,7 @@ export const notificationRouter = createTRCRouter({
 
 				await sendDiscordNotification(input, {
 					title: decorate(">", "`🤚` - Test Notification"),
-					description: decorate(">", "Hi, From Dokploy 👋"),
+					description: decorate(">", "Hi, From deployit 👋"),
 					color: 0xf3f7f4,
 				});
 
@@ -270,7 +270,7 @@ export const notificationRouter = createTRCRouter({
 				await sendEmailNotification(
 					input,
 					"Test Email",
-					"<p>Hi, From Dokploy 👋</p>",
+					"<p>Hi, From deployit 👋</p>",
 				);
 				return true;
 			} catch (error) {
@@ -332,7 +332,7 @@ export const notificationRouter = createTRCRouter({
 	receiveNotification: publicProcedure
 		.input(
 			z.object({
-				ServerType: z.enum(["Dokploy", "Remote"]).default("Dokploy"),
+				ServerType: z.enum(["deployit", "Remote"]).default("deployit"),
 				Type: z.enum(["Memory", "CPU"]),
 				Value: z.number(),
 				Threshold: z.number(),
@@ -345,7 +345,7 @@ export const notificationRouter = createTRCRouter({
 			try {
 				let organizationId = "";
 				let ServerName = "";
-				if (input.ServerType === "Dokploy") {
+				if (input.ServerType === "deployit") {
 					const result = await db
 						.select()
 						.from(users_temp)
@@ -361,7 +361,7 @@ export const notificationRouter = createTRCRouter({
 					}
 
 					organizationId = result?.[0]?.id;
-					ServerName = "Dokploy";
+					ServerName = "deployit";
 				} else {
 					const result = await db
 						.select()
@@ -438,7 +438,7 @@ export const notificationRouter = createTRCRouter({
 				await sendGotifyNotification(
 					input,
 					"Test Notification",
-					"Hi, From Dokploy 👋",
+					"Hi, From deployit 👋",
 				);
 				return true;
 			} catch (error) {

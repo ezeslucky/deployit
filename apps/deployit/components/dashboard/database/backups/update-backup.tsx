@@ -232,7 +232,7 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 										<FormItem>
 											<FormLabel>Database</FormLabel>
 											<FormControl>
-												<Input placeholder={"dokploy"} {...field} />
+												<Input placeholder={"deployit"} {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -262,7 +262,7 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 										<FormItem>
 											<FormLabel>Prefix Destination</FormLabel>
 											<FormControl>
-												<Input placeholder={"dokploy/"} {...field} />
+												<Input placeholder={"deployit/"} {...field} />
 											</FormControl>
 											<FormDescription>
 												Use if you want to back up in a specific path of your

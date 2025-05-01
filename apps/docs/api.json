@@ -1,13 +1,13 @@
 {
 	"openapi": "3.0.3",
 	"info": {
-		"title": "Dokploy API",
-		"description": "Endpoints for dokploy",
+		"title": "deployit API",
+		"description": "Endpoints for deployit",
 		"version": "1.0.0"
 	},
 	"servers": [
 		{
-			"url": "http://your-dokploy-instance.com/api"
+			"url": "http://your-deployit-instance.com/api"
 		}
 	],
 	"paths": {
@@ -8590,9 +8590,9 @@
 				}
 			}
 		},
-		"/settings.getDokployVersion": {
+		"/settings.getdeployitVersion": {
 			"get": {
-				"operationId": "settings-getDokployVersion",
+				"operationId": "settings-getdeployitVersion",
 				"tags": ["settings"],
 				"security": [
 					{
@@ -10054,7 +10054,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10077,7 +10077,7 @@
 								"required": [
 									"appBuildError",
 									"databaseBackup",
-									"dokployRestart",
+									"deployitRestart",
 									"name",
 									"appDeploy",
 									"dockerCleanup",
@@ -10125,7 +10125,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10241,7 +10241,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10265,7 +10265,7 @@
 								"required": [
 									"appBuildError",
 									"databaseBackup",
-									"dokployRestart",
+									"deployitRestart",
 									"name",
 									"appDeploy",
 									"dockerCleanup",
@@ -10313,7 +10313,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10432,7 +10432,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10452,7 +10452,7 @@
 								"required": [
 									"appBuildError",
 									"databaseBackup",
-									"dokployRestart",
+									"deployitRestart",
 									"name",
 									"appDeploy",
 									"dockerCleanup",
@@ -10499,7 +10499,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10610,7 +10610,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -10653,7 +10653,7 @@
 								"required": [
 									"appBuildError",
 									"databaseBackup",
-									"dokployRestart",
+									"deployitRestart",
 									"name",
 									"appDeploy",
 									"dockerCleanup",
@@ -10705,7 +10705,7 @@
 									"databaseBackup": {
 										"type": "boolean"
 									},
-									"dokployRestart": {
+									"deployitRestart": {
 										"type": "boolean"
 									},
 									"name": {
@@ -12685,6 +12685,6 @@
 		}
 	],
 	"externalDocs": {
-		"url": "http://app.dokploy.com/api/settings.getOpenApiDocument"
+		"url": "http://app.deployit.com/api/settings.getOpenApiDocument"
 	}
 }

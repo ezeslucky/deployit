@@ -70,8 +70,8 @@ _openapi:
       title: Settings update Server
       url: '#settings-update-server'
     - depth: 2
-      title: Settings get Dokploy Version
-      url: '#settings-get-dokploy-version'
+      title: Settings get deployit Version
+      url: '#settings-get-deployit-version'
     - depth: 2
       title: Settings read Directories
       url: '#settings-read-directories'
@@ -163,8 +163,8 @@ _openapi:
         id: settings-check-and-update-image
       - content: Settings update Server
         id: settings-update-server
-      - content: Settings get Dokploy Version
-        id: settings-get-dokploy-version
+      - content: Settings get deployit Version
+        id: settings-get-deployit-version
       - content: Settings read Directories
         id: settings-read-directories
       - content: Settings update Traefik File
@@ -198,4 +198,4 @@ _openapi:
     contents: []
 ---
 
-<APIPage document={"./api.json"} operations={[{"method":"post","path":"/settings.reloadServer"},{"method":"post","path":"/settings.reloadTraefik"},{"method":"post","path":"/settings.toggleDashboard"},{"method":"post","path":"/settings.cleanUnusedImages"},{"method":"post","path":"/settings.cleanUnusedVolumes"},{"method":"post","path":"/settings.cleanStoppedContainers"},{"method":"post","path":"/settings.cleanDockerBuilder"},{"method":"post","path":"/settings.cleanDockerPrune"},{"method":"post","path":"/settings.cleanAll"},{"method":"post","path":"/settings.cleanMonitoring"},{"method":"post","path":"/settings.saveSSHPrivateKey"},{"method":"post","path":"/settings.assignDomainServer"},{"method":"post","path":"/settings.cleanSSHPrivateKey"},{"method":"post","path":"/settings.updateDockerCleanup"},{"method":"get","path":"/settings.readTraefikConfig"},{"method":"post","path":"/settings.updateTraefikConfig"},{"method":"get","path":"/settings.readWebServerTraefikConfig"},{"method":"post","path":"/settings.updateWebServerTraefikConfig"},{"method":"get","path":"/settings.readMiddlewareTraefikConfig"},{"method":"post","path":"/settings.updateMiddlewareTraefikConfig"},{"method":"post","path":"/settings.checkAndUpdateImage"},{"method":"post","path":"/settings.updateServer"},{"method":"get","path":"/settings.getDokployVersion"},{"method":"get","path":"/settings.readDirectories"},{"method":"post","path":"/settings.updateTraefikFile"},{"method":"get","path":"/settings.readTraefikFile"},{"method":"get","path":"/settings.getIp"},{"method":"get","path":"/settings.getOpenApiDocument"},{"method":"get","path":"/settings.readTraefikEnv"},{"method":"post","path":"/settings.writeTraefikEnv"},{"method":"get","path":"/settings.haveTraefikDashboardPortEnabled"},{"method":"get","path":"/settings.readStats"},{"method":"get","path":"/settings.getLogRotateStatus"},{"method":"post","path":"/settings.toggleLogRotate"},{"method":"get","path":"/settings.haveActivateRequests"},{"method":"post","path":"/settings.toggleRequests"},{"method":"get","path":"/settings.isCloud"},{"method":"get","path":"/settings.health"}]} hasHead={true} />
+<APIPage document={"./api.json"} operations={[{"method":"post","path":"/settings.reloadServer"},{"method":"post","path":"/settings.reloadTraefik"},{"method":"post","path":"/settings.toggleDashboard"},{"method":"post","path":"/settings.cleanUnusedImages"},{"method":"post","path":"/settings.cleanUnusedVolumes"},{"method":"post","path":"/settings.cleanStoppedContainers"},{"method":"post","path":"/settings.cleanDockerBuilder"},{"method":"post","path":"/settings.cleanDockerPrune"},{"method":"post","path":"/settings.cleanAll"},{"method":"post","path":"/settings.cleanMonitoring"},{"method":"post","path":"/settings.saveSSHPrivateKey"},{"method":"post","path":"/settings.assignDomainServer"},{"method":"post","path":"/settings.cleanSSHPrivateKey"},{"method":"post","path":"/settings.updateDockerCleanup"},{"method":"get","path":"/settings.readTraefikConfig"},{"method":"post","path":"/settings.updateTraefikConfig"},{"method":"get","path":"/settings.readWebServerTraefikConfig"},{"method":"post","path":"/settings.updateWebServerTraefikConfig"},{"method":"get","path":"/settings.readMiddlewareTraefikConfig"},{"method":"post","path":"/settings.updateMiddlewareTraefikConfig"},{"method":"post","path":"/settings.checkAndUpdateImage"},{"method":"post","path":"/settings.updateServer"},{"method":"get","path":"/settings.getdeployitVersion"},{"method":"get","path":"/settings.readDirectories"},{"method":"post","path":"/settings.updateTraefikFile"},{"method":"get","path":"/settings.readTraefikFile"},{"method":"get","path":"/settings.getIp"},{"method":"get","path":"/settings.getOpenApiDocument"},{"method":"get","path":"/settings.readTraefikEnv"},{"method":"post","path":"/settings.writeTraefikEnv"},{"method":"get","path":"/settings.haveTraefikDashboardPortEnabled"},{"method":"get","path":"/settings.readStats"},{"method":"get","path":"/settings.getLogRotateStatus"},{"method":"post","path":"/settings.toggleLogRotate"},{"method":"get","path":"/settings.haveActivateRequests"},{"method":"post","path":"/settings.toggleRequests"},{"method":"get","path":"/settings.isCloud"},{"method":"get","path":"/settings.health"}]} hasHead={true} />

@@ -1,6 +1,8 @@
 import { parse } from "toml";
 
-
+/**
+ * Complete template interface that includes both metadata and configuration
+ */
 export interface CompleteTemplate {
 	metadata: {
 		id: string;

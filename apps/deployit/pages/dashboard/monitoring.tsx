@@ -27,7 +27,7 @@ const Dashboard = () => {
 			{/* <AlertBlock>
 				You are watching the <strong>Free</strong> plan.{" "}
 				<a
-					href="https://dokploy.com#pricing"
+					href="https://deployit.com#pricing"
 					target="_blank"
 					className="underline"
 					rel="noreferrer"
@@ -74,7 +74,7 @@ const Dashboard = () => {
 					) : (
 						<Card className="h-full bg-sidebar  p-2.5 rounded-xl">
 							<div className="rounded-xl bg-background shadow-md p-6">
-								<ContainerFreeMonitoring appName="dokploy" />
+								<ContainerFreeMonitoring appName="deployit" />
 							</div>
 						</Card>
 					)}

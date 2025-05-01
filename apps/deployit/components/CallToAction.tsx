@@ -40,7 +40,7 @@ export function CallToAction() {
 
 					<Button className="mt-10 rounded-full" asChild>
 						<Link
-							href={"https://app.dokploy.com/register"}
+							href={"https://app.deployit.com/register"}
 							aria-label="Dockly on GitHub"
 							target="_blank"
 							className="flex flex-row items-center gap-2"

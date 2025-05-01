@@ -1,6 +1,6 @@
 {
 	"title": "Core",
-	"description": "The core of Dokploy",
+	"description": "The core of deployit",
 	"icon": "Building2",
 	"root": true,
 	"pages": [

@@ -8,7 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@dokploy/trpc-openapi':
+      '@deployit/trpc-openapi':
         specifier: ^0.0.4
         version: 0.0.4(@trpc/server@10.45.2)(@types/node@18.19.87)(zod@3.24.3)
       '@trpc/server':
@@ -312,6 +312,9 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      node-pty:
+        specifier: ^1.0.0
+        version: 1.0.0
       node-schedule:
         specifier: 2.1.1
         version: 2.1.1
@@ -1135,7 +1138,7 @@ packages:
     resolution: {integrity: sha512-LRjP623jPyf3Poyfb0ohMj8I3ORyBDOwXAgxxVPbSD0unJuW2mJWeiRfaQinjtccMqC5Wy1HOMfa4btKjbNxbg==}
     engines: {node: '>=v18'}
 
-  '@dokploy/trpc-openapi@0.0.4':
+  '@deployit/trpc-openapi@0.0.4':
     resolution: {integrity: sha512-a7VKunKu9arq57bP9MPH7ikJuKfT5SILnNy70vMqf1stm5IrqMG3Y7CIFprFe0DZiw3bwjue0KpETIATBftN6w==}
     peerDependencies:
       '@trpc/server': ^10.0.0
@@ -7432,6 +7435,9 @@ packages:
   node-os-utils@1.3.7:
     resolution: {integrity: sha512-fvnX9tZbR7WfCG5BAy3yO/nCLyjVWD6MghEq0z5FDfN+ZXpLWNITBdbifxQkQ25ebr16G0N7eRWJisOcMEHG3Q==}
 
+  node-pty@1.0.0:
+    resolution: {integrity: sha512-wtBMWWS7dFZm/VgqElrTvtfMq4GzJ6+edFI0Y0zyzygUSZMgZdraDUMUhCIvkjhJjme15qWmbyJbtAx4ot4uZA==}
+
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
 
@@ -9702,7 +9708,7 @@ snapshots:
       '@types/conventional-commits-parser': 5.0.1
       chalk: 5.4.1
 
-  '@dokploy/trpc-openapi@0.0.4(@trpc/server@10.45.2)(@types/node@18.19.87)(zod@3.24.3)':
+  '@deployit/trpc-openapi@0.0.4(@trpc/server@10.45.2)(@types/node@18.19.87)(zod@3.24.3)':
     dependencies:
       '@trpc/server': 10.45.2
       co-body: 6.2.0
@@ -16774,8 +16780,7 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nan@2.22.2:
-    optional: true
+  nan@2.22.2: {}
 
   nanoid@3.3.11: {}
 
@@ -16919,6 +16924,10 @@ snapshots:
       '@types/node': 18.19.87
 
   node-os-utils@1.3.7: {}
+
+  node-pty@1.0.0:
+    dependencies:
+      nan: 2.22.2
 
   node-releases@2.0.19: {}
 

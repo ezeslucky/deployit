@@ -43,13 +43,13 @@ export function FirstFeaturesSection() {
 		{
 			title: "Database Management with Backups",
 			description:
-				"Manage and back up MySQL, PostgreSQL, MongoDB, MariaDB, Redis directly from Dokploy.",
+				"Manage and back up MySQL, PostgreSQL, MongoDB, MariaDB, Redis directly from deployit.",
 			icon: <IconDatabase />,
 		},
 		{
 			title: "API & CLI Access",
 			description:
-				"Need custom functionality? Dokploy offers complete API and CLI access to fit your needs.",
+				"Need custom functionality? deployit offers complete API and CLI access to fit your needs.",
 			icon: <IconTerminal />,
 		},
 		{
@@ -67,7 +67,7 @@ export function FirstFeaturesSection() {
 		{
 			title: "No Vendor Lock-In",
 			description:
-				"Experience complete freedom to modify, scale, and customize Dokploy to suit your specific needs.",
+				"Experience complete freedom to modify, scale, and customize deployit to suit your specific needs.",
 			icon: <UnlockIcon />,
 		},
 		{
@@ -85,7 +85,7 @@ export function FirstFeaturesSection() {
 		{
 			title: "Self-hosted & Open Source",
 			description:
-				"Dokploy provides complete control with self-hosting capabilities and open-source transparency.",
+				"deployit provides complete control with self-hosting capabilities and open-source transparency.",
 			icon: <IconEaseInOut />,
 		},
 	];
@@ -96,7 +96,7 @@ export function FirstFeaturesSection() {
 			</h2>
 			<p className="mt-4 text-lg tracking-tight  text-muted-foreground text-center">
 				Unlock seamless multi-server deployments, advanced user control, and
-				flexible database management—all with Dokploy’s developer-focused
+				flexible database management—all with deployit’s developer-focused
 				features.
 			</p>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto mt-10 max-sm:p-0 max-sm:mx-0 max-sm:w-full">

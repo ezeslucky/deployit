@@ -1,6 +1,6 @@
 ---
 title: Environment Variables
-description: "Dokploy allows you to create and manage shared environment variables for your projects."
+description: "deployit allows you to create and manage shared environment variables for your projects."
 ---
 
 import { Callout } from "fumadocs-ui/components/callout";
@@ -38,7 +38,7 @@ DATABASE_URL=${{project.DATABASE_URL}}
 ```
 
 <Callout type="info">
-  Dokploy will automatically replace `${{project.DATABASE_URL}}` with the value defined in the project's shared variables.
+  deployit will automatically replace `${{project.DATABASE_URL}}` with the value defined in the project's shared variables.
 </Callout>
 
 ## Best Practices
@@ -48,4 +48,4 @@ DATABASE_URL=${{project.DATABASE_URL}}
 - Document the purpose of each variable for easier maintenance
 
 
-You can use shared enviroment variables in all the services available in dokploy.
+You can use shared enviroment variables in all the services available in deployit.

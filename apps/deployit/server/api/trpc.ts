@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { db } from "../db/index";
 import { validateRequest } from "../../../../packages/server/src/lib/auth";
-import type { OpenApiMeta } from "@dokploy/trpc-openapi";
+import type { OpenApiMeta } from "@deployit/trpc-openapi";
 import { TRPCError, initTRPC } from "@trpc/server";
 import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
 import {

@@ -47,7 +47,7 @@ export const UpdateServer = ({
 	);
 	const { mutateAsync: getUpdateData, isLoading } =
 		api.settings.getUpdateData.useMutation();
-	const { data: dokployVersion } = api.settings.getDokployVersion.useQuery();
+	const { data: deployitVersion } = api.settings.getdeployitVersion.useQuery();
 	const { data: releaseTag } = api.settings.getReleaseTag.useQuery();
 	const [latestVersion, setLatestVersion] = useState(
 		updateData?.latestVersion ?? "",
@@ -131,11 +131,11 @@ export const UpdateServer = ({
 					<DialogTitle className="text-2xl font-semibold">
 						Web Server Update
 					</DialogTitle>
-					{dokployVersion && (
+					{deployitVersion && (
 						<div className="flex items-center gap-1.5 rounded-full px-3 py-1 mr-2 bg-muted">
 							<Server className="h-4 w-4 text-muted-foreground" />
 							<span className="text-sm text-muted-foreground">
-								{dokployVersion} | {releaseTag}
+								{deployitVersion} | {releaseTag}
 							</span>
 						</div>
 					)}
@@ -145,7 +145,7 @@ export const UpdateServer = ({
 				{!hasCheckedUpdate && (
 					<div className="mb-8">
 						<p className="text text-muted-foreground">
-							Check for new releases and update Dokploy.
+							Check for new releases and update deployit.
 							<br />
 							<br />
 							We recommend checking for updates regularly to ensure you have the
@@ -237,7 +237,7 @@ export const UpdateServer = ({
 							<div className="text-[#5B9DFF]">
 								We recommend reviewing the{" "}
 								<Link
-									href="https://github.com/Dokploy/dokploy/releases"
+									href="https://github.com/deployit/deployit/releases"
 									target="_blank"
 									className="text-white underline hover:text-zinc-200"
 								>

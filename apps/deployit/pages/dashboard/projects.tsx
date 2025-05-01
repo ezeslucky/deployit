@@ -10,10 +10,10 @@ import dynamic from "next/dynamic";
 import type { ReactElement } from "react";
 import superjson from "superjson";
 
-const ShowWelcomeDokploy = dynamic(
+const ShowWelcomedeployit = dynamic(
 	() =>
-		import("@/components/dashboard/settings/billing/show-welcome-dokploy").then(
-			(mod) => mod.ShowWelcomeDokploy,
+		import("@/components/dashboard/settings/billing/show-welcome-deployit").then(
+			(mod) => mod.ShowWelcomedeployit,
 		),
 	{ ssr: false },
 );
@@ -22,7 +22,7 @@ const Dashboard = () => {
 	const { data: isCloud } = api.settings.isCloud.useQuery();
 	return (
 		<>
-			{isCloud && <ShowWelcomeDokploy />}
+			{isCloud && <ShowWelcomedeployit />}
 
 			<ShowProjects />
 		</>

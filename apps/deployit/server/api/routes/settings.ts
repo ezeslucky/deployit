@@ -58,7 +58,7 @@ import {
 	writeTraefikConfigInPath,
 } from "../../../../../packages/server/src/index";
 import { checkGPUStatus, setupGPUSupport } from "../../../../../packages/server/src/index";
-import { generateOpenApiDocument } from "@dokploy/trpc-openapi";
+import { generateOpenApiDocument } from "@deployit/trpc-openapi";
 import { TRPCError } from "@trpc/server";
 import { sql } from "drizzle-orm";
 import { dump, load } from "js-yaml";
@@ -81,7 +81,7 @@ export const settingsRouter = createTRCRouter({
 			return true;
 		}
 		const { stdout } = await execAsync(
-			"docker service inspect dokploy --format '{{.ID}}'",
+			"docker service inspect deployit --format '{{.ID}}'",
 		);
 		await execAsync(`docker service update --force ${stdout.trim()}`);
 		return true;
@@ -91,9 +91,9 @@ export const settingsRouter = createTRCRouter({
 		.mutation(async ({ input }) => {
 			try {
 				if (input?.serverId) {
-					await execAsync("docker restart dokploy-traefik");
+					await execAsync("docker restart deployit-traefik");
 				} else if (!IS_CLOUD) {
-					await execAsync("docker restart dokploy-traefik");
+					await execAsync("docker restart deployit-traefik");
 				}
 			} catch (err) {
 				console.error(err);
@@ -319,7 +319,7 @@ export const settingsRouter = createTRCRouter({
 		if (IS_CLOUD) {
 			return true;
 		}
-		const traefikConfig = readConfig("dokploy");
+		const traefikConfig = readConfig("deployit");
 		return traefikConfig;
 	}),
 	updateWebServerTraefikConfig: adminProcedure
@@ -328,7 +328,7 @@ export const settingsRouter = createTRCRouter({
 			if (IS_CLOUD) {
 				return true;
 			}
-			writeConfig("dokploy", input.traefikConfig);
+			writeConfig("deployit", input.traefikConfig);
 			return true;
 		}),
 
@@ -363,7 +363,7 @@ export const settingsRouter = createTRCRouter({
 
 		await pullLatestRelease();
 
-		// This causes restart of dokploy, thus it will not finish executing properly, so don't await it
+		// This causes restart of deployit, thus it will not finish executing properly, so don't await it
 		// Status after restart is checked via frontend /api/health endpoint
 		void spawnAsync("docker", [
 			"service",
@@ -377,7 +377,7 @@ export const settingsRouter = createTRCRouter({
 		return true;
 	}),
 
-	getDokployVersion: protectedProcedure.query(() => {
+	getdeployitVersion: protectedProcedure.query(() => {
 		return packageInfo.version;
 	}),
 	getReleaseTag: protectedProcedure.query(() => {
@@ -498,8 +498,8 @@ export const settingsRouter = createTRCRouter({
 			});
 
 			openApiDocument.info = {
-				title: "Dokploy API",
-				description: "Endpoints for dokploy",
+				title: "deployit API",
+				description: "Endpoints for deployit",
 				version: "1.0.0",
 			};
 
@@ -529,7 +529,7 @@ export const settingsRouter = createTRCRouter({
 		.input(apiServerSchema)
 		.query(async ({ input }) => {
 			const command =
-				"docker container inspect dokploy-traefik --format '{{json .Config.Env}}'";
+				"docker container inspect deployit-traefik --format '{{json .Config.Env}}'";
 
 			let result = "";
 			if (input?.serverId) {
@@ -558,7 +558,7 @@ export const settingsRouter = createTRCRouter({
 	haveTraefikDashboardPortEnabled: adminProcedure
 		.input(apiServerSchema)
 		.query(async ({ input }) => {
-			const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' dokploy-traefik`;
+			const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' deployit-traefik`;
 
 			let stdout = "";
 			if (input?.serverId) {
@@ -676,7 +676,7 @@ export const settingsRouter = createTRCRouter({
 			if (input.enable) {
 				const config = {
 					accessLog: {
-						filePath: "/etc/dokploy/traefik/dynamic/access.log",
+						filePath: "/etc/deployit/traefik/dynamic/access.log",
 						format: "json",
 						bufferingSize: 100,
 						filters: {
@@ -823,7 +823,7 @@ export const settingsRouter = createTRCRouter({
 });
 
 export const getTraefikPorts = async (serverId?: string) => {
-	const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' dokploy-traefik`;
+	const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' deployit-traefik`;
 	try {
 		let stdout = "";
 		if (serverId) {

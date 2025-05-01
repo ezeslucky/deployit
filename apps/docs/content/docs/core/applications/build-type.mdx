@@ -1,17 +1,17 @@
 ---
 title: Build Type
-description: "Learn about the different build types available in Dokploy, including Nixpacks, Dockerfile, and Buildpack options."
+description: "Learn about the different build types available in deployit, including Nixpacks, Dockerfile, and Buildpack options."
 
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
 
-Dokploy offers three distinct build types for deploying applications, each suited to different development needs and preferences.
+deployit offers three distinct build types for deploying applications, each suited to different development needs and preferences.
 
 ### Nixpacks
 
-This is the default build type in Dokploy. When you select Nixpacks, Dokploy builds your application as a Nixpack, which is optimized for ease of use and efficiency.
+This is the default build type in deployit. When you select Nixpacks, deployit builds your application as a Nixpack, which is optimized for ease of use and efficiency.
 
 Nixpacks expose multiples variables to be configured via environment variables. All of these variables are prefixed with `NIXPACKS_`, you can define them in the `Environment Variables` tab.
 
@@ -35,10 +35,10 @@ Nixpacks support monorepo such as NX Monorepo, Turborepo, Moon Repo, you can rea
 
 You can read more about Nixpacks [here](https://nixpacks.com/).
 
-Since Nixpacks have a [static builder](https://nixpacks.com/docs/providers/staticfile) Dokploy expose a field called `Publish Directory`  where basically you can specify
+Since Nixpacks have a [static builder](https://nixpacks.com/docs/providers/staticfile) deployit expose a field called `Publish Directory`  where basically you can specify
 the directory that you want to publish after the build process is finished, example:
 
-Astro applications after you build it usually create a `dist` directory, so you can specify the `dist` directory as the publish directory and then Dokploy will
+Astro applications after you build it usually create a `dist` directory, so you can specify the `dist` directory as the publish directory and then deployit will
 copy all the files in the `dist` directory to the root of your application, and will use a NGINX Optimized Dockerfile to run your application.
 
 
@@ -62,9 +62,9 @@ Railpack supports Nodejs, Python, Go, PHP, Go, StaticFile, Shell Scripts.
 
 ### Dockerfile
 
-If your project includes a Dockerfile, you can specify its path. Dokploy will use this Dockerfile to build your application directly, giving you full control over the build environment and dependencies
+If your project includes a Dockerfile, you can specify its path. deployit will use this Dockerfile to build your application directly, giving you full control over the build environment and dependencies
 
-Dokploy expose 3 Fields to be configured:
+deployit expose 3 Fields to be configured:
 
 - `Dockerfile Path (Required)`: The path to the Dockerfile to use for building the application, eg. If your Dockerfile is in the root of your application you can just specify the `Dockerfile` file.
 - `Docker Context Path`: This is where the Dockerfile is located, eg. If your Dockerfile is in the root of your application you can just specify the `.` (dot) character, is basically to tell docker what context will use to build your application, you can read [Dockerfile Context](https://docs.docker.com/build/concepts/context/) for more information.
@@ -74,9 +74,9 @@ Dokploy expose 3 Fields to be configured:
 
 ### Buildpack
 
-Dokploy supports two types of buildpacks:
+deployit supports two types of buildpacks:
 
-- **Heroku**: Adapted from Heroku's popular cloud platform, these buildpacks are designed for compatibility and ease of migration, you can optional specify the Heroku Version to use, by default Dokploy will use the 24.
+- **Heroku**: Adapted from Heroku's popular cloud platform, these buildpacks are designed for compatibility and ease of migration, you can optional specify the Heroku Version to use, by default deployit will use the 24.
 - **Paketo**: Provides cloud-native buildpacks that leverage modern standards and practices for building applications.
 
 By choosing the appropriate build type, you can tailor the deployment process to best fit your application's requirements and your operational preferences.
@@ -86,7 +86,7 @@ By choosing the appropriate build type, you can tailor the deployment process to
 
 Static build type is used to server static applications, it will use a NGINX Optimized Dockerfile to run your application.
 
-Dokploy will copy everything from the `Root` directory and will mount it to the `/usr/share/nginx/html` directory, and will use a NGINX Optimized Dockerfile to run your application.
+deployit will copy everything from the `Root` directory and will mount it to the `/usr/share/nginx/html` directory, and will use a NGINX Optimized Dockerfile to run your application.
 
 
 ## Recomendations 

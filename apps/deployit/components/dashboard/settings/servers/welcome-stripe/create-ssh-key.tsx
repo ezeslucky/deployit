@@ -36,7 +36,7 @@ export const CreateSSHKey = () => {
 				});
 				await mutateAsync({
 					name: "deployit-cloud-ssh-key",
-					description: "Used on Dokploy Cloud",
+					description: "Used on deployit Cloud",
 					privateKey: keys.privateKey,
 					publicKey: keys.publicKey,
 					organizationId: "",
@@ -140,7 +140,7 @@ export const CreateSSHKey = () => {
 										</div>
 									</div>
 									<Link
-										href="https://docs.dokploy.com/docs/core/multi-server/instructions#requirements"
+										href="https://docs.deployit.com/docs/core/multi-server/instructions#requirements"
 										target="_blank"
 										className="text-primary flex flex-row gap-2"
 									>

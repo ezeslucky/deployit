@@ -1,4 +1,8 @@
-
+// En la sección depends_on de otros servicios: Para definir dependencias entre servicios.
+// En la sección networks de otros servicios: Aunque esto no es común, es posible referenciar servicios en redes personalizadas.
+// En la sección volumes_from de otros servicios: Para reutilizar volúmenes definidos por otro servicio.
+// En la sección links de otros servicios: Para crear enlaces entre servicios.
+// En la sección extends de otros servicios: Para extender la configuración de otro servicio.
 
 import _ from "lodash";
 import type { ComposeSpecification, DefinitionsService } from "../types";

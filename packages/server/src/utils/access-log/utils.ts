@@ -18,7 +18,7 @@ export function processLogs(
 		.split("\n")
 		.filter((line) => {
 			const trimmed = line.trim();
-			
+			// Check if the line starts with { and ends with } to ensure it's a potential JSON object
 			return trimmed !== "" && trimmed.startsWith("{") && trimmed.endsWith("}");
 		})
 		.map((entry) => {

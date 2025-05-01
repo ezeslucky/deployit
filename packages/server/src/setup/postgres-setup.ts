@@ -12,7 +12,7 @@ export const initializePostgres = async () => {
 				Env: [
 					"POSTGRES_USER=deployit",
 					"POSTGRES_DB=deployit",
-					"POSTGRES_PASSWORD=deployit",
+					"POSTGRES_PASSWORD=amukds4wi9001583845717ad2",
 				],
 				Mounts: [
 					{

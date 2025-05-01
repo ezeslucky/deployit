@@ -26,9 +26,9 @@ export async function GET() {
 	const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
-		<title>Dokploy Blog</title>
-		<link>https://dokploy.com/blog</link>
-		<description>Dokploy Latest News & Updates</description>
+		<title>deployit Blog</title>
+		<link>https://deployit.com/blog</link>
+		<description>deployit Latest News & Updates</description>
 		<language>en</language>
 		<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 		${posts
@@ -36,8 +36,8 @@ export async function GET() {
 				(post) => `
 		<item>
 			<title><![CDATA[${post.title}]]></title>
-			<link>https://dokploy.com/blog/${escapeXml(post.slug)}</link>
-			<guid>https://dokploy.com/blog/${escapeXml(post.slug)}</guid>
+			<link>https://deployit.com/blog/${escapeXml(post.slug)}</link>
+			<guid>https://deployit.com/blog/${escapeXml(post.slug)}</guid>
 			<description><![CDATA[${post.excerpt}]]></description>
 			<content:encoded><![CDATA[${post.html}]]></content:encoded>
 			<pubDate>${new Date(post.published_at).toUTCString()}</pubDate>

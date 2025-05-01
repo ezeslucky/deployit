@@ -80,7 +80,7 @@ const MySql = (
 			<div className="flex flex-col gap-4">
 				<Head>
 					<title>
-						Database: {data?.name} - {data?.project.name} | Dokploy
+						Database: {data?.name} - {data?.project.name} | deployit
 					</title>
 				</Head>
 				<div className="w-full">
@@ -117,7 +117,7 @@ const MySql = (
 														: "destructive"
 											}
 										>
-											{data?.server?.name || "Dokploy Server"}
+											{data?.server?.name || "deployit Server"}
 										</Badge>
 										{data?.server?.serverStatus === "inactive" && (
 											<TooltipProvider delayDuration={0}>

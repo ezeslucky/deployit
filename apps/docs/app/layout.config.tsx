@@ -36,18 +36,18 @@ export const Logo = () => {
 
 export const baseOptions: BaseLayoutProps = {
 	nav: {
-		// title: "Dokploy",
+		// title: "deployit",
 		children: (
 			<Link href="/docs/core" className="flex items-center gap-2">
 				<Logo />
-				<span className="text-foreground font-semibold">Dokploy</span>
+				<span className="text-foreground font-semibold">deployit</span>
 			</Link>
 		),
 	},
 	links: [
 		{
 			text: "Website",
-			url: "https://dokploy.com",
+			url: "https://deployit.com",
 			active: "nested-url",
 			icon: <GlobeIcon />,
 		},
@@ -71,7 +71,7 @@ export const baseOptions: BaseLayoutProps = {
 		},
 		{
 			text: "Support",
-			url: "https://opencollective.com/dokploy",
+			url: "https://opencollective.com/deployit",
 			active: "nested-url",
 			icon: (
 				<>
@@ -81,7 +81,7 @@ export const baseOptions: BaseLayoutProps = {
 		},
 		{
 			text: "Github",
-			url: "https://github.com/dokploy/dokploy",
+			url: "https://github.com/deployit/deployit",
 			active: "nested-url",
 			icon: (
 				<>
@@ -91,7 +91,7 @@ export const baseOptions: BaseLayoutProps = {
 		},
 		{
 			text: "Blog",
-			url: "https://dokploy.com/blog",
+			url: "https://deployit.com/blog",
 			active: "nested-url",
 			icon: (
 				<>

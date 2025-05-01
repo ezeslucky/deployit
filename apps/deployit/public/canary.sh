@@ -1,5 +1,5 @@
 #!/bin/bash
-install_dokploy() {
+install_deployit() {
     if [ "$(id -u)" != "0" ]; then
         echo "This script must be run as root" >&2
         exit 1
@@ -97,57 +97,57 @@ install_dokploy() {
 
     echo "Swarm initialized"
 
-    docker network rm -f dokploy-network 2>/dev/null
-    docker network create --driver overlay --attachable dokploy-network
+    docker network rm -f deployit-network 2>/dev/null
+    docker network create --driver overlay --attachable deployit-network
 
     echo "Network created"
 
-    mkdir -p /etc/dokploy
+    mkdir -p /etc/deployit
 
-    chmod 777 /etc/dokploy
+    chmod 777 /etc/deployit
 
     docker service create \
-    --name dokploy-postgres \
+    --name deployit-postgres \
     --constraint 'node.role==manager' \
-    --network dokploy-network \
-    --env POSTGRES_USER=dokploy \
-    --env POSTGRES_DB=dokploy \
+    --network deployit-network \
+    --env POSTGRES_USER=deployit \
+    --env POSTGRES_DB=deployit \
     --env POSTGRES_PASSWORD=amukds4wi9001583845717ad2 \
-    --mount type=volume,source=dokploy-postgres-database,target=/var/lib/postgresql/data \
+    --mount type=volume,source=deployit-postgres-database,target=/var/lib/postgresql/data \
     postgres:16
 
     docker service create \
-    --name dokploy-redis \
+    --name deployit-redis \
     --constraint 'node.role==manager' \
-    --network dokploy-network \
+    --network deployit-network \
     --mount type=volume,source=redis-data-volume,target=/data \
     redis:7
     
     docker pull traefik:v3.1.2
-    docker pull dokploy/dokploy:canary
+    docker pull deployit/deployit:canary
 
     # Installation
     docker service create \
-    --name dokploy \
+    --name deployit \
     --replicas 1 \
-    --network dokploy-network \
+    --network deployit-network \
     --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
-    --mount type=bind,source=/etc/dokploy,target=/etc/dokploy \
-    --mount type=volume,source=dokploy-docker-config,target=/root/.docker \
+    --mount type=bind,source=/etc/deployit,target=/etc/deployit \
+    --mount type=volume,source=deployit-docker-config,target=/root/.docker \
     --publish published=3000,target=3000,mode=host \
     --update-parallelism 1 \
     --update-order stop-first \
     --constraint 'node.role == manager' \
     -e RELEASE_TAG=canary \
     -e ADVERTISE_ADDR=$advertise_addr \
-    dokploy/dokploy:canary
+    deployit/deployit:canary
 
     docker run -d \
-    --name dokploy-traefik \
-    --network dokploy-network \
+    --name deployit-traefik \
+    --network deployit-network \
     --restart always \
-    -v /etc/dokploy/traefik/traefik.yml:/etc/traefik/traefik.yml \
-    -v /etc/dokploy/traefik/dynamic:/etc/dokploy/traefik/dynamic \
+    -v /etc/deployit/traefik/traefik.yml:/etc/traefik/traefik.yml \
+    -v /etc/deployit/traefik/dynamic:/etc/deployit/traefik/dynamic \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -p 80:80/tcp \
     -p 443:443/tcp \
@@ -156,11 +156,11 @@ install_dokploy() {
 
     # Optional: Use docker service create instead of docker run
       docker service create \
-        --name dokploy-traefik \
+        --name deployit-traefik \
         --constraint 'node.role==manager' \
-        --network dokploy-network \
-        --mount type=bind,source=/etc/dokploy/traefik/traefik.yml,target=/etc/traefik/traefik.yml \
-        --mount type=bind,source=/etc/dokploy/traefik/dynamic,target=/etc/dokploy/traefik/dynamic \
+        --network deployit-network \
+        --mount type=bind,source=/etc/deployit/traefik/traefik.yml,target=/etc/traefik/traefik.yml \
+        --mount type=bind,source=/etc/deployit/traefik/dynamic,target=/etc/deployit/traefik/dynamic \
         --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
         --publish mode=host,published=443,target=443 \
         --publish mode=host,published=80,target=80 \
@@ -186,27 +186,27 @@ install_dokploy() {
 
     formatted_addr=$(format_ip_for_url "$advertise_addr")
     echo ""
-    printf "${GREEN}Congratulations, Dokploy is installed!${NC}\n"
+    printf "${GREEN}Congratulations, deployit is installed!${NC}\n"
     printf "${BLUE}Wait 15 seconds for the server to start${NC}\n"
     printf "${YELLOW}Please go to http://${formatted_addr}:3000${NC}\n\n"
     echo ""
 }
 
-update_dokploy() {
-    echo "Updating Dokploy..."
+update_deployit() {
+    echo "Updating deployit..."
     
     # Pull the latest canary image
-    docker pull dokploy/dokploy:canary
+    docker pull deployit/deployit:canary
 
     # Update the service
-    docker service update --image dokploy/dokploy:canary dokploy
+    docker service update --image deployit/deployit:canary deployit
 
-    echo "Dokploy has been updated to the latest canary version."
+    echo "deployit has been updated to the latest canary version."
 }
 
 # Main script execution
 if [ "$1" = "update" ]; then
-    update_dokploy
+    update_deployit
 else
-    install_dokploy
+    install_deployit
 fi

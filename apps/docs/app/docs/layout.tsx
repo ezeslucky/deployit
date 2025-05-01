@@ -6,8 +6,8 @@ import type { ReactNode } from "react";
 
 export const metadata = createMetadata({
 	title: {
-		template: "%s | Dokploy",
-		default: "Dokploy",
+		template: "%s | deployit",
+		default: "deployit",
 	},
 	description: "The Open Source Alternative to Vercel, Heroku, and Netlify",
 	metadataBase: new URL(baseUrl),

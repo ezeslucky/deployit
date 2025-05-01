@@ -9,7 +9,7 @@ Preview deployments are a powerful feature specifically designed for application
 
 ## Configuration
 
-By default, Dokploy generates dynamic domains using traefik.me domains, which are free and require no additional configuration. The default port is 3000, but you can adjust this based on your application's requirements. You can also limit the number of  preview deployments per application (default is 3).
+By default, deployit generates dynamic domains using traefik.me domains, which are free and require no additional configuration. The default port is 3000, but you can adjust this based on your application's requirements. You can also limit the number of  preview deployments per application (default is 3).
 
 ### Custom Domains
 
@@ -19,7 +19,7 @@ If you prefer using a custom domain, you can configure it like this:
 *.mydomain.com
 ```
 
-Dokploy will generate domains following this pattern:
+deployit will generate domains following this pattern:
 
 ```
 preview-${appName}-${uniqueId}.traefik.me

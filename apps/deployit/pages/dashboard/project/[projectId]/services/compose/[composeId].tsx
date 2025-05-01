@@ -101,7 +101,7 @@ const Service = (
 			/>
 			<Head>
 				<title>
-					Compose: {data?.name} - {data?.project.name} | Dokploy
+					Compose: {data?.name} - {data?.project.name} | deployit
 				</title>
 			</Head>
 			<div className="w-full">
@@ -146,7 +146,7 @@ const Service = (
 														: "destructive"
 											}
 										>
-											{data?.server?.name || "Dokploy Server"}
+											{data?.server?.name || "deployit Server"}
 										</Badge>
 										{data?.server?.serverStatus === "inactive" && (
 											<TooltipProvider>

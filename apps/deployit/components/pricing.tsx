@@ -209,7 +209,7 @@ export function Pricing() {
 											{t("plan.free.features.f9")}
 										</span>
 										<Link
-											href="https://docs.dokploy.com/docs/core/installation#docker"
+											href="https://docs.deployit.com/docs/core/installation#docker"
 											target="_blank"
 											className="flex items-start text-sm text-primary"
 										>
@@ -311,14 +311,14 @@ export function Pricing() {
 													</div>
 													<p className="text-primary mb-2 text-left">
 														We Recommend to watch the video to understand the
-														benefits of Dokploy Cloud
+														benefits of deployit Cloud
 													</p>
 
 													<HeroVideoDialog
 														className="block w-full max-w-md rounded-xl z-20"
 														animationStyle="top-in-bottom-out"
 														videoSrc="https://www.youtube.com/embed/x2s_Y5ON-ms?si=i6gntgMmyPDLuPih"
-														thumbnailSrc="https://dokploy.com/banner.png"
+														thumbnailSrc="https://deployit.com/banner.png"
 														thumbnailAlt="Hero Video"
 													/>
 												</TooltipContent>
@@ -362,7 +362,7 @@ export function Pricing() {
 									>
 										<div className="w-full justify-end">
 											<Link
-												href="https://app.dokploy.com/register"
+												href="https://app.deployit.com/register"
 												target="_blank"
 												className={buttonVariants({
 													className: "w-full",

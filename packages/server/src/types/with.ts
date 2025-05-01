@@ -5,7 +5,10 @@ import type {
 	ExtractTablesWithRelations,
 } from "drizzle-orm";
 import { z } from "zod";
-
+/*
+ * This is for testing purposes in the case we need a nested relational types
+ *
+ */
 
 type Schema = typeof schema;
 type TSchema = ExtractTablesWithRelations<Schema>;

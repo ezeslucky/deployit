@@ -137,7 +137,7 @@ export const WebDomain = () => {
 												<FormControl>
 													<Input
 														className="w-full"
-														placeholder={"dokploy.com"}
+														placeholder={"deployit.com"}
 														{...field}
 													/>
 												</FormControl>

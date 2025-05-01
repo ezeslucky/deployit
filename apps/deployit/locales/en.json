@@ -129,8 +129,8 @@
 	},
 	"Link": {
 		"docs": {
-			"intro": "https://docs.dokploy.com/docs/core",
-			"install": "https://docs.dokploy.com/docs/core/installation"
+			"intro": "https://docs.deployit.com/docs/core",
+			"install": "https://docs.deployit.com/docs/core/installation"
 		}
 	},
 	"Pricing": {

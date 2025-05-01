@@ -67,7 +67,7 @@ export function Footer() {
 						<Link
 							href="https://x.com/ezeslucky"
 							className="group"
-							aria-label="Dokploy on Twitter"
+							aria-label="deployit on Twitter"
 						>
 							<svg
 								stroke="currentColor"
@@ -83,7 +83,7 @@ export function Footer() {
 						<Link
 							href="https://github.com/ezeslucky/deployit"
 							className="group"
-							aria-label="Dokploy on GitHub"
+							aria-label="deployit on GitHub"
 						>
 							<svg
 								aria-hidden="true"

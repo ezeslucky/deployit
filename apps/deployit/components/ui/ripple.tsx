@@ -36,27 +36,27 @@ const Ripple = React.memo(function Ripple({
 		{
 			name: "Hostinger",
 			image: "https://avatars.githubusercontent.com/u/2630767?s=200&v=4",
-			link: "https://www.hostinger.com/vps-hosting?ref=dokploy",
+			link: "https://www.hostinger.com/vps-hosting?ref=deployit",
 			type: "hero",
 		},
 		{
 			name: "Lxaer",
 			image:
-				"https://raw.githubusercontent.com/Dokploy/dokploy/canary/.github/sponsors/lxaer.png",
-			link: "https://www.lxaer.com?ref=dokploy",
+				"https://raw.githubusercontent.com/deployit/deployit/canary/.github/sponsors/lxaer.png",
+			link: "https://www.lxaer.com?ref=deployit",
 			type: "hero",
 		},
 		{
 			name: "Mandarin 3D",
 			image:
-				"https://raw.githubusercontent.com/Dokploy/dokploy/canary/.github/sponsors/mandarin.png",
-			link: "https://mandarin3d.com/?ref=dokploy",
+				"https://raw.githubusercontent.com/deployit/deployit/canary/.github/sponsors/mandarin.png",
+			link: "https://mandarin3d.com/?ref=deployit",
 			type: "hero",
 		},
 		{
 			name: "LightNode",
 			image: "lightnode-logo.png",
-			link: "https://www.lightnode.com/?ref=dokploy",
+			link: "https://www.lightnode.com/?ref=deployit",
 			type: "hero",
 		},
 	];
@@ -64,7 +64,7 @@ const Ripple = React.memo(function Ripple({
 		{
 			name: "Supafort",
 			image: "supafort.png",
-			link: "https://supafort.com/?ref=dokploy",
+			link: "https://supafort.com/?ref=deployit",
 			type: "premium",
 		},
 	];
@@ -75,41 +75,41 @@ const Ripple = React.memo(function Ripple({
 		{
 			name: "Lightspeed Run",
 			image: "https://github.com/lightspeedrun.png",
-			link: "https://lightspeed.run/?ref=dokploy",
+			link: "https://lightspeed.run/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "Cloudblast",
 			image: "https://cloudblast.io/img/logo-icon.193cf13e.svg",
-			link: "https://cloudblast.io/?ref=dokploy",
+			link: "https://cloudblast.io/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "Startup Fame",
 			image:
-				"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/.github/sponsors/startupfame.png",
-			link: "https://startupfa.me/?ref=dokploy",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/startupfame.png",
+			link: "https://startupfa.me/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "Itsdb",
 			image:
-				"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/.github/sponsors/its.png",
-			link: "https://itsdb-center.com/?ref=dokploy",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/its.png",
+			link: "https://itsdb-center.com/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "OpenAlternative",
 			image:
-				"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/.github/sponsors/openalternative.png",
-			link: "https://openalternative.co/?ref=dokploy",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/openalternative.png",
+			link: "https://openalternative.co/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "Synexa",
 			image:
-				"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/.github/sponsors/synexa.png",
-			link: "https://synexa.ai/?ref=dokploy",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/synexa.png",
+			link: "https://synexa.ai/?ref=deployit",
 			type: "supporting",
 		},
 	];
@@ -118,19 +118,19 @@ const Ripple = React.memo(function Ripple({
 		{
 			name: "Steamsets",
 			image: "https://avatars.githubusercontent.com/u/111978405?s=200&v=4",
-			link: "https://steamsets.com/?ref=dokploy",
+			link: "https://steamsets.com/?ref=deployit",
 			type: "premium",
 		},
 		{
 			name: "Rivo GG",
 			image: "https://avatars.githubusercontent.com/u/126797452?s=200&v=4",
-			link: "https://rivo.gg/?ref=dokploy",
+			link: "https://rivo.gg/?ref=deployit",
 			type: "premium",
 		},
 		{
 			name: "Photoquest",
 			image: "https://photoquest.wedding/favicon/android-chrome-512x512.png",
-			link: "https://photoquest.wedding/?ref=dokploy",
+			link: "https://photoquest.wedding/?ref=deployit",
 			type: "premium",
 		},
 	];

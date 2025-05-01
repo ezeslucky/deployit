@@ -120,7 +120,7 @@ const Invitation = ({
 				name: values.name,
 				fetchOptions: {
 					headers: {
-						"x-dokploy-token": token,
+						"x-deployit-token": token,
 					},
 				},
 			});
@@ -147,7 +147,7 @@ const Invitation = ({
 				<div className="flex flex-col items-center gap-4 w-full">
 					<CardTitle className="text-2xl font-bold flex items-center gap-2">
 						<Link
-							href="https://dokploy.com"
+							href="https://deployit.com"
 							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>

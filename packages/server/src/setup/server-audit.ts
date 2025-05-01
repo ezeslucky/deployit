@@ -1,7 +1,7 @@
 import { Client } from "ssh2";
 import { findServerById } from "../services/server";
 
-
+// Thanks for the idea to https://github.com/healthyhost/audit-vps-script/tree/main
 const validateUfw = () => `
   if command -v ufw >/dev/null 2>&1; then
     isInstalled=true

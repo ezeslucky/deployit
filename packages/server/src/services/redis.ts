@@ -12,7 +12,7 @@ import { execAsyncRemote } from "@deployit/server/utils/process/execAsync";
 
 export type Redis = typeof redis.$inferSelect;
 
-
+// https://github.com/drizzle-team/drizzle-orm/discussions/1483#discussioncomment-7523881
 export const createRedis = async (input: typeof apiCreateRedis._type) => {
 	const appName = buildAppName("redis", input.appName);
 

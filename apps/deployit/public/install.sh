@@ -1,5 +1,5 @@
 #!/bin/bash
-install_dokploy() {
+install_deployit() {
     if [ "$(id -u)" != "0" ]; then
         echo "This script must be run as root" >&2
         exit 1
@@ -96,34 +96,34 @@ install_dokploy() {
 
     echo "Swarm initialized"
 
-    docker network rm -f dokploy-network 2>/dev/null
-    docker network create --driver overlay --attachable dokploy-network
+    docker network rm -f deployit-network 2>/dev/null
+    docker network create --driver overlay --attachable deployit-network
 
     echo "Network created"
 
-    mkdir -p /etc/dokploy
+    mkdir -p /etc/deployit
 
-    chmod 777 /etc/dokploy
+    chmod 777 /etc/deployit
 
     docker pull postgres:16
     docker pull redis:7
     docker pull traefik:v3.1.2
-    docker pull dokploy/dokploy:latest
+    docker pull deployit/deployit:latest
 
     # Installation
     docker service create \
-      --name dokploy \
+      --name deployit \
       --replicas 1 \
-      --network dokploy-network \
+      --network deployit-network \
       --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
-      --mount type=bind,source=/etc/dokploy,target=/etc/dokploy \
-      --mount type=volume,source=dokploy-docker-config,target=/root/.docker \
+      --mount type=bind,source=/etc/deployit,target=/etc/deployit \
+      --mount type=volume,source=deployit-docker-config,target=/root/.docker \
       --publish published=3000,target=3000,mode=host \
       --update-parallelism 1 \
       --update-order stop-first \
       --constraint 'node.role == manager' \
       -e ADVERTISE_ADDR=$advertise_addr \
-      dokploy/dokploy:latest
+      deployit/deployit:latest
 
     GREEN="\033[0;32m"
     YELLOW="\033[1;33m"
@@ -143,26 +143,26 @@ install_dokploy() {
 
     formatted_addr=$(format_ip_for_url "$advertise_addr")
     echo ""
-    printf "${GREEN}Congratulations, Dokploy is installed!${NC}\n"
+    printf "${GREEN}Congratulations, deployit is installed!${NC}\n"
     printf "${BLUE}Wait 15 seconds for the server to start${NC}\n"
     printf "${YELLOW}Please go to http://${formatted_addr}:3000${NC}\n\n"
 }
 
-update_dokploy() {
-    echo "Updating Dokploy..."
+update_deployit() {
+    echo "Updating deployit..."
     
     # Pull the latest image
-    docker pull dokploy/dokploy:latest
+    docker pull deployit/deployit:latest
 
     # Update the service
-    docker service update --image dokploy/dokploy:latest dokploy
+    docker service update --image deployit/deployit:latest deployit
 
-    echo "Dokploy has been updated to the latest version."
+    echo "deployit has been updated to the latest version."
 }
 
 # Main script execution
 if [ "$1" = "update" ]; then
-    update_dokploy
+    update_deployit
 else
-    install_dokploy
+    install_deployit
 fi

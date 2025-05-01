@@ -90,7 +90,7 @@ export const initCronJobs = async () => {
 		await startLogCleanup(admin.user.logCleanupCron);
 	}
 };
- 
+
 export const keepLatestNBackups = async (
 	backup: BackupSchedule,
 	serverId?: string | null,

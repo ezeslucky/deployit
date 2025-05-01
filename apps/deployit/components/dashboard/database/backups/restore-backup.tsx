@@ -94,7 +94,7 @@ export const RestoreBackup = ({
 		defaultValues: {
 			destinationId: "",
 			backupFile: "",
-			databaseName: databaseType === "web-server" ? "dokploy" : "",
+			databaseName: databaseType === "web-server" ? "deployit" : "",
 		},
 		resolver: zodResolver(RestoreBackupSchema),
 	});

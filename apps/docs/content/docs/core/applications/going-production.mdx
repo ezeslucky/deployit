@@ -1,11 +1,11 @@
 ---
 title: Going Production
-description: Learn how to deploy your application in production in Dokploy.
+description: Learn how to deploy your application in production in deployit.
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-By default, dokploy offer multiple [Builds Types](/docs/core/applications/build-type) to deploy your application, the most common is `nixpacks` and `heroku buildpacks`
+By default, deployit offer multiple [Builds Types](/docs/core/applications/build-type) to deploy your application, the most common is `nixpacks` and `heroku buildpacks`
 however this also comes with problems, first is the resources that are required to build your application which some times can lead to timeout on your server or even freezeing your server
 and all your application will be down for this reasson, this is mainly problem from `Docker` since the comsumption of resources such as RAM, CPU is very high to build an application.
 
@@ -26,7 +26,7 @@ We will use Github Actions as an example, but you can use any CI/CD pipeline tha
 We will use the following configuration:
 
 1. **Use Git Provider in Your Application**:
-   - Repository: `https://github.com/Dokploy/production-example`
+   - Repository: `https://github.com/deployit/production-example`
    - Branch: `main`
    - Build path: `/`
 
@@ -90,7 +90,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 ENV NODE_ENV=production
 RUN pnpm run build
 
-FROM base AS dokploy
+FROM base AS deployit
 WORKDIR /app
 ENV NODE_ENV=production
 
@@ -104,7 +104,7 @@ CMD ["pnpm", "start"]
 ```
 
 9. Now when you make a commit to your repository, the workflow will be triggered and the application will build and push to `Dockerhub`.
-10. Now let's create application in Dokploy.
+10. Now let's create application in deployit.
 11. In `Source Type` select `Docker`
 12. In the docker image field enter `namespace/example:latest`
 13. Click on `Save`.
@@ -122,9 +122,9 @@ To setup auto deploys for Dockerhub, follow the steps below:
 2. Copy the `Webhook URL`.
 3. Go to your Dockerhub repository and select `Webhooks` tab.
 4. Set a name for the webhook and paste the `Webhook URL` copied in step 2.
-5. That's it, now every time you push to your repository, your application will trigger a deployment in dokploy.
+5. That's it, now every time you push to your repository, your application will trigger a deployment in deployit.
 
-The deployment will trigger only if the `Tag` matches the one specified in Dokploy.
+The deployment will trigger only if the `Tag` matches the one specified in deployit.
 
 
 #### External Registry
@@ -149,11 +149,11 @@ jobs:
     steps:
        ...Same as step 7 from the previous example
           
-      - name: Trigger Dokploy Deployment
-        uses: dokploy/dokploy-action@v1
+      - name: Trigger deployit Deployment
+        uses: deployit/deployit-action@v1
         run: |
             curl -X 'POST' \
-            'https://<your-dokploy-domain>/api/trpc/application.deploy' \
+            'https://<your-deployit-domain>/api/trpc/application.deploy' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer YOUR-TOKEN' \
             -H 'Content-Type: application/json' \
@@ -164,11 +164,11 @@ jobs:
             }'
 ```
 
-You can also use this Github Action [Action](https://github.com/marketplace/actions/dokploy-deployment) to automate the deployment.
+You can also use this Github Action [Action](https://github.com/marketplace/actions/deployit-deployment) to automate the deployment.
 
 ## Healthcheck & Rollbacks
 
-When using Dokploy you can also configure healthchecks and rollbacks, this will allow you to configure your application to be able to recover from failures.
+When using deployit you can also configure healthchecks and rollbacks, this will allow you to configure your application to be able to recover from failures.
  
 In the repo we are using from the `Step 1.` we have a healthcheck endpoint `/health` that returns a 200 status code and running in the port 3000.
 

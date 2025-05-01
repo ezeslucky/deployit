@@ -85,7 +85,7 @@ export default function Home() {
 			<div className="flex flex-col items-center gap-4 w-full">
 				<Link href="/" className="flex flex-row items-center gap-2">
 					<Logo />
-					<span className="font-medium text-sm">Dokploy</span>
+					<span className="font-medium text-sm">deployit</span>
 				</Link>
 				<CardTitle className="text-2xl font-bold">Reset Password</CardTitle>
 				<CardDescription>

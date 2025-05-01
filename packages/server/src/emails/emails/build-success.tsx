@@ -34,8 +34,6 @@ export const BuildSuccessEmail = ({
 			<Head />
 			<Preview>{previewText}</Preview>
 			<Tailwind
-			//@ts-expect-error
-
 				config={{
 					theme: {
 						extend: {
@@ -51,7 +49,7 @@ export const BuildSuccessEmail = ({
 						<Section className="mt-[32px]">
 							<Img
 								src={
-									"https://raw.githubusercontent.com/deployit/deployit/refs/heads/main/apps/deployit/logo.png"
+									"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/apps/deployit/logo.png"
 								}
 								width="100"
 								height="50"
