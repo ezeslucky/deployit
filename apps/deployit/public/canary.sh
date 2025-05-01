@@ -124,7 +124,7 @@ install_deployit() {
     redis:7
     
     docker pull traefik:v3.1.2
-    docker pull deployit/deployit:canary
+    docker pull deployit/deployit:main
 
     # Installation
     docker service create \
@@ -138,9 +138,9 @@ install_deployit() {
     --update-parallelism 1 \
     --update-order stop-first \
     --constraint 'node.role == manager' \
-    -e RELEASE_TAG=canary \
+    -e RELEASE_TAG=main \
     -e ADVERTISE_ADDR=$advertise_addr \
-    deployit/deployit:canary
+    deployit/deployit:main
 
     docker run -d \
     --name deployit-traefik \
@@ -195,13 +195,13 @@ install_deployit() {
 update_deployit() {
     echo "Updating deployit..."
     
-    # Pull the latest canary image
-    docker pull deployit/deployit:canary
+    # Pull the latest main image
+    docker pull deployit/deployit:main
 
     # Update the service
-    docker service update --image deployit/deployit:canary deployit
+    docker service update --image deployit/deployit:main deployit
 
-    echo "deployit has been updated to the latest canary version."
+    echo "deployit has been updated to the latest main version."
 }
 
 # Main script execution

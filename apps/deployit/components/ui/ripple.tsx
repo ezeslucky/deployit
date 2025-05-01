@@ -42,14 +42,14 @@ const Ripple = React.memo(function Ripple({
 		{
 			name: "Lxaer",
 			image:
-				"https://raw.githubusercontent.com/deployit/deployit/canary/.github/sponsors/lxaer.png",
+				"https://raw.githubusercontent.com/deployit/deployit/main/.github/sponsors/lxaer.png",
 			link: "https://www.lxaer.com?ref=deployit",
 			type: "hero",
 		},
 		{
 			name: "Mandarin 3D",
 			image:
-				"https://raw.githubusercontent.com/deployit/deployit/canary/.github/sponsors/mandarin.png",
+				"https://raw.githubusercontent.com/deployit/deployit/main/.github/sponsors/mandarin.png",
 			link: "https://mandarin3d.com/?ref=deployit",
 			type: "hero",
 		},
@@ -87,28 +87,28 @@ const Ripple = React.memo(function Ripple({
 		{
 			name: "Startup Fame",
 			image:
-				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/startupfame.png",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/main/.github/sponsors/startupfame.png",
 			link: "https://startupfa.me/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "Itsdb",
 			image:
-				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/its.png",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/main/.github/sponsors/its.png",
 			link: "https://itsdb-center.com/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "OpenAlternative",
 			image:
-				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/openalternative.png",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/main/.github/sponsors/openalternative.png",
 			link: "https://openalternative.co/?ref=deployit",
 			type: "supporting",
 		},
 		{
 			name: "Synexa",
 			image:
-				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/canary/.github/sponsors/synexa.png",
+				"https://raw.githubusercontent.com/deployit/deployit/refs/heads/main/.github/sponsors/synexa.png",
 			link: "https://synexa.ai/?ref=deployit",
 			type: "supporting",
 		},
