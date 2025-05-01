@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { BitbucketIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
@@ -142,7 +140,7 @@ export const AddBitbucketProvider = () => {
 										</ul>
 									</li>
 									<li>
-										After creating, you&apos;ll receive an App Password. Copy it and
+										After creating, you'll receive an App Password. Copy it and
 										paste it below along with your Bitbucket username.
 									</li>
 								</ol>
@@ -214,10 +212,7 @@ export const AddBitbucketProvider = () => {
 									)}
 								/>
 
-								<Button
-								//@ts-expect-error
-
-								isLoading={form.formState.isSubmitting}>
+								<Button isLoading={form.formState.isSubmitting}>
 									Configure Bitbucket
 								</Button>
 							</div>

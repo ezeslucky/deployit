@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
+import { DrawerLogs } from "@/components/shared/drawer-logs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -46,7 +44,6 @@ import { toast } from "sonner";
 import { z } from "zod";
 import type { ServiceType } from "../../application/advanced/show-resources";
 import { type LogLine, parseLogs } from "../../docker/logs/utils";
-import { DrawerLogs } from "@/components/shared/drawer-logs";
 
 interface Props {
 	databaseId: string;
@@ -120,6 +117,8 @@ export const RestoreBackup = ({
 	const [filteredLogs, setFilteredLogs] = useState<LogLine[]>([]);
 	const [isDeploying, setIsDeploying] = useState(false);
 
+	// const { mutateAsync: restore, isLoading: isRestoring } =
+	// 	api.backup.restoreBackup.useMutation();
 
 	api.backup.restoreBackupWithLogs.useSubscription(
 		{
@@ -131,8 +130,6 @@ export const RestoreBackup = ({
 		},
 		{
 			enabled: isDeploying,
-			//@ts-expect-error
-
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -144,15 +141,12 @@ export const RestoreBackup = ({
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-expect-error
-
 			onError(error) {
 				console.error("Restore logs error:", error);
 				setIsDeploying(false);
 			},
 		},
 	);
-
 
 	const onSubmit = async (_data: RestoreBackup) => {
 		setIsDeploying(true);
@@ -201,8 +195,6 @@ export const RestoreBackup = ({
 												>
 													{field.value
 														? destinations.find(
-															//@ts-expect-error
-
 																(d) => d.destinationId === field.value,
 															)?.name
 														: "Select Destination"}
@@ -219,10 +211,7 @@ export const RestoreBackup = ({
 												<CommandEmpty>No destinations found.</CommandEmpty>
 												<ScrollArea className="h-64">
 													<CommandGroup>
-														{destinations.map(
-															//@ts-expect-error
-
-															(destination) => (
+														{destinations.map((destination) => (
 															<CommandItem
 																value={destination.destinationId}
 																key={destination.destinationId}
@@ -304,7 +293,7 @@ export const RestoreBackup = ({
 													</div>
 												) : files.length === 0 && search ? (
 													<div className="py-6 text-center text-sm text-muted-foreground">
-														No backup files found for &quot;{search}&quot;
+														No backup files found for "{search}"
 													</div>
 												) : files.length === 0 ? (
 													<div className="py-6 text-center text-sm text-muted-foreground">
@@ -313,10 +302,7 @@ export const RestoreBackup = ({
 												) : (
 													<ScrollArea className="h-64">
 														<CommandGroup>
-															{files.map(
-																//@ts-expect-error
-
-																(file) => (
+															{files.map((file) => (
 																<CommandItem
 																	value={file}
 																	key={file}
@@ -366,8 +352,6 @@ export const RestoreBackup = ({
 						/>
 						<DialogFooter>
 							<Button
-							//@ts-expect-error
-
 								isLoading={isDeploying}
 								form="hook-form-restore-backup"
 								type="submit"

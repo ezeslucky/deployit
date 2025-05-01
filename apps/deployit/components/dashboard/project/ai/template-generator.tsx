@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -107,9 +104,6 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 	const utils = api.useUtils();
 
 	const haveAtleasOneProviderEnabled = aiSettings?.some(
-
-		//@ts-expect-error
-
 		(ai) => ai.isEnabled === true,
 	);
 
@@ -176,11 +170,7 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 						<h2 className="text-lg font-semibold">Steps</h2>
 						<div className="flex items-center gap-2">
 							<span className="text-sm text-muted-foreground">
-							
-								Step {
-								//@ts-expect-error
-
-								stepper.current.index + 1} of {steps.length}
+								Step {stepper.current.index + 1} of {steps.length}
 							</span>
 							<div />
 						</div>
@@ -198,8 +188,6 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 												type="button"
 												role="tab"
 												variant={
-													//@ts-expect-error
-
 													index <= stepper.current.index ? "secondary" : "ghost"
 												}
 												aria-current={
@@ -217,8 +205,6 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 										{index < array.length - 1 && (
 											<Separator
 												className={`flex-1 ${
-													//@ts-expect-error
-
 													index < stepper.current.index
 														? "bg-primary"
 														: "bg-muted"
@@ -274,11 +260,7 @@ export const TemplateGenerator = ({ projectId }: Props) => {
 															<SelectValue placeholder="Select an AI provider" />
 														</SelectTrigger>
 														<SelectContent>
-														
-															{aiSettings.map(
-																//@ts-expect-error
-
-																(ai) => (
+															{aiSettings.map((ai) => (
 																<SelectItem key={ai.aiId} value={ai.aiId}>
 																	{ai.name} ({ai.model})
 																</SelectItem>

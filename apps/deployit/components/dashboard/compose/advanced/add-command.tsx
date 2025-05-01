@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -128,10 +127,7 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 							/>
 						</div>
 						<div className="flex justify-end">
-							<Button
-							//@ts-expect-error
-
-							isLoading={isLoading} type="submit" className="w-fit">
+							<Button isLoading={isLoading} type="submit" className="w-fit">
 								Save
 							</Button>
 						</div>

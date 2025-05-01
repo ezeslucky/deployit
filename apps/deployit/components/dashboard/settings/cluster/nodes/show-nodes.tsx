@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DateTooltip } from "@/components/shared/date-tooltip";
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Badge } from "@/components/ui/badge";
@@ -101,10 +100,7 @@ export const ShowNodes = ({ serverId }: Props) => {
 										</TableRow>
 									</TableHeader>
 									<TableBody>
-										{data?.map(
-											//@ts-expect-error
-
-											(node) => {
+										{data?.map((node) => {
 											const isManager = node.Spec.Role === "manager";
 											return (
 												<TableRow key={node.ID}>

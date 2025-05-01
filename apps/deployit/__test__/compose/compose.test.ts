@@ -1,5 +1,5 @@
-import { addSuffixToAllProperties } from "../../../../packages/server/src/index";
-import type { ComposeSpecification } from "../../../../packages/server/src/index";
+import { addSuffixToAllProperties } from "@deployit/server";
+import type { ComposeSpecification } from "@deployit/server";
 import { load } from "js-yaml";
 import { expect, test } from "vitest";
 

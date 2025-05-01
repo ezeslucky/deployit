@@ -1,4 +1,4 @@
-import { adddeployitNetworkToRoot } from "../../../../../packages/server/src/index";
+import { adddeployitNetworkToRoot } from "@deployit/server";
 import { describe, expect, it } from "vitest";
 
 describe("adddeployitNetworkToRoot", () => {

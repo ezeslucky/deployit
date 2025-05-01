@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
@@ -45,8 +42,6 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 			setIsLoading(false);
 			await utils.settings.checkGPUStatus.invalidate({ serverId });
 		},
-		//@ts-expect-error
-
 		onError: (error) => {
 			toast.error(
 				error.message ||
@@ -61,10 +56,7 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 		try {
 			await utils.settings.checkGPUStatus.invalidate({ serverId });
 			await refetch();
-		} 
-		
-
-		catch (_error) {
+		} catch (_error) {
 			toast.error("Failed to refresh GPU status");
 		} finally {
 			setIsRefreshing(false);
@@ -82,10 +74,7 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 
 		try {
 			await setupGPU.mutateAsync({ serverId });
-		} 
-		
-
-		catch (_error) {
+		} catch (_error) {
 			// Error handling is done in mutation's onError
 		}
 	};
@@ -112,8 +101,6 @@ export function GPUSupport({ serverId }: GPUSupportProps) {
 									onClick={handleEnableGPU}
 								>
 									<Button
-									//@ts-expect-error
-
 										isLoading={isLoading}
 										disabled={isLoading || serverId === undefined || isChecking}
 									>

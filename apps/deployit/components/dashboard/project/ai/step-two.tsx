@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import {
@@ -45,16 +41,12 @@ export const StepTwo = ({ templateInfo, setTemplateInfo }: StepProps) => {
 			serverId: templateInfo.server?.serverId || "",
 			input: templateInfo.userInput,
 		})
-		//@ts-expect-error
-
 			.then((data) => {
 				setTemplateInfo({
 					...templateInfo,
 					suggestions: data,
 				});
 			})
-			//@ts-expect-error
-
 			.catch((error) => {
 				toast.error("Error generating suggestions", {
 					description: error.message,
@@ -268,10 +260,7 @@ export const StepTwo = ({ templateInfo, setTemplateInfo }: StepProps) => {
 										<AccordionTrigger>Description</AccordionTrigger>
 										<AccordionContent>
 											<ScrollArea className=" w-full rounded-md border p-4">
-												<ReactMarkdown
-												//@ts-expect-error
-
-												 className="text-muted-foreground text-sm">
+												<ReactMarkdown className="text-muted-foreground text-sm">
 													{selectedVariant?.description}
 												</ReactMarkdown>
 											</ScrollArea>
@@ -502,7 +491,7 @@ export const StepTwo = ({ templateInfo, setTemplateInfo }: StepProps) => {
 													) : (
 														<div className="text-center text-muted-foreground py-8">
 															<p>
-																This template doesn&apos;t require any configuration
+																This template doesn't require any configuration
 																files.
 															</p>
 															<p className="text-sm mt-2">

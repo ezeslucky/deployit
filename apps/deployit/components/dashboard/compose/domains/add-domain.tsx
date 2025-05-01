@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,7 +38,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { domainCompose } from "../../../../server/db/validation/domain";
+import { domainCompose } from "@/server/db/validations/domain";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DatabaseZap, Dices, RefreshCw } from "lucide-react";
 import Link from "next/link";
@@ -234,10 +232,7 @@ export const AddDomainCompose = ({
 														</FormControl>
 
 														<SelectContent>
-															{services?.map(
-															//@ts-expect-error
-	
-																(service, index) => (
+															{services?.map((service, index) => (
 																<SelectItem
 																	value={service}
 																	key={`${service}-${index}`}
@@ -256,8 +251,6 @@ export const AddDomainCompose = ({
 																<Button
 																	variant="secondary"
 																	type="button"
-																	//@ts-expect-error
-
 																	isLoading={isLoadingServices}
 																	onClick={() => {
 																		if (cacheType === "fetch") {
@@ -288,8 +281,6 @@ export const AddDomainCompose = ({
 																<Button
 																	variant="secondary"
 																	type="button"
-																	//@ts-expect-error
-
 																	isLoading={isLoadingServices}
 																	onClick={() => {
 																		if (cacheType === "cache") {
@@ -354,21 +345,15 @@ export const AddDomainCompose = ({
 															<Button
 																variant="secondary"
 																type="button"
-																//@ts-expect-error
-
 																isLoading={isLoadingGenerate}
 																onClick={() => {
 																	generateDomain({
 																		serverId: compose?.serverId || "",
 																		appName: compose?.appName || "",
 																	})
-																	//@ts-expect-error
-
 																		.then((domain) => {
 																			field.onChange(domain);
 																		})
-																		//@ts-expect-error
-
 																		.catch((err) => {
 																			toast.error(err.message);
 																		});
@@ -468,7 +453,7 @@ export const AddDomainCompose = ({
 														<SelectContent>
 															<SelectItem value="none">None</SelectItem>
 															<SelectItem value={"letsencrypt"}>
-																Let&apos;s Encrypt
+																Let's Encrypt
 															</SelectItem>
 															<SelectItem value={"custom"}>Custom</SelectItem>
 														</SelectContent>
@@ -504,8 +489,6 @@ export const AddDomainCompose = ({
 
 					<DialogFooter>
 						<Button
-						//@ts-expect-error
-
 							isLoading={form.formState.isSubmitting}
 							form="hook-form"
 							type="submit"

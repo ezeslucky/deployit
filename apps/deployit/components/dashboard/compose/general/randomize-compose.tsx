@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -79,8 +76,6 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 			suffix: formData?.suffix || "",
 			randomize: formData?.randomize || false,
 		})
-		//@ts-expect-error
-
 			.then(async (_data) => {
 				randomizeCompose();
 				refetch();
@@ -96,8 +91,6 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 			composeId,
 			suffix,
 		})
-		//@ts-expect-error
-
 			.then(async (data) => {
 				await utils.project.all.invalidate();
 				setCompose(data);

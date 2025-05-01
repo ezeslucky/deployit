@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -24,10 +23,7 @@ export const ShowNodeApplications = ({ serverId }: Props) => {
 	let applicationList = "";
 
 	if (NodeApps && NodeApps.length > 0) {
-		applicationList = NodeApps.map(
-			//@ts-expect-error
-
-			(app) => app.Name).join(" ");
+		applicationList = NodeApps.map((app) => app.Name).join(" ");
 	}
 
 	const { data: NodeAppDetails, isLoading: NodeAppDetailsLoading } =
@@ -53,15 +49,9 @@ export const ShowNodeApplications = ({ serverId }: Props) => {
 		);
 	}
 
-	const combinedData: ApplicationList[] = NodeApps.flatMap(
-		//@ts-expect-error
-
-		(app) => {
+	const combinedData: ApplicationList[] = NodeApps.flatMap((app) => {
 		const appDetails =
-			NodeAppDetails?.filter(
-				//@ts-expect-error
-
-				(detail) =>
+			NodeAppDetails?.filter((detail) =>
 				detail.Name.startsWith(`${app.Name}.`),
 			) || [];
 
@@ -78,10 +68,7 @@ export const ShowNodeApplications = ({ serverId }: Props) => {
 			];
 		}
 
-		return appDetails.map(
-			//@ts-expect-error
-
-			(detail) => ({
+		return appDetails.map((detail) => ({
 			...app,
 			CurrentState: detail.CurrentState,
 			DesiredState: detail.DesiredState,

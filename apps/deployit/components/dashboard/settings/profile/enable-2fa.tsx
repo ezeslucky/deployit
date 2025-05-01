@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -24,7 +22,7 @@ import {
 	InputOTPGroup,
 	InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { authCliend } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { api } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Fingerprint, QrCode } from "lucide-react";
@@ -66,7 +64,7 @@ export const Enable2FA = () => {
 	const handlePasswordSubmit = async (formData: PasswordForm) => {
 		setIsPasswordLoading(true);
 		try {
-			const { data: enableData, error } = await authCliend.twoFactor.enable({
+			const { data: enableData, error } = await authClient.twoFactor.enable({
 				password: formData.password,
 			});
 
@@ -107,7 +105,7 @@ export const Enable2FA = () => {
 
 	const handleVerifySubmit = async (formData: PinForm) => {
 		try {
-			const result = await authCliend.twoFactor.verifyTotp({
+			const result = await authClient.twoFactor.verifyTotp({
 				code: formData.pin,
 			});
 
@@ -222,8 +220,6 @@ export const Enable2FA = () => {
 							<Button
 								type="submit"
 								className="w-full"
-								//@ts-expect-error
-
 								isLoading={isPasswordLoading}
 							>
 								Continue
@@ -252,7 +248,7 @@ export const Enable2FA = () => {
 											/>
 											<div className="flex flex-col gap-2 text-center">
 												<span className="text-sm text-muted-foreground">
-													Can&apos;t scan the QR code?
+													Can't scan the QR code?
 												</span>
 												<span className="text-xs font-mono bg-muted p-2 rounded">
 													{data.secret}
@@ -317,8 +313,6 @@ export const Enable2FA = () => {
 							<Button
 								type="submit"
 								className="w-full"
-								//@ts-expect-error
-
 								isLoading={isPasswordLoading}
 							>
 								Enable 2FA

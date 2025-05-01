@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -58,17 +57,13 @@ export const ShowBilling = () => {
 				productId,
 				serverQuantity: serverQuantity,
 				isAnnual,
-			})
-			//@ts-expect-error
-
-			.then(async (session) => {
+			}).then(async (session) => {
 				await stripe?.redirectToCheckout({
 					sessionId: session.sessionId,
 				});
 			});
 		}
 	};
-	// @ts-ignore
 	const products = data?.products.filter((product) => {
 		// @ts-ignore
 		const interval = product?.default_price?.recurring?.interval;
@@ -157,9 +152,7 @@ export const ShowBilling = () => {
 								</span>
 							) : (
 								<>
-									{products?.map(
-										// @ts-ignore
-										(product) => {
+									{products?.map((product) => {
 										const featured = true;
 										return (
 											<div key={product.id}>

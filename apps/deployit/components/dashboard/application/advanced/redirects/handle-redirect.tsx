@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -46,16 +45,16 @@ const AddRedirectchema = z.object({
 
 type AddRedirect = z.infer<typeof AddRedirectchema>;
 
-
+// Default presets
 const redirectPresets = [
-	{
-		label: "Allow www & non-www.",
-		redirect: {
-			regex: "",
-			permanent: false,
-			replacement: "",
-		},
-	},
+	// {
+	// 	label: "Allow www & non-www.",
+	// 	redirect: {
+	// 		regex: "",
+	// 		permanent: false,
+	// 		replacement: "",
+	// 	},
+	// },
 	{
 		id: "to-www",
 		label: "Redirect to www",
@@ -111,8 +110,6 @@ export const HandleRedirect = ({
 			regex: "",
 			replacement: "",
 		},
-	//@ts-expect-error
-
 		resolver: zodResolver(AddRedirectchema),
 	});
 
@@ -152,7 +149,9 @@ export const HandleRedirect = ({
 
 	const onDialogToggle = (open: boolean) => {
 		setIsOpen(open);
-		
+		// commented for the moment because not reseting the form if accidentally closed the dialog can be considered as a feature instead of a bug
+		// setPresetSelected("");
+		// form.reset();
 	};
 
 	const onPresetSelect = (presetId: string) => {
@@ -197,10 +196,7 @@ export const HandleRedirect = ({
 						</SelectTrigger>
 						<SelectContent>
 							{redirectPresets.map((preset) => (
-								<SelectItem key={preset.label}
-								//@ts-expect-error
-
-								value={preset.id}>
+								<SelectItem key={preset.label} value={preset.id}>
 									{preset.label}
 								</SelectItem>
 							))}
@@ -213,15 +209,11 @@ export const HandleRedirect = ({
 				<Form {...form}>
 					<form
 						id="hook-form-add-redirect"
-						//@ts-expect-error
-
 						onSubmit={form.handleSubmit(onSubmit)}
 						className="grid w-full gap-4"
 					>
 						<div className="flex flex-col gap-4">
 							<FormField
-							//@ts-expect-error
-
 								control={form.control}
 								name="regex"
 								render={({ field }) => (
@@ -236,8 +228,6 @@ export const HandleRedirect = ({
 								)}
 							/>
 							<FormField
-							//@ts-expect-error
-
 								control={form.control}
 								name="replacement"
 								render={({ field }) => (
@@ -253,8 +243,6 @@ export const HandleRedirect = ({
 							/>
 
 							<FormField
-							//@ts-expect-error
-
 								control={form.control}
 								name="permanent"
 								render={({ field }) => (
@@ -280,8 +268,6 @@ export const HandleRedirect = ({
 
 					<DialogFooter>
 						<Button
-						//@ts-expect-error
-
 							isLoading={isLoading}
 							form="hook-form-add-redirect"
 							type="submit"

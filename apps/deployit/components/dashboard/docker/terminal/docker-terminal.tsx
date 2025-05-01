@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Terminal } from "@xterm/xterm";
 import React, { useEffect, useRef } from "react";
 import { FitAddon } from "xterm-addon-fit";

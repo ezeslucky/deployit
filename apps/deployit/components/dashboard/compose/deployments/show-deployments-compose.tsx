@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DateTooltip } from "@/components/shared/date-tooltip";
 import { StatusTooltip } from "@/components/shared/status-tooltip";
 import { Button } from "@/components/ui/button";
@@ -73,10 +72,7 @@ export const ShowDeploymentsCompose = ({ composeId }: Props) => {
 					</div>
 				) : (
 					<div className="flex flex-col gap-4">
-						{deployments?.map(
-							//@ts-expect-error
-
-							(deployment) => (
+						{deployments?.map((deployment) => (
 							<div
 								key={deployment.deploymentId}
 								className="flex items-center justify-between rounded-lg border p-4"

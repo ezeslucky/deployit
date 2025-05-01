@@ -9,11 +9,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
-	"github.com/ezeslucky/deployit/apps/monitoring/config"
-	"github.com/ezeslucky/deployit/apps/monitoring/containers"
-	"github.com/ezeslucky/deployit/apps/monitoring/database"
-	"github.com/ezeslucky/deployit/apps/monitoring/middleware"
-	"github.com/ezeslucky/deployit/apps/monitoring/monitoring"
+	"github.com/mauriciogm/deployit/apps/monitoring/config"
+	"github.com/mauriciogm/deployit/apps/monitoring/containers"
+	"github.com/mauriciogm/deployit/apps/monitoring/database"
+	"github.com/mauriciogm/deployit/apps/monitoring/middleware"
+	"github.com/mauriciogm/deployit/apps/monitoring/monitoring"
 )
 
 func main() {

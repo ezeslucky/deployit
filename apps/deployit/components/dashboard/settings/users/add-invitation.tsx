@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,7 +26,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { authCliend } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { api } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PlusIcon } from "lucide-react";
@@ -51,7 +50,7 @@ export const AddInvitation = () => {
 	const utils = api.useUtils();
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
-	const { data: activeOrganization } = authCliend.useActiveOrganization();
+	const { data: activeOrganization } = authClient.useActiveOrganization();
 
 	const form = useForm<AddInvitation>({
 		defaultValues: {
@@ -66,7 +65,7 @@ export const AddInvitation = () => {
 
 	const onSubmit = async (data: AddInvitation) => {
 		setIsLoading(true);
-		const result = await authCliend.organization.inviteMember({
+		const result = await authClient.organization.inviteMember({
 			email: data.email.toLowerCase(),
 			role: data.role,
 			organizationId: activeOrganization?.id,
@@ -152,8 +151,6 @@ export const AddInvitation = () => {
 						/>
 						<DialogFooter className="flex w-full flex-row">
 							<Button
-							//@ts-expect-error
-
 								isLoading={isLoading}
 								form="hook-form-add-invitation"
 								type="submit"

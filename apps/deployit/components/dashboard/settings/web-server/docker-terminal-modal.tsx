@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -107,19 +106,13 @@ export const DockerTerminalModal = ({ children, appName, serverId }: Props) => {
 					</SelectTrigger>
 					<SelectContent>
 						<SelectGroup>
-							{data?.map(
-								//@ts-expect-error
-
-								(container) => (
+							{data?.map((container) => (
 								<SelectItem
 									key={container.containerId}
 									value={container.containerId}
 								>
 									{container.name} ({container.containerId}){" "}
-									<Badge 
-									//@ts-expect-error
-
-									variant={badgeStateColor(container.state)}>
+									<Badge variant={badgeStateColor(container.state)}>
 										{container.state}
 									</Badge>
 								</SelectItem>

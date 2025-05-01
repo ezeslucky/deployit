@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 
 import { UpdateServerIp } from "@/components/dashboard/settings/web-server/update-server-ip";
@@ -26,10 +25,7 @@ export const ShowdeployitActions = () => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild disabled={isLoading}>
-				<Button 
-				//@ts-expect-error
-
-				isLoading={isLoading} variant="outline">
+				<Button isLoading={isLoading} variant="outline">
 					{t("settings.server.webServer.server.label")}
 				</Button>
 			</DropdownMenuTrigger>

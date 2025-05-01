@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
- 
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -181,10 +178,7 @@ export const ShowClusterSettings = ({ applicationId }: Props) => {
 												</SelectTrigger>
 												<SelectContent>
 													<SelectGroup>
-														{registries?.map
-														//@ts-expect-error
-
-														((registry) => (
+														{registries?.map((registry) => (
 															<SelectItem
 																key={registry.registryId}
 																value={registry.registryId}
@@ -206,11 +200,7 @@ export const ShowClusterSettings = ({ applicationId }: Props) => {
 						)}
 
 						<div className="flex justify-end">
-						
-							<Button 
-							//@ts-expect-error
-
-							isLoading={isLoading} type="submit" className="w-fit">
+							<Button isLoading={isLoading} type="submit" className="w-fit">
 								Save
 							</Button>
 						</div>

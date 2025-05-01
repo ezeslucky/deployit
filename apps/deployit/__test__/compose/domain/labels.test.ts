@@ -1,5 +1,5 @@
-import type { Domain } from "../../../../../packages/server/src/index";
-import { createDomainLabels } from "../../../../../packages/server/src/index";
+import type { Domain } from "@deployit/server";
+import { createDomainLabels } from "@deployit/server";
 import { describe, expect, it } from "vitest";
 
 describe("createDomainLabels", () => {

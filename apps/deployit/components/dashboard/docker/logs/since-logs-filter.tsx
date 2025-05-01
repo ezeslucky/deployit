@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -76,10 +75,7 @@ export function SinceLogsFilter({
 					{title}
 					<Separator orientation="vertical" className="mx-2 h-4" />
 					<div className="space-x-1 flex">
-						<Badge 
-						//@ts-expect-error
-
-						variant="blank" className="rounded-sm px-1 font-normal">
+						<Badge variant="blank" className="rounded-sm px-1 font-normal">
 							{selectedLabel}
 						</Badge>
 					</div>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -21,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { api } from "@/utils/api";
-import type { ServiceType } from "../../../../../packages/server/src/db/schema/index";
+import type { ServiceType } from "@deployit/server/db/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import copy from "copy-to-clipboard";
 import { Copy, Trash2 } from "lucide-react";
@@ -100,8 +99,6 @@ export const DeleteService = ({ id, type }: Props) => {
 				composeId: id || "",
 				deleteVolumes,
 			})
-			//@ts-expect-error
-
 				.then((result) => {
 					push(`/dashboard/project/${result?.projectId}`);
 					toast.success("deleted successfully");
@@ -124,8 +121,6 @@ export const DeleteService = ({ id, type }: Props) => {
 					variant="ghost"
 					size="icon"
 					className="group hover:bg-red-500/10 "
-					//@ts-expect-error
-
 					isLoading={isLoading}
 				>
 					<Trash2 className="size-4 text-primary group-hover:text-red-500" />
@@ -217,8 +212,6 @@ export const DeleteService = ({ id, type }: Props) => {
 						Cancel
 					</Button>
 					<Button
-					//@ts-expect-error
-
 						isLoading={isLoading}
 						form="hook-form-delete-compose"
 						type="submit"

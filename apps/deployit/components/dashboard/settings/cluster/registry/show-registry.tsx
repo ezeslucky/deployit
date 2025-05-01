@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
 import {
@@ -43,17 +42,14 @@ export const ShowRegistry = () => {
 									<div className="flex flex-col items-center gap-3  min-h-[25vh] justify-center">
 										<Package className="size-8 self-center text-muted-foreground" />
 										<span className="text-base text-muted-foreground text-center">
-											You don&apos;t have any registry configurations
+											You don't have any registry configurations
 										</span>
 										<HandleRegistry />
 									</div>
 								) : (
 									<div className="flex flex-col gap-4  min-h-[25vh]">
 										<div className="flex flex-col gap-4 rounded-lg ">
-											{data?.map(
-												//@ts-expect-error
-
-												(registry, index) => (
+											{data?.map((registry, index) => (
 												<div
 													key={registry.registryId}
 													className="flex items-center justify-between bg-sidebar p-1 w-full rounded-lg"
@@ -102,8 +98,6 @@ export const ShowRegistry = () => {
 																	variant="ghost"
 																	size="icon"
 																	className="group hover:bg-red-500/10 "
-																	//@ts-expect-error
-
 																	isLoading={isRemoving}
 																>
 																	<Trash2 className="size-4 text-primary group-hover:text-red-500" />

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,7 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { sshKeyCreate, type sshKeyType } from "../../../../server/db/validation/index";
+import { sshKeyCreate, type sshKeyType } from "@/server/db/validations";
 import { api } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DownloadIcon, PenBoxIcon, PlusIcon } from "lucide-react";
@@ -104,8 +103,6 @@ export const HandleSSHKeys = ({ sshKeyId }: Props) => {
 	const onGenerateSSHKey = (type: z.infer<typeof sshKeyType>) =>
 		generateMutation
 			.mutateAsync(type)
-			//@ts-expect-error
-
 			.then(async (data) => {
 				toast.success("SSH Key Generated");
 				form.setValue("privateKey", data.privateKey);
@@ -301,10 +298,7 @@ export const HandleSSHKeys = ({ sshKeyId }: Props) => {
 									</Button>
 								)}
 							</div>
-							<Button
-							//@ts-expect-error
-
-							isLoading={isLoading} type="submit">
+							<Button isLoading={isLoading} type="submit">
 								{sshKeyId ? "Update" : "Create"}
 							</Button>
 						</DialogFooter>

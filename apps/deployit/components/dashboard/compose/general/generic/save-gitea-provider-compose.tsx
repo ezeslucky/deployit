@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GiteaIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Badge } from "@/components/ui/badge";
@@ -197,10 +195,7 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{giteaProviders?.map(
-												//@ts-expect-error
-
-												(giteaProvider) => (
+											{giteaProviders?.map((giteaProvider) => (
 												<SelectItem
 													key={giteaProvider.giteaId}
 													value={giteaProvider.giteaId}
@@ -248,8 +243,6 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-expect-error
-
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -271,10 +264,7 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 												<CommandEmpty>No repositories found.</CommandEmpty>
 												<ScrollArea className="h-96">
 													<CommandGroup>
-														{repositories?.map(
-															//@ts-expect-error
-
-															(repo) => (
+														{repositories?.map((repo) => (
 															<CommandItem
 																key={repo.url}
 																value={repo.name}
@@ -336,8 +326,6 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-																//@ts-expect-error
-
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -354,10 +342,7 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 												<CommandEmpty>No branches found.</CommandEmpty>
 												<ScrollArea className="h-96">
 													<CommandGroup>
-														{branches?.map(
-															//@ts-expect-error
-
-															(branch) => (
+														{branches?.map((branch) => (
 															<CommandItem
 																key={branch.name}
 																value={branch.name}
@@ -487,10 +472,7 @@ export const SaveGiteaProviderCompose = ({ composeId }: Props) => {
 					</div>
 
 					<div className="flex justify-end">
-						<Button type="submit" 
-						//@ts-expect-error
-
-						isLoading={isSavingGiteaProvider}>
+						<Button type="submit" isLoading={isSavingGiteaProvider}>
 							Save
 						</Button>
 					</div>

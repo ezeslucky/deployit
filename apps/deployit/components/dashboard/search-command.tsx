@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import {
@@ -17,7 +16,7 @@ import {
 	CommandList,
 	CommandSeparator,
 } from "@/components/ui/command";
-import { authCliend } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import {
 	type Services,
 	extractServices,
@@ -32,7 +31,7 @@ export const SearchCommand = () => {
 	const router = useRouter();
 	const [open, setOpen] = React.useState(false);
 	const [search, setSearch] = React.useState("");
-	const { data: session } = authCliend.useSession();
+	const { data: session } = authClient.useSession();
 	const { data } = api.project.all.useQuery(undefined, {
 		enabled: !!session,
 	});
@@ -64,10 +63,7 @@ export const SearchCommand = () => {
 					</CommandEmpty>
 					<CommandGroup heading={"Projects"}>
 						<CommandList>
-							{data?.map(
-								//@ts-expect-error
-
-								(project) => (
+							{data?.map((project) => (
 								<CommandItem
 									key={project.projectId}
 									onSelect={() => {
@@ -84,10 +80,7 @@ export const SearchCommand = () => {
 					<CommandSeparator />
 					<CommandGroup heading={"Services"}>
 						<CommandList>
-							{data?.map(
-								//@ts-expect-error
-
-								(project) => {
+							{data?.map((project) => {
 								const applications: Services[] = extractServices(project);
 								return applications.map((application) => (
 									<CommandItem

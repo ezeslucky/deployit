@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -133,10 +131,7 @@ export const ShowDeploymentCompose = ({
 					<DialogDescription className="flex items-center gap-2">
 						<span>
 							See all the details of this deployment |{" "}
-							<Badge 
-							//@ts-expect-error
-
-							variant="blank" className="text-xs">
+							<Badge variant="blank" className="text-xs">
 								{filteredLogs.length} lines
 							</Badge>
 						</span>

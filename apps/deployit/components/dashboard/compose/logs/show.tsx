@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { badgeStateColor } from "@/components/dashboard/application/logs/show";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -85,19 +84,13 @@ export const ShowDockerLogsCompose = ({
 					</SelectTrigger>
 					<SelectContent>
 						<SelectGroup>
-							{data?.map(
-								//@ts-expect-error
-
-								(container) => (
+							{data?.map((container) => (
 								<SelectItem
 									key={container.containerId}
 									value={container.containerId}
 								>
 									{container.name} ({container.containerId}){" "}
-									<Badge
-									//@ts-expect-error
-
-									variant={badgeStateColor(container.state)}>
+									<Badge variant={badgeStateColor(container.state)}>
 										{container.state}
 									</Badge>
 								</SelectItem>

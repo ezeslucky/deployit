@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { paths } from "../../../../packages/server/src/constants/index";
+import { paths } from "@deployit/server/constants";
 const { APPLICATIONS_PATH } = paths();
-import type { ApplicationNested } from "../../../../packages/server/src/index";
-import { unzipDrop } from "../../../../packages/server/src/index";
+import type { ApplicationNested } from "@deployit/server";
+import { unzipDrop } from "@deployit/server";
 import AdmZip from "adm-zip";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 

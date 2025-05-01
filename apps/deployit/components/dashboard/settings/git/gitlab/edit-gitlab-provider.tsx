@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { GitlabIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
@@ -174,21 +172,15 @@ export const EditGitlabProvider = ({ gitlabId }: Props) => {
 									<Button
 										type="button"
 										variant={"secondary"}
-										//@ts-expect-error
-
 										isLoading={isLoading}
 										onClick={async () => {
 											await testConnection({
 												gitlabId,
 												groupName: groupName || "",
 											})
-											//@ts-expect-error
-
 												.then(async (message) => {
 													toast.info(`Message: ${message}`);
 												})
-												//@ts-expect-error
-
 												.catch((error) => {
 													toast.error(`Error: ${error.message}`);
 												});
@@ -196,10 +188,7 @@ export const EditGitlabProvider = ({ gitlabId }: Props) => {
 									>
 										Test Connection
 									</Button>
-									<Button type="submit" 
-									//@ts-expect-error
-
-									isLoading={form.formState.isSubmitting}>
+									<Button type="submit" isLoading={form.formState.isSubmitting}>
 										Update
 									</Button>
 								</div>

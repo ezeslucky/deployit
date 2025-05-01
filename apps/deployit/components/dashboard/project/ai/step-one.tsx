@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -56,8 +54,6 @@ export const StepOne = ({ setTemplateInfo, templateInfo }: any) => {
 						<Select
 							value={templateInfo.server?.serverId}
 							onValueChange={(value) => {
-								//@ts-expect-error
-
 								const server = servers?.find((s) => s.serverId === value);
 								if (server) {
 									setTemplateInfo({
@@ -72,11 +68,7 @@ export const StepOne = ({ setTemplateInfo, templateInfo }: any) => {
 							</SelectTrigger>
 							<SelectContent>
 								<SelectGroup>
-								
-									{servers?.map(
-										//@ts-expect-error
-
-										(server) => (
+									{servers?.map((server) => (
 										<SelectItem key={server.serverId} value={server.serverId}>
 											{server.name}
 										</SelectItem>

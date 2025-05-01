@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GithubIcon } from "@/components/icons/data-tools-icons";
 import { DateTooltip } from "@/components/shared/date-tooltip";
 import { DialogAction } from "@/components/shared/dialog-action";
@@ -55,8 +54,6 @@ export const ShowPreviewDeployments = ({ applicationId }: Props) => {
 				refetchPreviewDeployments();
 				toast.success("Preview deployment deleted");
 			})
-			//@ts-expect-error
-
 			.catch((error) => {
 				toast.error(error.message);
 			});
@@ -92,10 +89,7 @@ export const ShowPreviewDeployments = ({ applicationId }: Props) => {
 							</div>
 						) : (
 							<div className="flex flex-col gap-4">
-								{previewDeployments?.map(
-									//@ts-expect-error
-
-									(deployment) => {
+								{previewDeployments?.map((deployment) => {
 									const deploymentUrl = `${deployment.domain?.https ? "https" : "http"}://${deployment.domain?.host}${deployment.domain?.path || "/"}`;
 									const status = deployment.previewStatus;
 									return (
@@ -213,8 +207,6 @@ export const ShowPreviewDeployments = ({ applicationId }: Props) => {
 															<Button
 																variant="ghost"
 																size="sm"
-																//@ts-expect-error
-
 																isLoading={isLoading}
 																className="text-red-600 hover:text-red-700 hover:bg-red-50"
 															>

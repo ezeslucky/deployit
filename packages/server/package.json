@@ -17,6 +17,10 @@
     "./constants": {
       "import": "./src/constants/index.ts",
       "require": "./dist/constants.cjs.js"
+    },
+    "./templates": {
+      "import": "./src/templates/index.ts",
+      "require": "./dist/templates.cjs.js"
     }
   },
   "dependencies": {

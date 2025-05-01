@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { GitlabIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
@@ -160,7 +158,7 @@ export const AddGitlabProvider = () => {
 										</ul>
 									</li>
 									<li>
-										After creating, you&apos;ll receive an Application ID and Secret,
+										After creating, you'll receive an Application ID and Secret,
 										copy them and paste them below.
 									</li>
 								</ol>
@@ -262,10 +260,7 @@ export const AddGitlabProvider = () => {
 									)}
 								/>
 
-								<Button 
-								//@ts-expect-error
-
-								isLoading={form.formState.isSubmitting}>
+								<Button isLoading={form.formState.isSubmitting}>
 									Configure GitLab App
 								</Button>
 							</div>

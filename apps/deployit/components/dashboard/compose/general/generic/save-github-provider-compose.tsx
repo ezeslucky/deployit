@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GithubIcon } from "@/components/icons/data-tools-icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -183,10 +182,7 @@ export const SaveGithubProviderCompose = ({ composeId }: Props) => {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{githubProviders?.map(
-												//@ts-expect-error
-
-												(githubProvider) => (
+											{githubProviders?.map((githubProvider) => (
 												<SelectItem
 													key={githubProvider.githubId}
 													value={githubProvider.githubId}
@@ -233,9 +229,6 @@ export const SaveGithubProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-
-																//@ts-expect-error
-
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -258,10 +251,7 @@ export const SaveGithubProviderCompose = ({ composeId }: Props) => {
 												<CommandEmpty>No repositories found.</CommandEmpty>
 												<ScrollArea className="h-96">
 													<CommandGroup>
-														{repositories?.map(
-															//@ts-expect-error
-
-															(repo) => (
+														{repositories?.map((repo) => (
 															<CommandItem
 																value={repo.name}
 																key={repo.url}
@@ -322,9 +312,6 @@ export const SaveGithubProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-
-																//@ts-expect-error
-
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -352,10 +339,7 @@ export const SaveGithubProviderCompose = ({ composeId }: Props) => {
 													<CommandEmpty>No branch found.</CommandEmpty>
 
 													<CommandGroup>
-														{branches?.map(
-															//@ts-expect-error
-
-															(branch) => (
+														{branches?.map((branch) => (
 															<CommandItem
 																value={branch.name}
 																key={branch.commit.sha}
@@ -479,8 +463,6 @@ export const SaveGithubProviderCompose = ({ composeId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-expect-error
-
 							isLoading={isSavingGithubProvider}
 							type="submit"
 							className="w-fit"

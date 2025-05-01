@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import {
 	Tooltip,
@@ -114,8 +113,6 @@ export function TerminalLine({ log, noTimestamp, searchTerm }: LogLineProps) {
 				)}
 
 				<Badge
-				//@ts-expect-error
-
 					variant={variant}
 					className="w-14 justify-center text-[10px] px-1 py-0"
 				>

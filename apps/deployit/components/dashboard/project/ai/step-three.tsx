@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CodeEditor } from "@/components/shared/code-editor";
 import ReactMarkdown from "react-markdown";
 import type { StepProps } from "./step-two";
@@ -18,10 +17,7 @@ export const StepThree = ({ templateInfo }: StepProps) => {
 						</div>
 						<div>
 							<h3 className="text-sm font-semibold">Description</h3>
-							<ReactMarkdown 
-							//@ts-expect-error
-
-							className="text-sm text-muted-foreground">
+							<ReactMarkdown className="text-sm text-muted-foreground">
 								{templateInfo?.details?.description}
 							</ReactMarkdown>
 						</div>

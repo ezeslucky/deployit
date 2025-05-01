@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GiteaIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Badge } from "@/components/ui/badge";
@@ -101,8 +100,6 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 			branch: "",
 			watchPaths: [],
 		},
-		//@ts-expect-error
-
 		resolver: zodResolver(GiteaProviderSchema),
 	});
 
@@ -182,16 +179,12 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 		<div>
 			<Form {...form}>
 				<form
-				//@ts-expect-error
-
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="grid w-full gap-4 py-3"
 				>
 					{error && <AlertBlock type="error">{error?.message}</AlertBlock>}
 					<div className="grid md:grid-cols-2 gap-4">
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="giteaId"
 							render={({ field }) => (
@@ -215,10 +208,7 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{giteaProviders?.map(
-											//@ts-expect-error
-	
-												(giteaProvider) => (
+											{giteaProviders?.map((giteaProvider) => (
 												<SelectItem
 													key={giteaProvider.giteaId}
 													value={giteaProvider.giteaId}
@@ -234,8 +224,6 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 						/>
 
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="repository"
 							render={({ field }) => (
@@ -341,8 +329,6 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -420,8 +406,6 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="buildPath"
 							render={({ field }) => (
@@ -436,8 +420,6 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="watchPaths"
 							render={({ field }) => (
@@ -519,8 +501,6 @@ export const SaveGiteaProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-expect-error
-
 							isLoading={isSavingGiteaProvider}
 							type="submit"
 							className="w-fit"

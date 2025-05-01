@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,10 +39,7 @@ export function StatusLogsFilter({
 	const getSelectedBadges = () => {
 		if (allSelected) {
 			return (
-				<Badge
-				//@ts-expect-error
-
-				variant="blank" className="rounded-sm px-1 font-normal">
+				<Badge variant="blank" className="rounded-sm px-1 font-normal">
 					All
 				</Badge>
 			);
@@ -54,8 +50,6 @@ export function StatusLogsFilter({
 			return (
 				<>
 					<Badge
-					//@ts-expect-error
-
 						variant={
 							selected?.value === "success"
 								? "green"
@@ -74,10 +68,7 @@ export function StatusLogsFilter({
 						{selected?.label}
 					</Badge>
 					{selectedValues.size > 1 && (
-						<Badge 
-						//@ts-expect-error
-
-						variant="blank" className="rounded-sm px-1 font-normal">
+						<Badge variant="blank" className="rounded-sm px-1 font-normal">
 							+{selectedValues.size - 1}
 						</Badge>
 					)}
@@ -120,10 +111,7 @@ export function StatusLogsFilter({
 								>
 									<CheckIcon className={cn("h-4 w-4")} />
 								</div>
-								<Badge
-								//@ts-expect-error
-
-								variant="blank">All</Badge>
+								<Badge variant="blank">All</Badge>
 							</CommandItem>
 							{options.map((option) => {
 								const isSelected = selectedValues.has(option.value);
@@ -154,8 +142,6 @@ export function StatusLogsFilter({
 											<option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
 										)}
 										<Badge
-										//@ts-expect-error
-
 											variant={
 												option.value === "success"
 													? "green"

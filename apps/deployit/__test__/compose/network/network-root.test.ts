@@ -1,6 +1,6 @@
-import { generateRandomHash } from "../../../../../packages/server/src/index";
-import { addSuffixToNetworksRoot } from "../../../../../packages/server/src/index";
-import type { ComposeSpecification } from "../../../../../packages/server/src/index";
+import { generateRandomHash } from "@deployit/server";
+import { addSuffixToNetworksRoot } from "@deployit/server";
+import type { ComposeSpecification } from "@deployit/server";
 import { load } from "js-yaml";
 import { expect, test } from "vitest";
 

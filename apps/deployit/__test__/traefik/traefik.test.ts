@@ -1,7 +1,7 @@
-import type { Domain } from "../../../../packages/server/src/index";
-import type { Redirect } from "../../../../packages/server/src/index";
-import type { ApplicationNested } from "../../../../packages/server/src/index";
-import { createRouterConfig } from "../../../../packages/server/src/index";
+import type { Domain } from "@deployit/server";
+import type { Redirect } from "@deployit/server";
+import type { ApplicationNested } from "@deployit/server";
+import { createRouterConfig } from "@deployit/server";
 import { expect, test } from "vitest";
 
 const baseApp: ApplicationNested = {

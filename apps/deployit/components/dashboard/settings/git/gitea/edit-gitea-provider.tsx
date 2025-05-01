@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -263,8 +260,6 @@ export const EditGiteaProvider = ({ giteaId }: Props) => {
 								type="button"
 								variant="outline"
 								onClick={handleTestConnection}
-								//@ts-expect-error
-
 								isLoading={isTesting}
 							>
 								Test Connection
@@ -289,10 +284,7 @@ export const EditGiteaProvider = ({ giteaId }: Props) => {
 								Connect to Gitea
 							</Button>
 
-							<Button type="submit"
-							//@ts-expect-error
-
-							isLoading={isUpdating}>
+							<Button type="submit" isLoading={isUpdating}>
 								Save
 							</Button>
 						</div>

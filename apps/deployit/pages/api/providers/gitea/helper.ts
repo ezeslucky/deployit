@@ -1,4 +1,4 @@
-import { findGiteaById } from "../../../../../../packages/server/src/index";
+import { findGiteaById } from "@deployit/server";
 import type { NextApiResponse } from "next";
 
 export interface Gitea {

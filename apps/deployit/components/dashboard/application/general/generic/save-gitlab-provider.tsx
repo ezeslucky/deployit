@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GitlabIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Badge } from "@/components/ui/badge";
@@ -88,8 +87,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 			gitlabId: "",
 			branch: "",
 		},
-		//@ts-expect-error
-
 		resolver: zodResolver(GitlabProviderSchema),
 	});
 
@@ -167,16 +164,12 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 		<div>
 			<Form {...form}>
 				<form
-				//@ts-expect-error
-
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="grid w-full gap-4 py-3"
 				>
 					{error && <AlertBlock type="error">{error?.message}</AlertBlock>}
 					<div className="grid md:grid-cols-2 gap-4">
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="gitlabId"
 							render={({ field }) => (
@@ -202,10 +195,7 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{gitlabProviders?.map(
-											//@ts-expect-error
-	
-												(gitlabProvider) => (
+											{gitlabProviders?.map((gitlabProvider) => (
 												<SelectItem
 													key={gitlabProvider.gitlabId}
 													value={gitlabProvider.gitlabId}
@@ -221,8 +211,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 						/>
 
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="repository"
 							render={({ field }) => (
@@ -255,9 +243,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-
-																//@ts-expect-error
-
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -285,10 +270,7 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 																No repositories found.
 															</CommandEmpty>
 														)}
-														{repositories?.map(
-														//@ts-expect-error
-	
-															(repo) => {
+														{repositories?.map((repo) => {
 															return (
 																<CommandItem
 																	value={repo.name}
@@ -334,8 +316,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="branch"
 							render={({ field }) => (
@@ -355,9 +335,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-
-																//@ts-expect-error
-
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -385,10 +362,7 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 													<CommandEmpty>No branch found.</CommandEmpty>
 
 													<CommandGroup>
-														{branches?.map(
-														//@ts-expect-error
-	
-															(branch) => (
+														{branches?.map((branch) => (
 															<CommandItem
 																value={branch.name}
 																key={branch.commit.id}
@@ -418,8 +392,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="buildPath"
 							render={({ field }) => (
@@ -433,8 +405,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 							)}
 						/>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							name="watchPaths"
 							render={({ field }) => (
@@ -516,8 +486,6 @@ export const SaveGitlabProvider = ({ applicationId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-expect-error
-
 							isLoading={isSavingGitlabProvider}
 							type="submit"
 							className="w-fit"

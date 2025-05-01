@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from "@/components/ui/button";
 import {
 	Command,
@@ -179,8 +177,6 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 															? "Loading...."
 															: field.value
 																? data?.find(
-																	//@ts-expect-error
-
 																		(destination) =>
 																			destination.destinationId === field.value,
 																	)?.name
@@ -204,10 +200,7 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 													<CommandEmpty>No destinations found.</CommandEmpty>
 													<ScrollArea className="h-64">
 														<CommandGroup>
-															{data?.map(
-																//@ts-expect-error
-
-																(destination) => (
+															{data?.map((destination) => (
 																<CommandItem
 																	value={destination.destinationId}
 																	key={destination.destinationId}
@@ -339,8 +332,6 @@ export const AddBackup = ({ databaseId, databaseType, refetch }: Props) => {
 						</div>
 						<DialogFooter>
 							<Button
-							//@ts-expect-error
-
 								isLoading={isCreatingPostgresBackup}
 								form="hook-form-add-backup"
 								type="submit"

@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -73,12 +70,7 @@ export const IsolatedDeployment = ({ composeId }: Props) => {
 			composeId,
 			isolatedDeployment: formData?.isolatedDeployment || false,
 		})
-		
-
-			.then(
-				//@ts-expect-error
-
-				async (_data) => {
+			.then(async (_data) => {
 				randomizeCompose();
 				refetch();
 				toast.success("Compose updated");
@@ -93,8 +85,6 @@ export const IsolatedDeployment = ({ composeId }: Props) => {
 			composeId,
 			suffix: data?.appName || "",
 		})
-		//@ts-expect-error
-
 			.then(async (data) => {
 				await utils.project.all.invalidate();
 				setCompose(data);
@@ -117,7 +107,7 @@ export const IsolatedDeployment = ({ composeId }: Props) => {
 				<span>
 					This feature creates an isolated environment for your deployment by
 					adding unique prefixes to all resources. It establishes a dedicated
-					network based on your compose file&apos;s name, ensuring your services run
+					network based on your compose file's name, ensuring your services run
 					in isolation. This prevents conflicts when running multiple instances
 					of the same template or services with identical names.
 				</span>

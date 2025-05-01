@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -105,8 +103,6 @@ export const AddApplication = ({ projectId, projectName }: Props) => {
 					projectId,
 				});
 			})
-			//@ts-expect-error
-
 			.catch((_e) => {
 				toast.error("Error creating the service");
 			});
@@ -196,10 +192,7 @@ export const AddApplication = ({ projectId, projectName }: Props) => {
 										</SelectTrigger>
 										<SelectContent>
 											<SelectGroup>
-												{servers?.map(
-													//@ts-expect-error
-
-													(server) => (
+												{servers?.map((server) => (
 													<SelectItem
 														key={server.serverId}
 														value={server.serverId}
@@ -254,10 +247,7 @@ export const AddApplication = ({ projectId, projectName }: Props) => {
 					</form>
 
 					<DialogFooter>
-						<Button 
-						//@ts-expect-error
-
-						isLoading={isLoading} form="hook-form" type="submit">
+						<Button isLoading={isLoading} form="hook-form" type="submit">
 							Create
 						</Button>
 					</DialogFooter>

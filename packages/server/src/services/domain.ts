@@ -3,7 +3,7 @@ import { generateRandomDomain } from "@deployit/server/templates";
 import { manageDomain } from "@deployit/server/utils/traefik/domain";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
-import { type apiCreateDomain, domains } from "../db/schema";
+import { type apiCreateDomain, domains } from "@deployit/server/db/schema";
 import { findUserById } from "./admin";
 import { findApplicationById } from "./application";
 import { findServerById } from "./server";

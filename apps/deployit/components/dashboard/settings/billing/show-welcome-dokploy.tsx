@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 import { ShowBilling } from "@/components/dashboard/settings/billing/show-billing";
 import {
 	Dialog,

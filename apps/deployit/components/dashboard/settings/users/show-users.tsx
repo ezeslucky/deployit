@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -25,7 +24,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { authCliend } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { api } from "@/utils/api";
 import { format } from "date-fns";
 import { MoreHorizontal, Users } from "lucide-react";
@@ -84,10 +83,7 @@ export const ShowUsers = () => {
 												</TableRow>
 											</TableHeader>
 											<TableBody>
-												{data?.map(
-													//@ts-expect-error
-
-													(member) => {
+												{data?.map((member) => {
 													return (
 														<TableRow key={member.id}>
 															<TableCell className="w-[100px]">
@@ -207,7 +203,7 @@ export const ShowUsers = () => {
 																						}
 
 																						const { error } =
-																							await authCliend.organization.removeMember(
+																							await authClient.organization.removeMember(
 																								{
 																									memberIdOrEmail: member.id,
 																								},

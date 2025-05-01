@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShowEnvironment } from "@/components/dashboard/application/environment/show-enviroment";
 import { ShowDockerLogs } from "@/components/dashboard/application/logs/show";
 import { DeleteService } from "@/components/dashboard/compose/delete-service";
@@ -11,8 +9,8 @@ import { ShowInternalRedisCredentials } from "@/components/dashboard/redis/gener
 import { UpdateRedis } from "@/components/dashboard/redis/update-redis";
 import { ShowDatabaseAdvancedSettings } from "@/components/dashboard/shared/show-database-advanced-settings";
 import { RedisIcon } from "@/components/icons/data-tools-icons";
-import { ProjectLayout } from "@/components/layout/project-layout";
-import { BreadcrumbSidebar } from "@/components/shared/breacrumb-sidebar";
+import { ProjectLayout } from "@/components/layouts/project-layout";
+import { BreadcrumbSidebar } from "@/components/shared/breadcrumb-sidebar";
 import { StatusTooltip } from "@/components/shared/status-tooltip";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -33,7 +31,7 @@ import {
 import { cn } from "@/lib/utils";
 import { appRouter } from "@/server/api/root";
 import { api } from "@/utils/api";
-import { validateRequest } from "../../../../../../../../packages/server/src/lib/auth";
+import { validateRequest } from "@deployit/server/lib/auth";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import { HelpCircle, ServerOff } from "lucide-react";
 import type {
@@ -158,7 +156,7 @@ const Redis = (
 										<span className="text-center text-base text-muted-foreground">
 											This service is hosted on the server {data.server.name},
 											but this server has been disabled because your current
-											plan doesn&apos;t include enough servers. Please purchase more
+											plan doesn't include enough servers. Please purchase more
 											servers to regain access to this application.
 										</span>
 										<span className="text-center text-base text-muted-foreground">

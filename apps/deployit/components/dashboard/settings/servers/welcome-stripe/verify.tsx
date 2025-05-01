@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -51,10 +50,7 @@ export const Verify = () => {
 								</SelectTrigger>
 								<SelectContent>
 									<SelectGroup>
-										{servers?.map(
-											//@ts-expect-error
-
-											(server) => (
+										{servers?.map((server) => (
 											<SelectItem key={server.serverId} value={server.serverId}>
 												{server.name}
 											</SelectItem>
@@ -75,8 +71,6 @@ export const Verify = () => {
 								</CardDescription>
 							</div>
 							<Button
-							//@ts-expect-error
-
 								isLoading={isRefreshing}
 								onClick={async () => {
 									setIsRefreshing(true);

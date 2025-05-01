@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -122,10 +120,7 @@ export const UpdateTraefikConfig = ({ applicationId }: Props) => {
 			}}
 		>
 			<DialogTrigger asChild>
-				<Button 
-				//@ts-expect-error
-
-				isLoading={isLoading}>Modify</Button>
+				<Button isLoading={isLoading}>Modify</Button>
 			</DialogTrigger>
 			<DialogContent className="max-h-screen  overflow-y-auto sm:max-w-4xl">
 				<DialogHeader>
@@ -150,8 +145,6 @@ export const UpdateTraefikConfig = ({ applicationId }: Props) => {
 										<FormControl>
 											<CodeEditor
 												lineWrapping
-												//@ts-expect-error
-
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`http:
 routers:
@@ -178,8 +171,6 @@ routers:
 
 					<DialogFooter>
 						<Button
-						//@ts-expect-error
-
 							isLoading={isLoading}
 							form="hook-form-update-traefik-config"
 							type="submit"

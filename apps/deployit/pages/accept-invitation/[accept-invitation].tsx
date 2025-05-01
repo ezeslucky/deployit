@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { authCliend } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/router";
 
 export const AcceptInvitation = () => {
@@ -15,7 +15,7 @@ export const AcceptInvitation = () => {
 		<div>
 			<Button
 				onClick={async () => {
-					const result = await authCliend.organization.acceptInvitation({
+					const result = await authClient.organization.acceptInvitation({
 						invitationId: invitationId as string,
 					});
 					console.log(result);

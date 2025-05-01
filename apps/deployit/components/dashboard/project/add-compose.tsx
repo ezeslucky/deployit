@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -201,10 +200,7 @@ export const AddCompose = ({ projectId, projectName }: Props) => {
 										</SelectTrigger>
 										<SelectContent>
 											<SelectGroup>
-												{servers?.map(
-													//@ts-expect-error
-
-													(server) => (
+												{servers?.map((server) => (
 													<SelectItem
 														key={server.serverId}
 														value={server.serverId}
@@ -285,10 +281,7 @@ export const AddCompose = ({ projectId, projectName }: Props) => {
 					</form>
 
 					<DialogFooter>
-						<Button 
-						//@ts-expect-error
-
-						isLoading={isLoading} form="hook-form" type="submit">
+						<Button isLoading={isLoading} form="hook-form" type="submit">
 							Create
 						</Button>
 					</DialogFooter>

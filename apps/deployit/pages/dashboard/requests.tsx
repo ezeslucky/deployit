@@ -1,7 +1,7 @@
 import { ShowRequests } from "@/components/dashboard/requests/show-requests";
-import { DashboardLayout } from "@/components/layout/dashboard-layout";
-import { IS_CLOUD } from "../../../../packages/server/src/constants/index";
-import { validateRequest } from "../../../../packages/server/src/lib/auth";
+import { DashboardLayout } from "@/components/layouts/dashboard-layout";
+import { IS_CLOUD } from "@deployit/server/constants";
+import { validateRequest } from "@deployit/server/lib/auth";
 import type { GetServerSidePropsContext } from "next";
 import type { ReactElement } from "react";
 

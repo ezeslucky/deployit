@@ -59,4 +59,4 @@ export const ShowInternalPostgresCredentials = ({ postgresId }: Props) => {
 		</>
 	);
 };
-
+// ReplyError: MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-w

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GitlabIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Badge } from "@/components/ui/badge";
@@ -199,10 +198,7 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{gitlabProviders?.map(
-												//@ts-expect-error
-
-												(gitlabProvider) => (
+											{gitlabProviders?.map((gitlabProvider) => (
 												<SelectItem
 													key={gitlabProvider.gitlabId}
 													value={gitlabProvider.gitlabId}
@@ -249,8 +245,6 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value.owner
 															? repositories?.find(
-																//@ts-expect-error
-
 																	(repo) => repo.name === field.value.repo,
 																)?.name
 															: "Select repository"}
@@ -278,10 +272,7 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 																No repositories found.
 															</CommandEmpty>
 														)}
-														{repositories?.map(
-															//@ts-expect-error
-
-															(repo) => {
+														{repositories?.map((repo) => {
 															return (
 																<CommandItem
 																	value={repo.name}
@@ -346,9 +337,6 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 														? "Loading...."
 														: field.value
 															? branches?.find(
-//@ts-expect-error
-
-
 																	(branch) => branch.name === field.value,
 																)?.name
 															: "Select branch"}
@@ -376,10 +364,7 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 													<CommandEmpty>No branch found.</CommandEmpty>
 
 													<CommandGroup>
-														{branches?.map(
-															//@ts-expect-error
-
-															(branch) => (
+														{branches?.map((branch) => (
 															<CommandItem
 																value={branch.name}
 																key={branch.commit.id}
@@ -503,8 +488,6 @@ export const SaveGitlabProviderCompose = ({ composeId }: Props) => {
 					</div>
 					<div className="flex w-full justify-end">
 						<Button
-						//@ts-expect-error
-
 							isLoading={isSavingGitlabProvider}
 							type="submit"
 							className="w-fit"

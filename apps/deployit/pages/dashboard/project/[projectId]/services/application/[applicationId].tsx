@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ShowClusterSettings } from "@/components/dashboard/application/advanced/cluster/show-cluster-settings";
 import { AddCommand } from "@/components/dashboard/application/advanced/general/add-command";
 import { ShowPorts } from "@/components/dashboard/application/advanced/ports/show-port";
@@ -18,8 +16,8 @@ import { UpdateApplication } from "@/components/dashboard/application/update-app
 import { DeleteService } from "@/components/dashboard/compose/delete-service";
 import { ContainerFreeMonitoring } from "@/components/dashboard/monitoring/free/container/show-free-container-monitoring";
 import { ContainerPaidMonitoring } from "@/components/dashboard/monitoring/paid/container/show-paid-container-monitoring";
-import { ProjectLayout } from "@/components/layout/project-layout";
-import { BreadcrumbSidebar } from "@/components/shared/breacrumb-sidebar";
+import { ProjectLayout } from "@/components/layouts/project-layout";
+import { BreadcrumbSidebar } from "@/components/shared/breadcrumb-sidebar";
 import { StatusTooltip } from "@/components/shared/status-tooltip";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -40,7 +38,7 @@ import {
 import { cn } from "@/lib/utils";
 import { appRouter } from "@/server/api/root";
 import { api } from "@/utils/api";
-import { validateRequest } from "../../../../../../../../packages/server/src/lib/auth";
+import { validateRequest } from "@deployit/server/lib/auth";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import copy from "copy-to-clipboard";
 import { GlobeIcon, HelpCircle, ServerOff } from "lucide-react";
@@ -192,7 +190,7 @@ const Service = (
 										<span className="text-center text-base text-muted-foreground">
 											This service is hosted on the server {data.server.name},
 											but this server has been disabled because your current
-											plan doesn&apos;t include enough servers. Please purchase more
+											plan doesn't include enough servers. Please purchase more
 											servers to regain access to this application.
 										</span>
 										<span className="text-center text-base text-muted-foreground">

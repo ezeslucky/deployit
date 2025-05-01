@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Command,
@@ -164,8 +163,6 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 															? "Loading...."
 															: field.value
 																? data?.find(
-																	//@ts-expect-error
-
 																		(destination) =>
 																			destination.destinationId === field.value,
 																	)?.name
@@ -189,10 +186,7 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 													<CommandEmpty>No destinations found.</CommandEmpty>
 													<ScrollArea className="h-64">
 														<CommandGroup>
-															{data?.map(
-																//@ts-expect-error
-
-																(destination) => (
+															{data?.map((destination) => (
 																<CommandItem
 																	value={destination.destinationId}
 																	key={destination.destinationId}
@@ -320,8 +314,6 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 						</div>
 						<DialogFooter>
 							<Button
-							//@ts-expect-error
-
 								isLoading={isLoadingUpdate}
 								form="hook-form-update-backup"
 								type="submit"

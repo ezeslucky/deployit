@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -52,10 +51,7 @@ export const ShowApiKeys = () => {
 					<CardContent className="space-y-6">
 						<div className="flex flex-col gap-4">
 							{data?.user.apiKeys && data.user.apiKeys.length > 0 ? (
-								data.user.apiKeys.map(
-									//@ts-expect-error
-
-									(apiKey) => (
+								data.user.apiKeys.map((apiKey) => (
 									<div
 										key={apiKey.id}
 										className="flex flex-col gap-2 p-4 border rounded-lg"
@@ -116,8 +112,6 @@ export const ShowApiKeys = () => {
 												<Button
 													variant="ghost"
 													size="icon"
-													//@ts-expect-error
-
 													isLoading={isLoadingDelete}
 												>
 													<Trash2 className="size-4" />

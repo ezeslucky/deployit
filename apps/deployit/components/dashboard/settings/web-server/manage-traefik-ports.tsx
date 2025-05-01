@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -93,10 +91,7 @@ export const ManageTraefikPorts = ({ children, serverId }: Props) => {
 			});
 			toast.success(t("settings.server.webServer.traefik.portsUpdated"));
 			setOpen(false);
-		} 
-		
-
-		catch (_error) {}
+		} catch (_error) {}
 	};
 
 	return (
@@ -264,10 +259,7 @@ export const ManageTraefikPorts = ({ children, serverId }: Props) => {
 									type="submit"
 									variant="default"
 									className="text-sm"
-									//@ts-expect-error
-
 									isLoading={isLoading}
-									
 								>
 									Save
 								</Button>

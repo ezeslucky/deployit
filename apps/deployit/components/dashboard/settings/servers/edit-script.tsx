@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -85,8 +82,6 @@ export const EditScript = ({ serverId }: Props) => {
 				command: formData.command || "",
 				serverId,
 			})
-			//@ts-expect-error
-
 				.then((_data) => {
 					toast.success("Script modified successfully");
 				})
@@ -133,8 +128,6 @@ export const EditScript = ({ serverId }: Props) => {
 										<FormControl className="max-h-[75vh] max-w-[60rem] overflow-y-scroll overflow-x-hidden">
 											<CodeEditor
 												language="shell"
-												//@ts-expect-error
-
 												wrapperClassName="font-mono"
 												{...field}
 												placeholder={`
@@ -162,8 +155,6 @@ echo "Hello world"
 						Reset
 					</Button>
 					<Button
-					//@ts-expect-error
-
 						isLoading={isLoading}
 						form="hook-form-delete-application"
 						type="submit"

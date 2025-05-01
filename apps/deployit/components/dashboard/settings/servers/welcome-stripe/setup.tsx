@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	type LogLine,
 	parseLogs,
@@ -50,8 +49,6 @@ export const Setup = () => {
 		},
 		{
 			enabled: isDeploying,
-			//@ts-expect-error
-
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -63,8 +60,6 @@ export const Setup = () => {
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-expect-error
-
 			onError(error) {
 				console.error("Deployment logs error:", error);
 				setIsDeploying(false);
@@ -84,10 +79,7 @@ export const Setup = () => {
 							</SelectTrigger>
 							<SelectContent>
 								<SelectGroup>
-									{servers?.map(
-										//@ts-expect-error
-
-										(server) => (
+									{servers?.map((server) => (
 										<SelectItem key={server.serverId} value={server.serverId}>
 											{server.name}
 										</SelectItem>

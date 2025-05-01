@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ezeslucky/deployit/apps/monitoring/config"
-	"github.com/ezeslucky/deployit/apps/monitoring/database"
+	"github.com/mauriciogm/deployit/apps/monitoring/config"
+	"github.com/mauriciogm/deployit/apps/monitoring/database"
 )
 
 type ContainerMonitor struct {

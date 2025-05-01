@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,7 +38,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { domain } from "../../../../server/db/validation/domain";
+import { domain } from "@/server/db/validations/domain";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Dices } from "lucide-react";
 import type z from "zod";
@@ -171,8 +169,6 @@ export const AddPreviewDomain = ({
 															<Button
 																variant="secondary"
 																type="button"
-																//@ts-expect-error
-
 																isLoading={isLoadingGenerate}
 																onClick={() => {
 																	generateDomain({
@@ -181,13 +177,9 @@ export const AddPreviewDomain = ({
 																			previewDeployment?.application
 																				?.serverId || "",
 																	})
-																	//@ts-expect-error
-
 																		.then((domain) => {
 																			field.onChange(domain);
 																		})
-																		//@ts-expect-error
-
 																		.catch((err) => {
 																			toast.error(err.message);
 																		});
@@ -286,7 +278,7 @@ export const AddPreviewDomain = ({
 													<SelectContent>
 														<SelectItem value="none">None</SelectItem>
 														<SelectItem value={"letsencrypt"}>
-															Let&apos;s Encrypt
+															Let's Encrypt
 														</SelectItem>
 													</SelectContent>
 												</Select>
@@ -300,10 +292,7 @@ export const AddPreviewDomain = ({
 					</form>
 
 					<DialogFooter>
-						<Button 
-						//@ts-expect-error
-
-						isLoading={isLoading} form="hook-form" type="submit">
+						<Button isLoading={isLoading} form="hook-form" type="submit">
 							{dictionary.submit}
 						</Button>
 					</DialogFooter>

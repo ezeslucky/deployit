@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { DialogAction } from "@/components/shared/dialog-action";
 import { Button } from "@/components/ui/button";
@@ -52,16 +51,14 @@ export const ShowCertificates = () => {
 									<div className="flex flex-col items-center gap-3  min-h-[25vh] justify-center">
 										<ShieldCheck className="size-8 self-center text-muted-foreground" />
 										<span className="text-base text-muted-foreground text-center">
-											You don&apos;t have any certificates created
+											You don't have any certificates created
 										</span>
 										<AddCertificate />
 									</div>
 								) : (
 									<div className="flex flex-col gap-4  min-h-[25vh]">
 										<div className="flex flex-col gap-4 rounded-lg ">
-											{data?.map(
-												// @ts-ignore
-												(certificate, index) => {
+											{data?.map((certificate, index) => {
 												const expiration = getExpirationStatus(
 													certificate.certificateData,
 												);
@@ -130,7 +127,6 @@ export const ShowCertificates = () => {
 																		variant="ghost"
 																		size="icon"
 																		className="group hover:bg-red-500/10 "
-																		// @ts-ignore
 																		isLoading={isRemoving}
 																	>
 																		<Trash2 className="size-4 text-primary group-hover:text-red-500" />

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { badgeStateColor } from "@/components/dashboard/application/logs/show";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -75,10 +74,7 @@ export const ComposeFreeMonitoring = ({
 						onValueChange={(value) => {
 							setContainerAppName(value);
 							setContainerId(
-								data?.find(
-									//@ts-expect-error
-
-									(container) => container.name === value)
+								data?.find((container) => container.name === value)
 									?.containerId,
 							);
 						}}
@@ -96,19 +92,13 @@ export const ComposeFreeMonitoring = ({
 						</SelectTrigger>
 						<SelectContent>
 							<SelectGroup>
-								{data?.map(
-									//@ts-expect-error
-
-									(container) => (
+								{data?.map((container) => (
 									<SelectItem
 										key={container.containerId}
 										value={container.name}
 									>
 										{container.name} ({container.containerId}){" "}
-										<Badge 
-										//@ts-expect-error
-
-										variant={badgeStateColor(container.state)}>
+										<Badge variant={badgeStateColor(container.state)}>
 											{container.state}
 										</Badge>
 									</SelectItem>
@@ -118,8 +108,6 @@ export const ComposeFreeMonitoring = ({
 						</SelectContent>
 					</Select>
 					<Button
-					//@ts-expect-error
-
 						isLoading={isRestarting}
 						onClick={async () => {
 							if (!containerId) return;

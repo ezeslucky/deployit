@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -29,10 +28,7 @@ export const CancelQueuesCompose = ({ composeId }: Props) => {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
-				<Button variant="destructive" className="w-fit" 
-				//@ts-expect-error
-
-				isLoading={isLoading}>
+				<Button variant="destructive" className="w-fit" isLoading={isLoading}>
 					Cancel Queues
 					<Paintbrush className="size-4" />
 				</Button>
@@ -56,8 +52,6 @@ export const CancelQueuesCompose = ({ composeId }: Props) => {
 								.then(() => {
 									toast.success("Queues are being cleaned");
 								})
-								//@ts-expect-error
-
 								.catch((err) => {
 									toast.error(err.message);
 								});

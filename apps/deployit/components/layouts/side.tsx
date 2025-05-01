@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
- 
 "use client";
 import {
 	Activity,
@@ -27,7 +23,6 @@ import {
 	Package,
 	PieChart,
 	Server,
-	Settings2,
 	ShieldCheck,
 	Trash2,
 	User,
@@ -77,9 +72,7 @@ import {
 	SidebarTrigger,
 	useSidebar,
 } from "@/components/ui/sidebar";
-//@ts-expect-error
-
-import { authClient } from "../../lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import type { AppRouter } from "@/server/api/root";
 import { api } from "@/utils/api";
@@ -92,11 +85,10 @@ import { DialogAction } from "../shared/dialog-action";
 import { Logo } from "../shared/logo";
 import { Button } from "../ui/button";
 import { UpdateServerButton } from "./update-server";
-import { UserNav } from "./use-nav";
+import { UserNav } from "./user-nav";
 
-
-
-type AuthQueryOutput = inferRouterOutputs<AppRouter>["user"]["get"]
+// The types of the queries we are going to use
+type AuthQueryOutput = inferRouterOutputs<AppRouter>["user"]["get"];
 
 type SingleNavItem = {
 	isSingle?: true;
@@ -109,7 +101,10 @@ type SingleNavItem = {
 	}) => boolean;
 };
 
-
+// NavItem type
+// Consists of a single item or a group of items
+// If `isSingle` is true or undefined, the item is a single item
+// If `isSingle` is false, the item is a group of items
 type NavItem =
 	| SingleNavItem
 	| {
@@ -123,46 +118,52 @@ type NavItem =
 			}) => boolean;
 	  };
 
+// ExternalLink type
+// Represents an external link item (used for the help section)
 type ExternalLink = {
 	name: string;
 	url: string;
-	icon: React.ComponentType<{className?: string}>
-	isEnabled?: (opts:{
+	icon: React.ComponentType<{ className?: string }>;
+	isEnabled?: (opts: {
 		auth?: AuthQueryOutput;
 		isCloud: boolean;
+	}) => boolean;
+};
 
-	}) => boolean
-}	  
-
-
-type  Menu ={
+// Menu type
+// Consists of home, settings, and help items
+type Menu = {
 	home: NavItem[];
-	settings:NavItem[];
-	help: ExternalLink[]
-}
+	settings: NavItem[];
+	help: ExternalLink[];
+};
 
-
-const MENU:Menu ={
-	home:[
+// Menu items
+// Consists of unfiltered home, settings, and help items
+// The items are filtered based on the user's role and permissions
+// The `isEnabled` function is called to determine if the item should be displayed
+const MENU: Menu = {
+	home: [
 		{
 			isSingle: true,
 			title: "Projects",
 			url: "/dashboard/projects",
-			icon:Folder,
-
+			icon: Folder,
 		},
 		{
 			isSingle: true,
-			title:"Monitoring",
+			title: "Monitoring",
 			url: "/dashboard/monitoring",
 			icon: BarChartHorizontalBigIcon,
-			isEnabled: ({isCloud}) => !isCloud,
+			// Only enabled in non-cloud environments
+			isEnabled: ({ isCloud }) => !isCloud,
 		},
 		{
 			isSingle: true,
 			title: "Traefik File System",
 			url: "/dashboard/traefik",
 			icon: GalleryVerticalEnd,
+			// Only enabled for admins and users with access to Traefik files in non-cloud environments
 			isEnabled: ({ auth, isCloud }) =>
 				!!(
 					(auth?.role === "owner" || auth?.canAccessToTraefikFiles) &&
@@ -174,6 +175,7 @@ const MENU:Menu ={
 			title: "Docker",
 			url: "/dashboard/docker",
 			icon: BlocksIcon,
+			// Only enabled for admins and users with access to Docker in non-cloud environments
 			isEnabled: ({ auth, isCloud }) =>
 				!!((auth?.role === "owner" || auth?.canAccessToDocker) && !isCloud),
 		},
@@ -182,6 +184,7 @@ const MENU:Menu ={
 			title: "Swarm",
 			url: "/dashboard/swarm",
 			icon: PieChart,
+			// Only enabled for admins and users with access to Docker in non-cloud environments
 			isEnabled: ({ auth, isCloud }) =>
 				!!((auth?.role === "owner" || auth?.canAccessToDocker) && !isCloud),
 		},
@@ -190,71 +193,75 @@ const MENU:Menu ={
 			title: "Requests",
 			url: "/dashboard/requests",
 			icon: Forward,
+			// Only enabled for admins and users with access to Docker in non-cloud environments
 			isEnabled: ({ auth, isCloud }) =>
 				!!((auth?.role === "owner" || auth?.canAccessToDocker) && !isCloud),
 		},
-		{
-			isSingle: true,
-			title: "Projects",
-			url: "/dashboard/projects",
-			icon: Folder,
-		},
-		{
-				isSingle: true,
-			title: "Monitoring",
-			icon: BarChartHorizontalBigIcon,
-			url: "/dashboard/settings/monitoring",
-		},
-		{
-		  isSingle: false,
-		  title: "Settings",
-		  icon: Settings2,
-		  items: [
-		    {
-		      title: "Profile",
-		      url: "/dashboard/settings/profile",
-		    },
-		    {
-		      title: "Users",
-		      url: "/dashboard/settings/users",
-		    },
-		    {
-		      title: "SSH Key",
-		      url: "/dashboard/settings/ssh-keys",
-		    },
-		    {
-		      title: "Git",
-		      url: "/dashboard/settings/git-providers",
-		    },
-		  ],
-		},
-		{
-		  isSingle: false,
-		  title: "Integrations",
-		  icon: BlocksIcon,
-		  items: [
-		    {
-		      title: "S3 Destinations",
-		      url: "/dashboard/settings/destinations",
-		    },
-		    {
-		      title: "Registry",
-		      url: "/dashboard/settings/registry",
-		    },
-		    {
-		      title: "Notifications",
-		      url: "/dashboard/settings/notifications",
-		    },
-		  ],
-		},
+
+		// Legacy unused menu, adjusted to the new structure
+		// {
+		// 	isSingle: true,
+		// 	title: "Projects",
+		// 	url: "/dashboard/projects",
+		// 	icon: Folder,
+		// },
+		// {
+		// 	isSingle: true,
+		// 	title: "Monitoring",
+		// 	icon: BarChartHorizontalBigIcon,
+		// 	url: "/dashboard/settings/monitoring",
+		// },
+		// {
+		//   isSingle: false,
+		//   title: "Settings",
+		//   icon: Settings2,
+		//   items: [
+		//     {
+		//       title: "Profile",
+		//       url: "/dashboard/settings/profile",
+		//     },
+		//     {
+		//       title: "Users",
+		//       url: "/dashboard/settings/users",
+		//     },
+		//     {
+		//       title: "SSH Key",
+		//       url: "/dashboard/settings/ssh-keys",
+		//     },
+		//     {
+		//       title: "Git",
+		//       url: "/dashboard/settings/git-providers",
+		//     },
+		//   ],
+		// },
+		// {
+		//   isSingle: false,
+		//   title: "Integrations",
+		//   icon: BlocksIcon,
+		//   items: [
+		//     {
+		//       title: "S3 Destinations",
+		//       url: "/dashboard/settings/destinations",
+		//     },
+		//     {
+		//       title: "Registry",
+		//       url: "/dashboard/settings/registry",
+		//     },
+		//     {
+		//       title: "Notifications",
+		//       url: "/dashboard/settings/notifications",
+		//     },
+		//   ],
+		// },
 	],
+
 	settings: [
 		{
 			isSingle: true,
 			title: "Web Server",
 			url: "/dashboard/settings/server",
 			icon: Activity,
-			
+			// Only enabled for admins in non-cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
 		},
 		{
@@ -268,7 +275,7 @@ const MENU:Menu ={
 			title: "Remote Servers",
 			url: "/dashboard/settings/servers",
 			icon: Server,
-			
+			// Only enabled for admins
 			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
 		},
 		{
@@ -276,7 +283,7 @@ const MENU:Menu ={
 			title: "Users",
 			icon: Users,
 			url: "/dashboard/settings/users",
-			
+			// Only enabled for admins
 			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
 		},
 		{
@@ -284,7 +291,7 @@ const MENU:Menu ={
 			title: "SSH Keys",
 			icon: KeyRound,
 			url: "/dashboard/settings/ssh-keys",
-			
+			// Only enabled for admins and users with access to SSH keys
 			isEnabled: ({ auth }) =>
 				!!(auth?.role === "owner" || auth?.canAccessToSSHKeys),
 		},
@@ -300,7 +307,7 @@ const MENU:Menu ={
 			title: "Git",
 			url: "/dashboard/settings/git-providers",
 			icon: GitBranch,
-			
+			// Only enabled for admins and users with access to Git providers
 			isEnabled: ({ auth }) =>
 				!!(auth?.role === "owner" || auth?.canAccessToGitProviders),
 		},
@@ -309,7 +316,7 @@ const MENU:Menu ={
 			title: "Registry",
 			url: "/dashboard/settings/registry",
 			icon: Package,
-			
+			// Only enabled for admins
 			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
 		},
 		{
@@ -317,7 +324,7 @@ const MENU:Menu ={
 			title: "S3 Destinations",
 			url: "/dashboard/settings/destinations",
 			icon: Database,
-			
+			// Only enabled for admins
 			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
 		},
 
@@ -326,7 +333,7 @@ const MENU:Menu ={
 			title: "Certificates",
 			url: "/dashboard/settings/certificates",
 			icon: ShieldCheck,
-			
+			// Only enabled for admins
 			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
 		},
 		{
@@ -334,7 +341,7 @@ const MENU:Menu ={
 			title: "Cluster",
 			url: "/dashboard/settings/cluster",
 			icon: Boxes,
-			
+			// Only enabled for admins in non-cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
 		},
 		{
@@ -342,7 +349,7 @@ const MENU:Menu ={
 			title: "Notifications",
 			url: "/dashboard/settings/notifications",
 			icon: Bell,
-			
+			// Only enabled for admins
 			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
 		},
 		{
@@ -350,25 +357,25 @@ const MENU:Menu ={
 			title: "Billing",
 			url: "/dashboard/settings/billing",
 			icon: CreditCard,
-			
+			// Only enabled for admins in cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && isCloud),
 		},
-	],	
+	],
 
 	help: [
 		{
 			name: "Documentation",
-			url: "https://github.com/ezeslucky/deployit/discussions/43",
+			url: "https://docs.deployit.com/docs/core",
 			icon: BookIcon,
 		},
 		{
 			name: "Support",
-			url: "https://github.com/ezeslucky/deployit/discussions",
+			url: "https://discord.gg/2tBnJ3jDJc",
 			icon: CircleHelp,
 		},
 		{
 			name: "Sponsor",
-			url: "https://buymeacoffee.com/aurobindolk",
+			url: "https://opencollective.com/deployit",
 			icon: ({ className }) => (
 				<HeartIcon
 					className={cn(
@@ -379,8 +386,7 @@ const MENU:Menu ={
 			),
 		},
 	],
-	
-} as const
+} as const;
 
 /**
  * Creates a menu based on the current user's role and permissions
@@ -391,7 +397,8 @@ function createMenuForAuthUser(opts: {
 	isCloud: boolean;
 }): Menu {
 	return {
-		
+		// Filter the home items based on the user's role and permissions
+		// Calls the `isEnabled` function if it exists to determine if the item should be displayed
 		home: MENU.home.filter((item) =>
 			!item.isEnabled
 				? true
@@ -400,7 +407,8 @@ function createMenuForAuthUser(opts: {
 						isCloud: opts.isCloud,
 					}),
 		),
-		
+		// Filter the settings items based on the user's role and permissions
+		// Calls the `isEnabled` function if it exists to determine if the item should be displayed
 		settings: MENU.settings.filter((item) =>
 			!item.isEnabled
 				? true
@@ -409,7 +417,8 @@ function createMenuForAuthUser(opts: {
 						isCloud: opts.isCloud,
 					}),
 		),
-		
+		// Filter the help items based on the user's role and permissions
+		// Calls the `isEnabled` function if it exists to determine if the item should be displayed
 		help: MENU.help.filter((item) =>
 			!item.isEnabled
 				? true
@@ -426,9 +435,9 @@ function createMenuForAuthUser(opts: {
  * @returns true if the item url is active, false otherwise
  */
 function isActiveRoute(opts: {
-	
+	/** The url of the item. Usually obtained from `item.url` */
 	itemUrl: string;
-	
+	/** The current pathname. Usually obtained from `usePathname()` */
 	pathname: string;
 }): boolean {
 	const normalizedItemUrl = opts.itemUrl?.replace("/projects", "/project");
@@ -456,21 +465,21 @@ function findActiveNavItem(
 ): SingleNavItem | undefined {
 	const found = navItems.find((item) =>
 		item.isSingle !== false
-			? 
+			? // The current item is single, so check if the item url is active
 				isActiveRoute({ itemUrl: item.url, pathname })
-			: 
-				item.items.some((item: { url: any; }) =>
+			: // The current item is not single, so check if any of the sub items are active
+				item.items.some((item) =>
 					isActiveRoute({ itemUrl: item.url, pathname }),
 				),
 	);
 
 	if (found?.isSingle !== false) {
-		
+		// The found item is single, so return it
 		return found;
 	}
 
-	
-	return found?.items.find((item: { url: any; }) =>
+	// The found item is not single, so find the active sub item
+	return found?.items.find((item) =>
 		isActiveRoute({ itemUrl: item.url, pathname }),
 	);
 }
@@ -585,11 +594,7 @@ function SidebarLogo() {
 								<DropdownMenuLabel className="text-xs text-muted-foreground">
 									Organizations
 								</DropdownMenuLabel>
-								
-
-								{organizations?.map(
-									//@ts-expect-error
-									(org) => (
+								{organizations?.map((org) => (
 									<div className="flex flex-row justify-between" key={org.name}>
 										<DropdownMenuItem
 											onClick={async () => {
@@ -628,8 +633,6 @@ function SidebarLogo() {
 																	"Organization deleted successfully",
 																);
 															})
-															//@ts-expect-error
-
 															.catch((error) => {
 																toast.error(
 																	error?.message ||
@@ -642,8 +645,6 @@ function SidebarLogo() {
 														variant="ghost"
 														size="icon"
 														className="group hover:bg-red-500/10"
-														//@ts-expect-error
-
 														isLoading={isRemoving}
 													>
 														<Trash2 className="size-4 text-primary group-hover:text-red-500" />
@@ -691,8 +692,6 @@ function SidebarLogo() {
 								<DropdownMenuLabel>Pending Invitations</DropdownMenuLabel>
 								<div className="flex flex-col gap-2">
 									{invitations && invitations.length > 0 ? (
-										//@ts-expect-error
-
 										invitations.map((invitation) => (
 											<div key={invitation.id} className="flex flex-col gap-2">
 												<DropdownMenuItem
@@ -810,12 +809,12 @@ export default function Page({ children }: Props) {
 		>
 			<Sidebar collapsible="icon" variant="floating">
 				<SidebarHeader>
-					<SidebarMenuButton
+					{/* <SidebarMenuButton
 						className="group-data-[collapsible=icon]:!p-0"
 						size="lg"
-					>
+					> */}
 					<LogoWrapper />
-					</SidebarMenuButton>
+					{/* </SidebarMenuButton> */}
 				</SidebarHeader>
 				<SidebarContent>
 					<SidebarGroup>

@@ -1,6 +1,6 @@
 import { and, eq } from "drizzle-orm";
 import { db } from "../../db";
-import { notifications } from "../../db/schema";
+import { notifications } from "@deployit/server/db/schema";
 import {
 	sendDiscordNotification,
 	sendSlackNotification,

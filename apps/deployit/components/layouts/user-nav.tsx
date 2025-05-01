@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
 	DropdownMenu,
@@ -17,9 +15,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-//@ts-expect-error
-
-import { authClient } from "../../lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { Languages } from "@/lib/languages";
 import { api } from "@/utils/api";
 import useLocale from "@/utils/hooks/use-locale";
@@ -36,7 +32,7 @@ export const UserNav = () => {
 	const { data: isCloud } = api.settings.isCloud.useQuery();
 
 	const { locale, setLocale } = useLocale();
-	
+	// const { mutateAsync } = api.auth.logout.useMutation();
 
 	return (
 		<DropdownMenu>
@@ -169,7 +165,9 @@ export const UserNav = () => {
 							await authClient.signOut().then(() => {
 								router.push("/");
 							});
-							
+							// await mutateAsync().then(() => {
+							// 	router.push("/");
+							// });
 						}}
 					>
 						Log out

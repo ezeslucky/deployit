@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	DiscordIcon,
 	SlackIcon,
@@ -58,10 +56,7 @@ export const ShowNotifications = () => {
 								) : (
 									<div className="flex flex-col gap-4 min-h-[25vh]">
 										<div className="flex flex-col gap-4 rounded-lg ">
-											{data?.map(
-												//@ts-expect-error
-
-												(notification, _index) => (
+											{data?.map((notification, _index) => (
 												<div
 													key={notification.notificationId}
 													className="flex items-center justify-between bg-sidebar p-1 w-full rounded-lg"
@@ -126,9 +121,6 @@ export const ShowNotifications = () => {
 																	variant="ghost"
 																	size="icon"
 																	className="group hover:bg-red-500/10 "
-
-																	//@ts-expect-error
-
 																	isLoading={isRemoving}
 																>
 																	<Trash2 className="size-4 text-primary group-hover:text-red-500" />

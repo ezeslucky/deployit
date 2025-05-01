@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	BitbucketIcon,
 	GiteaIcon,
@@ -108,10 +106,7 @@ export const ShowGitProviders = () => {
 										</div>
 
 										<div className="flex flex-col gap-4 rounded-lg ">
-											{data?.map(
-												//@ts-expect-error
-
-												(gitProvider, _index) => {
+											{data?.map((gitProvider, _index) => {
 												const isGithub = gitProvider.providerType === "github";
 												const isGitlab = gitProvider.providerType === "gitlab";
 												const isBitbucket =
@@ -259,8 +254,6 @@ export const ShowGitProviders = () => {
 																		variant="ghost"
 																		size="icon"
 																		className="group hover:bg-red-500/10"
-																		//@ts-expect-error
-
 																		isLoading={isRemoving}
 																	>
 																		<Trash2 className="size-4 text-primary group-hover:text-red-500" />

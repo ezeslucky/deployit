@@ -22,7 +22,7 @@ export const WebServer = () => {
 
 	return (
 		<div className="w-full">
-			
+			{/* <Card className={cn("rounded-lg w-full bg-transparent p-0", className)}></Card> */}
 			<Card className="h-full bg-sidebar  p-2.5 rounded-xl  max-w-5xl mx-auto">
 				<div className="rounded-xl bg-background shadow-md ">
 					<CardHeader className="">
@@ -34,7 +34,14 @@ export const WebServer = () => {
 							{t("settings.server.webServer.description")}
 						</CardDescription>
 					</CardHeader>
-					
+					{/* <CardHeader>
+						<CardTitle className="text-xl">
+							{t("settings.server.webServer.title")}
+						</CardTitle>
+						<CardDescription>
+							{t("settings.server.webServer.description")}
+						</CardDescription>
+					</CardHeader> */}
 					<CardContent className="space-y-6 py-6 border-t">
 						<div className="grid md:grid-cols-2 gap-4">
 							<ShowdeployitActions />

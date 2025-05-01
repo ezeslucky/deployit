@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GithubIcon } from "@/components/icons/data-tools-icons";
 import { AlertBlock } from "@/components/shared/alert-block";
 import {
@@ -128,15 +126,10 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 		api.compose.deployTemplate.useMutation();
 
 	const templates =
-	//@ts-expect-error
-
 		data?.filter((template) => {
 			const matchesTags =
 				selectedTags.length === 0 ||
-				template.tags.some(
-					//@ts-expect-error
-
-					(tag) => selectedTags.includes(tag));
+				template.tags.some((tag) => selectedTags.includes(tag));
 			const matchesQuery =
 				query === "" ||
 				template.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -211,10 +204,7 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 											<CommandEmpty>No tags found.</CommandEmpty>
 											<ScrollArea className="h-96">
 												<CommandGroup>
-													{tags?.map(
-														//@ts-expect-error
-
-														(tag) => (
+													{tags?.map((tag) => (
 														<CommandItem
 															value={tag}
 															key={tag}
@@ -315,10 +305,7 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 										: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6",
 								)}
 							>
-								{templates?.map(
-									//@ts-expect-error
-
-									(template) => (
+								{templates?.map((template) => (
 									<div
 										key={template?.id}
 										className={cn(
@@ -327,10 +314,7 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 											viewMode === "detailed" && "h-[400px]",
 										)}
 									>
-										<Badge className="absolute top-2 right-2" 
-										//@ts-expect-error
-
-										variant="blue">
+										<Badge className="absolute top-2 right-2" variant="blue">
 											{template?.version}
 										</Badge>
 										<div
@@ -354,14 +338,9 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 												{viewMode === "detailed" &&
 													template?.tags?.length > 0 && (
 														<div className="flex flex-wrap justify-center gap-1.5">
-															{template?.tags?.map(
-																//@ts-expect-error
-
-																(tag) => (
+															{template?.tags?.map((tag) => (
 																<Badge
 																	key={tag}
-																	//@ts-expect-error
-
 																	variant="green"
 																	className="text-[10px] px-2 py-0"
 																>
@@ -480,10 +459,7 @@ export const AddTemplate = ({ projectId, baseUrl }: Props) => {
 																</SelectTrigger>
 																<SelectContent>
 																	<SelectGroup>
-																		{servers?.map(
-																			//@ts-expect-error
-
-																			(server) => (
+																		{servers?.map((server) => (
 																			<SelectItem
 																				key={server.serverId}
 																				value={server.serverId}

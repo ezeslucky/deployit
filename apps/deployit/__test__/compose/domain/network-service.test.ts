@@ -1,4 +1,4 @@
-import { adddeployitNetworkToService } from "../../../../../packages/server/src/index";
+import { adddeployitNetworkToService } from "@deployit/server";
 import { describe, expect, it } from "vitest";
 
 describe("adddeployitNetworkToService", () => {

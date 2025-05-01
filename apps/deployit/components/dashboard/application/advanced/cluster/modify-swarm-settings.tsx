@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
@@ -210,8 +208,6 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 			labelsSwarm: null,
 			networkSwarm: null,
 		},
-		//@ts-expect-error
-
 		resolver: zodResolver(addSwarmSettings),
 	});
 
@@ -759,8 +755,6 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 						<DialogFooter className="flex w-full flex-row justify-end md:col-span-2 m-0 sticky bottom-0 right-0 bg-muted border p-2 ">
 							<Button
-							//@ts-expect-error
-
 								isLoading={isLoading}
 								form="hook-form-add-permissions"
 								type="submit"

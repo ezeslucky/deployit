@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 
 import {
@@ -57,8 +56,6 @@ export const ShowStorageActions = ({ serverId }: Props) => {
 				}
 			>
 				<Button
-				//@ts-expect-error
-
 					isLoading={
 						cleanAllIsLoading ||
 						cleanDockerBuilderIsLoading ||

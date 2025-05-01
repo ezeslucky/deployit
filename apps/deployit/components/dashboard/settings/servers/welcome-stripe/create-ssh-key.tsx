@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Card, CardContent } from "@/components/ui/card";
 import { api } from "@/utils/api";
@@ -17,8 +15,6 @@ export const CreateSSHKey = () => {
 	const hasCreatedKey = useRef(false);
 
 	const cloudSSHKey = data?.find(
-		//@ts-expect-error
-
 		(sshKey) => sshKey.name === "deployit-cloud-ssh-key",
 	);
 
@@ -111,7 +107,7 @@ export const CreateSSHKey = () => {
 											</div>
 										</li>
 										<li className="mt-1">
-											3. You&apos;re done, follow the next step to insert the details
+											3. You're done, follow the next step to insert the details
 											of your server.
 										</li>
 									</ul>

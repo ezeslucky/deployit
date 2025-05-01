@@ -1,4 +1,4 @@
-import { findGitlabById, updateGitlab } from "../../../../../../packages/server/src/index";
+import { findGitlabById, updateGitlab } from "@deployit/server";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

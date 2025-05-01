@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
 	DiscordIcon,
 	SlackIcon,
@@ -180,8 +178,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 			channel: "",
 			name: "",
 		},
-		//@ts-expect-error
-
 		resolver: zodResolver(notificationSchema),
 	});
 	const type = form.watch("type");
@@ -426,14 +422,10 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 				<Form {...form}>
 					<form
 						id="hook-form"
-						//@ts-expect-error
-
 						onSubmit={form.handleSubmit(onSubmit)}
 						className="grid w-full gap-8 "
 					>
 						<FormField
-						//@ts-expect-error
-
 							control={form.control}
 							defaultValue={form.control._defaultValues.type}
 							name="type"
@@ -492,8 +484,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 							</FormLabel>
 							<div className="flex flex-col gap-2">
 								<FormField
-								//@ts-expect-error
-
 									control={form.control}
 									name="name"
 									render={({ field }) => (
@@ -511,8 +501,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								{type === "slack" && (
 									<>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="webhookUrl"
 											render={({ field }) => (
@@ -531,8 +519,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 										/>
 
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="channel"
 											render={({ field }) => (
@@ -552,8 +538,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								{type === "telegram" && (
 									<>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="botToken"
 											render={({ field }) => (
@@ -572,8 +556,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 										/>
 
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="chatId"
 											render={({ field }) => (
@@ -588,8 +570,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 										/>
 
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="messageThreadId"
 											render={({ field }) => (
@@ -613,8 +593,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								{type === "discord" && (
 									<>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="webhookUrl"
 											render={({ field }) => (
@@ -633,8 +611,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 										/>
 
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="decoration"
 											defaultValue={true}
@@ -662,8 +638,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 									<>
 										<div className="flex md:flex-row flex-col gap-2 w-full">
 											<FormField
-											//@ts-expect-error
-
 												control={form.control}
 												name="smtpServer"
 												render={({ field }) => (
@@ -678,8 +652,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 												)}
 											/>
 											<FormField
-											//@ts-expect-error
-
 												control={form.control}
 												name="smtpPort"
 												render={({ field }) => (
@@ -713,8 +685,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 
 										<div className="flex md:flex-row flex-col gap-2 w-full">
 											<FormField
-											//@ts-expect-error
-
 												control={form.control}
 												name="username"
 												render={({ field }) => (
@@ -730,8 +700,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 											/>
 
 											<FormField
-											//@ts-expect-error
-
 												control={form.control}
 												name="password"
 												render={({ field }) => (
@@ -752,8 +720,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 										</div>
 
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="fromAddress"
 											render={({ field }) => (
@@ -775,8 +741,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 													className="flex flex-row gap-2 w-full"
 												>
 													<FormField
-													//@ts-expect-error
-
 														control={form.control}
 														name={`toAddresses.${index}`}
 														render={({ field }) => (
@@ -827,8 +791,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								{type === "gotify" && (
 									<>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="serverUrl"
 											render={({ field }) => (
@@ -845,8 +807,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 											)}
 										/>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="appToken"
 											render={({ field }) => (
@@ -863,8 +823,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 											)}
 										/>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="priority"
 											defaultValue={5}
@@ -895,8 +853,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 											)}
 										/>
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="decoration"
 											defaultValue={true}
@@ -928,8 +884,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 
 							<div className="grid md:grid-cols-2 gap-4">
 								<FormField
-								//@ts-expect-error
-
 									control={form.control}
 									name="appDeploy"
 									render={({ field }) => (
@@ -950,8 +904,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 									)}
 								/>
 								<FormField
-								//@ts-expect-error
-
 									control={form.control}
 									name="appBuildError"
 									render={({ field }) => (
@@ -973,8 +925,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								/>
 
 								<FormField
-								//@ts-expect-error
-
 									control={form.control}
 									name="databaseBackup"
 									render={({ field }) => (
@@ -996,8 +946,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								/>
 
 								<FormField
-								//@ts-expect-error
-
 									control={form.control}
 									name="dockerCleanup"
 									render={({ field }) => (
@@ -1021,8 +969,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 
 								{!isCloud && (
 									<FormField
-									//@ts-expect-error
-
 										control={form.control}
 										name="deployitRestart"
 										render={({ field }) => (
@@ -1046,8 +992,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 
 								{isCloud && (
 									<FormField
-									//@ts-expect-error
-
 										control={form.control}
 										name="serverThreshold"
 										render={({ field }) => (
@@ -1075,8 +1019,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 
 					<DialogFooter className="flex flex-row gap-2 !justify-between w-full">
 						<Button
-						//@ts-expect-error
-
 							isLoading={
 								isLoadingSlack ||
 								isLoadingTelegram ||
@@ -1129,8 +1071,6 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 							Test Notification
 						</Button>
 						<Button
-						//@ts-expect-error
-
 							isLoading={form.formState.isSubmitting}
 							form="hook-form"
 							type="submit"

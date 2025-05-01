@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Schema } from "../../../../packages/server/src/templates";
-import type { CompleteTemplate } from "../../../../packages/server/src/templates/processors";
-import { processTemplate } from "../../../../packages/server/src/index";
+import type { Schema } from "@deployit/server/templates";
+import type { CompleteTemplate } from "@deployit/server/templates/processors";
+import { processTemplate } from "@deployit/server/templates/processors";
 import { describe, expect, it } from "vitest";
 
 describe("processTemplate", () => {

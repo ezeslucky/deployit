@@ -7,7 +7,7 @@ import { apiKey, organization, twoFactor } from "better-auth/plugins";
 import { and, desc, eq } from "drizzle-orm";
 import { IS_CLOUD } from "../constants";
 import { db } from "../db";
-import * as schema from "../db/schema";
+import * as schema from "@deployit/server/db/schema";
 import { getUserByToken } from "../services/admin";
 import { updateUser } from "../services/user";
 import { sendEmail } from "../verification/send-verification-email";

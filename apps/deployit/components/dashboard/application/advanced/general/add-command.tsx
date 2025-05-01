@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -109,10 +108,7 @@ export const AddCommand = ({ applicationId }: Props) => {
 							/>
 						</div>
 						<div className="flex justify-end">
-							<Button 
-							//@ts-expect-error
-
-							isLoading={isLoading} type="submit" className="w-fit">
+							<Button isLoading={isLoading} type="submit" className="w-fit">
 								Save
 							</Button>
 						</div>

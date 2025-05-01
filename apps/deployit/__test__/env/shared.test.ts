@@ -1,4 +1,4 @@
-import { prepareEnvironmentVariables } from "../../../../packages/server/src/index";
+import { prepareEnvironmentVariables } from "@deployit/server/index";
 import { describe, expect, it } from "vitest";
 
 const projectEnv = `

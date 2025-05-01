@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { ToggleVisibilityInput } from "@/components/shared/toggle-visibility-input";
 import { Button } from "@/components/ui/button";
@@ -56,8 +54,6 @@ export const ShowExternalRedisCredentials = ({ redisId }: Props) => {
 
 	const form = useForm<DockerProvider>({
 		defaultValues: {},
-		//@ts-expect-error
-
 		resolver: zodResolver(DockerProviderSchema),
 	});
 
@@ -122,16 +118,12 @@ export const ShowExternalRedisCredentials = ({ redisId }: Props) => {
 						)}
 						<Form {...form}>
 							<form
-							//@ts-expect-error
-
 								onSubmit={form.handleSubmit(onSubmit)}
 								className="flex flex-col gap-4"
 							>
 								<div className="grid grid-cols-2 gap-4 ">
 									<div className="col-span-2 space-y-4">
 										<FormField
-										//@ts-expect-error
-
 											control={form.control}
 											name="externalPort"
 											render={({ field }) => {
@@ -162,10 +154,7 @@ export const ShowExternalRedisCredentials = ({ redisId }: Props) => {
 								)}
 
 								<div className="flex justify-end">
-									<Button type="submit" 
-									//@ts-expect-error
-
-									isLoading={isLoading}>
+									<Button type="submit" isLoading={isLoading}>
 										Save
 									</Button>
 								</div>

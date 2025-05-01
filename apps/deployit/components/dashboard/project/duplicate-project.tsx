@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -58,16 +57,12 @@ export const DuplicateProject = ({
 
 	const { mutateAsync: duplicateProject, isLoading } =
 		api.project.duplicate.useMutation({
-			//@ts-expect-error
-
 			onSuccess: async (newProject) => {
 				await utils.project.all.invalidate();
 				toast.success("Project duplicated successfully");
 				setOpen(false);
 				router.push(`/dashboard/project/${newProject.projectId}`);
 			},
-			//@ts-expect-error
-
 			onError: (error) => {
 				toast.error(error.message);
 			},

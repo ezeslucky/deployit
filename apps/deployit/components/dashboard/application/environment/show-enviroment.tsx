@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CodeEditor } from "@/components/shared/code-editor";
 import { Button } from "@/components/ui/button";
 import {
@@ -159,8 +158,9 @@ export const ShowEnvironment = ({ id, type }: Props) => {
 												language="properties"
 												disabled={isEnvVisible}
 												className="font-mono"
-												wrapperClassNmae="compose-file-editor"
-												placeholder={`NODE_ENV=productionPORT=3000
+												wrapperClassName="compose-file-editor"
+												placeholder={`NODE_ENV=production
+PORT=3000
 														`}
 												{...field}
 											/>
@@ -181,7 +181,6 @@ export const ShowEnvironment = ({ id, type }: Props) => {
 									</Button>
 								)}
 								<Button
-								//@ts-expect-error
 									isLoading={isLoading}
 									className="w-fit"
 									type="submit"

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AlertBlock } from "@/components/shared/alert-block";
 import { CodeEditor } from "@/components/shared/code-editor";
 import { DialogAction } from "@/components/shared/dialog-action";
@@ -61,8 +60,6 @@ export const SetupServer = ({ serverId }: Props) => {
 		},
 		{
 			enabled: isDeploying,
-			//@ts-expect-error
-
 			onData(log) {
 				if (!isDrawerOpen) {
 					setIsDrawerOpen(true);
@@ -74,8 +71,6 @@ export const SetupServer = ({ serverId }: Props) => {
 				const parsedLogs = parseLogs(log);
 				setFilteredLogs((prev) => [...prev, ...parsedLogs]);
 			},
-			//@ts-expect-error
-
 			onError(error) {
 				console.error("Deployment logs error:", error);
 				setIsDeploying(false);
@@ -230,7 +225,7 @@ export const SetupServer = ({ serverId }: Props) => {
 												</div>
 											</li>
 											<li className="mt-1">
-												3. You&apos;re done, you can test the connection by entering
+												3. You're done, you can test the connection by entering
 												to the terminal or by setting up the server tab.
 											</li>
 										</ul>

@@ -101,6 +101,7 @@
     "embla-carousel-react": "^8.6.0",
     "fancy-ansi": "^0.1.3",
     "framer-motion": "^12.9.2",
+    "@deployit/server": "workspace:*",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "input-otp": "^1.4.2",
     "js-yaml": "4.1.0",
