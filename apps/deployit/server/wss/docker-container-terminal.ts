@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type http from "node:http";
-import { findServerById, validateRequest } from "../../../../packages/server/src/index";
+import { findServerById, validateRequest } from "@deployit/server";
 import { spawn } from "node-pty";
 import { Client } from "ssh2";
 import { WebSocketServer } from "ws";
@@ -59,8 +57,6 @@ export const setupDockerContainerTerminalWebSocketServer = (
 						conn.exec(
 							`docker exec -it ${containerId} ${activeWay}`,
 							{ pty: true },
-							//@ts-expect-error
-
 							(err, stream) => {
 								if (err) throw err;
 
@@ -73,8 +69,6 @@ export const setupDockerContainerTerminalWebSocketServer = (
 										_stdout += data.toString();
 										ws.send(data.toString());
 									})
-									//@ts-expect-error
-
 									.stderr.on("data", (data) => {
 										_stderr += data.toString();
 										ws.send(data.toString());

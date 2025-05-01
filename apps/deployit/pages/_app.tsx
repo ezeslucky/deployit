@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import "@/styles/globals.css";
 
 import { SearchCommand } from "@/components/dashboard/search-command";

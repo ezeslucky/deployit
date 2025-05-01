@@ -3,7 +3,7 @@ import { applyWSSHandler } from "@trpc/server/adapters/ws";
 import { WebSocketServer } from "ws";
 import { appRouter } from "../api/root";
 import { createTRPCContext } from "../api/trpc";
-import { validateRequest } from "../../../../packages/server/src/lib/auth";
+import { validateRequest } from "@deployit/server/lib/auth";
 
 export const setupDrawerLogsWebSocketServer = (
 	server: http.Server<typeof http.IncomingMessage, typeof http.ServerResponse>,

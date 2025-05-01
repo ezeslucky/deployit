@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
+import { OnboardingLayout } from "@/components/layouts/onboarding-layout";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
@@ -13,8 +12,8 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { authCliend } from "@/lib/auth-client";
-import { IS_CLOUD } from "../../../packages/server/src/index";
+import { authClient } from "@/lib/auth-client";
+import { IS_CLOUD } from "@deployit/server";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { GetServerSidePropsContext } from "next";
 import Link from "next/link";
@@ -23,7 +22,6 @@ import { type ReactElement, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import { OnboardingLayout } from "@/components/layout/onboarding-layout";
 
 const loginSchema = z
 	.object({
@@ -81,7 +79,7 @@ export default function Home({ tokenResetPassword }: Props) {
 
 	const onSubmit = async (values: Login) => {
 		setIsLoading(true);
-		const { error } = await authCliend.resetPassword({
+		const { error } = await authClient.resetPassword({
 			newPassword: values.password,
 			token: token || "",
 		});
@@ -157,8 +155,6 @@ export default function Home({ tokenResetPassword }: Props) {
 
 									<Button
 										type="submit"
-                                        //@ts-expect-error
-
 										isLoading={isLoading}
 										className="w-full"
 									>

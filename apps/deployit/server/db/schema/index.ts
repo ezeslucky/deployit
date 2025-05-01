@@ -1,1 +1,1 @@
-export * from "../../../../../packages/server/src/db/schema"
+export * from "@deployit/server/db/schema";

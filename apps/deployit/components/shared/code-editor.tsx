@@ -16,32 +16,31 @@ import { githubDark, githubLight } from "@uiw/codemirror-theme-github";
 import CodeMirror, { type ReactCodeMirrorProps } from "@uiw/react-codemirror";
 import { useTheme } from "next-themes";
 
-const dockerComposeServices  =[
-    { label: "services", type: "keyword", info: "Define services" },
+// Docker Compose completion options
+const dockerComposeServices = [
+	{ label: "services", type: "keyword", info: "Define services" },
 	{ label: "version", type: "keyword", info: "Specify compose file version" },
 	{ label: "volumes", type: "keyword", info: "Define volumes" },
 	{ label: "networks", type: "keyword", info: "Define networks" },
 	{ label: "configs", type: "keyword", info: "Define configuration files" },
 	{ label: "secrets", type: "keyword", info: "Define secrets" },
-].map((opt) =>({
-    ...opt,
-    apply:(view:EditorView, completion: Completion) => {
-        const insert = `${completion.label}: `;
-        view.dispatch({
-            changes: {
-                from: view.state.selection.main.from,
-             to: view.state.selection.main.to,
-             insert,
-            },
-            selection: {anchor: view.state.selection.main.from + insert.length},
+].map((opt) => ({
+	...opt,
+	apply: (view: EditorView, completion: Completion) => {
+		const insert = `${completion.label}:`;
+		view.dispatch({
+			changes: {
+				from: view.state.selection.main.from,
+				to: view.state.selection.main.to,
+				insert,
+			},
+			selection: { anchor: view.state.selection.main.from + insert.length },
+		});
+	},
+}));
 
-        })
-    }
-}))
-
-
-const dockerComposeServicesOption =[
-    {
+const dockerComposeServiceOptions = [
+	{
 		label: "image",
 		type: "keyword",
 		info: "Specify the image to start the container from",
@@ -89,97 +88,90 @@ const dockerComposeServicesOption =[
 }));
 
 function dockerComposeComplete(
-    context: CompletionContext,
+	context: CompletionContext,
 ): CompletionResult | null {
-    const word  = context.matchBefore(/\w*/);
+	const word = context.matchBefore(/\w*/);
+	if (!word) return null;
 
-    if(!word) return null;
-    if(!word.text && !context.explicit) return null
+	if (!word.text && !context.explicit) return null;
 
-    const line  = context.state.doc.lineAt(context.pos)
+	// Check if we're at the root level
+	const line = context.state.doc.lineAt(context.pos);
+	const indentation = /^\s*/.exec(line.text)?.[0].length || 0;
 
-    const indentation =  /^\s*/.exec(line.text)?.[0].length || 0
+	if (indentation === 0) {
+		return {
+			from: word.from,
+			options: dockerComposeServices,
+			validFor: /^\w*$/,
+		};
+	}
 
-    if(indentation === 0) {
-        return {
-            from: word.from,
-           options: dockerComposeServices,
-          validFor: /^\w*$/,
-        }
-    }
+	// If we're inside a service definition
+	if (indentation === 4) {
+		return {
+			from: word.from,
+			options: dockerComposeServiceOptions,
+			validFor: /^\w*$/,
+		};
+	}
 
-    if(indentation === 4) {
-        return {
-            from: word.from,
-            options:dockerComposeServicesOption,
-            validFor: /^\w*$/,
-        }
-    }
-
-    return null
+	return null;
 }
 
-
 interface Props extends ReactCodeMirrorProps {
-    wrapperClassNmae?: string
-    disabled?: boolean;
-    language?: "yaml" | "json" | "properties" | "shell"
-    lineWrapping?: boolean
-    lineNumbers?: boolean
+	wrapperClassName?: string;
+	disabled?: boolean;
+	language?: "yaml" | "json" | "properties" | "shell";
+	lineWrapping?: boolean;
+	lineNumbers?: boolean;
 }
 
 export const CodeEditor = ({
-    className,
-    wrapperClassNmae,
-    language= "yaml",
-    lineNumbers = true,
-    ...props
+	className,
+	wrapperClassName,
+	language = "yaml",
+	lineNumbers = true,
+	...props
 }: Props) => {
-    const {resolvedTheme} = useTheme()
-
-    return (
-        <div className={cn(" relative overflow-auto", wrapperClassNmae)}>
-
-<CodeMirror 
-basicSetup={{
-    lineNumbers,
-    foldGutter: true,
-    highlightSelectionMatches: true,
-    highlightActiveLine: !props.disabled,
-    allowMultipleSelections: true,
-}}
- 
-theme={resolvedTheme === "dark" ? githubDark: githubLight}
-
-extensions={[
-    language === "yaml"
-    ? yaml()
-    : language === "json"
-        ? json()
-        : language === "shell"
-            ? StreamLanguage.define(shell)
-            : StreamLanguage.define(properties),
-props.lineWrapping ? EditorView.lineWrapping : [],
-language === "yaml"
-    ? autocompletion({
-            override: [dockerComposeComplete],
-        })
-    : [],
-
-]}
-{...props}
-editable={!props.disabled}
+	const { resolvedTheme } = useTheme();
+	return (
+		<div className={cn("relative overflow-auto", wrapperClassName)}>
+			<CodeMirror
+				basicSetup={{
+					lineNumbers,
+					foldGutter: true,
+					highlightSelectionMatches: true,
+					highlightActiveLine: !props.disabled,
+					allowMultipleSelections: true,
+				}}
+				theme={resolvedTheme === "dark" ? githubDark : githubLight}
+				extensions={[
+					language === "yaml"
+						? yaml()
+						: language === "json"
+							? json()
+							: language === "shell"
+								? StreamLanguage.define(shell)
+								: StreamLanguage.define(properties),
+					props.lineWrapping ? EditorView.lineWrapping : [],
+					language === "yaml"
+						? autocompletion({
+								override: [dockerComposeComplete],
+							})
+						: [],
+				]}
+				{...props}
+				editable={!props.disabled}
 				className={cn(
 					"w-full h-full text-sm leading-relaxed",
 					`cm-theme-${resolvedTheme}`,
 					className,
 				)}
-
-/>
-
-{props.disabled && (
-    <div className=" absolute top-0 rounded-md left-0 w-full h-full flex items-center justify-center z-[10] [background:var(--overlay)] "/>
-)}
-        </div>
-    )
-}
+			/>
+			{props.disabled && (
+				<div className="absolute top-0 rounded-md left-0 w-full h-full  flex items-center justify-center z-[10] [background:var(--overlay)] h-full" />
+			)}
+		</div>
+	);
+};

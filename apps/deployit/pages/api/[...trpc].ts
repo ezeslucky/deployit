@@ -1,7 +1,7 @@
 import { appRouter } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
 import { validateRequest } from "@deployit/server";
-import { createOpenApiNextHandler } from "@deployit/trpc-openapi";
+import { createOpenApiNextHandler } from "@dokploy/trpc-openapi";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {

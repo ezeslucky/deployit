@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { OnboardingLayout } from "@/components/layout/onboarding-layout";
+import { OnboardingLayout } from "@/components/layouts/onboarding-layout";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
@@ -27,9 +25,9 @@ import {
 	InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { Label } from "@/components/ui/label";
-import { authCliend } from "@/lib/auth-client";
-import { IS_CLOUD, isAdminPresent } from "../../../packages/server/src/index";
-import { validateRequest } from "../../../packages/server/src/lib/auth";
+import { authClient } from "@/lib/auth-client";
+import { IS_CLOUD, isAdminPresent } from "@deployit/server";
+import { validateRequest } from "@deployit/server/lib/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 import type { GetServerSidePropsContext } from "next";
@@ -77,7 +75,7 @@ export default function Home({ IS_CLOUD }: Props) {
 	const onSubmit = async (values: LoginForm) => {
 		setIsLoginLoading(true);
 		try {
-			const { data, error } = await authCliend.signIn.email({
+			const { data, error } = await authClient.signIn.email({
 				email: values.email,
 				password: values.password,
 			});
@@ -114,7 +112,7 @@ export default function Home({ IS_CLOUD }: Props) {
 
 		setIsTwoFactorLoading(true);
 		try {
-			const { error } = await authCliend.twoFactor.verifyTotp({
+			const { error } = await authClient.twoFactor.verifyTotp({
 				code: twoFactorCode.replace(/\s/g, ""),
 			});
 
@@ -142,7 +140,7 @@ export default function Home({ IS_CLOUD }: Props) {
 
 		setIsBackupCodeLoading(true);
 		try {
-			const { error } = await authCliend.twoFactor.verifyBackupCode({
+			const { error } = await authClient.twoFactor.verifyBackupCode({
 				code: backupCode.trim(),
 			});
 
@@ -166,7 +164,7 @@ export default function Home({ IS_CLOUD }: Props) {
 	const handleGithubSignIn = async () => {
 		setIsGithubLoading(true);
 		try {
-			const { error } = await authCliend.signIn.social({
+			const { error } = await authClient.signIn.social({
 				provider: "github",
 			});
 
@@ -186,7 +184,7 @@ export default function Home({ IS_CLOUD }: Props) {
 	const handleGoogleSignIn = async () => {
 		setIsGoogleLoading(true);
 		try {
-			const { error } = await authCliend.signIn.social({
+			const { error } = await authClient.signIn.social({
 				provider: "google",
 			});
 
@@ -229,8 +227,6 @@ export default function Home({ IS_CLOUD }: Props) {
 								type="button"
 								className="w-full mb-4"
 								onClick={handleGithubSignIn}
-								//@ts-expect-error
-
 								isLoading={isGithubLoading}
 							>
 								<svg viewBox="0 0 438.549 438.549" className="mr-2 size-4">
@@ -248,8 +244,6 @@ export default function Home({ IS_CLOUD }: Props) {
 								type="button"
 								className="w-full mb-4"
 								onClick={handleGoogleSignIn}
-								//@ts-expect-error
-
 								isLoading={isGoogleLoading}
 							>
 								<svg viewBox="0 0 24 24" className="mr-2 size-4">
@@ -312,8 +306,6 @@ export default function Home({ IS_CLOUD }: Props) {
 								<Button
 									className="w-full"
 									type="submit"
-									//@ts-expect-error
-
 									isLoading={isLoginLoading}
 								>
 									Login
@@ -374,8 +366,6 @@ export default function Home({ IS_CLOUD }: Props) {
 								<Button
 									className="w-full"
 									type="submit"
-									//@ts-expect-error
-
 									isLoading={isTwoFactorLoading}
 								>
 									Verify
@@ -425,8 +415,6 @@ export default function Home({ IS_CLOUD }: Props) {
 										<Button
 											className="w-full"
 											type="submit"
-											//@ts-expect-error
-
 											isLoading={isBackupCodeLoading}
 										>
 											Verify

@@ -1,26 +1,27 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { execAsync, paths } from "../../../../packages/server/src/index";
+import { execAsync, paths } from "@deployit/server";
 
 export const getShell = () => {
-    switch (os.platform()){
-        case "win32":
-            return "powershell.exe";
-        case "darwin":
-            return "zsh";
-        default:
-            return "bash";        
-    }
-}
+	switch (os.platform()) {
+		case "win32":
+			return "powershell.exe";
+		case "darwin":
+			return "zsh";
+		default:
+			return "bash";
+	}
+};
 
-
-export const setupLocalServerSSHKey = async () =>{
-    const { SSH_PATH } = paths(true);
+/** Returns private SSH key for deployit local server terminal. Uses already created SSH key or generates a new SSH key.
+ */
+export const setupLocalServerSSHKey = async () => {
+	const { SSH_PATH } = paths(true);
 	const sshKeyPath = path.join(SSH_PATH, "auto_generated-deployit-local");
 
 	if (!fs.existsSync(sshKeyPath)) {
-		
+		// Generate new SSH key if it hasn't been created yet
 		await execAsync(
 			`ssh-keygen -t rsa -b 4096 -f ${sshKeyPath} -N "" -C "deployit-local-access"`,
 		);
@@ -29,4 +30,4 @@ export const setupLocalServerSSHKey = async () =>{
 	const privateKey = fs.readFileSync(sshKeyPath, "utf8");
 
 	return privateKey;
-}
+};

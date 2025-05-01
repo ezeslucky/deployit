@@ -21,6 +21,5 @@ export const Languages = {
 	malayalam: { code: "ml", name: "മലയാളം" },
 };
 
-
 export type Language = keyof typeof Languages;
 export type LanguageCode = (typeof Languages)[keyof typeof Languages]["code"];

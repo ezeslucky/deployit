@@ -9,7 +9,6 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 
 interface Props {
 	title?: string | React.ReactNode;
@@ -30,9 +29,7 @@ export const DialogAction = ({
 }: Props) => {
 	return (
 		<AlertDialog>
-			<AlertDialogTrigger asChild>
-				{children}
-			</AlertDialogTrigger>
+			<AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
@@ -44,14 +41,12 @@ export const DialogAction = ({
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Cancel</AlertDialogCancel>
-					<AlertDialogAction asChild>
-						<Button
-							variant={type ?? "destructive"}
-							disabled={disabled}
-							onClick={onClick}
-						>
-							Confirm
-						</Button>
+					<AlertDialogAction
+						disabled={disabled}
+						onClick={onClick}
+						variant={type ?? "destructive"}
+					>
+						Confirm
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

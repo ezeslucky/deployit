@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";

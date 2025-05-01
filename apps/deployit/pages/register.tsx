@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { OnboardingLayout } from "@/components/layout/onboarding-layout";
+import { OnboardingLayout } from "@/components/layouts/onboarding-layout";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
@@ -14,8 +12,8 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { authCliend } from "@/lib/auth-client";
-import { IS_CLOUD, isAdminPresent, validateRequest } from "../../../packages/server/src/index";
+import { authClient } from "@/lib/auth-client";
+import { IS_CLOUD, isAdminPresent, validateRequest } from "@deployit/server";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertTriangle } from "lucide-react";
 import type { GetServerSidePropsContext } from "next";
@@ -25,7 +23,6 @@ import { type ReactElement, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-
 
 const registerSchema = z
 	.object({
@@ -94,7 +91,7 @@ const Register = ({ isCloud }: Props) => {
 	}, [form, form.reset, form.formState.isSubmitSuccessful]);
 
 	const onSubmit = async (values: Register) => {
-		const { data, error } = await authCliend.signUp.email({
+		const { data, error } = await authClient.signUp.email({
 			email: values.email,
 			password: values.password,
 			name: values.name,
@@ -220,8 +217,6 @@ const Register = ({ isCloud }: Props) => {
 
 										<Button
 											type="submit"
-                                            //@ts-expect-error
-
 											isLoading={form.formState.isSubmitting}
 											className="w-full"
 										>

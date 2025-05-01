@@ -3,7 +3,6 @@ import postgres from "postgres";
 import * as schema from "./schema";
 
 declare global {
-	// eslint-disable-next-line no-var
 	var db: PostgresJsDatabase<typeof schema> | undefined;
 }
 

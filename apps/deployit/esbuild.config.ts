@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import esbuild from "esbuild";
 
 import dotenv, { type DotenvParseOutput } from "dotenv";

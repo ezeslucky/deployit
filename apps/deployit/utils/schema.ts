@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { z } from "zod";
 import { zfd } from "zod-form-data";
 
 if (typeof window === "undefined") {
 	void (async () => {
-		//@ts-expect-error
-
 		const undici = await import("undici");
 		globalThis.File = undici.File as any;
 		// @ts-ignore

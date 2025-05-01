@@ -1,7 +1,7 @@
-import { findAdmin } from "../../packages/server/src/index";
-import { generateRandomPassword } from "../../packages/server/src/index";
-import { db } from "../../packages/server/src/db";
-import { account } from "../../packages/server/src/db/schema";
+import { findAdmin } from "@deployit/server";
+import { generateRandomPassword } from "@deployit/server";
+import { db } from "@deployit/server/db";
+import { account } from "@deployit/server/db/schema";
 import { eq } from "drizzle-orm";
 
 (async () => {

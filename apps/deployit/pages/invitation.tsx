@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
+import { OnboardingLayout } from "@/components/layouts/onboarding-layout";
 import { AlertBlock } from "@/components/shared/alert-block";
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
@@ -14,9 +12,9 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { authCliend } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { api } from "@/utils/api";
-import { IS_CLOUD, getUserByToken } from "../../../packages/server/src/index";
+import { IS_CLOUD, getUserByToken } from "@deployit/server";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { GetServerSidePropsContext } from "next";
 import Link from "next/link";
@@ -25,7 +23,6 @@ import { type ReactElement, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import { OnboardingLayout } from "@/components/layout/onboarding-layout";
 
 const registerSchema = z
 	.object({
@@ -114,7 +111,7 @@ const Invitation = ({
 
 	const onSubmit = async (values: Register) => {
 		try {
-			const { error } = await authCliend.signUp.email({
+			const { error } = await authClient.signUp.email({
 				email: values.email,
 				password: values.password,
 				name: values.name,
@@ -130,7 +127,7 @@ const Invitation = ({
 				return;
 			}
 
-			const _result = await authCliend.organization.acceptInvitation({
+			const _result = await authClient.organization.acceptInvitation({
 				invitationId: token,
 			});
 
@@ -266,8 +263,6 @@ const Invitation = ({
 
 												<Button
 													type="submit"
-													//@ts-expect-error
-
 													isLoading={form.formState.isSubmitting}
 													className="w-full"
 												>
@@ -304,7 +299,8 @@ const Invitation = ({
 		</div>
 	);
 };
-
+// http://localhost:3000/invitation?token=CZK4BLrUdMa32RVkAdZiLsPDdvnPiAgZ
+// /f7af93acc1a99eae864972ab4c92fee089f0d83473d415ede8e821e5dbabe79c
 export default Invitation;
 Invitation.getLayout = (page: ReactElement) => {
 	return <OnboardingLayout>{page}</OnboardingLayout>;
@@ -314,7 +310,14 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
 	const token = query.token;
 
-	
+	// if (IS_CLOUD) {
+	// 	return {
+	// 		redirect: {
+	// 			permanent: true,
+	// 			destination: "/",
+	// 		},
+	// 	};
+	// }
 
 	if (typeof token !== "string") {
 		return {

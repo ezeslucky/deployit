@@ -58,7 +58,7 @@ import {
 	writeTraefikConfigInPath,
 } from "../../../../../packages/server/src/index";
 import { checkGPUStatus, setupGPUSupport } from "../../../../../packages/server/src/index";
-import { generateOpenApiDocument } from "@deployit/trpc-openapi";
+import { generateOpenApiDocument } from "@dokploy/trpc-openapi";
 import { TRPCError } from "@trpc/server";
 import { sql } from "drizzle-orm";
 import { dump, load } from "js-yaml";

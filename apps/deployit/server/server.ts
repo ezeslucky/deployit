@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import http from "node:http";
 import { migration } from "@/server/db/migration";
 import {
@@ -8,10 +7,9 @@ import {
 	createDefaultTraefikConfig,
 	initCronJobs,
 	initializeNetwork,
-	
 	senddeployitRestartNotifications,
 	setupDirectories,
-} from "../../../packages/server/src/index";
+} from "@deployit/server";
 import { config } from "dotenv";
 import next from "next";
 import { setupDockerContainerLogsWebSocketServer } from "./wss/docker-container-logs";

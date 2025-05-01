@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type http from "node:http";
 import {
 	docker,
@@ -6,7 +5,7 @@ import {
 	getLastAdvancedStatsFile,
 	recordAdvancedStats,
 	validateRequest,
-} from "../../../../packages/server/src/index";
+} from "@deployit/server";
 import { WebSocketServer } from "ws";
 
 export const setupDockerStatsMonitoringSocketServer = (

@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { spawn } from "node:child_process";
 import type http from "node:http";
-import { findServerById, validateRequest } from "../../../../packages/server/src/index";
+import { findServerById, validateRequest } from "@deployit/server";
 import { Client } from "ssh2";
 import { WebSocketServer } from "ws";
 
@@ -69,8 +67,6 @@ export const setupDeploymentLogsWebSocketServer = (
 								.on("data", (data: string) => {
 									ws.send(data.toString());
 								})
-                                //@ts-expect-error
-
 								.stderr.on("data", (data) => {
 									ws.send(data.toString());
 								});
@@ -107,8 +103,8 @@ export const setupDeploymentLogsWebSocketServer = (
 			}
 		} catch (_error) {
 			// @ts-ignore
-			const errorMessage = error?.message as unknown as string;
-			ws.send(errorMessage);
+			// const errorMessage = error?.message as unknown as string;
+			// ws.send(errorMessage);
 		}
 	});
 };

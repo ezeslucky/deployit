@@ -12,8 +12,8 @@ import {
 	updateApplicationStatus,
 	updateCompose,
 	updatePreviewDeployment,
-} from "../../../../packages/server/src/index";
-import { Job, Worker } from "bullmq";
+} from "@deployit/server";
+import { type Job, Worker } from "bullmq";
 import type { DeploymentJob } from "./queue-types";
 import { redisConfig } from "./redis-connection";
 

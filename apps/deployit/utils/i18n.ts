@@ -1,7 +1,7 @@
 import type { NextApiRequestCookies } from "next/dist/server/api-utils";
 
 export function getLocale(cookies: NextApiRequestCookies) {
-	const locale = cookies.DEPLOYIT_LOCALE ?? "en";
+	const locale = cookies.deployit_LOCALE ?? "en";
 	return locale;
 }
 
