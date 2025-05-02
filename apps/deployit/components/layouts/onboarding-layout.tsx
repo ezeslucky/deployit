@@ -14,7 +14,7 @@ export const OnboardingLayout = ({ children }: Props) => {
 			<div className="relative hidden h-full flex-col  p-10 text-primary dark:border-r lg:flex">
 				<div className="absolute inset-0 bg-muted" />
 				<Link
-					href="/"
+					href="https://deployit.com"
 					className="relative z-20 flex items-center text-lg font-medium gap-4  text-primary"
 				>
 					<Logo className="size-10" />
