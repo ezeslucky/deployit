@@ -26,7 +26,7 @@ const Dashboard = () => {
 			{/* <AlertBlock>
 				You are watching the <strong>Free</strong> plan.{" "}
 				<a
-					href="https://deployit.com#pricing"
+					href="/#pricing"
 					target="_blank"
 					className="underline"
 					rel="noreferrer"

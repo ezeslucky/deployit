@@ -318,7 +318,7 @@ export function Pricing() {
 														className="block w-full max-w-md rounded-xl z-20"
 														animationStyle="top-in-bottom-out"
 														videoSrc="https://www.youtube.com/embed/x2s_Y5ON-ms?si=i6gntgMmyPDLuPih"
-														thumbnailSrc="https://deployit.com/banner.png"
+														thumbnailSrc="//banner.png"
 														thumbnailAlt="Hero Video"
 													/>
 												</TooltipContent>

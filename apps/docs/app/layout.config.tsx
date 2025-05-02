@@ -47,7 +47,7 @@ export const baseOptions: BaseLayoutProps = {
 	links: [
 		{
 			text: "Website",
-			url: "https://deployit.com",
+			url: "/",
 			active: "nested-url",
 			icon: <GlobeIcon />,
 		},
@@ -91,7 +91,7 @@ export const baseOptions: BaseLayoutProps = {
 		},
 		{
 			text: "Blog",
-			url: "https://deployit.com/blog",
+			url: "//blog",
 			active: "nested-url",
 			icon: (
 				<>

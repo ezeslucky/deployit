@@ -78,7 +78,7 @@ export const InvitationEmail = ({
 						<Text className="text-black text-[14px] leading-[24px]">
 							or copy and paste this URL into your browser:{" "}
 							<Link href={inviteLink} className="text-blue-600 no-underline">
-								https://deployit.com
+								/
 							</Link>
 						</Text>
 						<Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />

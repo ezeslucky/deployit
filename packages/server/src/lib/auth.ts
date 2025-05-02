@@ -201,7 +201,7 @@ const { handler, api } = betterAuth({
 					const host =
 						process.env.NODE_ENV === "development"
 							? "http://localhost:3000"
-							: "https://deployit.com";
+							: "/";
 					const inviteLink = `${host}/invitation?token=${data.id}`;
 
 					await sendEmail({

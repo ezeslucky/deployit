@@ -19,10 +19,10 @@ export default function Home() {
 				<p className="">
 					Website: Refers to the website of deployit (
 					<a
-						href="https://deployit.com"
+						href="/"
 						className="text-blue-500 hover:underline"
 					>
-						https://deployit.com
+						/
 					</a>
 					) and its subdomains.
 				</p>

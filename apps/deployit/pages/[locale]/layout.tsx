@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://deployit.com"),
+	metadataBase: new URL("/"),
 	title: {
 		default: "Dockly - Effortless Deployment Solutions",
 		template: "%s | Simplify Your DevOps",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 		apple: "apple-touch-icon.png",
 	},
 	alternates: {
-		canonical: "https://deployit.com",
+		canonical: "/",
 		languages: {
-			en: "https://deployit.com",
+			en: "/",
 		},
 	},
 	description:
@@ -42,17 +42,17 @@ export const metadata: Metadata = {
 	robots: "index, follow",
 	openGraph: {
 		type: "website",
-		url: "https://deployit.com",
+		url: "/",
 		title: "Dockly - Effortless Deployment Solutions",
 		description:
 			"Simplify your DevOps with Dockly. Deploy applications and manage databases efficiently on any VPS.",
 		siteName: "Dockly",
 		images: [
 			{
-				url: "https://deployit.com/og.png",
+				url: "//og.png",
 			},
 			{
-				url: "https://deployit.com/icon.svg",
+				url: "//icon.svg",
 				width: 24,
 				height: 24,
 				alt: "deployit Logo",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 		title: "Dockly ",
 		description:
 			"Dockly applications and manage databases with ease using deployit. Learn how our platform can elevate your infrastructure management.",
-		images: "https://deployit.com/og.png",
+		images: "//og.png",
 	},
 };
 
