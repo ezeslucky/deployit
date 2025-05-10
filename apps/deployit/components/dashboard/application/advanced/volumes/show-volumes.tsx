@@ -79,7 +79,7 @@ export const ShowVolumes = ({ id, type }: Props) => {
 										key={mount.mountId}
 										className="flex w-full flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-10 border rounded-lg p-4"
 									>
-										{/* <Package className="size-8 self-center text-muted-foreground" /> */}
+										<Package className="size-8 self-center text-muted-foreground" />
 										<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 flex-col gap-4 sm:gap-8">
 											<div className="flex flex-col gap-1">
 												<span className="font-medium">Mount Type</span>

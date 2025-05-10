@@ -111,7 +111,7 @@ export const AddDomain = ({
 		if (data) {
 			form.reset({
 				...data,
-				/* Convert null to undefined */
+				
 				path: data?.path || undefined,
 				port: data?.port || undefined,
 				certificateType: data?.certificateType || undefined,
@@ -131,7 +131,7 @@ export const AddDomain = ({
 		}
 	}, [form, data, isLoading, domainId]);
 
-	// Separate effect for handling custom cert resolver validation
+	
 	useEffect(() => {
 		if (certificateType === "custom") {
 			form.trigger("customCertResolver");

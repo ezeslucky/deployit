@@ -337,7 +337,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 												Available only at build-time. See documentation&nbsp;
 												<a
 													className="text-primary"
-													href="https://docs.docker.com/build/guide/build-args/"
+													href="../docs"
 													target="_blank"
 													rel="noopener noreferrer"
 												>
@@ -371,7 +371,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 					</DialogFooter>
 				</DialogContent>
 			</Dialog>
-			{/* */}
+			
 		</div>
 	);
 };

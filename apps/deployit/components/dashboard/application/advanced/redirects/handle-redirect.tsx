@@ -45,16 +45,9 @@ const AddRedirectchema = z.object({
 
 type AddRedirect = z.infer<typeof AddRedirectchema>;
 
-// Default presets
+
 const redirectPresets = [
-	// {
-	// 	label: "Allow www & non-www.",
-	// 	redirect: {
-	// 		regex: "",
-	// 		permanent: false,
-	// 		replacement: "",
-	// 	},
-	// },
+	
 	{
 		id: "to-www",
 		label: "Redirect to www",
@@ -149,9 +142,7 @@ export const HandleRedirect = ({
 
 	const onDialogToggle = (open: boolean) => {
 		setIsOpen(open);
-		// commented for the moment because not reseting the form if accidentally closed the dialog can be considered as a feature instead of a bug
-		// setPresetSelected("");
-		// form.reset();
+		
 	};
 
 	const onPresetSelect = (presetId: string) => {

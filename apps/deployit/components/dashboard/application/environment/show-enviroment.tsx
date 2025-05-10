@@ -71,7 +71,7 @@ export const ShowEnvironment = ({ id, type }: Props) => {
 		resolver: zodResolver(addEnvironmentSchema),
 	});
 
-	// Watch form value
+	
 	const currentEnvironment = form.watch("environment");
 	const hasChanges = currentEnvironment !== (data?.env || "");
 

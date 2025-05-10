@@ -41,7 +41,7 @@ export const ShowEnvironment = ({ applicationId }: Props) => {
 		resolver: zodResolver(addEnvironmentSchema),
 	});
 
-	// Watch form values
+	
 	const currentEnv = form.watch("env");
 	const currentBuildArgs = form.watch("buildArgs");
 	const hasChanges =

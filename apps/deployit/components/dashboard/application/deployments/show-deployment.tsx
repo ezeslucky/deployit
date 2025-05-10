@@ -29,7 +29,7 @@ export const ShowDeployment = ({
 	const [data, setData] = useState("");
 	const [showExtraLogs, setShowExtraLogs] = useState(false);
 	const [filteredLogs, setFilteredLogs] = useState<LogLine[]>([]);
-	const wsRef = useRef<WebSocket | null>(null); // Ref to hold WebSocket instance
+	const wsRef = useRef<WebSocket | null>(null); 
 	const [autoScroll, setAutoScroll] = useState(true);
 	const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,7 @@ export const ShowDeployment = ({
 
 		const wsUrl = `${protocol}//${window.location.host}/listen-deployment?logPath=${logPath}${serverId ? `&serverId=${serverId}` : ""}`;
 		const ws = new WebSocket(wsUrl);
-		wsRef.current = ws; // Store WebSocket instance in ref
+		wsRef.current = ws; 
 
 		ws.onmessage = (e) => {
 			setData((currentData) => currentData + e.data);
@@ -66,7 +66,7 @@ export const ShowDeployment = ({
 		};
 
 		ws.onclose = () => {
-			wsRef.current = null; // Clear reference on close
+			wsRef.current = null; 
 		};
 
 		return () => {

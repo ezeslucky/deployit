@@ -1,7 +1,0 @@
-{
-	"title": "API",
-	"description": "API Documentation",
-	"icon": "Building2",
-	"root": true,
-	"pages": ["---Get Started---", "index", "---API---", "...", "---Reference---"]
-}
