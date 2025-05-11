@@ -43,7 +43,7 @@ const Navigation = () => {
 
         <Button
           onClick={() => {
-            window.open("https://github.com/Deployit/Deployit", "_blank");
+            window.open("https://github.com/ezeslucky/deployit.git", "_blank");
           }}
           variant="outline"
           //   className="flex cursor-pointer hover:bg-gray-400 flex-row gap-2 items-center"

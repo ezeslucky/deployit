@@ -17,7 +17,7 @@ const { handler, api } = betterAuth({
 	database: drizzleAdapter(db, {
 		provider: "pg",
 		schema: schema,
-	}),
+	}), 
 	logger: {
 		disabled: process.env.NODE_ENV === "production",
 	},

@@ -336,7 +336,7 @@ export const WelcomeSuscription = () => {
 												</Button>
 												<Button className="rounded-full  w-fit">
 													<Link
-														href="https://github.com/deployit/deployit"
+														href="https://github.com/ezeslucky/deployit.git"
 														aria-label="deployit on GitHub"
 														target="_blank"
 														className="flex flex-row items-center gap-2 "
