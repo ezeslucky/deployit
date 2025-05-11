@@ -15,7 +15,7 @@ const ShowWelcomedeployit = dynamic(
 			(mod) => mod.ShowWelcomedeployit,
 		),
 	{ ssr: false },
-);
+); 
 
 const Dashboard = () => {
 	const { data: isCloud } = api.settings.isCloud.useQuery();

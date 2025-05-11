@@ -13,10 +13,10 @@ node_modules
 .env.production.local
 
 # Testing
-coverage
+# coverage
 
 # Turbo
-.turbo
+# .turbo
 
 # Vercel
 .vercel
@@ -24,8 +24,8 @@ coverage
 # Build Outputs
 .next/
 out/
-build
-dist
+# build
+# dist
 
 
 # Debug

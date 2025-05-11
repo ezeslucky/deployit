@@ -8,11 +8,12 @@ import {
 import { api } from "@/utils/api";
 import { ServerIcon } from "lucide-react";
 import { useTranslation } from "next-i18next";
-import { ShowdeployitActions } from "./servers/actions/show-deployit-actions";
+
 import { ShowStorageActions } from "./servers/actions/show-storage-actions";
 import { ShowTraefikActions } from "./servers/actions/show-traefik-actions";
 import { ToggleDockerCleanup } from "./servers/actions/toggle-docker-cleanup";
 import { UpdateServer } from "./web-server/update-server";
+import { ShowdeployitActions } from "./servers/actions/show-deployit-actions";
 
 export const WebServer = () => {
 	const { t } = useTranslation("settings");

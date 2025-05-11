@@ -23,7 +23,7 @@ const Page = () => {
 						<ShowBackups id={user?.userId ?? ""} type="web-server" />
 					</Card>
 				</div>
-			</div>
+			</div> 
 		</div>
 	);
 };
