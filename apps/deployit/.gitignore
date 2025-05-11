@@ -1,36 +1,38 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
-/redis-data
-traefik.yml
-.docker
-.env.production
+# /node_modules
+# /.pnp
+# .pnp.js
+# /redis-data
+# traefik.yml
+# .docker
+# .env.production
 
 # testing
-/coverage
-/dist
-/production-server
+# /coverage
+# /dist
+# /production-server
+
+
 # database
-/prisma/db.sqlite
-/prisma/db.sqlite-journal
-/logs
+# /prisma/db.sqlite
+# /prisma/db.sqlite-journal
+# /logs
 
 # next.js
-/.next/
-/out/
-next-env.d.ts
-/deployit
-/config
+# /.next/
+# /out/
+# next-env.d.ts
+# /deployit
+# /config
 
 # production
-/build
+# /build
 
 # misc
-.DS_Store
-*.pem
+# .DS_Store
+# *.pem
 
 # debug
 npm-debug.log*
@@ -44,16 +46,16 @@ yarn-error.log*
 .env*.local
 
 # vercel
-.vercel
+# .vercel
 
 # typescript
-*.tsbuildinfo
+# *.tsbuildinfo
 
 # otros
-/.data
-/.main
-.vscode
+# /.data
+# /.main
+# .vscode
 
-*.lockb
-*.rdb
-.idea
+# *.lockb
+# *.rdb
+# .idea

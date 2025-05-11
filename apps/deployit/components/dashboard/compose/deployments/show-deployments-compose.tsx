@@ -15,6 +15,7 @@ import { CancelQueuesCompose } from "./cancel-queues-compose";
 import { RefreshTokenCompose } from "./refresh-token-compose";
 import { ShowDeploymentCompose } from "./show-deployment-compose";
 
+
 interface Props {
 	composeId: string;
 }
@@ -45,7 +46,7 @@ export const ShowDeploymentsCompose = ({ composeId }: Props) => {
 					</CardDescription>
 				</div>
 				<CancelQueuesCompose composeId={composeId} />
-				{/* <CancelQueues applicationId={applicationId} /> */}
+				
 			</CardHeader>
 			<CardContent className="flex flex-col gap-4">
 				<div className="flex flex-col gap-2 text-sm">

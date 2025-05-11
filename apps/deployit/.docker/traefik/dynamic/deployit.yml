@@ -1,0 +1,13 @@
+http:
+  routers:
+    deployit-router-app:
+      rule: Host(`deployit.docker.localhost`) && PathPrefix(`/`)
+      service: deployit-service-app
+      entryPoints:
+        - web
+  services:
+    deployit-service-app:
+      loadBalancer:
+        servers:
+          - url: http://deployit:3000
+        passHostHeader: true

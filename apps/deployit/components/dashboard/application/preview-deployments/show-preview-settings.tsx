@@ -337,7 +337,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 												Available only at build-time. See documentation&nbsp;
 												<a
 													className="text-primary"
-													href="../docs"
+													href="#"
 													target="_blank"
 													rel="noopener noreferrer"
 												>
