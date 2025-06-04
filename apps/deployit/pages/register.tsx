@@ -117,7 +117,7 @@ const Register = ({ isCloud }: Props) => {
 				<div className="flex flex-col items-center gap-4 w-full">
 					<CardTitle className="text-2xl font-bold flex  items-center gap-2">
 						<Link
-							href="https://deployit.com"
+							href="#"
 							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>
@@ -239,7 +239,7 @@ const Register = ({ isCloud }: Props) => {
 									Need help?
 									<Link
 										className="underline"
-										href="https://deployit.com"
+										href="#"
 										target="_blank"
 									>
 										Contact us
