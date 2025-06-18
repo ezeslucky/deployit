@@ -5,6 +5,7 @@
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+	distDir: '.next',
 	reactStrictMode: true,
 	eslint: {
 		ignoreDuringBuilds: true,
