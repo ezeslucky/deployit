@@ -21,7 +21,7 @@ export default function Custom404({ statusCode, error }: Props) {
 							className="flex flex-row items-center gap-2"
 						>
 							<Logo />
-							<span className="font-medium text-sm">Dokploy</span>
+							<span className="font-medium text-sm">DeployIt</span>
 						</Link>
 					</nav>
 				</header>
