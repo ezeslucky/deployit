@@ -63,7 +63,7 @@ export const buildPostgres = async (postgres: PostgresNested) => {
 						}
 					: {}),
 			},
-			Networks: [{ Target: "dokploy-network" }],
+			Networks: [{ Target: "deployit-network" }],
 			Resources: {
 				...resources,
 			},

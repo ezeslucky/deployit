@@ -47,7 +47,7 @@ const notificationBaseSchema = z.object({
 	appDeploy: z.boolean().default(false),
 	appBuildError: z.boolean().default(false),
 	databaseBackup: z.boolean().default(false),
-	dokployRestart: z.boolean().default(false),
+	deployitRestart: z.boolean().default(false),
 	dockerCleanup: z.boolean().default(false),
 	serverThreshold: z.boolean().default(false),
 });
@@ -199,7 +199,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 				form.reset({
 					appBuildError: notification.appBuildError,
 					appDeploy: notification.appDeploy,
-					dokployRestart: notification.dokployRestart,
+					deployitRestart: notification.deployitRestart,
 					databaseBackup: notification.databaseBackup,
 					dockerCleanup: notification.dockerCleanup,
 					webhookUrl: notification.slack?.webhookUrl,
@@ -212,7 +212,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 				form.reset({
 					appBuildError: notification.appBuildError,
 					appDeploy: notification.appDeploy,
-					dokployRestart: notification.dokployRestart,
+					deployitRestart: notification.deployitRestart,
 					databaseBackup: notification.databaseBackup,
 					botToken: notification.telegram?.botToken,
 					messageThreadId: notification.telegram?.messageThreadId || "",
@@ -226,7 +226,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 				form.reset({
 					appBuildError: notification.appBuildError,
 					appDeploy: notification.appDeploy,
-					dokployRestart: notification.dokployRestart,
+					deployitRestart: notification.deployitRestart,
 					databaseBackup: notification.databaseBackup,
 					type: notification.notificationType,
 					webhookUrl: notification.discord?.webhookUrl,
@@ -239,7 +239,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 				form.reset({
 					appBuildError: notification.appBuildError,
 					appDeploy: notification.appDeploy,
-					dokployRestart: notification.dokployRestart,
+					deployitRestart: notification.deployitRestart,
 					databaseBackup: notification.databaseBackup,
 					type: notification.notificationType,
 					smtpServer: notification.email?.smtpServer,
@@ -256,7 +256,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 				form.reset({
 					appBuildError: notification.appBuildError,
 					appDeploy: notification.appDeploy,
-					dokployRestart: notification.dokployRestart,
+					deployitRestart: notification.deployitRestart,
 					databaseBackup: notification.databaseBackup,
 					type: notification.notificationType,
 					appToken: notification.gotify?.appToken,
@@ -284,7 +284,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 		const {
 			appBuildError,
 			appDeploy,
-			dokployRestart,
+			deployitRestart,
 			databaseBackup,
 			dockerCleanup,
 			serverThreshold,
@@ -294,7 +294,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 			promise = slackMutation.mutateAsync({
 				appBuildError: appBuildError,
 				appDeploy: appDeploy,
-				dokployRestart: dokployRestart,
+				deployitRestart: deployitRestart,
 				databaseBackup: databaseBackup,
 				webhookUrl: data.webhookUrl,
 				channel: data.channel,
@@ -308,7 +308,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 			promise = telegramMutation.mutateAsync({
 				appBuildError: appBuildError,
 				appDeploy: appDeploy,
-				dokployRestart: dokployRestart,
+				deployitRestart: deployitRestart,
 				databaseBackup: databaseBackup,
 				botToken: data.botToken,
 				messageThreadId: data.messageThreadId || "",
@@ -323,7 +323,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 			promise = discordMutation.mutateAsync({
 				appBuildError: appBuildError,
 				appDeploy: appDeploy,
-				dokployRestart: dokployRestart,
+				deployitRestart: deployitRestart,
 				databaseBackup: databaseBackup,
 				webhookUrl: data.webhookUrl,
 				decoration: data.decoration,
@@ -337,7 +337,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 			promise = emailMutation.mutateAsync({
 				appBuildError: appBuildError,
 				appDeploy: appDeploy,
-				dokployRestart: dokployRestart,
+				deployitRestart: deployitRestart,
 				databaseBackup: databaseBackup,
 				smtpServer: data.smtpServer,
 				smtpPort: data.smtpPort,
@@ -355,7 +355,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 			promise = gotifyMutation.mutateAsync({
 				appBuildError: appBuildError,
 				appDeploy: appDeploy,
-				dokployRestart: dokployRestart,
+				deployitRestart: deployitRestart,
 				databaseBackup: databaseBackup,
 				serverUrl: data.serverUrl,
 				appToken: data.appToken,
@@ -970,7 +970,7 @@ export const HandleNotifications = ({ notificationId }: Props) => {
 								{!isCloud && (
 									<FormField
 										control={form.control}
-										name="dokployRestart"
+										name="deployitRestart"
 										render={({ field }) => (
 											<FormItem className=" flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm gap-2">
 												<div className="space-y-0.5">

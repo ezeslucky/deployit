@@ -15,7 +15,7 @@ export const scheduleType = pgEnum("scheduleType", [
 	"application",
 	"compose",
 	"server",
-	"dokploy-server",
+	"deployit-server",
 ]);
 
 export const schedules = pgTable("schedule", {

@@ -37,7 +37,7 @@ export const recordAdvancedStats = async (
 		outputMb: stats.NetIO.split(" ")[2],
 	});
 
-	if (appName === "dokploy") {
+	if (appName === "deployit") {
 		const disk = await osUtils.drive.info("/");
 
 		const diskUsage = disk.usedGb;

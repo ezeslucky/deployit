@@ -103,9 +103,9 @@ export const removeUserById = async (userId: string) => {
 		.then((res) => res[0]);
 };
 
-export const getDokployUrl = async () => {
+export const getDeployitUrl = async () => {
 	if (IS_CLOUD) {
-		return "https://app.dokploy.com";
+		return "https://app.deployit.com";
 	}
 	const admin = await findAdmin();
 

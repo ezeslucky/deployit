@@ -60,8 +60,8 @@ export const getContainers = async (serverId?: string | null) => {
 			})
 			.filter(
 				(container) =>
-					!container.name.includes("dokploy") ||
-					container.name.includes("dokploy-monitoring"),
+					!container.name.includes("deployit") ||
+					container.name.includes("deployit-monitoring"),
 			);
 
 		return containers;
@@ -434,7 +434,7 @@ export const getNodeApplications = async (serverId?: string) => {
 			.trim()
 			.split("\n")
 			.map((line) => JSON.parse(line))
-			.filter((service) => !service.Name.startsWith("dokploy-"));
+			.filter((service) => !service.Name.startsWith("deployit-"));
 
 		return appArray;
 	} catch (_error) {}

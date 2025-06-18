@@ -684,8 +684,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 											language="json"
 											placeholder={`[
  {
-	"Target" : "dokploy-network",
-	"Aliases" : ["dokploy-network"],
+	"Target" : "deployit-network",
+	"Aliases" : ["deployit-network"],
 	"DriverOpts" : {
 		"com.docker.network.driver.mtu" : "1500",
 		"com.docker.network.driver.host_binding" : "true",
