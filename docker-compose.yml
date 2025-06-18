@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  deployit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  cloud:
+    build:
+      context: .
+      dockerfile: Dockerfile.cloud
+    ports:
+      - "3003:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_UMAMI_HOST=your-umami-host
+      - NEXT_PUBLIC_UMAMI_WEBSITE_ID=your-website-id
+      - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your-stripe-key
+    restart: unless-stopped
+
+  monitoring:
+    build:
+      context: .
+      dockerfile: Dockerfile.monitoring
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    restart: unless-stopped
+
+  schedule:
+    build:
+      context: .
+      dockerfile: Dockerfile.schedule
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "3004:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+  env_file:
+  - .env
+  
