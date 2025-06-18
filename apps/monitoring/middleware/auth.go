@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/ezeslucky/dokploy/apps/monitoring/config"
+	"github.com/ezeslucky/deployit/apps/monitoring/config"
 )
 
 func AuthMiddleware() fiber.Handler {

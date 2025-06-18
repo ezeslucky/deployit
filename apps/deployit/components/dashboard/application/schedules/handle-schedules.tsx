@@ -70,7 +70,7 @@ const formSchema = z
 			"application",
 			"compose",
 			"server",
-			"dokploy-server",
+			"deployit-server",
 		]),
 		script: z.string(),
 	})
@@ -84,7 +84,7 @@ const formSchema = z
 		}
 
 		if (
-			(data.scheduleType === "dokploy-server" ||
+			(data.scheduleType === "deployit-server" ||
 				data.scheduleType === "server") &&
 			!data.script
 		) {
@@ -111,7 +111,7 @@ const formSchema = z
 interface Props {
 	id?: string;
 	scheduleId?: string;
-	scheduleType?: "application" | "compose" | "server" | "dokploy-server";
+	scheduleType?: "application" | "compose" | "server" | "deployit-server";
 }
 
 export const HandleSchedules = ({ id, scheduleId, scheduleType }: Props) => {
@@ -191,7 +191,7 @@ export const HandleSchedules = ({ id, scheduleId, scheduleType }: Props) => {
 			...(scheduleType === "server" && {
 				serverId: id || "",
 			}),
-			...(scheduleType === "dokploy-server" && {
+			...(scheduleType === "deployit-server" && {
 				userId: id || "",
 			}),
 		})
@@ -233,7 +233,7 @@ export const HandleSchedules = ({ id, scheduleId, scheduleType }: Props) => {
 			<DialogContent
 				className={cn(
 					"max-h-screen overflow-y-auto",
-					scheduleTypeForm === "dokploy-server" || scheduleTypeForm === "server"
+					scheduleTypeForm === "deployit-server" || scheduleTypeForm === "server"
 						? "max-h-[95vh] sm:max-w-2xl"
 						: " sm:max-w-lg",
 				)}
@@ -485,7 +485,7 @@ export const HandleSchedules = ({ id, scheduleId, scheduleType }: Props) => {
 							</>
 						)}
 
-						{(scheduleTypeForm === "dokploy-server" ||
+						{(scheduleTypeForm === "deployit-server" ||
 							scheduleTypeForm === "server") && (
 							<FormField
 								control={form.control}

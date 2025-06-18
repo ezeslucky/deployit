@@ -529,7 +529,7 @@ table notification {
   appDeploy boolean [not null, default: false]
   appBuildError boolean [not null, default: false]
   databaseBackup boolean [not null, default: false]
-  dokployRestart boolean [not null, default: false]
+  deployitRestart boolean [not null, default: false]
   dockerCleanup boolean [not null, default: false]
   serverThreshold boolean [not null, default: false]
   notificationType notificationType [not null]

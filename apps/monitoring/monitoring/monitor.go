@@ -18,8 +18,8 @@ import (
 	"github.com/shirou/gopsutil/v3/mem"
 	"github.com/shirou/gopsutil/v3/net"
 
-	"github.com/ezeslucky/dokploy/apps/monitoring/config"
-	"github.com/ezeslucky/dokploy/apps/monitoring/database"
+	"github.com/ezeslucky/deployit/apps/monitoring/config"
+	"github.com/ezeslucky/deployit/apps/monitoring/database"
 )
 
 type SystemMetrics struct {

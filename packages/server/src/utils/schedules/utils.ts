@@ -104,7 +104,7 @@ export const runCommand = async (scheduleId: string) => {
 				throw error;
 			}
 		}
-	} else if (scheduleType === "dokploy-server") {
+	} else if (scheduleType === "deployit-server") {
 		try {
 			const writeStream = createWriteStream(deployment.logPath, { flags: "a" });
 			const { SCHEDULES_PATH } = paths();

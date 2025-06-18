@@ -3603,8 +3603,8 @@
           "notNull": true,
           "default": false
         },
-        "dokployRestart": {
-          "name": "dokployRestart",
+        "deployitRestart": {
+          "name": "deployitRestart",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true,
@@ -5672,7 +5672,7 @@
         "application",
         "compose",
         "server",
-        "dokploy-server"
+        "deployit-server"
       ]
     },
     "public.shellType": {

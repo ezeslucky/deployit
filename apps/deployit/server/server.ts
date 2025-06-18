@@ -8,7 +8,7 @@ import {
 	initCronJobs,
 	initSchedules,
 	initializeNetwork,
-	sendDokployRestartNotifications,
+	senddeployitRestartNotifications,
 	setupDirectories,
 } from "@deployit/server";
 import { config } from "dotenv";
@@ -51,7 +51,7 @@ void app.prepare().then(async () => {
 			await migration();
 			await initCronJobs();
 			await initSchedules();
-			await sendDokployRestartNotifications();
+			await senddeployitRestartNotifications();
 		}
 
 		if (IS_CLOUD && process.env.NODE_ENV === "production") {
