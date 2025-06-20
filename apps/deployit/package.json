@@ -5,7 +5,7 @@
 	"license": "Apache-2.0",
 	"type": "module",
 	"scripts": {
-		"build": "next build",
+		"build": "next build && npm run build-server && npm run build-next",
 		"start": "node -r dotenv/config dist/server.mjs",
 		"build-server": "tsx esbuild.config.ts",
 		"build-next": "next build",
