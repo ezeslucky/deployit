@@ -2,28 +2,28 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-/redis-data
-traefik.yml
-.docker
+# /.pnp
+# .pnp.js
+# /redis-data
+# traefik.yml
+# .docker
 .env.production
 
 # testing
-/coverage
-/dist
-/production-server
-# database
-/prisma/db.sqlite
-/prisma/db.sqlite-journal
-/logs
+# /coverage
+# /dist
+# /production-server
+# # database
+# /prisma/db.sqlite
+# /prisma/db.sqlite-journal
+# /logs
 
 # next.js
-/.next/
-/out/
-next-env.d.ts
-/dokploy
-/config
+# /.next/
+# /out/
+# next-env.d.ts
+# /deployit
+# /config
 
 # production
 /build
@@ -50,10 +50,10 @@ yarn-error.log*
 *.tsbuildinfo
 
 # otros
-/.data
-/.main
+# /.data
+# /.main
 .vscode
 
-*.lockb
-*.rdb
-.idea
+# *.lockb
+# *.rdb
+# .idea
