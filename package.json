@@ -1,20 +1,50 @@
 {
-  "name": "deployit",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
-  },
-  "devDependencies": {
-    "prettier": "^3.6.0",
-    "turbo": "^2.5.4",
-    "typescript": "5.8.2"
-  },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
-  }
+	"name": "deployi",
+	"private": true,
+	"workspaces": ["apps/*", "packages/*"],
+	"scripts": {
+		"deployi:setup": "pnpm --filter=deployi run setup",
+		"deployi:dev": "pnpm --filter=deployi run dev",
+		"deployi:dev:turbopack": "pnpm --filter=deployi run dev-turbopack",
+		"deployi:build": "pnpm --filter=deployi run build",
+		"deployi:start": "pnpm --filter=deployi run start",
+		"test": "pnpm --filter=deployi run test",
+		"server:script": "pnpm --filter=server run switch:dev",
+		"server:dev": "pnpm --filter=server run dev",
+		"server:build": "pnpm --filter=server run build",
+		"docker:build:canary": "./apps/deployi/docker/build.sh canary",
+		"typecheck": "pnpm -r run typecheck",
+		"build": "pnpm -r run build",
+		"format-and-lint": "biome check .",
+		"check": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true",
+		"format-and-lint:fix": "biome check . --write"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@types/node": "^18.17.0",
+		"dotenv": "16.4.5",
+		"esbuild": "0.20.2",
+		"lefthook": "1.8.4",
+		"lint-staged": "^15.2.7",
+		"tsx": "4.16.2"
+	},
+	"packageManager": "pnpm@9.5.0",
+	"engines": {
+		"node": "^20.16.0",
+		"pnpm": ">=9.5.0"
+	},
+	"lint-staged": {
+		"*": [
+			"biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+		]
+	},
+	"commitlint": {
+		"extends": ["@commitlint/config-conventional"]
+	},
+	"resolutions": {
+		"@types/react": "18.3.5",
+		"@types/react-dom": "18.3.0"
+	}
 }
