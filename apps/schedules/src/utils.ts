@@ -12,9 +12,9 @@ import {
 	runMongoBackup,
 	runMySqlBackup,
 	runPostgresBackup,
-} from "@dokploy/server";
-import { db } from "@dokploy/server/dist/db";
-import { backups, schedules, server } from "@dokploy/server/dist/db/schema";
+} from "@deployi/server";
+import { db } from "@deployi/server/dist/db";
+import { backups, schedules, server } from "@deployi/server/dist/db/schema";
 import { and, eq } from "drizzle-orm";
 import { logger } from "./logger.js";
 import { scheduleJob } from "./queue.js";
