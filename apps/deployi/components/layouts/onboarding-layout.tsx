@@ -14,11 +14,11 @@ export const OnboardingLayout = ({ children }: Props) => {
 			<div className="relative hidden h-full flex-col  p-10 text-primary dark:border-r lg:flex">
 				<div className="absolute inset-0 bg-muted" />
 				<Link
-					href="https://dokploy.com"
+					href="https://deployi.me"
 					className="relative z-20 flex items-center text-lg font-medium gap-4  text-primary"
 				>
-					<Logo className="size-10" />
-					Dokploy
+					<Logo className="w-[25px] h-[25px]" />
+					Deployi
 				</Link>
 				<div className="relative z-20 mt-auto">
 					<blockquote className="space-y-2">
@@ -40,7 +40,7 @@ export const OnboardingLayout = ({ children }: Props) => {
 						</Link>
 					</Button>
 					<Button variant="ghost" size="icon">
-						<Link href="https://x.com/getdokploy">
+						<Link href="https://x.com/ezeslucky">
 							<svg
 								stroke="currentColor"
 								fill="currentColor"
