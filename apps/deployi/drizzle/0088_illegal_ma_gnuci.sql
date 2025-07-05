@@ -1,4 +1,4 @@
-CREATE TYPE "public"."scheduleType" AS ENUM('application', 'compose', 'server', 'dokploy-server');--> statement-breakpoint
+CREATE TYPE "public"."scheduleType" AS ENUM('application', 'compose', 'server', 'deployi-server');--> statement-breakpoint
 CREATE TYPE "public"."shellType" AS ENUM('bash', 'sh');--> statement-breakpoint
 CREATE TABLE "schedule" (
 	"scheduleId" text PRIMARY KEY NOT NULL,
