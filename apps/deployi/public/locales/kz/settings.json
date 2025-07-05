@@ -1,7 +1,7 @@
 {
 	"settings.common.save": "Сақтау",
 	"settings.server.domain.title": "Сервер домені",
-	"settings.server.domain.description": "Dokploy сервер қолданбасына домен енгізіңіз.",
+	"settings.server.domain.description": "Deployi сервер қолданбасына домен енгізіңіз.",
 	"settings.server.domain.form.domain": "Домен",
 	"settings.server.domain.form.letsEncryptEmail": "Let's Encrypt Эл. поштасы",
 	"settings.server.domain.form.certificate.label": "Сертификат",
@@ -30,7 +30,7 @@
 	"settings.profile.password": "Құпия сөз",
 	"settings.profile.avatar": "Аватар",
 	"settings.appearance.title": "Сыртқы түрі",
-	"settings.appearance.description": "Dokploy сыртқы келбетін өзгерту.",
+	"settings.appearance.description": "Deployi сыртқы келбетін өзгерту.",
 	"settings.appearance.theme": "Келбеті",
 	"settings.appearance.themeDescription": "Жүйе тақтасының келбетің таңдаңыз",
 	"settings.appearance.themes.light": "Жарық",
