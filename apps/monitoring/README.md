@@ -69,28 +69,6 @@ go run main.go
 - Architecture
 - Threads
 
-Example response:
-
-| Field              | Value                       |
-| ------------------ | --------------------------- |
-| timestamp          | 2025-01-19T21:44:54.232164Z |
-| cpu                | 24.57%                      |
-| cpu_model          | Apple M1 Pro                |
-| cpu_cores          | 8                           |
-| cpu_physical_cores | 1                           |
-| cpu_speed          | 3228.0 MHz                  |
-| os                 | darwin                      |
-| distro             | darwin                      |
-| kernel             | 23.4.0                      |
-| arch               | arm64                       |
-| mem_used           | 81.91%                      |
-| mem_used_gb        | 13.11 GB                    |
-| mem_total          | 16.0 GB                     |
-| uptime             | 752232s                     |
-| disk_used          | 89.34%                      |
-| total_disk         | 460.43 GB                   |
-| network_in         | 54.78 MB                    |
-| network_out        | 31.72 MB                    |
 
 ### Containers
 
