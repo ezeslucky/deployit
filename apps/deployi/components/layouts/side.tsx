@@ -374,7 +374,7 @@ const MENU: Menu = {
 	help: [
 		{
 			name: "Documentation",
-			url: "https://docs.dokploy.com/docs/core",
+			url: "https://docs.deployi.me/docs/core",
 			icon: BookIcon,
 		},
 		{
@@ -384,7 +384,7 @@ const MENU: Menu = {
 		},
 		{
 			name: "Sponsor",
-			url: "https://opencollective.com/dokploy",
+			url: "https://buymeacoffee.com/aurobindolk",
 			icon: ({ className }) => (
 				<HeartIcon
 					className={cn(
@@ -780,7 +780,7 @@ export default function Page({ children }: Props) {
 	const pathname = usePathname();
 	const _currentPath = router.pathname;
 	const { data: auth } = api.user.get.useQuery();
-	const { data: dokployVersion } = api.settings.getDokployVersion.useQuery();
+	const { data: deployiVersion } = api.settings.getDeployiVersion.useQuery();
 
 	const includesProjects = pathname?.includes("/dashboard/project");
 	const { data: isCloud } = api.settings.isCloud.useQuery();
@@ -1037,13 +1037,13 @@ export default function Page({ children }: Props) {
 						<SidebarMenuItem>
 							<UserNav />
 						</SidebarMenuItem>
-						{dokployVersion && (
+						{deployiVersion && (
 							<>
 								<div className="px-3 text-xs text-muted-foreground text-center group-data-[collapsible=icon]:hidden">
-									Version {dokployVersion}
+									Version {deployiVersion}
 								</div>
 								<div className="hidden text-xs text-muted-foreground text-center group-data-[collapsible=icon]:block">
-									{dokployVersion}
+									{deployiVersion}
 								</div>
 							</>
 						)}

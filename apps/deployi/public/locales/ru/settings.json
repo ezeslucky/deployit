@@ -2,7 +2,7 @@
 	"settings.common.save": "Сохранить",
 	"settings.common.enterTerminal": "Открыть терминал",
 	"settings.server.domain.title": "Домен сервера",
-	"settings.server.domain.description": "Установите домен для вашего серверного приложения Dokploy.",
+	"settings.server.domain.description": "Установите домен для вашего серверного приложения Deployi.",
 	"settings.server.domain.form.domain": "Домен",
 	"settings.server.domain.form.letsEncryptEmail": "Email для Let's Encrypt",
 	"settings.server.domain.form.certificate.label": "Сертификат",
@@ -42,7 +42,7 @@
 	"settings.profile.avatar": "Аватар",
 
 	"settings.appearance.title": "Внешний вид",
-	"settings.appearance.description": "Настройте тему Dokploy.",
+	"settings.appearance.description": "Настройте тему Deployi.",
 	"settings.appearance.theme": "Тема",
 	"settings.appearance.themeDescription": "Выберите тему системной панели",
 	"settings.appearance.themes.light": "Светлая",

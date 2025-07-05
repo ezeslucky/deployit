@@ -1,0 +1,67 @@
+# syntax=docker/dockerfile:1
+FROM node:20.9-slim AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+FROM base AS build
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+RUN apt-get update && apt-get install -y python3 make g++ git python3-pip pkg-config libsecret-1-dev && rm -rf /var/lib/apt/lists/*
+
+# Install dependencies
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+
+# Deploy only the deployi app
+
+ENV NODE_ENV=production
+RUN pnpm --filter=@deployi/server build
+RUN pnpm --filter=./apps/deployi run build
+
+RUN pnpm --filter=./apps/deployi --prod deploy /prod/deployi
+
+RUN cp -R /usr/src/app/apps/deployi/.next /prod/deployi/.next
+RUN cp -R /usr/src/app/apps/deployi/dist /prod/deployi/dist
+
+FROM base AS deployi
+WORKDIR /app
+
+# Set production
+ENV NODE_ENV=production
+
+RUN apt-get update && apt-get install -y curl unzip zip apache2-utils iproute2 rsync git-lfs && git lfs install && rm -rf /var/lib/apt/lists/*
+
+# Copy only the necessary files
+COPY --from=build /prod/deployi/.next ./.next
+COPY --from=build /prod/deployi/dist ./dist
+COPY --from=build /prod/deployi/next.config.mjs ./next.config.mjs
+COPY --from=build /prod/deployi/public ./public
+COPY --from=build /prod/deployi/package.json ./package.json
+COPY --from=build /prod/deployi/drizzle ./drizzle
+COPY .env.production ./.env
+COPY --from=build /prod/deployi/components.json ./components.json
+COPY --from=build /prod/deployi/node_modules ./node_modules
+
+
+# Install docker
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm get-docker.sh && curl https://rclone.org/install.sh | bash
+
+# Install Nixpacks and tsx
+# | VERBOSE=1 VERSION=1.21.0 bash
+
+ARG NIXPACKS_VERSION=1.39.0
+RUN curl -sSL https://nixpacks.com/install.sh -o install.sh \
+    && chmod +x install.sh \
+    && ./install.sh \
+    && pnpm install -g tsx
+
+# Install Railpack
+ARG RAILPACK_VERSION=0.0.64
+RUN curl -sSL https://railpack.com/install.sh | bash
+
+# Install buildpacks
+COPY --from=buildpacksio/pack:0.35.0 /usr/local/bin/pack /usr/local/bin/pack
+
+EXPOSE 3000
+CMD [ "pnpm", "start" ]

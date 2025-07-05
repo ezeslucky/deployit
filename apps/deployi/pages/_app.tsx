@@ -40,7 +40,7 @@ const MyApp = ({
 				`}
 			</style>
 			<Head>
-				<title>Dokploy</title>
+				<title>Deployi</title>
 			</Head>
 			{process.env.NEXT_PUBLIC_UMAMI_HOST &&
 				process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
