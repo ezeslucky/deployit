@@ -2,7 +2,7 @@ name: Deployi Docker Build
 
 on:
   push:
-    branches: [main, candly, "1061-custom-docker-service-hostname"]
+    branches: [main, candlyy, "1061-custom-docker-service-hostname"]
 
 env:
   IMAGE_NAME: deployi/deployi
