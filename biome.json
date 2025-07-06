@@ -1,0 +1,47 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": {
+		"ignore": [
+			"node_modules/**",
+			".next/**",
+			"drizzle/**",
+			".docker",
+			"dist",
+			"packages/server/package.json"
+		]
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"rules": {
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"complexity": {
+				"noUselessCatch": "off",
+				"noBannedTypes": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off",
+				"noUnsafeOptionalChaining": "off",
+				"noUnusedImports": "error",
+				"noUnusedFunctionParameters": "error",
+				"noUnusedVariables": "error"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off",
+				"noRedeclare": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off",
+				"useKeyWithClickEvents": "off",
+				"useAriaPropsForRole": "off"
+			}
+		}
+	}
+}
