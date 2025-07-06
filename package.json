@@ -1,10 +1,7 @@
 {
 	"name": "deployi",
 	"private": true,
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	],
+	"workspaces": ["apps/*", "packages/*"],
 	"scripts": {
 		"deployi:setup": "pnpm --filter=deployi run setup",
 		"deployi:dev": "pnpm --filter=deployi run dev",
@@ -15,7 +12,7 @@
 		"server:script": "pnpm --filter=server run switch:dev",
 		"server:dev": "pnpm --filter=server run dev",
 		"server:build": "pnpm --filter=server run build",
-		"docker:build:canary": "./apps/deployi/docker/build.sh canary",
+		"docker:build": "./apps/deployi/docker/build.sh ",
 		"typecheck": "pnpm -r run typecheck",
 		"build": "pnpm -r run build",
 		"format-and-lint": "biome check .",
@@ -44,9 +41,7 @@
 		]
 	},
 	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
+		"extends": ["@commitlint/config-conventional"]
 	},
 	"resolutions": {
 		"@types/react": "18.3.5",
