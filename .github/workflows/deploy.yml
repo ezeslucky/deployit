@@ -2,7 +2,7 @@ name: Build Docker images
 
 on:
   push:
-    branches: ["candly", "main", "feat/monitoring"]
+    branches: ["candlyy", "main", "feat/monitoring"]
 
 jobs:
   build-and-push-cloud-image:
