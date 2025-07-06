@@ -111,7 +111,9 @@ export const setupDockerContainerLogsWebSocketServer = (
 				const ptyProcess = spawn(shell, ["-c", command], {
 					name: "xterm-256color",
 					cwd: process.env.HOME,
-					env: process.env,
+					env: Object.fromEntries(
+						Object.entries(process.env).filter(([_, value]) => value !== undefined)
+					) as Record<string, string>,
 					encoding: "utf8",
 					cols: 80,
 					rows: 30,

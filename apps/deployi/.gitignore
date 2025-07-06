@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-/redis-data
+# /redis-data
 # traefik.yml
 # .docker
 .env.production
@@ -22,8 +22,8 @@
 /.next/
 /out/
 next-env.d.ts
-/deployi
-/config
+# /deployi
+# /config
 
 # production
 /build
