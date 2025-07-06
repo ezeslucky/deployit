@@ -17,3 +17,8 @@ Deployi includes multiple features to make your life easier.
 - **Notifications**: Get notified when your deployments succeed or fail (via Slack, Discord, Telegram, Email, etc.).
 - **Multi Server**: Deploy and manage your applications remotely to external servers.
 - **Self-Hosted**: Self-host Deployi on your VPS.
+
+
+## Contributing
+
+Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
