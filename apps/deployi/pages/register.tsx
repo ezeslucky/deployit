@@ -173,7 +173,10 @@ const Register = ({ isCloud }: Props) => {
 												<FormItem>
 													<FormLabel>Email</FormLabel>
 													<FormControl>
-														<Input placeholder="aurobindolife888@gmail.com" {...field} />
+														<Input
+															placeholder="aurobindolife888@gmail.com"
+															{...field}
+														/>
 													</FormControl>
 													<FormMessage />
 												</FormItem>

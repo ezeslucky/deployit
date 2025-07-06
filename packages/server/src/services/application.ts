@@ -42,7 +42,7 @@ import { createTraefikConfig } from "@deployi/server/utils/traefik/application";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { encodeBase64 } from "../utils/docker/utils";
-import { getDeployiUrl, } from "./admin";
+import { getDeployiUrl } from "./admin";
 import {
 	createDeployment,
 	createDeploymentPreview,
