@@ -9,7 +9,7 @@
 		"deployi:build": "pnpm --filter=deployi run build",
 		"deployi:start": "pnpm --filter=deployi run start",
 		"test": "pnpm --filter=deployi run test",
-		"server:script": "pnpm --filter=server run switch:dev",
+		"server:script": "pnpm --filter=server run switch:dev", 
 		"server:dev": "pnpm --filter=server run dev",
 		"server:build": "pnpm --filter=server run build",
 		"docker:build": "./apps/deployi/docker/build.sh ",

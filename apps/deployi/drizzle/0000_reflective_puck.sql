@@ -1,5 +1,5 @@
 DO $$ BEGIN
- CREATE TYPE "buildType" AS ENUM ('dockerfile', 'heroku_buildpacks', 'paketo_buildpacks', 'nixpacks');
+ CREATE TYPE "buildType" AS ENUM('dockerfile', 'heroku_buildpacks', 'paketo_buildpacks', 'nixpacks');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
