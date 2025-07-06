@@ -1,11 +1,11 @@
+import type { Application } from "@deployi/server/services/application";
+import type { Project } from "@deployi/server/services/project";
 import { relations } from "drizzle-orm";
 import { jsonb, pgTable, serial, text } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import { deployments } from "./deployment";
-import type { Application } from "@deployi/server/services/application";
-import type { Project } from "@deployi/server/services/project";
 
 export const rollbacks = pgTable("rollback", {
 	rollbackId: text("rollbackId")

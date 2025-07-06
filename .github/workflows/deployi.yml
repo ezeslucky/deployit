@@ -2,7 +2,7 @@ name: Deployi Docker Build
 
 on:
   push:
-    branches: [main, canary, "1061-custom-docker-service-hostname"]
+    branches: [main, candly, "1061-custom-docker-service-hostname"]
 
 env:
   IMAGE_NAME: deployi/deployi
@@ -29,8 +29,8 @@ jobs:
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             TAG="latest"
             VERSION=$(node -p "require('./apps/deployi/package.json').version")
-          elif [ "${{ github.ref }}" = "refs/heads/canary" ]; then
-            TAG="canary"
+          elif [ "${{ github.ref }}" = "refs/heads/candly" ]; then
+            TAG="candly"
           else
             TAG="feature"
           fi
@@ -70,8 +70,8 @@ jobs:
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             TAG="latest"
             VERSION=$(node -p "require('./apps/deployi/package.json').version")
-          elif [ "${{ github.ref }}" = "refs/heads/canary" ]; then
-            TAG="canary"
+          elif [ "${{ github.ref }}" = "refs/heads/candly" ]; then
+            TAG="candly"
           else
             TAG="feature"
           fi
@@ -120,8 +120,8 @@ jobs:
               ${IMAGE_NAME}:${TAG}-amd64 \
               ${IMAGE_NAME}:${TAG}-arm64
 
-          elif [ "${{ github.ref }}" = "refs/heads/canary" ]; then
-            TAG="canary"
+          elif [ "${{ github.ref }}" = "refs/heads/candly" ]; then
+            TAG="candly"
             docker buildx imagetools create -t ${IMAGE_NAME}:${TAG} \
               ${IMAGE_NAME}:${TAG}-amd64 \
               ${IMAGE_NAME}:${TAG}-arm64

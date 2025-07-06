@@ -44,7 +44,6 @@ export const apiCreateAi = createSchema
 		apiKey: true,
 		model: true,
 		isEnabled: true,
-		
 	})
 	.required();
 
