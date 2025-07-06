@@ -1,6 +1,6 @@
 export type HotReloadEvent =
-  | 'add'
-  | 'addDir'
-  | 'change'
-  | 'unlink'
-  | 'unlinkDir';
+	| "add"
+	| "addDir"
+	| "change"
+	| "unlink"
+	| "unlinkDir";

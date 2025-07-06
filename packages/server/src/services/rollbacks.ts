@@ -1,18 +1,18 @@
+import type { CreateServiceOptions } from "dockerode";
 import { eq } from "drizzle-orm";
+import type { z } from "zod";
 import { db } from "../db";
 import {
 	type createRollbackSchema,
-	rollbacks,
 	deployments as deploymentsSchema,
+	rollbacks,
 } from "../db/schema";
-import type { z } from "zod";
-import { findApplicationById } from "./application";
-import { getRemoteDocker } from "../utils/servers/remote-docker";
 import type { ApplicationNested } from "../utils/builders";
-import { execAsync, execAsyncRemote } from "../utils/process/execAsync";
-import type { CreateServiceOptions } from "dockerode";
-import { findDeploymentById } from "./deployment";
 import { prepareEnvironmentVariables } from "../utils/docker/utils";
+import { execAsync, execAsyncRemote } from "../utils/process/execAsync";
+import { getRemoteDocker } from "../utils/servers/remote-docker";
+import { findApplicationById } from "./application";
+import { findDeploymentById } from "./deployment";
 
 export const createRollback = async (
 	input: z.infer<typeof createRollbackSchema>,

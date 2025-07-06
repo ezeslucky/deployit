@@ -2,7 +2,7 @@ name: Build Docker images
 
 on:
   push:
-    branches: ["canary", "main", "feat/monitoring"]
+    branches: ["candly", "main", "feat/monitoring"]
 
 jobs:
   build-and-push-cloud-image:
@@ -25,7 +25,7 @@ jobs:
           file: ./Dockerfile.cloud
           push: true
           tags: |
-            siumauricio/cloud:${{ github.ref_name == 'main' && 'latest' || 'canary' }}
+            siumauricio/cloud:${{ github.ref_name == 'main' && 'latest' || 'candly' }}
           platforms: linux/amd64
           build-args: |
             NEXT_PUBLIC_UMAMI_HOST=${{ secrets.NEXT_PUBLIC_UMAMI_HOST }}
@@ -52,7 +52,7 @@ jobs:
           file: ./Dockerfile.schedule
           push: true
           tags: |
-            siumauricio/schedule:${{ github.ref_name == 'main' && 'latest' || 'canary' }}
+            siumauricio/schedule:${{ github.ref_name == 'main' && 'latest' || 'candly' }}
           platforms: linux/amd64
 
   build-and-push-server-image:
@@ -75,5 +75,5 @@ jobs:
           file: ./Dockerfile.server
           push: true
           tags: |
-            siumauricio/server:${{ github.ref_name == 'main' && 'latest' || 'canary' }}
+            siumauricio/server:${{ github.ref_name == 'main' && 'latest' || 'candly' }}
           platforms: linux/amd64

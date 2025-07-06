@@ -18,7 +18,7 @@ export const setupMonitoring = async (serverId: string) => {
 			process.env.NODE_ENV === "development") &&
 		!IS_CLOUD
 	) {
-		imageName = "deployi/monitoring:canary";
+		imageName = "deployi/monitoring:candly";
 	}
 
 	const settings: ContainerCreateOptions = {
@@ -91,7 +91,7 @@ export const setupWebMonitoring = async (userId: string) => {
 			process.env.NODE_ENV === "development") &&
 		!IS_CLOUD
 	) {
-		imageName = "deployi/monitoring:canary";
+		imageName = "deployi/monitoring:candly";
 	}
 
 	const settings: ContainerCreateOptions = {
