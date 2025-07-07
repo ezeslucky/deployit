@@ -10,13 +10,13 @@
 .env.production
 # 
 # testing
-/coverage
+# /coverage
 /dist
-/production-server
+# /production-server
 # database
-/prisma/db.sqlite
-/prisma/db.sqlite-journal
-/logs
+# /prisma/db.sqlite
+# /prisma/db.sqlite-journal
+# /logs
 
 # next.js
 /.next/
@@ -26,7 +26,7 @@ next-env.d.ts
 # /config
 
 # production
-/build
+# /build
 
 # misc
 .DS_Store
