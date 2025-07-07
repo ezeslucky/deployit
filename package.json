@@ -15,7 +15,7 @@
 		"server:script": "pnpm --filter=server run switch:dev",
 		"server:dev": "pnpm --filter=server run dev",
 		"server:build": "pnpm --filter=server run build",
-		"docker:build": "./apps/deployi/docker/build.sh ",
+		"docker:build:candly": "./apps/dokploy/docker/build.sh candly",
 		"typecheck": "pnpm -r run typecheck",
 		"build": "pnpm -r run build",
 		"format-and-lint": "biome check .",
@@ -29,7 +29,7 @@
 		"@types/node": "^18.19.115",
 		"dotenv": "16.4.5",
 		"esbuild": "0.20.2",
-		"lefthook": "1.8.4",
+		"lefthook": "^1.11.16",
 		"lint-staged": "^15.5.2",
 		"tsx": "4.16.2"
 	},
