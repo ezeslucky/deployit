@@ -1,7 +1,10 @@
 {
 	"name": "deployi",
 	"private": true,
-	"workspaces": ["apps/*", "packages/*"],
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
 	"scripts": {
 		"deployi:setup": "pnpm --filter=deployi run setup",
 		"deployi:dev": "pnpm --filter=deployi run dev",
@@ -9,7 +12,7 @@
 		"deployi:build": "pnpm --filter=deployi run build",
 		"deployi:start": "pnpm --filter=deployi run start",
 		"test": "pnpm --filter=deployi run test",
-		"server:script": "pnpm --filter=server run switch:dev", 
+		"server:script": "pnpm --filter=server run switch:dev",
 		"server:dev": "pnpm --filter=server run dev",
 		"server:build": "pnpm --filter=server run build",
 		"docker:build": "./apps/deployi/docker/build.sh ",
@@ -41,10 +44,15 @@
 		]
 	},
 	"commitlint": {
-		"extends": ["@commitlint/config-conventional"]
+		"extends": [
+			"@commitlint/config-conventional"
+		]
 	},
 	"resolutions": {
 		"@types/react": "18.3.5",
 		"@types/react-dom": "18.3.0"
+	},
+	"dependencies": {
+		"wrangler": "^4.23.0"
 	}
 }
