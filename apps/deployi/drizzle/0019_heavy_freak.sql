@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS "notification" (
 	"userJoin" boolean DEFAULT false NOT NULL,
 	"appBuildError" boolean DEFAULT false NOT NULL,
 	"databaseBackup" boolean DEFAULT false NOT NULL,
-	"deployiRestart" boolean DEFAULT false NOT NULL,
+	"dokployRestart" boolean DEFAULT false NOT NULL,
 	"notificationType" "notificationType" NOT NULL,
 	"createdAt" text NOT NULL,
 	"slackId" text,

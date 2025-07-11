@@ -103,9 +103,9 @@ export const removeUserById = async (userId: string) => {
 		.then((res) => res[0]);
 };
 
-export const getDeployiUrl = async () => {
+export const getDokployUrl = async () => {
 	if (IS_CLOUD) {
-		return "http://localhost:3001";
+		return "https://app.dokploy.com";
 	}
 	const admin = await findAdmin();
 
@@ -114,3 +114,4 @@ export const getDeployiUrl = async () => {
 	}
 	return `http://${admin.user.serverIp}:${process.env.PORT}`;
 };
+ 

@@ -3,13 +3,14 @@ import { applications } from "@/server/db/schema";
 import type { DeploymentJob } from "@/server/queues/queue-types";
 import { myQueue } from "@/server/queues/queueSetup";
 import { deploy } from "@/server/utils/deploy";
-import { IS_CLOUD, shouldDeploy } from "@deployi/server";
+import { IS_CLOUD, } from "@deployi/server/constants";
+import {  shouldDeploy } from "@deployi/server/utils/watch-paths/should-deploy";
 import { eq } from "drizzle-orm";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
 	req: NextApiRequest,
-	res: NextApiResponse,
+	res: NextApiResponse, 
 ) {
 	const { refreshToken } = req.query;
 	try {

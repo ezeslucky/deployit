@@ -185,7 +185,7 @@ export const createPreviewDeploymentComment = async ({
 		owner: owner || "",
 		repo: repository || "",
 		issue_number: Number.parseInt(issue_number),
-		body: `### deployi Preview Deployment\n\n${runningComment}`,
+		body: `### Dokploy Preview Deployment\n\n${runningComment}`,
 	});
 
 	return await updatePreviewDeployment(previewDeploymentId, {

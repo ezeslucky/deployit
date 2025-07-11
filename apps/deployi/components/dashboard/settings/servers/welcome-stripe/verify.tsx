@@ -151,10 +151,10 @@ export const Verify = () => {
 											}
 										/>
 										<StatusRow
-											label="Deployi Network Created"
-											isEnabled={data?.isDeployiNetworkInstalled}
+											label="Dokploy Network Created"
+											isEnabled={data?.isDokployNetworkInstalled}
 											description={
-												data?.isDeployiNetworkInstalled
+												data?.isDokployNetworkInstalled
 													? "Created"
 													: "Not Created"
 											}

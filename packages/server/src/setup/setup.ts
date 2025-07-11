@@ -30,7 +30,7 @@ export const initializeNetwork = async () => {
 	} else {
 		docker.createNetwork({
 			Attachable: true,
-			Name: "deployi-network",
+			Name: "dokploy-network",
 			Driver: "overlay",
 		});
 		console.log("Network was initilized");
@@ -39,7 +39,7 @@ export const initializeNetwork = async () => {
 
 export const dockerNetworkInitialized = async () => {
 	try {
-		await docker.getNetwork("deployi-network").inspect();
+		await docker.getNetwork("dokploy-network").inspect();
 		return true;
 	} catch (_e) {
 		return false;

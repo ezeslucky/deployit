@@ -3,15 +3,15 @@ import {
 	createDefaultServerTraefikConfig,
 	createDefaultTraefikConfig,
 	initializeTraefik,
-} from "@deployi/server";
+} from "@deployi/server/setup/traefik-setup";
 
-import { setupDirectories } from "@deployi/server";
-import { initializePostgres } from "@deployi/server";
-import { initializeRedis } from "@deployi/server";
+import { setupDirectories } from "@deployi/server/setup/config-paths";
+import { initializePostgres } from "@deployi/server/setup/postgres-setup";
+import { initializeRedis } from "@deployi/server/setup/redis-setup";
 import {
 	initializeNetwork,
 	initializeSwarm,
-} from "@deployi/server";
+} from "@deployi/server/setup/setup";
 (async () => {
 	try {
 		setupDirectories();
@@ -24,6 +24,6 @@ import {
 		await initializeRedis();
 		await initializePostgres();
 	} catch (e) {
-		console.error("Error in deployi setup", e);
+		console.error("Error in dokploy setup", e);
 	}
 })();

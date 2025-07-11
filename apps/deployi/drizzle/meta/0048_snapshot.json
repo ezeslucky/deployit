@@ -3255,8 +3255,8 @@
           "notNull": true,
           "default": false
         },
-        "deployiRestart": {
-          "name": "deployiRestart",
+        "dokployRestart": {
+          "name": "dokployRestart",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true,

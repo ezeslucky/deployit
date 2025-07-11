@@ -64,15 +64,15 @@ export const validateBuildpacks = () => `
 `;
 
 export const validateMainDirectory = () => `
-  if [ -d "/etc/deployi" ]; then
+  if [ -d "/etc/dokploy" ]; then
 	echo true
   else
 	echo false
   fi
 `;
 
-export const validateDeployiNetwork = () => `
-  if docker network ls | grep -q 'deployi-network'; then
+export const validateDokployNetwork = () => `
+  if docker network ls | grep -q 'dokploy-network'; then
 	echo true
   else
 	echo false
@@ -114,11 +114,11 @@ export const serverValidate = async (serverId: string) => {
           buildpacksVersion=$(echo $buildpacksVersionEnabled | awk '{print $1}')
           buildpacksEnabled=$(echo $buildpacksVersionEnabled | awk '{print $2}')
 
-          isDeployiNetworkInstalled=$(${validateDeployiNetwork()})
+          isDokployNetworkInstalled=$(${validateDokployNetwork()})
           isSwarmInstalled=$(${validateSwarm()})
           isMainDirectoryInstalled=$(${validateMainDirectory()})
 
-  echo "{\\"docker\\": {\\"version\\": \\"$dockerVersion\\", \\"enabled\\": $dockerEnabled}, \\"rclone\\": {\\"version\\": \\"$rcloneVersion\\", \\"enabled\\": $rcloneEnabled}, \\"nixpacks\\": {\\"version\\": \\"$nixpacksVersion\\", \\"enabled\\": $nixpacksEnabled}, \\"buildpacks\\": {\\"version\\": \\"$buildpacksVersion\\", \\"enabled\\": $buildpacksEnabled}, \\"railpack\\": {\\"version\\": \\"$railpackVersion\\", \\"enabled\\": $railpackEnabled}, \\"isDeployiNetworkInstalled\\": $isDeployiNetworkInstalled, \\"isSwarmInstalled\\": $isSwarmInstalled, \\"isMainDirectoryInstalled\\": $isMainDirectoryInstalled}"
+  echo "{\\"docker\\": {\\"version\\": \\"$dockerVersion\\", \\"enabled\\": $dockerEnabled}, \\"rclone\\": {\\"version\\": \\"$rcloneVersion\\", \\"enabled\\": $rcloneEnabled}, \\"nixpacks\\": {\\"version\\": \\"$nixpacksVersion\\", \\"enabled\\": $nixpacksEnabled}, \\"buildpacks\\": {\\"version\\": \\"$buildpacksVersion\\", \\"enabled\\": $buildpacksEnabled}, \\"railpack\\": {\\"version\\": \\"$railpackVersion\\", \\"enabled\\": $railpackEnabled}, \\"isDokployNetworkInstalled\\": $isDokployNetworkInstalled, \\"isSwarmInstalled\\": $isSwarmInstalled, \\"isMainDirectoryInstalled\\": $isMainDirectoryInstalled}"
         `;
 				client.exec(bashCommand, (err, stream) => {
 					if (err) {

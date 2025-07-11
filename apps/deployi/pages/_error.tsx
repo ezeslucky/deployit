@@ -16,7 +16,7 @@ export default function Custom404({ statusCode, error }: Props) {
 				<header className="mb-auto flex justify-center z-50 w-full py-4">
 					<nav className="px-4 sm:px-6 lg:px-8" aria-label="Global">
 						<Link
-							href="https://deployi.me"
+							href="https://deployi.framer.ai"
 							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>
@@ -81,7 +81,7 @@ export default function Custom404({ statusCode, error }: Props) {
 					<div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
 						<p className="text-sm text-gray-500">
 							<Link
-								href="https://github.com/ezeslucky/deployit/issues"
+								href="https://github.com/ezeslucky/deployi/issues"
 								target="_blank"
 								className="underline hover:text-primary transition-colors"
 							>

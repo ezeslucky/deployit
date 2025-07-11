@@ -117,7 +117,7 @@ ${command ?? "wait $MONGOD_PID"}`;
 							}),
 						}),
 			},
-			Networks: [{ Target: "deployi-network" }],
+			Networks: [{ Target: "dokploy-network" }],
 			Resources: {
 				...resources,
 			},

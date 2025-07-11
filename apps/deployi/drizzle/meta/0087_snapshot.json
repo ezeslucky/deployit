@@ -964,7 +964,7 @@
           "type": "jsonb",
           "primaryKey": false,
           "notNull": true,
-          "default": "'{\"server\":{\"type\":\"Deployi\",\"refreshRate\":60,\"port\":4500,\"token\":\"\",\"retentionDays\":2,\"cronJob\":\"\",\"urlCallback\":\"\",\"thresholds\":{\"cpu\":0,\"memory\":0}},\"containers\":{\"refreshRate\":60,\"services\":{\"include\":[],\"exclude\":[]}}}'::jsonb"
+          "default": "'{\"server\":{\"type\":\"Dokploy\",\"refreshRate\":60,\"port\":4500,\"token\":\"\",\"retentionDays\":2,\"cronJob\":\"\",\"urlCallback\":\"\",\"thresholds\":{\"cpu\":0,\"memory\":0}},\"containers\":{\"refreshRate\":60,\"services\":{\"include\":[],\"exclude\":[]}}}'::jsonb"
         },
         "cleanupCacheApplications": {
           "name": "cleanupCacheApplications",
@@ -3500,8 +3500,8 @@
           "notNull": true,
           "default": false
         },
-        "deployiRestart": {
-          "name": "deployiRestart",
+        "dokployRestart": {
+          "name": "dokployRestart",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true,

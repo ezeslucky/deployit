@@ -77,7 +77,7 @@ const Postgresql = (
 			/>
 			<Head>
 				<title>
-					Database: {data?.name} - {data?.project.name} | Deployi
+					Database: {data?.name} - {data?.project.name} | Dokploy
 				</title>
 			</Head>
 			<div className="w-full">
@@ -114,7 +114,7 @@ const Postgresql = (
 													: "destructive"
 										}
 									>
-										{data?.server?.name || "Deployi Server"}
+										{data?.server?.name || "Dokploy Server"}
 									</Badge>
 									{data?.server?.serverStatus === "inactive" && (
 										<TooltipProvider delayDuration={0}>

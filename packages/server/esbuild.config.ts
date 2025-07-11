@@ -15,9 +15,9 @@ build({
 	target: "esnext",
 	format: "esm",
 	plugins: [
-		// alias({
-		// 	"@deployi/server": path.resolve(__dirname, "src"),
-		// }),
+		alias({
+			"@deployi/server": path.resolve(__dirname, "src"),
+		}),
 	],
 	packages: "external",
 	// Opcional: si deseas emitir declaraciones de tipos con esbuild-plugin-dts

@@ -210,7 +210,7 @@ export const serverRouter = createTRPCRouter({
 						enabled: boolean;
 						version: string;
 					};
-					isDeployiNetworkInstalled: boolean;
+					isDokployNetworkInstalled: boolean;
 					isSwarmInstalled: boolean;
 					isMainDirectoryInstalled: boolean;
 				};

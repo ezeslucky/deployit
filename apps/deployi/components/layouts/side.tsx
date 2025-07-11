@@ -379,7 +379,7 @@ const MENU: Menu = {
 		},
 		{
 			name: "Support",
-			url: "https://discord.gg/2tBnJ3jDJc",
+			url: "https://x.com/ezeslucky",
 			icon: CircleHelp,
 		},
 		{
@@ -780,7 +780,7 @@ export default function Page({ children }: Props) {
 	const pathname = usePathname();
 	const _currentPath = router.pathname;
 	const { data: auth } = api.user.get.useQuery();
-	const { data: deployiVersion } = api.settings.getDeployiVersion.useQuery();
+	const { data: dokployVersion } = api.settings.getDokployVersion.useQuery();
 
 	const includesProjects = pathname?.includes("/dashboard/project");
 	const { data: isCloud } = api.settings.isCloud.useQuery();
@@ -1037,13 +1037,13 @@ export default function Page({ children }: Props) {
 						<SidebarMenuItem>
 							<UserNav />
 						</SidebarMenuItem>
-						{deployiVersion && (
+						{dokployVersion && (
 							<>
 								<div className="px-3 text-xs text-muted-foreground text-center group-data-[collapsible=icon]:hidden">
-									Version {deployiVersion}
+									Version {dokployVersion}
 								</div>
 								<div className="hidden text-xs text-muted-foreground text-center group-data-[collapsible=icon]:block">
-									{deployiVersion}
+									{dokployVersion}
 								</div>
 							</>
 						)}

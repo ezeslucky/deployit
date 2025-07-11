@@ -68,7 +68,6 @@ export const pullRemoteImage = async (
 			remoteDocker.pull(
 				dockerImage,
 				{ authconfig: authConfig },
-				//@ts-ignore
 				(err, stream) => {
 					if (err) {
 						reject(err);
@@ -77,7 +76,6 @@ export const pullRemoteImage = async (
 
 					remoteDocker.modem.followProgress(
 						stream as Readable,
-						//@ts-ignore
 						(err: Error | null, res) => {
 							if (!err) {
 								resolve(res);
@@ -86,7 +84,6 @@ export const pullRemoteImage = async (
 								reject(err);
 							}
 						},
-						//@ts-ignore
 						(event) => {
 							onData?.(event);
 						},
@@ -418,7 +415,7 @@ export const generateConfigContainer = (application: ApplicationNested) => {
 					Networks: networkSwarm,
 				}
 			: {
-					Networks: [{ Target: "deployi-network" }],
+					Networks: [{ Target: "dokploy-network" }],
 				}),
 	};
 };

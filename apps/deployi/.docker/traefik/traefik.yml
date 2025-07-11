@@ -1,13 +1,8 @@
 providers:
-  swarm:
-    exposedByDefault: false
-    watch: true
   docker:
-    exposedByDefault: false
-    watch: true
-    network: deployi-network
+    defaultRule: Host(`{{ trimPrefix `/` .Name }}.docker.localhost`)
   file:
-    directory: /etc/deployi/traefik/dynamic
+    directory: /etc/dokploy/traefik/dynamic
     watch: true
 entryPoints:
   web:

@@ -21,7 +21,7 @@ export type TemplateProps = {
 };
 
 export const DatabaseBackupEmail = ({
-	projectName = "deployi",
+	projectName = "dokploy",
 	applicationName = "frontend",
 	databaseType = "postgres",
 	type = "success",
@@ -50,11 +50,11 @@ export const DatabaseBackupEmail = ({
 						<Section className="mt-[32px]">
 							<Img
 								src={
-									"https://raw.githubusercontent.com/ezeslucky/deployi/refs/heads/candly/apps/deployi/logo.png"
+									"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/apps/dokploy/logo.png"
 								}
 								width="100"
 								height="50"
-								alt="deployi"
+								alt="Dokploy"
 								className="my-0 mx-auto"
 							/>
 						</Section>

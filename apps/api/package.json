@@ -1,5 +1,5 @@
 {
-	"name": "@deployi/api",
+	"name": "@dokploy/api",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {

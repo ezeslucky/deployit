@@ -3,7 +3,7 @@ import { docker } from "../constants";
 import { pullImage } from "../utils/docker/utils";
 export const initializePostgres = async () => {
 	const imageName = "postgres:16";
-	const containerName = "deployi-postgres";
+	const containerName = "dokploy-postgres";
 	const settings: CreateServiceOptions = {
 		Name: containerName,
 		TaskTemplate: {
@@ -17,12 +17,12 @@ export const initializePostgres = async () => {
 				Mounts: [
 					{
 						Type: "volume",
-						Source: "deployi-postgres-database",
+						Source: "dokploy-postgres-database",
 						Target: "/var/lib/postgresql/data",
 					},
 				],
 			},
-			Networks: [{ Target: "deployi-network" }],
+			Networks: [{ Target: "dokploy-network" }],
 			Placement: {
 				Constraints: ["node.role==manager"],
 			},

@@ -64,7 +64,7 @@ export const users_temp = pgTable("user_temp", {
 	metricsConfig: jsonb("metricsConfig")
 		.$type<{
 			server: {
-				type: "Deployi" | "Remote";
+				type: "Dokploy" | "Remote";
 				refreshRate: number;
 				port: number;
 				token: string;
@@ -87,7 +87,7 @@ export const users_temp = pgTable("user_temp", {
 		.notNull()
 		.default({
 			server: {
-				type: "Deployi",
+				type: "Dokploy",
 				refreshRate: 60,
 				port: 4500,
 				token: "",
@@ -301,7 +301,7 @@ export const apiUpdateUser = createSchema.partial().extend({
 	metricsConfig: z
 		.object({
 			server: z.object({
-				type: z.enum(["Deployi", "Remote"]),
+				type: z.enum(["Dokploy", "Remote"]),
 				refreshRate: z.number(),
 				port: z.number(),
 				token: z.string(),

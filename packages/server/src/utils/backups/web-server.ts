@@ -29,7 +29,7 @@ export const runWebServerBackup = async (backup: BackupSchedule) => {
 		const rcloneFlags = getS3Credentials(destination);
 		const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
 		const { BASE_PATH } = paths();
-		const tempDir = await mkdtemp(join(tmpdir(), "deployi-backup-"));
+		const tempDir = await mkdtemp(join(tmpdir(), "dokploy-backup-"));
 		const backupFileName = `webserver-backup-${timestamp}.zip`;
 		const s3Path = `:s3:${destination.bucket}/${normalizeS3Path(backup.prefix)}${backupFileName}`;
 
@@ -38,21 +38,21 @@ export const runWebServerBackup = async (backup: BackupSchedule) => {
 
 			// First get the container ID
 			const { stdout: containerId } = await execAsync(
-				`docker ps --filter "name=deployi-postgres" --filter "status=running" -q | head -n 1`,
+				`docker ps --filter "name=dokploy-postgres" --filter "status=running" -q | head -n 1`,
 			);
 
 			if (!containerId) {
-				writeStream.write("Deployi postgres container not found❌\n");
+				writeStream.write("Dokploy postgres container not found❌\n");
 				writeStream.end();
-				throw new Error("Deployi postgres container not found");
+				throw new Error("Dokploy postgres container not found");
 			}
 
-			writeStream.write(`Deployi postgres container ID: ${containerId}\n`);
+			writeStream.write(`Dokploy postgres container ID: ${containerId}\n`);
 
 			const postgresContainerId = containerId.trim();
 
 			// First dump the database inside the container
-			const dumpCommand = `docker exec ${postgresContainerId} pg_dump -v -Fc -U deployi -d deployi -f /tmp/database.sql`;
+			const dumpCommand = `docker exec ${postgresContainerId} pg_dump -v -Fc -U dokploy -d dokploy -f /tmp/database.sql`;
 			writeStream.write(`Running dump command: ${dumpCommand}\n`);
 			await execAsync(dumpCommand);
 

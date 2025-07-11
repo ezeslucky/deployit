@@ -1,6 +1,6 @@
 import { db } from "@deployi/server/db";
 import { notifications } from "@deployi/server/db/schema";
-import DeployiRestartEmail from "@deployi/server/emails/emails/deployi-restart";
+import DokployRestartEmail from "@deployi/server/emails/emails/dokploy-restart";
 import { renderAsync } from "@react-email/components";
 import { format } from "date-fns";
 import { eq } from "drizzle-orm";
@@ -12,11 +12,11 @@ import {
 	sendTelegramNotification,
 } from "./utils";
 
-export const sendDeployiRestartNotifications = async () => {
+export const sendDokployRestartNotifications = async () => {
 	const date = new Date();
 	const unixDate = ~~(Number(date) / 1000);
 	const notificationList = await db.query.notifications.findMany({
-		where: eq(notifications.deployiRestart, true),
+		where: eq(notifications.dokployRestart, true),
 		with: {
 			email: true,
 			discord: true,
@@ -31,9 +31,9 @@ export const sendDeployiRestartNotifications = async () => {
 
 		if (email) {
 			const template = await renderAsync(
-				DeployiRestartEmail({ date: date.toLocaleString() }),
+				DokployRestartEmail({ date: date.toLocaleString() }),
 			).catch();
-			await sendEmailNotification(email, "Deployi Server Restarted", template);
+			await sendEmailNotification(email, "Dokploy Server Restarted", template);
 		}
 
 		if (discord) {
@@ -42,7 +42,7 @@ export const sendDeployiRestartNotifications = async () => {
 
 			try {
 				await sendDiscordNotification(discord, {
-					title: decorate(">", "`✅` Deployi Server Restarted"),
+					title: decorate(">", "`✅` Dokploy Server Restarted"),
 					color: 0x57f287,
 					fields: [
 						{
@@ -63,7 +63,7 @@ export const sendDeployiRestartNotifications = async () => {
 					],
 					timestamp: date.toISOString(),
 					footer: {
-						text: "Deployi Restart Notification",
+						text: "Dokploy Restart Notification",
 					},
 				});
 			} catch (error) {
@@ -77,7 +77,7 @@ export const sendDeployiRestartNotifications = async () => {
 			try {
 				await sendGotifyNotification(
 					gotify,
-					decorate("✅", "Deployi Server Restarted"),
+					decorate("✅", "Dokploy Server Restarted"),
 					`${decorate("🕒", `Date: ${date.toLocaleString()}`)}`,
 				);
 			} catch (error) {
@@ -89,7 +89,7 @@ export const sendDeployiRestartNotifications = async () => {
 			try {
 				await sendTelegramNotification(
 					telegram,
-					`<b>✅ Deployi Server Restarted</b>\n\n<b>Date:</b> ${format(date, "PP")}\n<b>Time:</b> ${format(date, "pp")}`,
+					`<b>✅ Dokploy Server Restarted</b>\n\n<b>Date:</b> ${format(date, "PP")}\n<b>Time:</b> ${format(date, "pp")}`,
 				);
 			} catch (error) {
 				console.log(error);
@@ -104,7 +104,7 @@ export const sendDeployiRestartNotifications = async () => {
 					attachments: [
 						{
 							color: "#00FF00",
-							pretext: ":white_check_mark: *Deployi Server Restarted*",
+							pretext: ":white_check_mark: *Dokploy Server Restarted*",
 							fields: [
 								{
 									title: "Time",

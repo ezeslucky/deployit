@@ -42,7 +42,7 @@ export const ShowTraefikSystem = ({ serverId }: Props) => {
 							Traefik File System
 						</CardTitle>
 						<CardDescription>
-							Manage all the files and directories in {"'/etc/deployi/traefik'"}
+							Manage all the files and directories in {"'/etc/dokploy/traefik'"}
 							.
 						</CardDescription>
 
@@ -71,7 +71,7 @@ export const ShowTraefikSystem = ({ serverId }: Props) => {
 									<div className="w-full flex-col gap-2 flex items-center justify-center h-[55vh]">
 										<span className="text-muted-foreground text-lg font-medium">
 											No directories or files detected in{" "}
-											{"'/etc/deployi/traefik'"}
+											{"'/etc/dokploy/traefik'"}
 										</span>
 										<Folder className="size-8 text-muted-foreground" />
 									</div>

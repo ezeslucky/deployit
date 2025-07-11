@@ -22,7 +22,7 @@ export const notifications = pgTable("notification", {
 	appDeploy: boolean("appDeploy").notNull().default(false),
 	appBuildError: boolean("appBuildError").notNull().default(false),
 	databaseBackup: boolean("databaseBackup").notNull().default(false),
-	deployiRestart: boolean("deployiRestart").notNull().default(false),
+	dokployRestart: boolean("dokployRestart").notNull().default(false),
 	dockerCleanup: boolean("dockerCleanup").notNull().default(false),
 	serverThreshold: boolean("serverThreshold").notNull().default(false),
 	notificationType: notificationType("notificationType").notNull(),
@@ -134,7 +134,7 @@ export const apiCreateSlack = notificationsSchema
 	.pick({
 		appBuildError: true,
 		databaseBackup: true,
-		deployiRestart: true,
+		dokployRestart: true,
 		name: true,
 		appDeploy: true,
 		dockerCleanup: true,
@@ -161,7 +161,7 @@ export const apiCreateTelegram = notificationsSchema
 	.pick({
 		appBuildError: true,
 		databaseBackup: true,
-		deployiRestart: true,
+		dokployRestart: true,
 		name: true,
 		appDeploy: true,
 		dockerCleanup: true,
@@ -190,7 +190,7 @@ export const apiCreateDiscord = notificationsSchema
 	.pick({
 		appBuildError: true,
 		databaseBackup: true,
-		deployiRestart: true,
+		dokployRestart: true,
 		name: true,
 		appDeploy: true,
 		dockerCleanup: true,
@@ -220,7 +220,7 @@ export const apiCreateEmail = notificationsSchema
 	.pick({
 		appBuildError: true,
 		databaseBackup: true,
-		deployiRestart: true,
+		dokployRestart: true,
 		name: true,
 		appDeploy: true,
 		dockerCleanup: true,
@@ -255,7 +255,7 @@ export const apiCreateGotify = notificationsSchema
 	.pick({
 		appBuildError: true,
 		databaseBackup: true,
-		deployiRestart: true,
+		dokployRestart: true,
 		name: true,
 		appDeploy: true,
 		dockerCleanup: true,

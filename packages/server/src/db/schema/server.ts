@@ -51,7 +51,7 @@ export const server = pgTable("server", {
 	metricsConfig: jsonb("metricsConfig")
 		.$type<{
 			server: {
-				type: "Deployi" | "Remote";
+				type: "Dokploy" | "Remote";
 				refreshRate: number;
 				port: number;
 				token: string;
