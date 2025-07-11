@@ -7,7 +7,7 @@ export const docker = new Docker();
 export const paths = (isServer = false) => {
 	const BASE_PATH =
 		isServer || process.env.NODE_ENV === "production"
-			? "/etc/deployi"
+			? "/etc/dokploy"
 			: path.join(process.cwd(), ".docker");
 	const MAIN_TRAEFIK_PATH = `${BASE_PATH}/traefik`;
 	const DYNAMIC_TRAEFIK_PATH = `${MAIN_TRAEFIK_PATH}/dynamic`;

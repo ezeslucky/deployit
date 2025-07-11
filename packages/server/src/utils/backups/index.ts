@@ -108,7 +108,7 @@ export const keepLatestNBackups = async (
 			backup.prefix,
 		);
 
-		// --include "*.sql.gz" or "*.zip" ensures nothing else other than the deployi backup files are touched by rclone
+		// --include "*.sql.gz" or "*.zip" ensures nothing else other than the dokploy backup files are touched by rclone
 		const rcloneList = `rclone lsf ${rcloneFlags.join(" ")} --include "*${backup.databaseType === "web-server" ? ".zip" : ".sql.gz"}" ${backupFilesPath}`;
 		// when we pipe the above command with this one, we only get the list of files we want to delete
 		const sortAndPickUnwantedBackups = `sort -r | tail -n +$((${backup.keepLatestCount}+1)) | xargs -I{}`;

@@ -28,7 +28,7 @@ export const InvitationEmail = ({
 	inviteLink,
 	toEmail,
 }: VercelInviteUserEmailProps) => {
-	const previewText = "Join to deployi";
+	const previewText = "Join to Dokploy";
 	return (
 		<Html>
 			<Head />
@@ -49,22 +49,22 @@ export const InvitationEmail = ({
 						<Section className="mt-[32px]">
 							<Img
 								src={
-									"https://raw.githubusercontent.com/ezeslucky/deployi/refs/heads/candly/apps/deployi/logo.png"
+									"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/apps/dokploy/logo.png"
 								}
 								width="100"
 								height="50"
-								alt="deployi"
+								alt="Dokploy"
 								className="my-0 mx-auto"
 							/>
 						</Section>
 						<Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-							Join to <strong>deployi</strong>
+							Join to <strong>Deployi</strong>
 						</Heading>
 						<Text className="text-black text-[14px] leading-[24px]">
 							Hello,
 						</Text>
 						<Text className="text-black text-[14px] leading-[24px]">
-							You have been invited to join <strong>deployi</strong>, a platform
+							You have been invited to join <strong>Deployi</strong>, a platform
 							that helps for deploying your apps to the cloud.
 						</Text>
 						<Section className="text-center mt-[32px] mb-[32px]">
@@ -78,7 +78,8 @@ export const InvitationEmail = ({
 						<Text className="text-black text-[14px] leading-[24px]">
 							or copy and paste this URL into your browser:{" "}
 							<Link href={inviteLink} className="text-blue-600 no-underline">
-								https://deployi.me
+								https://deployi.framer.ai
+
 							</Link>
 						</Text>
 						<Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />

@@ -97,7 +97,8 @@ export default function Home({ tokenResetPassword }: Props) {
 			<div className="flex flex-col items-center gap-4 w-full">
 				<CardTitle className="text-2xl font-bold flex flex-row gap-2 items-center">
 					<Link href="/" className="flex flex-row items-center gap-2">
-						<Logo className="size-12" />
+						<Logo className="w-[25px] h-[25px]" />
+
 					</Link>
 					Reset Password
 				</CardTitle>

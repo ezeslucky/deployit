@@ -60,7 +60,7 @@ export const buildRedis = async (redis: RedisNested) => {
 					command ? command : `redis-server --requirepass ${databasePassword}`,
 				],
 			},
-			Networks: [{ Target: "deployi-network" }],
+			Networks: [{ Target: "dokploy-network" }],
 			Resources: {
 				...resources,
 			},

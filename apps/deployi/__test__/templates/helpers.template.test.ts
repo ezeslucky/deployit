@@ -171,7 +171,7 @@ describe("helpers functions", () => {
 			expect(decodedPayload).toHaveProperty("iat");
 			expect(decodedPayload).toHaveProperty("iss");
 			expect(decodedPayload).toHaveProperty("exp");
-			expect(decodedPayload.iss).toEqual("deployi");
+			expect(decodedPayload.iss).toEqual("dokploy");
 		});
 		it.each([6, 8, 12, 16, 32])(
 			"should generate a random hex string from parameter %d byte length",
@@ -197,7 +197,7 @@ describe("helpers functions", () => {
 			expect(decodedPayload).toHaveProperty("iat");
 			expect(decodedPayload).toHaveProperty("iss");
 			expect(decodedPayload).toHaveProperty("exp");
-			expect(decodedPayload.iss).toEqual("deployi");
+			expect(decodedPayload.iss).toEqual("dokploy");
 		});
 	});
 	describe("${jwt:secret:payload}", () => {

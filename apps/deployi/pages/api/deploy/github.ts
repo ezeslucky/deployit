@@ -3,14 +3,18 @@ import { applications, compose, github } from "@/server/db/schema";
 import type { DeploymentJob } from "@/server/queues/queue-types";
 import { myQueue } from "@/server/queues/queueSetup";
 import { deploy } from "@/server/utils/deploy";
-import {
-	IS_CLOUD,
-	createPreviewDeployment,
-	findPreviewDeploymentByApplicationId,
-	findPreviewDeploymentsByPullRequestId,
-	removePreviewDeployment,
-	shouldDeploy,
-} from "@deployi/server";
+// import {
+// 	IS_CLOUD,
+// 	createPreviewDeployment,
+// 	findPreviewDeploymentByApplicationId,
+// 	findPreviewDeploymentsByPullRequestId,
+// 	removePreviewDeployment,
+// 	shouldDeploy,
+// } from "@deployi/server";
+import { IS_CLOUD, } from "@deployi/server/constants";
+import {  shouldDeploy } from "@deployi/server/utils/watch-paths/should-deploy";
+import {	findPreviewDeploymentByApplicationId,createPreviewDeployment,findPreviewDeploymentsByPullRequestId,removePreviewDeployment} from "@deployi/server/services/preview-deployment";
+
 import { Webhooks } from "@octokit/webhooks";
 import { and, eq } from "drizzle-orm";
 import type { NextApiRequest, NextApiResponse } from "next";

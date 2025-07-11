@@ -15,7 +15,7 @@
 		"server:script": "pnpm --filter=server run switch:dev",
 		"server:dev": "pnpm --filter=server run dev",
 		"server:build": "pnpm --filter=server run build",
-		"docker:build:candly": "./apps/dokploy/docker/build.sh candly",
+		"docker:build:candly": "./apps/deployi/docker/build.sh candly",
 		"typecheck": "pnpm -r run typecheck",
 		"build": "pnpm -r run build",
 		"format-and-lint": "biome check .",
@@ -26,16 +26,16 @@
 		"@biomejs/biome": "1.9.4",
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
-		"@types/node": "^18.19.115",
+		"@types/node": "^18.19.118",
 		"dotenv": "16.4.5",
 		"esbuild": "0.20.2",
-		"lefthook": "^1.11.16",
+		"lefthook": "^1.12.1",
 		"lint-staged": "^15.5.2",
 		"tsx": "4.16.2"
 	},
 	"packageManager": "pnpm@9.5.0",
 	"engines": {
-		"node": "^20.16.0",
+		"node": "^22.17.0",
 		"pnpm": ">=9.5.0"
 	},
 	"lint-staged": {
@@ -53,6 +53,6 @@
 		"@types/react-dom": "18.3.0"
 	},
 	"dependencies": {
-		"wrangler": "^4.23.0"
+		"wrangler": "^4.24.3"
 	}
 }

@@ -48,7 +48,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { encodeBase64 } from "../utils/docker/utils";
-import { getDeployiUrl } from "./admin";
+import { getDokployUrl } from "./admin";
 import { createDeploymentCompose, updateDeploymentStatus } from "./deployment";
 import { validUniqueServerAppName } from "./project";
 
@@ -217,7 +217,7 @@ export const deployCompose = async ({
 }) => {
 	const compose = await findComposeById(composeId);
 
-	const buildLink = `${await getDeployiUrl()}/dashboard/project/${
+	const buildLink = `${await getDokployUrl()}/dashboard/project/${
 		compose.projectId
 	}/services/compose/${compose.composeId}?tab=deployments`;
 	const deployment = await createDeploymentCompose({
@@ -325,7 +325,7 @@ export const deployRemoteCompose = async ({
 }) => {
 	const compose = await findComposeById(composeId);
 
-	const buildLink = `${await getDeployiUrl()}/dashboard/project/${
+	const buildLink = `${await getDokployUrl()}/dashboard/project/${
 		compose.projectId
 	}/services/compose/${compose.composeId}?tab=deployments`;
 	const deployment = await createDeploymentCompose({
@@ -479,7 +479,7 @@ export const removeCompose = async (
 
 		if (compose.composeType === "stack") {
 			const command = `
-			docker network disconnect ${compose.appName} deployi-traefik;
+			docker network disconnect ${compose.appName} dokploy-traefik;
 			cd ${projectPath} && docker stack rm ${compose.appName} && rm -rf ${projectPath}`;
 
 			if (compose.serverId) {
@@ -492,7 +492,7 @@ export const removeCompose = async (
 			});
 		} else {
 			const command = `
-			 docker network disconnect ${compose.appName} deployi-traefik;
+			 docker network disconnect ${compose.appName} dokploy-traefik;
 			cd ${projectPath} && docker compose -p ${compose.appName} down ${
 				deleteVolumes ? "--volumes" : ""
 			} && rm -rf ${projectPath}`;

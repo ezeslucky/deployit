@@ -70,7 +70,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const TEMPLATE_BASE_URL_KEY = "deployi_template_base_url";
+const TEMPLATE_BASE_URL_KEY = "dokploy_template_base_url";
 
 interface Props {
 	projectId: string;

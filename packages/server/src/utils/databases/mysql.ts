@@ -70,7 +70,7 @@ export const buildMysql = async (mysql: MysqlNested) => {
 						}
 					: {}),
 			},
-			Networks: [{ Target: "deployi-network" }],
+			Networks: [{ Target: "dokploy-network" }],
 			Resources: {
 				...resources,
 			},

@@ -256,15 +256,15 @@ const setupDirectories = () => {
 };
 
 const setupMainDirectory = () => `
-	# Check if the /etc/deployi directory exists
-	if [ -d /etc/deployi ]; then
-		echo "/etc/deployi already exists ✅"
+	# Check if the /etc/dokploy directory exists
+	if [ -d /etc/dokploy ]; then
+		echo "/etc/dokploy already exists ✅"
 	else
-		# Create the /etc/deployi directory
-		mkdir -p /etc/deployi
-		chmod 777 /etc/deployi
+		# Create the /etc/dokploy directory
+		mkdir -p /etc/dokploy
+		chmod 777 /etc/dokploy
 
-		echo "Directory /etc/deployi created ✅"
+		echo "Directory /etc/dokploy created ✅"
 	fi
 `;
 
@@ -326,15 +326,15 @@ export const setupSwarm = () => `
 	`;
 
 const setupNetwork = () => `
-	# Check if the deployi-network already exists
-	if docker network ls | grep -q 'deployi-network'; then
-		echo "Network deployi-network already exists ✅"
+	# Check if the dokploy-network already exists
+	if docker network ls | grep -q 'dokploy-network'; then
+		echo "Network dokploy-network already exists ✅"
 	else
-		# Create the deployi-network if it doesn't exist
-		if docker network create --driver overlay --attachable deployi-network; then
+		# Create the dokploy-network if it doesn't exist
+		if docker network create --driver overlay --attachable dokploy-network; then
 			echo "Network created ✅"
 		else
-			echo "Failed to create deployi-network ❌" >&2
+			echo "Failed to create dokploy-network ❌" >&2
 			exit 1
 		fi
 	fi
@@ -398,7 +398,7 @@ if [ -x "$(command -v snap)" ]; then
     SNAP_DOCKER_INSTALLED=$(snap list docker >/dev/null 2>&1 && echo "true" || echo "false")
     if [ "$SNAP_DOCKER_INSTALLED" = "true" ]; then
         echo " - Docker is installed via snap."
-        echo "   Please note that Deployi does not support Docker installed via snap."
+        echo "   Please note that Dokploy does not support Docker installed via snap."
         echo "   Please remove Docker with snap (snap remove docker) and reexecute this script."
         exit 1
     fi
@@ -515,13 +515,13 @@ const createTraefikConfig = () => {
 	const config = getDefaultServerTraefikConfig();
 
 	const command = `
-	if [ -f "/etc/deployi/traefik/dynamic/acme.json" ]; then
-		chmod 600 "/etc/deployi/traefik/dynamic/acme.json"
+	if [ -f "/etc/dokploy/traefik/dynamic/acme.json" ]; then
+		chmod 600 "/etc/dokploy/traefik/dynamic/acme.json"
 	fi
-	if [ -f "/etc/deployi/traefik/traefik.yml" ]; then
+	if [ -f "/etc/dokploy/traefik/traefik.yml" ]; then
 		echo "Traefik config already exists ✅"
 	else
-		echo "${config}" > /etc/deployi/traefik/traefik.yml
+		echo "${config}" > /etc/dokploy/traefik/traefik.yml
 	fi
 	`;
 
@@ -531,10 +531,10 @@ const createTraefikConfig = () => {
 const createDefaultMiddlewares = () => {
 	const config = getDefaultMiddlewares();
 	const command = `
-	if [ -f "/etc/deployi/traefik/dynamic/middlewares.yml" ]; then
+	if [ -f "/etc/dokploy/traefik/dynamic/middlewares.yml" ]; then
 		echo "Middlewares config already exists ✅"
 	else
-		echo "${config}" > /etc/deployi/traefik/dynamic/middlewares.yml
+		echo "${config}" > /etc/dokploy/traefik/dynamic/middlewares.yml
 	fi
 	`;
 	return command;
@@ -553,24 +553,24 @@ export const installRClone = () => `
 export const createTraefikInstance = () => {
 	const command = `
 	    # Check if dokpyloy-traefik exists
-		if docker service inspect deployi-traefik > /dev/null 2>&1; then
+		if docker service inspect dokploy-traefik > /dev/null 2>&1; then
 			echo "Migrating Traefik to Standalone..."
-			docker service rm deployi-traefik
+			docker service rm dokploy-traefik
 			sleep 8
 			echo "Traefik migrated to Standalone ✅"
 		fi
 
-		if docker inspect deployi-traefik > /dev/null 2>&1; then
+		if docker inspect dokploy-traefik > /dev/null 2>&1; then
 			echo "Traefik already exists ✅"
 		else
-			# Create the deployi-traefik container
+			# Create the dokploy-traefik container
 			TRAEFIK_VERSION=${TRAEFIK_VERSION}
 			docker run -d \
-				--name deployi-traefik \
-				--network deployi-network \
+				--name dokploy-traefik \
+				--network dokploy-network \
 				--restart unless-stopped \
-				-v /etc/deployi/traefik/traefik.yml:/etc/traefik/traefik.yml \
-				-v /etc/deployi/traefik/dynamic:/etc/deployi/traefik/dynamic \
+				-v /etc/dokploy/traefik/traefik.yml:/etc/traefik/traefik.yml \
+				-v /etc/dokploy/traefik/dynamic:/etc/dokploy/traefik/dynamic \
 				-v /var/run/docker.sock:/var/run/docker.sock \
 				-p ${TRAEFIK_SSL_PORT}:${TRAEFIK_SSL_PORT} \
 				-p ${TRAEFIK_PORT}:${TRAEFIK_PORT} \

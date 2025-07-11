@@ -1,36 +1,41 @@
-import { GetServerSideProps } from "next";
+// pages/accept-invitation/[accept-invitation].tsx
 import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
+import { GetServerSidePropsContext } from "next";
 
-interface AcceptInvitationPageProps {
-  invitationId: string;
-}
-
-export default function AcceptInvitationPage({ invitationId }: AcceptInvitationPageProps) {
-  const handleAccept = async () => {
-    const result = await authClient.organization.acceptInvitation({ invitationId });
-    console.log(result);
-  };
-
-  return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <Button onClick={handleAccept}>Accept Invitation</Button>
-    </div>
-  );
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const invitationId = context.params?.["accept-invitation"];
-
-  if (!invitationId || typeof invitationId !== "string") {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      invitationId,
-    },
-  };
+type Props = {
+	invitationId: string;
 };
+
+const AcceptInvitation = ({ invitationId }: Props) => {
+	return (
+		<div>
+			<Button
+				onClick={async () => {
+					const result = await authClient.organization.acceptInvitation({
+						invitationId,
+					});
+					console.log(result);
+				}}
+			>
+				Accept Invitation
+			</Button>
+		</div>
+	);
+};
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+	const invitationId = ctx.params?.["accept-invitation"];
+
+	if (!invitationId || typeof invitationId !== "string") {
+		return { notFound: true };
+	}
+
+	return {
+		props: {
+			invitationId,
+		},
+	};
+}
+
+export default AcceptInvitation;

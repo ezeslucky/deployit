@@ -209,7 +209,7 @@ export const HandleBackup = ({
 
 	const form = useForm<z.infer<typeof Schema>>({
 		defaultValues: {
-			database: databaseType === "web-server" ? "deployi" : "",
+			database: databaseType === "web-server" ? "dokploy" : "",
 			destinationId: "",
 			enabled: true,
 			prefix: "/",
@@ -245,7 +245,7 @@ export const HandleBackup = ({
 			database: backup?.database
 				? backup?.database
 				: databaseType === "web-server"
-					? "deployi"
+					? "dokploy"
 					: "",
 			destinationId: backup?.destinationId ?? "",
 			enabled: backup?.enabled ?? true,
@@ -569,7 +569,7 @@ export const HandleBackup = ({
 											<FormControl>
 												<Input
 													disabled={databaseType === "web-server"}
-													placeholder={"deployi"}
+													placeholder={"dokploy"}
 													{...field}
 												/>
 											</FormControl>
@@ -646,7 +646,7 @@ export const HandleBackup = ({
 										<FormItem>
 											<FormLabel>Prefix Destination</FormLabel>
 											<FormControl>
-												<Input placeholder={"deployi/"} {...field} />
+												<Input placeholder={"dokploy/"} {...field} />
 											</FormControl>
 											<FormDescription>
 												Use if you want to back up in a specific path of your

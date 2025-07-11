@@ -20,7 +20,7 @@ CREATE TABLE "user_temp" (
 	"enableDockerCleanup" boolean DEFAULT false NOT NULL,
 	"enableLogRotation" boolean DEFAULT false NOT NULL,
 	"enablePaidFeatures" boolean DEFAULT false NOT NULL,
-	"metricsConfig" jsonb DEFAULT '{"server":{"type":"Deployi","refreshRate":60,"port":4500,"token":"","retentionDays":2,"cronJob":"","urlCallback":"","thresholds":{"cpu":0,"memory":0}},"containers":{"refreshRate":60,"services":{"include":[],"exclude":[]}}}'::jsonb NOT NULL,
+	"metricsConfig" jsonb DEFAULT '{"server":{"type":"Dokploy","refreshRate":60,"port":4500,"token":"","retentionDays":2,"cronJob":"","urlCallback":"","thresholds":{"cpu":0,"memory":0}},"containers":{"refreshRate":60,"services":{"include":[],"exclude":[]}}}'::jsonb NOT NULL,
 	"cleanupCacheApplications" boolean DEFAULT false NOT NULL,
 	"cleanupCacheOnPreviews" boolean DEFAULT false NOT NULL,
 	"cleanupCacheOnCompose" boolean DEFAULT false NOT NULL,

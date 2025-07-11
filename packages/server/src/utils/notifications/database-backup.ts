@@ -61,7 +61,7 @@ export const sendDatabaseBackupNotifications = async ({
 			).catch();
 			await sendEmailNotification(
 				email,
-				"Database backup for deployi",
+				"Database backup for dokploy",
 				template,
 			);
 		}
@@ -125,7 +125,7 @@ export const sendDatabaseBackupNotifications = async ({
 				],
 				timestamp: date.toISOString(),
 				footer: {
-					text: "deployi Database Backup Notification",
+					text: "Dokploy Database Backup Notification",
 				},
 			});
 		}

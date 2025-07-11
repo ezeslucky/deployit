@@ -117,11 +117,12 @@ const Register = ({ isCloud }: Props) => {
 				<div className="flex flex-col items-center gap-4 w-full">
 					<CardTitle className="text-2xl font-bold flex  items-center gap-2">
 						<Link
-							href="https://deployi.me"
+							href="https://deployi.framer.ai"
 							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>
-							<Logo className="size-12" />
+							<Logo className="w-[25px] h-[25px]" />
+
 						</Link>
 						{isCloud ? "Sign Up" : "Setup the server"}
 					</CardTitle>
@@ -173,10 +174,7 @@ const Register = ({ isCloud }: Props) => {
 												<FormItem>
 													<FormLabel>Email</FormLabel>
 													<FormControl>
-														<Input
-															placeholder="aurobindolife888@gmail.com"
-															{...field}
-														/>
+														<Input placeholder="deploy@gmail.com" {...field} />
 													</FormControl>
 													<FormMessage />
 												</FormItem>
@@ -242,7 +240,7 @@ const Register = ({ isCloud }: Props) => {
 									Need help?
 									<Link
 										className="underline"
-										href="https://deployi.me"
+										href="https://x.com/ezeslucky"
 										target="_blank"
 									>
 										Contact us
