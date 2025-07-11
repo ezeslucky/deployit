@@ -1,7 +1,6 @@
 Deployi is a free, self-hostable Platform as a Service (PaaS) that simplifies the deployment and management of applications and databases.
 
 ### Features
-
 Deployi includes multiple features to make your life easier.
 
 - **Applications**: Deploy any type of application (Node.js, PHP, Python, Go, Ruby, etc.).
@@ -17,3 +16,8 @@ Deployi includes multiple features to make your life easier.
 - **Notifications**: Get notified when your deployments succeed or fail (via Slack, Discord, Telegram, Email, etc.).
 - **Multi Server**: Deploy and manage your applications remotely to external servers.
 - **Self-Hosted**: Self-host Deployi on your VPS.
+
+
+## Contributing
+
+Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
