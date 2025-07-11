@@ -1,6 +1,6 @@
 import { appRouter } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
-import { validateRequest } from "@deployi/server";
+import { validateRequest } from "@deployi/server/lib/auth";
 import { createOpenApiNextHandler } from "@dokploy/trpc-openapi";
 import type { NextApiRequest, NextApiResponse } from "next";
 

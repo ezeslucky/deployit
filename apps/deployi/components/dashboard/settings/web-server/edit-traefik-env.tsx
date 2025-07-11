@@ -105,7 +105,7 @@ export const EditTraefikEnv = ({ children, serverId }: Props) => {
 												language="properties"
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL=test@localhost.com
-TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_STORAGE=/etc/deployi/traefik/dynamic/acme.json
+TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_STORAGE=/etc/dokploy/traefik/dynamic/acme.json
 TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_HTTP_CHALLENGE=true
 TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_HTTP_CHALLENGE_PRETTY=true
 TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_HTTP_CHALLENGE_ENTRYPOINT=web

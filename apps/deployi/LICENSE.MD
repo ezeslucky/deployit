@@ -2,7 +2,7 @@
 
 ## Core License (Apache License 2.0)
 
-Copyright 2025 Aurobindo Patra.
+Copyright 2024 Mauricio Siu.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@ See the License for the specific language governing permissions and limitations 
 
 ## Additional Terms for Specific Features
 
-The following additional terms apply to the multi-node support, Docker Compose file, Preview Deployments and Multi Server features of Deployi. In the event of a conflict, these provisions shall take precedence over those in the Apache License:
+The following additional terms apply to the multi-node support, Docker Compose file, Preview Deployments and Multi Server features of Dokploy. In the event of a conflict, these provisions shall take precedence over those in the Apache License:
 
-- **Self-Hosted Version Free**: All features of Deployi, including multi-node support, Docker Compose file support, Preview Deployments and Multi Server, will always be free to use in the self-hosted version.
+- **Self-Hosted Version Free**: All features of Dokploy, including multi-node support, Docker Compose file support, Preview Deployments and Multi Server, will always be free to use in the self-hosted version.
 - **Restriction on Resale**: The multi-node support, Docker Compose file support, Preview Deployments and Multi Server features cannot be sold or offered as a service by any party other than the copyright holder without prior written consent.
 - **Modification Distribution**: Any modifications to the multi-node support, Docker Compose file support, Preview Deployments and Multi Server features must be distributed freely and cannot be sold or offered as a service.
 

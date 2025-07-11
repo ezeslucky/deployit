@@ -128,8 +128,9 @@ export const ShowBilling = () => {
 								</span>
 								<Button className="rounded-full bg-[#5965F2] hover:bg-[#4A55E0] w-fit">
 									<Link
-										href="https://discord.gg/2tBnJ3jDJc"
-										aria-label="Deployi on GitHub"
+										href="
+https://x.com/ezeslucky"
+										aria-label="Dokploy on GitHub"
 										target="_blank"
 										className="flex flex-row items-center gap-2 text-white"
 									>
@@ -216,11 +217,11 @@ export const ShowBilling = () => {
 														)}
 													>
 														{[
-															"All the features of Deployi",
+															"All the features of Dokploy",
 															"Unlimited deployments",
 															"Self-hosted on your own infrastructure",
 															"Full access to all deployment features",
-															"Deployi integration",
+															"Dokploy integration",
 															"Backups",
 															"All Incoming features",
 														].map((feature) => (

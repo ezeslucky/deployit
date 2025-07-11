@@ -14,17 +14,16 @@ export const OnboardingLayout = ({ children }: Props) => {
 			<div className="relative hidden h-full flex-col  p-10 text-primary dark:border-r lg:flex">
 				<div className="absolute inset-0 bg-muted" />
 				<Link
-					href="https://deployi.me"
+					href="https://deployi.framer.ai"
 					className="relative z-20 flex items-center text-lg font-medium gap-4  text-primary"
 				>
-					<Logo className="w-[25px] h-[25px]" />
-					Deployi
+					<Logo className="size-10" />
+					Dokploy
 				</Link>
 				<div className="relative z-20 mt-auto">
 					<blockquote className="space-y-2">
 						<p className="text-lg text-primary">
-							&ldquo;The Open Source alternative to Netlify, Vercel,
-							Heroku.&rdquo;
+							&ldquo; Deploy iis your all-in-one platform to deploy, manage, and scale any kind of application effortlessly. Whether you're deploying a simple web app or a complex microservices architecture, Deployi handles it all with speed, security, and flexibility &rdquo;
 						</p>
 					</blockquote>
 				</div>
@@ -35,12 +34,13 @@ export const OnboardingLayout = ({ children }: Props) => {
 				</div>
 				<div className="flex items-center gap-4 justify-center absolute bottom-4 right-4 text-muted-foreground">
 					<Button variant="ghost" size="icon">
-						<Link href="https://github.com/ezeslucky/deployit">
+						<Link href="https://github.com/ezeslucky/deployi">
 							<GithubIcon />
 						</Link>
 					</Button>
 					<Button variant="ghost" size="icon">
-						<Link href="https://x.com/ezeslucky">
+						<Link href="https://x.com/ezeslucky
+">
 							<svg
 								stroke="currentColor"
 								fill="currentColor"
@@ -53,7 +53,7 @@ export const OnboardingLayout = ({ children }: Props) => {
 							</svg>
 						</Link>
 					</Button>
-					<Button variant="ghost" size="icon">
+					{/* <Button variant="ghost" size="icon">
 						<Link href="https://discord.com/invite/2tBnJ3jDJc">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ export const OnboardingLayout = ({ children }: Props) => {
 								/>
 							</svg>
 						</Link>
-					</Button>
+					</Button> */}
 				</div>
 			</div>
 		</div>

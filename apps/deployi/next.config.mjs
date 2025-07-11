@@ -6,6 +6,9 @@
 /** @type {import("next").NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
+	experimental: {
+    // staticPageGenerationTimeout: 180,  // default 60 seconds
+  },
 	eslint: {
 		ignoreDuringBuilds: true,
 	},

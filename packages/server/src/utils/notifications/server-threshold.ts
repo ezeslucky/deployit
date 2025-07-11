@@ -88,7 +88,7 @@ export const sendServerThresholdNotifications = async (
 				],
 				timestamp: date.toISOString(),
 				footer: {
-					text: "Deployi Server Monitoring Alert",
+					text: "Dokploy Server Monitoring Alert",
 				},
 			});
 		}

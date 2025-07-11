@@ -30,8 +30,8 @@ import {
 	findPreviewDeploymentById,
 	updatePreviewDeployment,
 } from "./preview-deployment";
-import { removeRollbackById } from "./rollbacks";
 import { findScheduleById } from "./schedule";
+import { removeRollbackById } from "./rollbacks";
 
 export type Deployment = typeof deployments.$inferSelect;
 

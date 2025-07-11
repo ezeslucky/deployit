@@ -23,7 +23,7 @@ export const startLogCleanup = async (
 					`tail -n 1000 ${DYNAMIC_TRAEFIK_PATH}/access.log > ${DYNAMIC_TRAEFIK_PATH}/access.log.tmp && mv ${DYNAMIC_TRAEFIK_PATH}/access.log.tmp ${DYNAMIC_TRAEFIK_PATH}/access.log`,
 				);
 
-				await execAsync("docker exec deployi-traefik kill -USR1 1");
+				await execAsync("docker exec dokploy-traefik kill -USR1 1");
 			} catch (error) {
 				console.error("Error during log cleanup:", error);
 			}

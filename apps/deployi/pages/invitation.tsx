@@ -117,7 +117,7 @@ const Invitation = ({
 				name: values.name,
 				fetchOptions: {
 					headers: {
-						"x-deployi-token": token,
+						"x-dokploy-token": token,
 					},
 				},
 			});
@@ -144,11 +144,13 @@ const Invitation = ({
 				<div className="flex flex-col items-center gap-4 w-full">
 					<CardTitle className="text-2xl font-bold flex items-center gap-2">
 						<Link
-							href="https://deployi.me"
+							href="https://deployi.framer.ai
+"
 							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>
-							<Logo className="size-12" />
+							<Logo className="w-[25px] h-[25px]" />
+
 						</Link>
 						Invitation
 					</CardTitle>

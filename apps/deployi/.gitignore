@@ -4,29 +4,29 @@
 /node_modules
 /.pnp
 .pnp.js
-# /redis-data
-# traefik.yml
-# .docker
+/redis-data
+traefik.yml
+.docker
 .env.production
-# 
+
 # testing
-# /coverage
+/coverage
 /dist
-# /production-server
+/production-server
 # database
-# /prisma/db.sqlite
-# /prisma/db.sqlite-journal
-# /logs
+/prisma/db.sqlite
+/prisma/db.sqlite-journal
+/logs
 
 # next.js
 /.next/
 /out/
 next-env.d.ts
-# /deployi
-# /config
+/dokploy
+/config
 
 # production
-# /build
+/build
 
 # misc
 .DS_Store

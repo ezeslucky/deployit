@@ -24,8 +24,8 @@ import {
 	execAsyncRemote,
 	findServerById,
 	findUserById,
-	getDeployiImage,
-	getDeployiImageTag,
+	getDokployImage,
+	getDokployImageTag,
 	getLogCleanupStatus,
 	getUpdateData,
 	initializeTraefik,
@@ -74,7 +74,7 @@ export const settingsRouter = createTRPCRouter({
 			return true;
 		}
 		const { stdout } = await execAsync(
-			"docker service inspect deployi --format '{{.ID}}'",
+			"docker service inspect dokploy --format '{{.ID}}'",
 		);
 		await execAsync(`docker service update --force ${stdout.trim()}`);
 		return true;
@@ -85,7 +85,7 @@ export const settingsRouter = createTRPCRouter({
 		}
 
 		const { stdout: containerId } = await execAsync(
-			`docker ps --filter "name=deployi-redis" --filter "status=running" -q | head -n 1`,
+			`docker ps --filter "name=dokploy-redis" --filter "status=running" -q | head -n 1`,
 		);
 
 		if (!containerId) {
@@ -102,8 +102,8 @@ export const settingsRouter = createTRPCRouter({
 			return true;
 		}
 
-		await execAsync("docker service scale deployi-redis=0");
-		await execAsync("docker service scale deployi-redis=1");
+		await execAsync("docker service scale dokploy-redis=0");
+		await execAsync("docker service scale dokploy-redis=1");
 		return true;
 	}),
 	reloadTraefik: adminProcedure
@@ -111,9 +111,9 @@ export const settingsRouter = createTRPCRouter({
 		.mutation(async ({ input }) => {
 			try {
 				if (input?.serverId) {
-					await execAsync("docker restart deployi-traefik");
+					await execAsync("docker restart dokploy-traefik");
 				} else if (!IS_CLOUD) {
-					await execAsync("docker restart deployi-traefik");
+					await execAsync("docker restart dokploy-traefik");
 				}
 			} catch (err) {
 				console.error(err);
@@ -339,7 +339,7 @@ export const settingsRouter = createTRPCRouter({
 		if (IS_CLOUD) {
 			return true;
 		}
-		const traefikConfig = readConfig("deployi");
+		const traefikConfig = readConfig("dokploy");
 		return traefikConfig;
 	}),
 	updateWebServerTraefikConfig: adminProcedure
@@ -348,7 +348,7 @@ export const settingsRouter = createTRPCRouter({
 			if (IS_CLOUD) {
 				return true;
 			}
-			writeConfig("deployi", input.traefikConfig);
+			writeConfig("dokploy", input.traefikConfig);
 			return true;
 		}),
 
@@ -383,23 +383,25 @@ export const settingsRouter = createTRPCRouter({
 
 		await pullLatestRelease();
 
+		// This causes restart of dokploy, thus it will not finish executing properly, so don't await it
+		// Status after restart is checked via frontend /api/health endpoint
 		void spawnAsync("docker", [
 			"service",
 			"update",
 			"--force",
 			"--image",
-			getDeployiImage(),
-			"deployi",
+			getDokployImage(),
+			"dokploy",
 		]);
 
 		return true;
 	}),
 
-	getDeployiVersion: protectedProcedure.query(() => {
+	getDokployVersion: protectedProcedure.query(() => {
 		return packageInfo.version;
 	}),
 	getReleaseTag: protectedProcedure.query(() => {
-		return getDeployiImageTag();
+		return getDokployImageTag();
 	}),
 	readDirectories: protectedProcedure
 		.input(apiServerSchema)
@@ -510,8 +512,8 @@ export const settingsRouter = createTRPCRouter({
 			});
 
 			openApiDocument.info = {
-				title: "Deployi API",
-				description: "Endpoints for deployi",
+				title: "Dokploy API",
+				description: "Endpoints for dokploy",
 				version: "1.0.0",
 			};
 
@@ -541,7 +543,7 @@ export const settingsRouter = createTRPCRouter({
 		.input(apiServerSchema)
 		.query(async ({ input }) => {
 			const command =
-				"docker container inspect deployi-traefik --format '{{json .Config.Env}}'";
+				"docker container inspect dokploy-traefik --format '{{json .Config.Env}}'";
 
 			let result = "";
 			if (input?.serverId) {
@@ -570,7 +572,7 @@ export const settingsRouter = createTRPCRouter({
 	haveTraefikDashboardPortEnabled: adminProcedure
 		.input(apiServerSchema)
 		.query(async ({ input }) => {
-			const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' deployi-traefik`;
+			const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' dokploy-traefik`;
 
 			let stdout = "";
 			if (input?.serverId) {
@@ -688,7 +690,7 @@ export const settingsRouter = createTRPCRouter({
 			if (input.enable) {
 				const config = {
 					accessLog: {
-						filePath: "/etc/deployi/traefik/dynamic/access.log",
+						filePath: "/etc/dokploy/traefik/dynamic/access.log",
 						format: "json",
 						bufferingSize: 100,
 						filters: {
@@ -836,17 +838,17 @@ export const settingsRouter = createTRPCRouter({
 		return getLogCleanupStatus();
 	}),
 
-	getDeployiCloudIps: adminProcedure.query(async () => {
+	getDokployCloudIps: adminProcedure.query(async () => {
 		if (!IS_CLOUD) {
 			return [];
 		}
-		const ips = process.env.DEPLOYI_CLOUD_IPS?.split(",");
+		const ips = process.env.DOKPLOY_CLOUD_IPS?.split(",");
 		return ips;
 	}),
 });
 
 export const getTraefikPorts = async (serverId?: string) => {
-	const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' deployi-traefik`;
+	const command = `docker container inspect --format='{{json .NetworkSettings.Ports}}' dokploy-traefik`;
 	try {
 		let stdout = "";
 		if (serverId) {

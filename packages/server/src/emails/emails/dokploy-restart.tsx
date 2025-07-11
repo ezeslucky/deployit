@@ -15,10 +15,10 @@ export type TemplateProps = {
 	date: string;
 };
 
-export const DeployiRestartEmail = ({
+export const DokployRestartEmail = ({
 	date = "2023-05-01T00:00:00.000Z",
 }: TemplateProps) => {
-	const previewText = "Your deployi server was restarted";
+	const previewText = "Your dokploy server was restarted";
 	return (
 		<Html>
 			<Preview>{previewText}</Preview>
@@ -40,22 +40,22 @@ export const DeployiRestartEmail = ({
 						<Section className="mt-[32px]">
 							<Img
 								src={
-									"https://raw.githubusercontent.com/ezeslucky/deployi/refs/heads/candly/apps/deployi/logo.png"
+									"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/apps/dokploy/logo.png"
 								}
 								width="100"
 								height="50"
-								alt="deployi"
+								alt="Dokploy"
 								className="my-0 mx-auto"
 							/>
 						</Section>
 						<Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-							Deployi Server Restart
+							Dokploy Server Restart
 						</Heading>
 						<Text className="text-black text-[14px] leading-[24px]">
 							Hello,
 						</Text>
 						<Text className="text-black text-[14px] leading-[24px]">
-							Your deployi server was restarted ✅
+							Your dokploy server was restarted ✅
 						</Text>
 
 						<Section className="flex text-black text-[14px]  leading-[24px] bg-[#F4F4F5] rounded-lg p-2">
@@ -71,4 +71,4 @@ export const DeployiRestartEmail = ({
 	);
 };
 
-export default DeployiRestartEmail;
+export default DokployRestartEmail;

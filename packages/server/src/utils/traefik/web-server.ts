@@ -16,7 +16,7 @@ export const updateServerTraefik = (
 	newHost: string | null,
 ) => {
 	const { https, certificateType } = user || {};
-	const appName = "deployi";
+	const appName = "dokploy";
 	const config: FileConfig = loadOrCreateConfig(appName);
 
 	config.http = config.http || { routers: {}, services: {} };
@@ -36,7 +36,7 @@ export const updateServerTraefik = (
 			loadBalancer: {
 				servers: [
 					{
-						url: `http://deployi:${process.env.PORT || 3000}`,
+						url: `http://dokploy:${process.env.PORT || 3000}`,
 					},
 				],
 				passHostHeader: true,

@@ -58,7 +58,7 @@ export const sendBuildErrorNotifications = async ({
 					date: date.toLocaleString(),
 				}),
 			).catch();
-			await sendEmailNotification(email, "Build failed for deployi", template);
+			await sendEmailNotification(email, "Build failed for dokploy", template);
 		}
 
 		if (discord) {
@@ -110,7 +110,7 @@ export const sendBuildErrorNotifications = async ({
 				],
 				timestamp: date.toISOString(),
 				footer: {
-					text: "deployi Build Notification",
+					text: "Dokploy Build Notification",
 				},
 			});
 		}

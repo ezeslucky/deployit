@@ -57,7 +57,7 @@ export * from "./templates/processors";
 export * from "./utils/notifications/build-error";
 export * from "./utils/notifications/build-success";
 export * from "./utils/notifications/database-backup";
-export * from "./utils/notifications/deployi-restart";
+export * from "./utils/notifications/dokploy-restart";
 export * from "./utils/notifications/utils";
 export * from "./utils/notifications/docker-cleanup";
 export * from "./utils/notifications/server-threshold";
