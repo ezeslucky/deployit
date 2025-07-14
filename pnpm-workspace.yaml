@@ -1,6 +1,23 @@
 packages:
-  - "apps/api"
-  - "apps/deployi"
-  - "apps/monitoring"
-  - "apps/schedules"
-  - "packages/server"
+  - apps/api
+  - apps/deployi
+  - apps/monitoring
+  - apps/schedules
+  - packages/server
+
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - '@scarf/scarf'
+  - '@tree-sitter-grammars/tree-sitter-yaml'
+  - bcrypt
+  - core-js
+  - core-js-pure
+  - cpu-features
+  - esbuild
+  - lefthook
+  - msgpackr-extract
+  - node-pty
+  - sharp
+  - ssh2
+  - tree-sitter
+  - tree-sitter-json

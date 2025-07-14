@@ -35,7 +35,7 @@ export const initializeTraefik = async ({
 }: TraefikOptions = {}) => {
 	const { MAIN_TRAEFIK_PATH, DYNAMIC_TRAEFIK_PATH } = paths(!!serverId);
 	const imageName = `traefik:v${TRAEFIK_VERSION}`;
-	const containerName = "dokploy-traefik";
+	const containerName = "deployi-traefik";
 
 	const exposedPorts: Record<string, {}> = {
 		[`${TRAEFIK_PORT}/tcp`]: {},
@@ -88,7 +88,7 @@ export const initializeTraefik = async ({
 	const docker = await getRemoteDocker(serverId);
 	try {
 		try {
-			const service = docker.getService("dokploy-traefik");
+			const service = docker.getService("deployi-traefik");
 			await service?.remove({ force: true });
 
 			let attempts = 0;
@@ -96,7 +96,7 @@ export const initializeTraefik = async ({
 			while (attempts < maxAttempts) {
 				try {
 					await docker.listServices({
-						filters: { name: ["dokploy-traefik"] },
+						filters: { name: ["deployi-traefik"] },
 					});
 					console.log("Waiting for service cleanup...");
 					await new Promise((resolve) => setTimeout(resolve, 5000));
