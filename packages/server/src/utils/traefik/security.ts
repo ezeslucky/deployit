@@ -1,5 +1,5 @@
 import type { Security } from "@deployi/server/services/security";
-import * as bcrypt from "bcrypt";
+import * as bcryptjs from "bcryptjs";
 import type { ApplicationNested } from "../builders";
 import {
 	loadOrCreateConfig,
@@ -34,7 +34,7 @@ export const createSecurityMiddleware = async (
 	}
 	const middlewareName = `auth-${appName}`;
 
-	const user = `${data.username}:${await bcrypt.hash(data.password, 10)}`;
+	const user = `${data.username}:${await bcryptjs.hash(data.password, 10)}`;
 
 	if (config.http?.middlewares) {
 		const currentMiddleware = config.http.middlewares[middlewareName];

@@ -1,6 +1,8 @@
 packages:
-  - "apps/api"
-  - "apps/deployi"
-  - "apps/monitoring"
-  - "apps/schedules"
-  - "packages/server"
+  - apps/api
+  - apps/deployi
+  - apps/monitoring
+  - apps/schedules
+  - packages/server
+
+

@@ -5,8 +5,9 @@
 /.pnp
 .pnp.js
 /redis-data
-traefik.yml
-.docker
+
+# traefik.yml
+# .docker
 .env.production
 
 # testing

@@ -1,7 +1,85 @@
+// import "@/styles/globals.css";
+
+// import { SearchCommand } from "@/components/dashboard/search-command";
+// import { Toaster } from "@/components/ui/sonner";
+// import { Languages } from "@/lib/languages";
+// import { api } from "@/utils/api";
+// import type { NextPage } from "next";
+// import { appWithTranslation } from "next-i18next";
+// import { ThemeProvider } from "next-themes";
+// import type { AppProps } from "next/app";
+// import { Inter } from "next/font/google";
+// import Head from "next/head";
+// import Script from "next/script";
+// import type { ReactElement, ReactNode } from "react";
+
+// const inter = Inter({ subsets: ["latin"] });
+
+// export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+// 	getLayout?: (page: ReactElement) => ReactNode;
+// 	theme?: string;
+// };
+
+// type AppPropsWithLayout = AppProps & {
+// 	Component: NextPageWithLayout;
+// };
+
+// const MyApp = ({
+// 	Component,
+// 	pageProps: { ...pageProps },
+// }: AppPropsWithLayout) => {
+// 	const getLayout = Component.getLayout ?? ((page) => page);
+
+// 	return (
+// 		<>
+// 			<style jsx global>
+// 				{`
+// 					:root {
+// 						--font-inter: ${inter.style.fontFamily};
+// 					}
+// 				`}
+// 			</style>
+// 			<Head>
+// 				<title>Deployi</title>
+// 			</Head>
+// 			{process.env.NEXT_PUBLIC_UMAMI_HOST &&
+// 				process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+// 					<Script
+// 						src={process.env.NEXT_PUBLIC_UMAMI_HOST}
+// 						data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+// 					/>
+// 				)}
+
+// 			<ThemeProvider
+// 				attribute="class"
+// 				defaultTheme="system"
+// 				enableSystem
+// 				disableTransitionOnChange
+// 				forcedTheme={Component.theme}
+// 			>
+// 				<Toaster richColors />
+// 				<SearchCommand />
+// 				{getLayout(<Component {...pageProps} />)}
+// 			</ThemeProvider>
+// 		</>
+// 	);
+// };
+
+// export default api.withTRPC(
+// 	appWithTranslation(MyApp, {
+// 		i18n: {
+// 			defaultLocale: "en",
+// 			locales: Object.values(Languages).map((language) => language.code),
+// 			localeDetection: false,
+// 		},
+// 		fallbackLng: "en",
+// 		keySeparator: false,
+// 	}),
+// );
+
+
 import "@/styles/globals.css";
 
-import { SearchCommand } from "@/components/dashboard/search-command";
-import { Toaster } from "@/components/ui/sonner";
 import { Languages } from "@/lib/languages";
 import { api } from "@/utils/api";
 import type { NextPage } from "next";
@@ -10,7 +88,6 @@ import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import Script from "next/script";
 import type { ReactElement, ReactNode } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +103,7 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp = ({
 	Component,
-	pageProps: { ...pageProps },
+	pageProps,
 }: AppPropsWithLayout) => {
 	const getLayout = Component.getLayout ?? ((page) => page);
 
@@ -39,16 +116,16 @@ const MyApp = ({
 					}
 				`}
 			</style>
+
 			<Head>
 				<title>Deployi</title>
 			</Head>
-			{process.env.NEXT_PUBLIC_UMAMI_HOST &&
-				process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
-					<Script
-						src={process.env.NEXT_PUBLIC_UMAMI_HOST}
-						data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-					/>
-				)}
+
+			{/* Disable external script and extra components during build debug */}
+			{/* <Script
+				src={process.env.NEXT_PUBLIC_UMAMI_HOST}
+				data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+			/> */}
 
 			<ThemeProvider
 				attribute="class"
@@ -57,22 +134,24 @@ const MyApp = ({
 				disableTransitionOnChange
 				forcedTheme={Component.theme}
 			>
-				<Toaster richColors />
-				<SearchCommand />
+				{/* <Toaster richColors />
+				<SearchCommand /> */}
+
 				{getLayout(<Component {...pageProps} />)}
 			</ThemeProvider>
 		</>
 	);
 };
 
-export default api.withTRPC(
-	appWithTranslation(MyApp, {
-		i18n: {
-			defaultLocale: "en",
-			locales: Object.values(Languages).map((language) => language.code),
-			localeDetection: false,
-		},
-		fallbackLng: "en",
-		keySeparator: false,
-	}),
-);
+// Wrap with TRPC + i18n
+const AppWithTranslation = appWithTranslation(MyApp, {
+	i18n: {
+		defaultLocale: "en",
+		locales: Object.values(Languages).map((language) => language.code),
+		localeDetection: false,
+	},
+	fallbackLng: "en",
+	keySeparator: false,
+});
+
+export default api.withTRPC(AppWithTranslation);

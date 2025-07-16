@@ -1,3 +1,6 @@
+
+
+
 import { Logo } from "@/components/shared/logo";
 import { buttonVariants } from "@/components/ui/button";
 import type { NextPageContext } from "next";
@@ -8,8 +11,9 @@ interface Props {
 	error?: Error;
 }
 
-export default function Custom404({ statusCode, error }: Props) {
+function Error({ statusCode, error }: Props) {
 	const displayStatusCode = statusCode || 400;
+
 	return (
 		<div className="h-screen">
 			<div className="max-w-[50rem] flex flex-col mx-auto size-full">
@@ -25,19 +29,12 @@ export default function Custom404({ statusCode, error }: Props) {
 						</Link>
 					</nav>
 				</header>
+
 				<main id="content">
 					<div className="text-center py-10 px-4 sm:px-6 lg:px-8">
 						<h1 className="block text-7xl font-bold text-primary sm:text-9xl">
 							{displayStatusCode}
 						</h1>
-						{/* <AlertBlock className="max-w-xs mx-auto">
-							<p className="text-muted-foreground">
-								Oops, something went wrong.
-							</p>
-							<p className="text-muted-foreground">
-								Sorry, we couldn't find your page.
-							</p>
-						</AlertBlock> */}
 						<p className="mt-3 text-muted-foreground">
 							{statusCode === 404
 								? "Sorry, we couldn't find your page."
@@ -95,8 +92,9 @@ export default function Custom404({ statusCode, error }: Props) {
 	);
 }
 
-// @ts-ignore
 Error.getInitialProps = ({ res, err }: NextPageContext) => {
 	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
 	return { statusCode, error: err };
 };
+
+export default Error;

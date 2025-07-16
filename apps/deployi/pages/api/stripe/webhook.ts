@@ -62,7 +62,7 @@ export default async function handler(
 
 			const subscription = await stripe.subscriptions.retrieve(
 				session.subscription as string,
-			);
+			); 
 			await db
 				.update(users_temp)
 				.set({
