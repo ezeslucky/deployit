@@ -5,8 +5,4 @@ packages:
   - apps/schedules
   - packages/server
 
-onlyBuiltDependencies:
-  - '@tree-sitter-grammars/tree-sitter-yaml'
-  - bcrypt
-  - tree-sitter
-  - tree-sitter-json
+
