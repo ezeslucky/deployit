@@ -1,5 +1,5 @@
 import type { IncomingMessage } from "node:http";
-import * as bcrypt from "bcrypt";
+import * as bcryptjs from "bcryptjs";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { APIError } from "better-auth/api";
@@ -70,10 +70,10 @@ const { handler, api } = betterAuth({
 		requireEmailVerification: IS_CLOUD,
 		password: {
 			async hash(password) {
-				return bcrypt.hashSync(password, 10);
+				return bcryptjs.hashSync(password, 10);
 			},
 			async verify({ hash, password }) {
-				return bcrypt.compareSync(password, hash);
+				return bcryptjs.compareSync(password, hash);
 			},
 		},
 		sendResetPassword: async ({ user, url }) => {

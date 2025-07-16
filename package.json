@@ -26,12 +26,14 @@
 		"@biomejs/biome": "1.9.4",
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
-		"@types/node": "^18.19.118",
+		"@types/node": "^18.19.119",
 		"dotenv": "16.4.5",
 		"esbuild": "0.20.2",
-		"lefthook": "^1.12.1",
+		"lefthook": "^1.12.2",
 		"lint-staged": "^15.5.2",
-		"tsx": "4.16.2"
+		"next-on-pages": "^0.1.6",
+		"tsx": "4.16.2",
+		"wrangler": "^4.24.3"
 	},
 	"packageManager": "pnpm@10.13.1",
 	"engines": {
@@ -54,6 +56,8 @@
 	},
 	"dependencies": {
 		"@radix-ui/react-use-layout-effect": "^1.1.1",
+		"bcrypt": "5.1.1",
+		"bcryptjs": "^3.0.2",
 		"commander": "^10.0.1"
 	}
 }
