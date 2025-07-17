@@ -1,4 +1,4 @@
-import { updateGitea } from "@deployi/server/services/gitea";
+import { updateGitea } from "@deployi/server";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { type Gitea, findGitea, redirectWithError } from "./helper";
 

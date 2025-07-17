@@ -1,6 +1,3 @@
-
-
-
 import { Logo } from "@/components/shared/logo";
 import { buttonVariants } from "@/components/ui/button";
 import type { NextPageContext } from "next";
@@ -11,7 +8,7 @@ interface Props {
 	error?: Error;
 }
 
-function Error({ statusCode, error }: Props) {
+function Custom404({ statusCode, error }: Props) {
 	const displayStatusCode = statusCode || 400;
 
 	return (
@@ -20,7 +17,7 @@ function Error({ statusCode, error }: Props) {
 				<header className="mb-auto flex justify-center z-50 w-full py-4">
 					<nav className="px-4 sm:px-6 lg:px-8" aria-label="Global">
 						<Link
-							href="https://deployi.framer.ai"
+							href="https://deployi.framer.ai/"
 							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>
@@ -35,11 +32,13 @@ function Error({ statusCode, error }: Props) {
 						<h1 className="block text-7xl font-bold text-primary sm:text-9xl">
 							{displayStatusCode}
 						</h1>
+
 						<p className="mt-3 text-muted-foreground">
 							{statusCode === 404
 								? "Sorry, we couldn't find your page."
 								: "Oops, something went wrong."}
 						</p>
+
 						{error && (
 							<div className="mt-3 text-red-500">
 								<p>{error.message}</p>
@@ -92,9 +91,10 @@ function Error({ statusCode, error }: Props) {
 	);
 }
 
-Error.getInitialProps = ({ res, err }: NextPageContext) => {
+// ✅ Corrected: attach getInitialProps to Custom404
+Custom404.getInitialProps = ({ res, err }: NextPageContext) => {
 	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
 	return { statusCode, error: err };
 };
 
-export default Error;
+export default Custom404;

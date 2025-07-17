@@ -59,7 +59,7 @@ interface Props {
 
 export const ShowPaidMonitoring = ({
 	BASE_URL = process.env.NEXT_PUBLIC_METRICS_URL ||
-		"http://localhost:3001/metrics",
+		"http://localhost:3000/metrics",
 	token = process.env.NEXT_PUBLIC_METRICS_TOKEN || "my-token",
 }: Props) => {
 	const [historicalData, setHistoricalData] = useState<SystemMetrics[]>([]);

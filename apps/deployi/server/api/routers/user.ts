@@ -21,7 +21,7 @@ import {
 	member,
 } from "@deployi/server/db/schema";
 import { TRPCError } from "@trpc/server";
-import * as bcryptjs from "bcryptjs";
+import * as bcrypt from "bcrypt";
 import { and, asc, eq, gt } from "drizzle-orm";
 import { z } from "zod";
 import {
@@ -149,7 +149,7 @@ export const userRouter = createTRPCRouter({
 				const currentAuth = await db.query.account.findFirst({
 					where: eq(account.userId, ctx.user.id),
 				});
-				const correctPassword = bcryptjs.compareSync(
+				const correctPassword = bcrypt.compareSync(
 					input.currentPassword || "",
 					currentAuth?.password || "",
 				);
@@ -170,7 +170,7 @@ export const userRouter = createTRPCRouter({
 				await db
 					.update(account)
 					.set({
-						password: bcryptjs.hashSync(input.password, 10),
+						password: bcrypt.hashSync(input.password, 10),
 					})
 					.where(eq(account.userId, ctx.user.id));
 			}

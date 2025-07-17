@@ -105,7 +105,7 @@ export const removeUserById = async (userId: string) => {
 
 export const getDokployUrl = async () => {
 	if (IS_CLOUD) {
-		return "http://localhost:3001";
+		return "http://localhost:3000";
 	}
 	const admin = await findAdmin();
 

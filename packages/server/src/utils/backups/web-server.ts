@@ -38,7 +38,7 @@ export const runWebServerBackup = async (backup: BackupSchedule) => {
 
 			// First get the container ID
 			const { stdout: containerId } = await execAsync(
-				`docker ps --filter "name=dokploy-postgres" --filter "status=running" -q | head -n 1`,
+				`docker ps --filter "name=deployi-postgres" --filter "status=running" -q | head -n 1`,
 			);
 
 			if (!containerId) {
