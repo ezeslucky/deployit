@@ -21,4 +21,3 @@ onlyBuiltDependencies:
   - ssh2
   - tree-sitter
   - tree-sitter-json
-  - workerd
