@@ -1,4 +1,4 @@
-module github.com/mauriciogm/dokploy/apps/monitoring
+module github.com/ezeslucky/deployi/apps/monitoring
 
 go 1.20
 
@@ -31,4 +31,4 @@ require (
 	golang.org/x/sys v0.28.0 // indirect
 )
 
-replace github.com/mauriciogm/dokploy/apps/monitoring => ./
+replace github.com/ezeslucky/deployi/apps/monitoring => ./

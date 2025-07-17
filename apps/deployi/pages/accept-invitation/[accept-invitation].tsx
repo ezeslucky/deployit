@@ -1,21 +1,23 @@
-// pages/accept-invitation/[accept-invitation].tsx
 import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
-import { GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
 
-type Props = {
-	invitationId: string;
-};
+const AcceptInvitation = () => {
+	const { query } = useRouter();
+	const invitationId = query.invitationId as string;
 
-const AcceptInvitation = ({ invitationId }: Props) => {
 	return (
-		<div>
+		<div className="flex items-center justify-center min-h-screen">
 			<Button
 				onClick={async () => {
-					const result = await authClient.organization.acceptInvitation({
-						invitationId,
-					});
-					console.log(result);
+					try {
+						const result = await authClient.organization.acceptInvitation({
+							invitationId,
+						});
+						console.log("Invitation accepted:", result);
+					} catch (error) {
+						console.error("Failed to accept invitation:", error);
+					}
 				}}
 			>
 				Accept Invitation
@@ -24,18 +26,9 @@ const AcceptInvitation = ({ invitationId }: Props) => {
 	);
 };
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-	const invitationId = ctx.params?.["accept-invitation"];
-
-	if (!invitationId || typeof invitationId !== "string") {
-		return { notFound: true };
-	}
-
-	return {
-		props: {
-			invitationId,
-		},
-	};
-}
-
 export default AcceptInvitation;
+
+// ✅ Force this page to be rendered at request time, avoiding static generation
+export async function getServerSideProps() {
+	return { props: {} };
+}

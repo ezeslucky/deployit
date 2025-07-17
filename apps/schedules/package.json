@@ -1,5 +1,5 @@
 {
-	"name": "@dokploy/schedules",
+	"name": "@deployi/schedules",
 	"type": "module",
 	"scripts": {
 		"dev": "PORT=4001 tsx watch src/index.ts",
@@ -29,5 +29,5 @@
 		"tsx": "^4.7.1",
 		"typescript": "^5.4.2"
 	},
-	"packageManager": "pnpm@10.13.1"
+	"packageManager": "pnpm@9.5.0"
 }

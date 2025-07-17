@@ -21,3 +21,8 @@ Deployi includes multiple features to make your life easier.
 ## Contributing
 
 Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
+
+## Guides
+
+[Guides](GUIDES.md)
+

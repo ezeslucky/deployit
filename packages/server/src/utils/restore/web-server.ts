@@ -84,7 +84,7 @@ export const restoreWebServerBackup = async (
 			}
 
 			const { stdout: postgresContainer } = await execAsync(
-				`docker ps --filter "name=dokploy-postgres" --filter "status=running" -q | head -n 1`,
+				`docker ps --filter "name=deployi-postgres" --filter "status=running" -q | head -n 1`,
 			);
 
 			if (!postgresContainer) {

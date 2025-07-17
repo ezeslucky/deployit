@@ -1,5 +1,5 @@
 {
-	"name": "@dokploy/api",
+	"name": "@deployi/api",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
@@ -29,5 +29,5 @@
 		"tsx": "^4.7.1",
 		"typescript": "^5.4.2"
 	},
-	"packageManager": "pnpm@10.13.1"
+	"packageManager": "pnpm@9.5.0"
 }
