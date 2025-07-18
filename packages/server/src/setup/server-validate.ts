@@ -64,7 +64,7 @@ export const validateBuildpacks = () => `
 `;
 
 export const validateMainDirectory = () => `
-  if [ -d "/etc/dokploy" ]; then
+  if [ -d "/etc/deployi" ]; then
 	echo true
   else
 	echo false

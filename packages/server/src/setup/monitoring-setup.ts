@@ -42,7 +42,7 @@ export const setupMonitoring = async (serverId: string) => {
 				"/sys:/host/sys:ro",
 				"/etc/os-release:/etc/os-release:ro",
 				"/proc:/host/proc:ro",
-				"/etc/dokploy/monitoring/monitoring.db:/app/monitoring.db",
+				"/etc/deployi/monitoring/monitoring.db:/app/monitoring.db",
 			],
 			NetworkMode: "host",
 		},
@@ -54,7 +54,7 @@ export const setupMonitoring = async (serverId: string) => {
 	try {
 		await execAsyncRemote(
 			serverId,
-			"mkdir -p /etc/dokploy/monitoring && touch /etc/dokploy/monitoring/monitoring.db",
+			"mkdir -p /etc/deployi/monitoring && touch /etc/deployi/monitoring/monitoring.db",
 		);
 		if (serverId) {
 			await pullRemoteImage(imageName, serverId);
@@ -115,7 +115,7 @@ export const setupWebMonitoring = async (userId: string) => {
 				"/sys:/host/sys:ro",
 				"/etc/os-release:/etc/os-release:ro",
 				"/proc:/host/proc:ro",
-				"/etc/dokploy/monitoring/monitoring.db:/app/monitoring.db",
+				"/etc/deployi/monitoring/monitoring.db:/app/monitoring.db",
 			],
 			// NetworkMode: "host",
 		},
@@ -126,7 +126,7 @@ export const setupWebMonitoring = async (userId: string) => {
 	const docker = await getRemoteDocker();
 	try {
 		await execAsync(
-			"mkdir -p /etc/dokploy/monitoring && touch /etc/dokploy/monitoring/monitoring.db",
+			"mkdir -p /etc/deployi/monitoring && touch /etc/deployi/monitoring/monitoring.db",
 		);
 		await pullImage(imageName);
 

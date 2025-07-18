@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+
 /redis-data
 
 # traefik.yml
@@ -23,11 +24,11 @@
 /.next/
 /out/
 next-env.d.ts
-/dokploy
+/deployi
 /config
 
 # production
-/build
+# /build
 
 # misc
 .DS_Store

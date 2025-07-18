@@ -256,15 +256,15 @@ const setupDirectories = () => {
 };
 
 const setupMainDirectory = () => `
-	# Check if the /etc/dokploy directory exists
-	if [ -d /etc/dokploy ]; then
-		echo "/etc/dokploy already exists ✅"
+	# Check if the /etc/deployi directory exists
+	if [ -d /etc/deployi ]; then
+		echo "/etc/deployi already exists ✅"
 	else
-		# Create the /etc/dokploy directory
-		mkdir -p /etc/dokploy
-		chmod 777 /etc/dokploy
+		# Create the /etc/deployi directory
+		mkdir -p /etc/deployi
+		chmod 777 /etc/deployi
 
-		echo "Directory /etc/dokploy created ✅"
+		echo "Directory /etc/deployi created ✅"
 	fi
 `;
 
@@ -515,13 +515,13 @@ const createTraefikConfig = () => {
 	const config = getDefaultServerTraefikConfig();
 
 	const command = `
-	if [ -f "/etc/dokploy/traefik/dynamic/acme.json" ]; then
-		chmod 600 "/etc/dokploy/traefik/dynamic/acme.json"
+	if [ -f "/etc/deployi/traefik/dynamic/acme.json" ]; then
+		chmod 600 "/etc/deployi/traefik/dynamic/acme.json"
 	fi
-	if [ -f "/etc/dokploy/traefik/traefik.yml" ]; then
+	if [ -f "/etc/deployi/traefik/traefik.yml" ]; then
 		echo "Traefik config already exists ✅"
 	else
-		echo "${config}" > /etc/dokploy/traefik/traefik.yml
+		echo "${config}" > /etc/deployi/traefik/traefik.yml
 	fi
 	`;
 
@@ -531,10 +531,10 @@ const createTraefikConfig = () => {
 const createDefaultMiddlewares = () => {
 	const config = getDefaultMiddlewares();
 	const command = `
-	if [ -f "/etc/dokploy/traefik/dynamic/middlewares.yml" ]; then
+	if [ -f "/etc/deployi/traefik/dynamic/middlewares.yml" ]; then
 		echo "Middlewares config already exists ✅"
 	else
-		echo "${config}" > /etc/dokploy/traefik/dynamic/middlewares.yml
+		echo "${config}" > /etc/deployi/traefik/dynamic/middlewares.yml
 	fi
 	`;
 	return command;
@@ -569,8 +569,8 @@ export const createTraefikInstance = () => {
 				--name deployi-traefik \
 				--network dokploy-network \
 				--restart unless-stopped \
-				-v /etc/dokploy/traefik/traefik.yml:/etc/traefik/traefik.yml \
-				-v /etc/dokploy/traefik/dynamic:/etc/dokploy/traefik/dynamic \
+				-v /etc/deployi/traefik/traefik.yml:/etc/traefik/traefik.yml \
+				-v /etc/deployi/traefik/dynamic:/etc/deployi/traefik/dynamic \
 				-v /var/run/docker.sock:/var/run/docker.sock \
 				-p ${TRAEFIK_SSL_PORT}:${TRAEFIK_SSL_PORT} \
 				-p ${TRAEFIK_PORT}:${TRAEFIK_PORT} \
