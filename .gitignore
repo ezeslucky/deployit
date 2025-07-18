@@ -39,3 +39,4 @@ yarn-error.log*
 
 wrangler.toml
 vercel.json 
+deployi.tar.gz
