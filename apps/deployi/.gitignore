@@ -4,7 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-# /redis-data
+
+/redis-data
+
 # traefik.yml
 # .docker
 .env.production
