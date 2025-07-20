@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: deployi
-    image: deployi-v1:0.7
+    image: deployi-v2:0.1
     ports:
       - "3000:3000"
     env_file:
