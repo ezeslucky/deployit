@@ -217,11 +217,11 @@ https://x.com/ezeslucky"
 														)}
 													>
 														{[
-															"All the features of Dokploy",
+															"All the features of Deployi",
 															"Unlimited deployments",
 															"Self-hosted on your own infrastructure",
 															"Full access to all deployment features",
-															"Dokploy integration",
+															"Deployi integration",
 															"Backups",
 															"All Incoming features",
 														].map((feature) => (

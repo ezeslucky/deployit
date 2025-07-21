@@ -44,7 +44,7 @@ export const ShowWelcomeDokploy = () => {
 				<DialogContent className="sm:max-w-xl max-h-screen overflow-y-auto">
 					<DialogHeader>
 						<DialogTitle className="text-2xl font-semibold text-center">
-							Welcome to Dokploy Cloud 🎉
+							Welcome to Deployi Cloud 🎉
 						</DialogTitle>
 						<p className="text-center text-sm text-muted-foreground mt-2">
 							Unlock powerful features to streamline your deployments and manage
