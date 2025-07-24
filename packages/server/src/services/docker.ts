@@ -61,7 +61,7 @@ export const getContainers = async (serverId?: string | null) => {
 			.filter(
 				(container) =>
 					!container.name.includes("dokploy") ||
-					container.name.includes("dokploy-monitoring"),
+					container.name.includes("deployi-monitoring"),
 			);
 
 		return containers;

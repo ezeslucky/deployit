@@ -42,7 +42,7 @@ export const DockerCleanupEmail = ({
 						<Section className="mt-[32px]">
 							<Img
 								src={
-									"https://raw.githubusercontent.com/Dokploy/dokploy/refs/heads/canary/apps/dokploy/logo.png"
+									"https://raw.githubusercontent.com/ezeslucky/deployi/refs/heads/candly/apps/deployi/logo.png"
 								}
 								width="100"
 								height="50"
