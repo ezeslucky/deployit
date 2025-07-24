@@ -250,21 +250,21 @@ export const addDomainToCompose = async (
 			}
 			labels.unshift(...httpLabels);
 			if (!compose.isolatedDeployment) {
-				if (!labels.includes("traefik.docker.network=dokploy-network")) {
-					labels.unshift("traefik.docker.network=dokploy-network");
+				if (!labels.includes("traefik.docker.network=deployi-network")) {
+					labels.unshift("traefik.docker.network=deployi-network");
 				}
 			}
 		}
 
 		if (!compose.isolatedDeployment) {
-			// Add the dokploy-network to the service
+			// Add the deployi-network to the service
 			result.services[serviceName].networks = addDokployNetworkToService(
 				result.services[serviceName].networks,
 			);
 		}
 	}
 
-	// Add dokploy-network to the root of the compose file
+	// Add deployi-network to the root of the compose file
 	if (!compose.isolatedDeployment) {
 		result.networks = addDokployNetworkToRoot(result.networks);
 	}
@@ -335,7 +335,7 @@ export const addDokployNetworkToService = (
 	networkService: DefinitionsService["networks"],
 ) => {
 	let networks = networkService;
-	const network = "dokploy-network";
+	const network = "deployi-network";
 	if (!networks) {
 		networks = [];
 	}
@@ -357,7 +357,7 @@ export const addDokployNetworkToRoot = (
 	networkRoot: PropertiesNetworks | undefined,
 ) => {
 	let networks = networkRoot;
-	const network = "dokploy-network";
+	const network = "deployi-network";
 
 	if (!networks) {
 		networks = {};

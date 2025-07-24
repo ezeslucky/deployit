@@ -1,0 +1,15 @@
+providers:
+  docker:
+    defaultRule: Host(`{{ trimPrefix `/` .Name }}.docker.localhost`)
+  file:
+    directory: /etc/deployi/traefik/dynamic
+    watch: true
+entryPoints:
+  web:
+    address: ':80'
+  websecure:
+    address: ':443'
+    http3:
+      advertisedPort: 443
+api:
+  insecure: true

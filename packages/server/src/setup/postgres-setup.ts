@@ -22,7 +22,7 @@ export const initializePostgres = async () => {
 					},
 				],
 			},
-			Networks: [{ Target: "dokploy-network" }],
+			Networks: [{ Target: "deployi-network" }],
 			Placement: {
 				Constraints: ["node.role==manager"],
 			},

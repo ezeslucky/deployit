@@ -8,7 +8,7 @@ import {
 import { api } from "@/utils/api";
 import { useEffect, useState } from "react";
 
-export const ShowWelcomeDokploy = () => {
+export const ShowWelcome = () => {
 	const { data } = api.user.get.useQuery();
 	const [open, setOpen] = useState(false);
 

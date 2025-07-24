@@ -5712,7 +5712,7 @@
         "application",
         "compose",
         "server",
-        "dokploy-server"
+        "deployi-server"
       ]
     },
     "public.shellType": {

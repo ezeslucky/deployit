@@ -24,7 +24,7 @@ export function processLogs(
 		.map((entry) => {
 			try {
 				const log: LogEntry = JSON.parse(entry);
-				if (log.ServiceName === "dokploy-service-app@file") {
+				if (log.ServiceName === "deployi-service-app@file") {
 					return null;
 				}
 				const date = new Date(log.StartUTC);

@@ -266,13 +266,13 @@ services:
         aliases:
           - app
       backend:
-      dokploy-network:
+      deployi-network:
 
   worker:
     image: worker:latest
     networks:
       - backend
-      - dokploy-network
+      - deployi-network
 
 networks:
   frontend:
@@ -284,7 +284,7 @@ networks:
     driver_opts:
       com.docker.network.bridge.enable_icc: "true"
 
-  dokploy-network:
+  deployi-network:
     driver: bridge
 
 `;
@@ -300,13 +300,13 @@ services:
         aliases:
           - app
       backend-testhash:
-      dokploy-network:
+      deployi-network:
 
   worker:
     image: worker:latest
     networks:
       - backend-testhash
-      - dokploy-network
+      - deployi-network
 
 networks:
   frontend-testhash:
@@ -318,14 +318,14 @@ networks:
     driver_opts:
       com.docker.network.bridge.enable_icc: "true"
   
-  dokploy-network:
+  deployi-network:
     driver: bridge
 
 
   
 `);
 
-test("Expect don't add suffix to dokploy-network in compose file with multiple services and complex network configurations", () => {
+test("Expect don't add suffix to deployi-network in compose file with multiple services and complex network configurations", () => {
 	const composeData = load(composeFile4) as ComposeSpecification;
 
 	const suffix = "testhash";

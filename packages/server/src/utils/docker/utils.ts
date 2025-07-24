@@ -415,7 +415,7 @@ export const generateConfigContainer = (application: ApplicationNested) => {
 					Networks: networkSwarm,
 				}
 			: {
-					Networks: [{ Target: "dokploy-network" }],
+					Networks: [{ Target: "deployi-network" }],
 				}),
 	};
 };

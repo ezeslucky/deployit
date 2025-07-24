@@ -72,7 +72,7 @@ export const validateMainDirectory = () => `
 `;
 
 export const validateDokployNetwork = () => `
-  if docker network ls | grep -q 'dokploy-network'; then
+  if docker network ls | grep -q 'deployi-network'; then
 	echo true
   else
 	echo false
