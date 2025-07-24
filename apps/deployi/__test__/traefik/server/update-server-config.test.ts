@@ -77,7 +77,7 @@ beforeEach(() => {
 test("Should read the configuration file", () => {
 	const config: FileConfig = loadOrCreateConfig("dokploy");
 	expect(config.http?.routers?.["dokploy-router-app"]?.service).toBe(
-		"dokploy-service-app",
+		"deployi-service-app",
 	);
 });
 

@@ -326,15 +326,15 @@ export const setupSwarm = () => `
 	`;
 
 const setupNetwork = () => `
-	# Check if the dokploy-network already exists
-	if docker network ls | grep -q 'dokploy-network'; then
-		echo "Network dokploy-network already exists ✅"
+	# Check if the deployi-network already exists
+	if docker network ls | grep -q 'deployi-network'; then
+		echo "Network deployi-network already exists ✅"
 	else
-		# Create the dokploy-network if it doesn't exist
-		if docker network create --driver overlay --attachable dokploy-network; then
+		# Create the deployi-network if it doesn't exist
+		if docker network create --driver overlay --attachable deployi-network; then
 			echo "Network created ✅"
 		else
-			echo "Failed to create dokploy-network ❌" >&2
+			echo "Failed to create deployi-network ❌" >&2
 			exit 1
 		fi
 	fi
@@ -567,7 +567,7 @@ export const createTraefikInstance = () => {
 			TRAEFIK_VERSION=${TRAEFIK_VERSION}
 			docker run -d \
 				--name deployi-traefik \
-				--network dokploy-network \
+				--network deployi-network \
 				--restart unless-stopped \
 				-v /etc/deployi/traefik/traefik.yml:/etc/traefik/traefik.yml \
 				-v /etc/deployi/traefik/dynamic:/etc/deployi/traefik/dynamic \

@@ -158,7 +158,7 @@ export const readMonitoringConfig = (readAll = false) => {
 							trimmed.endsWith("}")
 						) {
 							const log = JSON.parse(trimmed);
-							if (log.ServiceName !== "dokploy-service-app@file") {
+							if (log.ServiceName !== "deployi-service-app@file") {
 								content += chunk;
 								validCount++;
 								if (validCount >= 500) {

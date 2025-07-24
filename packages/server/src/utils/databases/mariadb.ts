@@ -64,7 +64,7 @@ export const buildMariadb = async (mariadb: MariadbNested) => {
 						}
 					: {}),
 			},
-			Networks: [{ Target: "dokploy-network" }],
+			Networks: [{ Target: "deployi-network" }],
 			Resources: {
 				...resources,
 			},

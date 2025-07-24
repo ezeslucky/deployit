@@ -19,7 +19,7 @@ export const initializeRedis = async () => {
 					},
 				],
 			},
-			Networks: [{ Target: "dokploy-network" }],
+			Networks: [{ Target: "deployi-network" }],
 			Placement: {
 				Constraints: ["node.role==manager"],
 			},
