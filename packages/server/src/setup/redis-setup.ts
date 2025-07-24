@@ -4,7 +4,7 @@ import { pullImage } from "../utils/docker/utils";
 
 export const initializeRedis = async () => {
 	const imageName = "redis:7";
-	const containerName = "dokploy-redis";
+	const containerName = "deployi-redis";
 
 	const settings: CreateServiceOptions = {
 		Name: containerName,

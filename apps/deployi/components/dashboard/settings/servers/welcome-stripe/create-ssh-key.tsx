@@ -15,7 +15,7 @@ export const CreateSSHKey = () => {
 	const hasCreatedKey = useRef(false);
 
 	const cloudSSHKey = data?.find(
-		(sshKey) => sshKey.name === "dokploy-cloud-ssh-key",
+		(sshKey) => sshKey.name === "deployi-cloud-ssh-key",
 	);
 
 	useEffect(() => {
@@ -31,8 +31,8 @@ export const CreateSSHKey = () => {
 					type: "rsa",
 				});
 				await mutateAsync({
-					name: "dokploy-cloud-ssh-key",
-					description: "Used on Dokploy Cloud",
+					name: "deployi-cloud-ssh-key",
+					description: "Used on Deployi Cloud",
 					privateKey: keys.privateKey,
 					publicKey: keys.publicKey,
 					organizationId: "",

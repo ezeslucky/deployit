@@ -10,15 +10,15 @@ import { getRemoteDocker } from "../utils/servers/remote-docker";
 export const setupMonitoring = async (serverId: string) => {
 	const server = await findServerById(serverId);
 
-	const containerName = "dokploy-monitoring";
-	let imageName = "dokploy/monitoring:latest";
+	const containerName = "deployi-monitoring";
+	let imageName = "deployi/monitoring:latest";
 
 	if (
 		(getDokployImageTag() !== "latest" ||
 			process.env.NODE_ENV === "development") &&
 		!IS_CLOUD
 	) {
-		imageName = "dokploy/monitoring:canary";
+		imageName = "deployi/monitoring:candly";
 	}
 
 	const settings: ContainerCreateOptions = {
@@ -83,15 +83,15 @@ export const setupMonitoring = async (serverId: string) => {
 export const setupWebMonitoring = async (userId: string) => {
 	const user = await findUserById(userId);
 
-	const containerName = "dokploy-monitoring";
-	let imageName = "dokploy/monitoring:latest";
+	const containerName = "deployi-monitoring";
+	let imageName = "deployi/monitoring:latest";
 
 	if (
 		(getDokployImageTag() !== "latest" ||
 			process.env.NODE_ENV === "development") &&
 		!IS_CLOUD
 	) {
-		imageName = "dokploy/monitoring:canary";
+		imageName = "deployi/monitoring:candly";
 	}
 
 	const settings: ContainerCreateOptions = {

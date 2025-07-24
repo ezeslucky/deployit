@@ -85,7 +85,7 @@ export const settingsRouter = createTRPCRouter({
 		}
 
 		const { stdout: containerId } = await execAsync(
-			`docker ps --filter "name=dokploy-redis" --filter "status=running" -q | head -n 1`,
+			`docker ps --filter "name=deployi-redis" --filter "status=running" -q | head -n 1`,
 		);
 
 		if (!containerId) {
@@ -102,8 +102,8 @@ export const settingsRouter = createTRPCRouter({
 			return true;
 		}
 
-		await execAsync("docker service scale dokploy-redis=0");
-		await execAsync("docker service scale dokploy-redis=1");
+		await execAsync("docker service scale deployi-redis=0");
+		await execAsync("docker service scale deployi-redis=1");
 		return true;
 	}),
 	reloadTraefik: adminProcedure

@@ -273,7 +273,7 @@ export const ProfileForm = () => {
 															<div className="space-y-0.5">
 																<FormLabel>Allow Impersonation</FormLabel>
 																<FormDescription>
-																	Enable this option to allow Dokploy Cloud
+																	Enable this option to allow Deployi Cloud
 																	administrators to temporarily access your
 																	account for troubleshooting and support
 																	purposes. This helps them quickly identify and

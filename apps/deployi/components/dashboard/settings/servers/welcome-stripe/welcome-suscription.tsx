@@ -78,10 +78,10 @@ export const WelcomeSuscription = () => {
 
 				<DialogHeader>
 					<DialogTitle className="text-2xl text-center">
-						Welcome To Dokploy Cloud 🎉
+						Welcome To Deployi Cloud 🎉
 					</DialogTitle>
 					<DialogDescription className="text-center max-w-xl mx-auto">
-						Thank you for choosing Dokploy Cloud! 🚀 We're excited to have you
+						Thank you for choosing Deployi Cloud! 🚀 We're excited to have you
 						onboard. Before you dive in, you'll need to configure your remote
 						server to unlock all the features we offer.
 					</DialogDescription>
