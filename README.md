@@ -18,6 +18,19 @@ Deployi includes multiple features to make your life easier.
 - **Self-Hosted**: Self-host Deployi on your VPS.
 
 
+## 🚀 Getting Started
+
+To get started, run the following command on a VPS:
+
+Want to skip the installation process? [Try the Deployit Cloud](https://app.deployi.me).
+
+```bash
+curl -sSL https://deployi.me/install.sh | sh
+```
+
+For detailed documentation, visit [docs.Deployit.com](https://docs.deployi.me).
+
+
 ## Contributing
 
 Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
