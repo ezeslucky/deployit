@@ -24,5 +24,5 @@ Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
 
 ## Guides
 
-[Guides](GUIDES.md)
+Read [Guides](GUIDES.md)
 
