@@ -22,13 +22,12 @@ Deployi includes multiple features to make your life easier.
 
 To get started, run the following command on a VPS:
 
-Want to skip the installation process? [Try the Deployit Cloud](https://app.deployi.me).
+Want to skip the installation process? [Try the Deployi Cloud](https://app.deployi.me).
 
 ```bash
 curl -sSL https://deployi.me/install.sh | sh
 ```
-
-For detailed documentation, visit [docs.Deployit.com](https://docs.deployi.me).
+For detailed documentation, visit [docs.deployi.me](https://docs.deployi.me).
 
 
 ## Contributing
