@@ -151,26 +151,26 @@ export const initializeTraefik = async ({
 
 export const createDefaultServerTraefikConfig = () => {
 	const { DYNAMIC_TRAEFIK_PATH } = paths();
-	const configFilePath = path.join(DYNAMIC_TRAEFIK_PATH, "deployi.yml");
+	const configFilePath = path.join(DYNAMIC_TRAEFIK_PATH, "dokploy.yml");
 
 	if (existsSync(configFilePath)) {
 		console.log("Default traefik config already exists");
 		return;
 	}
 
-	const appName = "deployi";
-	const serviceURLDefault = `http://${appName}:${process.env.PORT || 3000}`;
+	const appName = "dokploy";
+	const serviceURLDefault = `http://deployi:${process.env.PORT || 3000}`;
 	const config: FileConfig = {
 		http: {
 			routers: {
 				[`${appName}-router-app`]: {
 					rule: `Host(\`${appName}.docker.localhost\`) && PathPrefix(\`/\`)`,
-					service: `${appName}-service-app`,
+					service: `deployi-service-app`,
 					entryPoints: ["web"],
 				},
 			},
 			services: {
-				[`${appName}-service-app`]: {
+				[`deployi-service-app`]: {
 					loadBalancer: {
 						servers: [{ url: serviceURLDefault }],
 						passHostHeader: true,
