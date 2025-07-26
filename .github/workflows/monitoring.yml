@@ -2,7 +2,7 @@ name: Deployi Monitoring Build
 
 on:
   push:
-    branches: [main, candlyy]
+    branches: [ candly]
 
 env:
   IMAGE_NAME: deployi/monitoring
