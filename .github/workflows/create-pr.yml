@@ -3,7 +3,7 @@ name: Auto PR to main when version changes
 on:
   push:
     branches:
-      - candlyy
+      - candly
 
 permissions:
   contents: write
