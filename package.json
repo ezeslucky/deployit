@@ -32,7 +32,9 @@
 		"lefthook": "^1.12.2",
 		"lint-staged": "^15.5.2",
 		"next-on-pages": "^0.1.6",
+		"tsc-alias": "1.8.10",
 		"tsx": "4.16.2",
+		"typescript": "^5.8.3",
 		"wrangler": "^4.24.3"
 	},
 	"packageManager": "pnpm@10.13.1",
