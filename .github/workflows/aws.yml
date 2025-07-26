@@ -16,7 +16,7 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.EC2_HOST }}
-          REMOTE_USER: ec2-user
+          REMOTE_USER: eu-north-1
           SOURCE: "./"
           TARGET: "/var/www/deployi"
           SCRIPT_AFTER: |
