@@ -114,4 +114,3 @@ export const getDokployUrl = async () => {
 	}
 	return `http://${admin.user.serverIp}:${process.env.PORT}`;
 };
- 
