@@ -3,18 +3,18 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - candly   # make sure this matches your branch name
+      - candly   # your deployment branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Checkout repo (not strictly required, but useful)
+      # Checkout repo (optional but good practice)
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # ✅ Setup SSH key
+      # Setup SSH key
       - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
@@ -22,31 +22,35 @@ jobs:
           chmod 600 ~/.ssh/deploy_key.pem
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      # ✅ Deploy via SSH
+      # Deploy to EC2
       - name: Deploy to EC2
         run: |
           ssh -i ~/.ssh/deploy_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             set -e
-            # Change to home directory
             cd ~
 
-            # Clone repo if not present
+            # If repo does not exist, clone it
             if [ ! -d "deployi" ]; then
               git clone https://github.com/ezeslucky/deployi.git deployi
             fi
+
             cd deployi
 
-            # Ensure we are on the candly branch
+            # Pull latest changes from candly branch
             git fetch origin
             git checkout candly
             git reset --hard origin/candly
 
-            # Install pnpm (if not installed)
-            corepack enable || true
-            npm install -g pnpm || true
+            # Make sure pnpm is installed (only once on your server)
+            if ! command -v pnpm &> /dev/null
+            then
+              echo "Installing pnpm..."
+              sudo corepack enable
+              sudo corepack prepare pnpm@latest --activate
+            fi
 
             # Install dependencies and build
-            pnpm install --ignore-engines
+            pnpm install --no-frozen-lockfile
             pnpm build || pnpm run build
 
             # Restart the app with PM2
