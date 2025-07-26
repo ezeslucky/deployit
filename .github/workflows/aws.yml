@@ -2,11 +2,12 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [ candly ]
+    branches: [candly]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -14,11 +15,11 @@ jobs:
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@v2
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: 13.49.95.183
-          REMOTE_USER: ubuntu
-          SOURCE: "./"
-          TARGET: "/var/www/deployi"
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+          remote-host: 13.49.95.183
+          remote-user: ubuntu
+          source: "./"
+          target: "/var/www/deployi"
 
       - name: Run post-deploy script
         uses: appleboy/ssh-action@v0.1.10
