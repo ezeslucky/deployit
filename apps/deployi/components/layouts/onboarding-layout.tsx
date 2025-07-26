@@ -23,7 +23,11 @@ export const OnboardingLayout = ({ children }: Props) => {
 				<div className="relative z-20 mt-auto">
 					<blockquote className="space-y-2">
 						<p className="text-lg text-primary">
-							&ldquo;Deployi is your all-in-one platform to deploy, manage, and scale any kind of application effortlessly. Whether you're deploying a simple web app or a complex microservices architecture, Deployi handles it all with speed, security, and flexibility.&rdquo;
+							&ldquo;Deployi is your all-in-one platform to deploy, manage, and
+							scale any kind of application effortlessly. Whether you're
+							deploying a simple web app or a complex microservices
+							architecture, Deployi handles it all with speed, security, and
+							flexibility.&rdquo;
 						</p>
 					</blockquote>
 				</div>
@@ -39,8 +43,10 @@ export const OnboardingLayout = ({ children }: Props) => {
 						</Link>
 					</Button>
 					<Button variant="ghost" size="icon">
-						<Link href="https://x.com/ezeslucky
-">
+						<Link
+							href="https://x.com/ezeslucky
+"
+						>
 							<svg
 								stroke="currentColor"
 								fill="currentColor"
@@ -53,7 +59,6 @@ export const OnboardingLayout = ({ children }: Props) => {
 							</svg>
 						</Link>
 					</Button>
-					
 				</div>
 			</div>
 		</div>
