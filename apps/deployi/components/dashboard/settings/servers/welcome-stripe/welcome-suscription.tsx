@@ -126,11 +126,10 @@ export const WelcomeSuscription = () => {
 										</li>
 										{index < array.length - 1 && (
 											<Separator
-												className={`flex-1 ${
-													index < stepper.current.index
+												className={`flex-1 ${index < stepper.current.index
 														? "bg-primary"
 														: "bg-muted"
-												}`}
+													}`}
 											/>
 										)}
 									</React.Fragment>
@@ -326,9 +325,8 @@ export const WelcomeSuscription = () => {
 											<div className="flex flex-row gap-4">
 												<Button className="rounded-full bg-[#5965F2] hover:bg-[#4A55E0] w-fit">
 													<Link
-														href="
-https://x.com/ezeslucky"
-														aria-label="Dokploy on GitHub"
+														href="https://discord.gg/deployi"
+														aria-label="Join Deployi Discord Server"
 														target="_blank"
 														className="flex flex-row items-center gap-2 text-white"
 													>
