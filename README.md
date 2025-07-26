@@ -25,7 +25,8 @@ To get started, run the following command on a VPS:
 Want to skip the installation process? [Try the Deployi Cloud](https://app.deployi.me).
 
 ```bash
-curl -sSL https://deployi.me/install.sh | sh
+curl -sSL https://deployi.me/install.sh | bash
+
 ```
 For detailed documentation, visit [docs.deployi.me](https://docs.deployi.me).
 
