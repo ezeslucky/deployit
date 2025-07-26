@@ -28,6 +28,7 @@ jobs:
           LATEST_TAG=$(git ls-remote --tags origin | awk -F'/' '{print $3}' | sort -V | tail -n1)
           echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
           echo $LATEST_TAG
+
       - name: Compare versions
         id: compare_versions
         run: |
@@ -41,13 +42,14 @@ jobs:
           echo "Current version: ${{ env.VERSION }}"
           echo "Latest tag: ${{ env.LATEST_TAG }}"
           echo "Version changed: $VERSION_CHANGED"
+
       - name: Check if a PR already exists
         id: check_pr
         run: |
           PR_EXISTS=$(gh pr list --state open --base main --head candly --json number --jq '. | length')
           echo "PR_EXISTS=$PR_EXISTS" >> $GITHUB_ENV
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ github.token }}
 
       - name: Create Pull Request
         if: env.VERSION_CHANGED == 'true' && env.PR_EXISTS == '0'
