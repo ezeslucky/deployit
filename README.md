@@ -2,10 +2,9 @@
  [Deployi](https://deployi.me/) is a **free, self‑hostable Platform as a Service (PaaS)** that simplifies the deployment and management of applications and databases.
 
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) <a href="https://www.producthunt.com/products/deployi?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-deployi" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=997417&theme=light&t=1753596347090" alt="Deployi - #deployi | Product Hunt" style="width: 250px; height: 54px; vertical-align: middle;" /></a>
 
 
-<a href="https://www.producthunt.com/products/deployi?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-deployi" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=997417&theme=light&t=1753596347090" alt="Deployi - &#0035;deployi | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 ---
 
 ## ✨ Features
