@@ -27,7 +27,7 @@ const Dashboard = () => {
 			<AlertBlock>
 				You are watching the <strong>Free</strong> plan.{" "}
 				<a
-					href="https://deployi.framer.ai/#pricing"
+					href="https://deployi.me/#pricing"
 					target="_blank"
 					className="underline"
 					rel="noreferrer"
