@@ -4,7 +4,6 @@
 
  <a href="https://www.producthunt.com/products/deployi?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-deployi" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=997417&theme=light&t=1753596347090" alt="Deployi - #deployi | Product Hunt" style="width: 250px; height: 54px; vertical-align: middle;" /></a>[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) 
 
-
 ---
 
 ## ✨ Features
@@ -40,8 +39,5 @@ curl -sSL https://deployi.me/install.sh | bash
 
 Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
 
-## Guides
-
-Read [Guides](GUIDES.md)
 
 
