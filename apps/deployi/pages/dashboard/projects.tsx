@@ -12,8 +12,11 @@ import superjson from "superjson";
 const ShowWelcomeDeployi = dynamic(
 	() =>
 		import("@/components/dashboard/settings/billing/show-welcome-dokploy").then(
+
 			//@ts-ignore
 			(mod) => mod.ShowWelcomeDeployi,
+
+			
 		),
 	{ ssr: false },
 );

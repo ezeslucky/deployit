@@ -217,9 +217,7 @@
 		]
 	},
 	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
+		"extends": ["@commitlint/config-conventional"]
 	},
 	"optionalDependencies": {
 		"@next/swc-linux-x64-gnu": "^15.4.3"
