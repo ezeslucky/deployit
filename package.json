@@ -23,7 +23,7 @@
 		"@biomejs/biome": "1.9.4",
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
-		"@types/node": "^18.19.119",
+		"@types/node": "^18.19.121",
 		"dotenv": "16.4.5",
 		"esbuild": "0.20.2",
 		"lefthook": "^1.12.2",
@@ -32,7 +32,7 @@
 		"tsc-alias": "1.8.10",
 		"tsx": "4.16.2",
 		"typescript": "^5.8.3",
-		"wrangler": "^4.24.3"
+		"wrangler": "^4.26.1"
 	},
 	"packageManager": "pnpm@10.13.1",
 	"engines": {
@@ -52,7 +52,7 @@
 		"@types/react-dom": "18.3.0"
 	},
 	"dependencies": {
-		"@next/swc-wasm-nodejs": "^15.4.3",
+		"@next/swc-wasm-nodejs": "^15.4.4",
 		"@radix-ui/react-use-layout-effect": "^1.1.1",
 		"bcrypt": "5.1.1",
 		"bcryptjs": "^3.0.2",
