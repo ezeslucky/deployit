@@ -7,7 +7,7 @@ import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
 import type { ReactElement } from "react";
-import superjson from "superjson";
+import superjson from "superjson"; 
 
 const ShowWelcomeDeployi = dynamic(
 	() =>
