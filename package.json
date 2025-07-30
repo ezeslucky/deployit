@@ -1,10 +1,7 @@
 {
 	"name": "deployi",
 	"private": true,
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	],
+	"workspaces": ["apps/*", "packages/*"],
 	"scripts": {
 		"deployi:setup": "pnpm --filter=deployi run setup",
 		"deployi:dev": "pnpm --filter=deployi run dev",
@@ -48,9 +45,7 @@
 		]
 	},
 	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
+		"extends": ["@commitlint/config-conventional"]
 	},
 	"resolutions": {
 		"@types/react": "18.3.5",

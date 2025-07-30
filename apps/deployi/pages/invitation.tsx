@@ -145,11 +145,10 @@ const Invitation = ({
 					<CardTitle className="text-2xl font-bold flex items-center gap-2">
 						<Link
 							href="https://deployi.me/"
-								target="_blank"
+							target="_blank"
 							className="flex flex-row items-center gap-2"
 						>
 							<Logo className="w-[25px] h-[25px]" />
-
 						</Link>
 						Invitation
 					</CardTitle>

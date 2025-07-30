@@ -122,7 +122,6 @@ const Register = ({ isCloud }: Props) => {
 							className="flex flex-row items-center gap-2"
 						>
 							<Logo className="w-[25px] h-[25px]" />
-
 						</Link>
 						{isCloud ? "Sign Up" : "Setup the server"}
 					</CardTitle>

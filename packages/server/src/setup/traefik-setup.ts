@@ -35,7 +35,7 @@ export const initializeTraefik = async ({
 }: TraefikOptions = {}) => {
 	const { MAIN_TRAEFIK_PATH, DYNAMIC_TRAEFIK_PATH } = paths(!!serverId);
 	const imageName = `traefik:v${TRAEFIK_VERSION}`;
-	const containerName = "deployi-traefik";
+	const containerName = "dokploy-traefik";
 
 	const exposedPorts: Record<string, {}> = {
 		[`${TRAEFIK_PORT}/tcp`]: {},
@@ -88,7 +88,7 @@ export const initializeTraefik = async ({
 	const docker = await getRemoteDocker(serverId);
 	try {
 		try {
-			const service = docker.getService("deployi-traefik");
+			const service = docker.getService("dokploy-traefik");
 			await service?.remove({ force: true });
 
 			let attempts = 0;
@@ -96,7 +96,7 @@ export const initializeTraefik = async ({
 			while (attempts < maxAttempts) {
 				try {
 					await docker.listServices({
-						filters: { name: ["deployi-traefik"] },
+						filters: { name: ["dokploy-traefik"] },
 					});
 					console.log("Waiting for service cleanup...");
 					await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -151,26 +151,26 @@ export const initializeTraefik = async ({
 
 export const createDefaultServerTraefikConfig = () => {
 	const { DYNAMIC_TRAEFIK_PATH } = paths();
-	const configFilePath = path.join(DYNAMIC_TRAEFIK_PATH, "deployi.yml");
+	const configFilePath = path.join(DYNAMIC_TRAEFIK_PATH, "dokploy.yml");
 
 	if (existsSync(configFilePath)) {
 		console.log("Default traefik config already exists");
 		return;
 	}
 
-	const appName = "deployi";
-	const serviceURLDefault = `http://${appName}:${process.env.PORT || 3000}`;
+	const appName = "dokploy";
+	const serviceURLDefault = `http://deployi:${process.env.PORT || 3000}`;
 	const config: FileConfig = {
 		http: {
 			routers: {
 				[`${appName}-router-app`]: {
 					rule: `Host(\`${appName}.docker.localhost\`) && PathPrefix(\`/\`)`,
-					service: `${appName}-service-app`,
+					service: `deployi-service-app`,
 					entryPoints: ["web"],
 				},
 			},
 			services: {
-				[`${appName}-service-app`]: {
+				[`deployi-service-app`]: {
 					loadBalancer: {
 						servers: [{ url: serviceURLDefault }],
 						passHostHeader: true,
