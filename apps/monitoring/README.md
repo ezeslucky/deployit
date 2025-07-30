@@ -57,53 +57,7 @@ go run main.go
 
 ## Features
 
-### Server
 
-- CPU Usage (%)
-- Memory Usage (%)
-- Disk
-- Network
-- CPU Model
-- Operating System
-- Kernel
-- Architecture
-- Threads
-
-Example response:
-
-| Field              | Value                       |
-| ------------------ | --------------------------- |
-| timestamp          | 2025-01-19T21:44:54.232164Z |
-| cpu                | 24.57%                      |
-| cpu_model          | Apple M1 Pro                |
-| cpu_cores          | 8                           |
-| cpu_physical_cores | 1                           |
-| cpu_speed          | 3228.0 MHz                  |
-| os                 | darwin                      |
-| distro             | darwin                      |
-| kernel             | 23.4.0                      |
-| arch               | arm64                       |
-| mem_used           | 81.91%                      |
-| mem_used_gb        | 13.11 GB                    |
-| mem_total          | 16.0 GB                     |
-| uptime             | 752232s                     |
-| disk_used          | 89.34%                      |
-| total_disk         | 460.43 GB                   |
-| network_in         | 54.78 MB                    |
-| network_out        | 31.72 MB                    |
-
-### Containers
-
-Compatible with all Docker container types (standalone containers, Docker Compose, and Docker Swarm stacks). Note: When monitoring Docker Compose or Swarm stacks, use the `--p` flag to properly identify all services within the stack.
-
-Example response:
-
-| Field          | Value                                 |
-| -------------- | ------------------------------------- |
-| id             | 1                                     |
-| timestamp      | 2025-01-19T22:16:30.796129Z           |
-| container_id   | 7428f5a49039                          |
-| container_name | testing-elasticsearch-14649e-kibana-1 |
 
 Metrics JSON:
 
