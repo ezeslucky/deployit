@@ -3,52 +3,44 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - candly  # Match your deployment branch
+      - candly
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Checkout repository
-      - name: Checkout repo
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      # ✅ Setup SSH key and known hosts
-      - name: Setup SSH key
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_KEY }}" > ~/.ssh/deploy_key.pem
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/deploy_key.pem
           chmod 600 ~/.ssh/deploy_key.pem
-          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      # ✅ SSH and deploy commands
-      - name: Deploy to EC2
+      - name: Deploy to EC2 and Run App
         run: |
-          ssh -i ~/.ssh/deploy_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             set -e
-            cd ~
 
-            # Clone repo if not already present
-            if [ ! -d "deployi" ]; then
-              git clone https://github.com/ezeslucky/deployi.git deployi
-            fi
+            # 📁 Navigate to your project folder
+            cd ~/deployi
 
-            cd deployi
-
-            # Ensure latest code on candly branch
+            # 🔄 Pull latest code
             git fetch origin
-            git checkout candly
             git reset --hard origin/candly
 
-            # ✅ Enable Corepack and activate PNPM with sudo to fix EACCES
+            # ⚙️ Fix permission issues and prepare pnpm
             sudo corepack enable
             sudo corepack prepare pnpm@8.15.4 --activate
 
-            # ✅ Install dependencies and build
-            pnpm install --ignore-engines
+            # 📦 Install dependencies
+            pnpm install --config.ignore-engines=true
+
+            # 🏗️ Build your app
             pnpm build || pnpm run build
 
-            # ✅ Restart the app using PM2
+            # 🚀 Restart your app with PM2
             pm2 restart deployi || pm2 start "pnpm start" --name deployi
           EOF
