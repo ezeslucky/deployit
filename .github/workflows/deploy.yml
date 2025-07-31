@@ -3,14 +3,14 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - candly   
+      - candly
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Checkout repo (good for metadata or GH_TOKEN actions)
+      # ✅ Checkout the repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -22,32 +22,35 @@ jobs:
           chmod 600 ~/.ssh/deploy_key.pem
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      # ✅ Deploy via SSH
-      - name: Deploy to EC2
+      # ✅ Deploy to EC2
+      - name: Deploy to EC2 via SSH
         run: |
           ssh -i ~/.ssh/deploy_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             set -e
+
+            # Go to home directory
             cd ~
 
             # Clone repo if not exists
             if [ ! -d "deployi" ]; then
               git clone https://github.com/ezeslucky/deployi.git deployi
             fi
+
             cd deployi
 
-            # Pull latest changes from correct branch
+            # Update codebase
             git fetch origin
             git checkout candly
             git reset --hard origin/candly
 
-            # ✅ Activate pnpm with Corepack (no sudo required)
-            corepack prepare pnpm@latest --activate
-            pnpm --version
+            # Enable Corepack and use specific pnpm version
+            corepack enable
+            corepack use pnpm@8
 
-            # ✅ Install deps and build
+            # Install dependencies and build
             pnpm install --ignore-engines
             pnpm build || pnpm run build
 
-            # ✅ Restart or start app with PM2
+            # Restart app with PM2
             pm2 restart deployi || pm2 start "pnpm start" --name deployi
           EOF
