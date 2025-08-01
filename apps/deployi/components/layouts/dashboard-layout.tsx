@@ -16,7 +16,7 @@ export const DashboardLayout = ({ children }: Props) => {
 		<>
 			<Page>{children}</Page>
 			{isCloud === true && (
-				<ChatwootWidget websiteToken="USCpQRKzHvFMssf3p6Eacae5" />
+				<ChatwootWidget websiteToken="zWJtLDNijPAiE8QtnQmbd7ae" />
 			)}
 
 			{haveRootAccess === true && <ImpersonationBar />}
