@@ -1,5 +1,8 @@
-![Deployi Banner](./apps/deployi/logo.png)
 
+
+<p align="center">
+  <img src="./apps/deployi/logo.png" alt="Deployi Banner" height="300"/>
+</p>
 
  [Deployi](https://deployi.me/) is a **free, self‑hostable Software as a Service (SaaS)** that simplifies the deployment and management of applications and databases.
 
@@ -41,6 +44,7 @@ curl -sSL https://deployi.me/install.sh | bash
 ## Contributing
 
 Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
+
 
 
 
