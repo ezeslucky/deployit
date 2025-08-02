@@ -1,5 +1,5 @@
 
- [Deployi](https://deployi.me/) is a **free, self‑hostable Platform as a Service (PaaS)** that simplifies the deployment and management of applications and databases.
+ [Deployi](https://deployi.me/) is a **free, self‑hostable Software as a Service (SaaS)** that simplifies the deployment and management of applications and databases.
 
 
  <a href="https://www.producthunt.com/products/deployi?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-deployi" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=997417&theme=light&t=1753596347090" alt="Deployi - #deployi | Product Hunt" style="width: 250px; height: 54px; vertical-align: middle;" /></a>[![View on Peerlist](https://img.shields.io/badge/See%20on-Peerlist-7342FF?style=for-the-badge&logo=peerlist)](https://peerlist.io/ezeslucky/project/deployi)
@@ -39,6 +39,7 @@ curl -sSL https://deployi.me/install.sh | bash
 ## Contributing
 
 Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
+
 
 
 
