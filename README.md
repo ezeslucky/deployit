@@ -16,7 +16,7 @@
 
 Deployi includes multiple features to make your life easier:
 
-✅ **Applications**: Deploy any type of application.
+✅ **Applications**: Deploy any type of application <br/>
 ✅ **Databases**: Create and manage databases with support for MySQL, PostgreSQL, MongoDB, MariaDB, and Redis  
 ✅ **Backups**: Automate backups for databases to an external storage destination  
 ✅ **Docker Compose**: Native support for Docker Compose to manage complex applications  
@@ -41,6 +41,7 @@ curl -sSL https://deployi.me/install.sh | bash
 ## Contributing
 
 Check out the [Contributing Guide](CONTRIBUTING.md) for more information.
+
 
 
 
