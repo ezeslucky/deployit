@@ -1,6 +1,6 @@
 {
 	"name": "deployi",
-	"version": "v0.23.4",
+	"version": "v0.2.4",
 	"private": true,
 	"license": "Apache-2.0",
 	"type": "module",
