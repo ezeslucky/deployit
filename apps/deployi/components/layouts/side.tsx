@@ -24,10 +24,12 @@ import {
 	Package,
 	PieChart,
 	Server,
+	Settings2,
 	ShieldCheck,
 	Trash2,
 	User,
 	Users,
+	Workflow,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import type * as React from "react";
@@ -208,68 +210,92 @@ const MENU: Menu = {
 		},
 
 		// Legacy unused menu, adjusted to the new structure
-		// {
-		// 	isSingle: true,
-		// 	title: "Projects",
-		// 	url: "/dashboard/projects",
-		// 	icon: Folder,
-		// },
-		// {
-		// 	isSingle: true,
-		// 	title: "Monitoring",
-		// 	icon: BarChartHorizontalBigIcon,
-		// 	url: "/dashboard/settings/monitoring",
-		// },
-		// {
-		//   isSingle: false,
-		//   title: "Settings",
-		//   icon: Settings2,
-		//   items: [
-		//     {
-		//       title: "Profile",
-		//       url: "/dashboard/settings/profile",
-		//     },
-		//     {
-		//       title: "Users",
-		//       url: "/dashboard/settings/users",
-		//     },
-		//     {
-		//       title: "SSH Key",
-		//       url: "/dashboard/settings/ssh-keys",
-		//     },
-		//     {
-		//       title: "Git",
-		//       url: "/dashboard/settings/git-providers",
-		//     },
-		//   ],
-		// },
-		// {
-		//   isSingle: false,
-		//   title: "Integrations",
-		//   icon: BlocksIcon,
-		//   items: [
-		//     {
-		//       title: "S3 Destinations",
-		//       url: "/dashboard/settings/destinations",
-		//     },
-		//     {
-		//       title: "Registry",
-		//       url: "/dashboard/settings/registry",
-		//     },
-		//     {
-		//       title: "Notifications",
-		//       url: "/dashboard/settings/notifications",
-		//     },
-		//   ],
-		// },
+		{
+			isSingle: true,
+			title: "Projects",
+			url: "/dashboard/projects",
+			icon: Folder,
+		},
+		{
+			isSingle: true,
+			title: "Monitoring",
+			icon: BarChartHorizontalBigIcon,
+			url: "/dashboard/settings/monitoring",
+		},
+		{
+		  isSingle: false,
+		  title: "Settings",
+		  icon: Settings2,
+		  items: [
+		    {
+		      title: "Profile",
+		      url: "/dashboard/settings/profile",
+		    },
+		    {
+		      title: "Users",
+		      url: "/dashboard/settings/users",
+		    },
+		    {
+		      title: "SSH Key",
+		      url: "/dashboard/settings/ssh-keys",
+		    },
+		    {
+		      title: "Git",
+		      url: "/dashboard/settings/git-providers",
+		    },
+		  ],
+		},
+		{
+		  isSingle: false,
+		  title: "Integrations",
+		  icon: BlocksIcon,
+		  items: [
+		    {
+		      title: "S3 Destinations",
+		      url: "/dashboard/settings/destinations",
+		    },
+		    {
+		      title: "Registry",
+		      url: "/dashboard/settings/registry",
+		    },
+		    {
+		      title: "Notifications",
+		      url: "/dashboard/settings/notifications",
+		    },
+		  ],
+		},
 	],
 
 	settings: [
 		{
 			isSingle: true,
-			title: "Web Server",
+			title: " Server",
 			url: "/dashboard/settings/server",
 			icon: Activity,
+			// Only enabled for admins in non-cloud environments
+			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
+		},
+				{
+			isSingle: true,
+			title: "Notifications",
+			url: "/dashboard/settings/notifications",
+			icon: Bell,
+			// Only enabled for admins
+			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
+		},
+		{
+			isSingle: true,
+			title: "Billing",
+			url: "/dashboard/settings/billing",
+			icon: CreditCard,
+			// Only enabled for admins in cloud environments
+			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && isCloud),
+		},
+		{
+			isSingle: true,
+			title: "Automations",
+			url: "/dashboard/settings/automations",
+			icon: Workflow,
 			// Only enabled for admins in non-cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
 		},
@@ -353,22 +379,7 @@ const MENU: Menu = {
 			// Only enabled for admins in non-cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
 		},
-		{
-			isSingle: true,
-			title: "Notifications",
-			url: "/dashboard/settings/notifications",
-			icon: Bell,
-			// Only enabled for admins
-			isEnabled: ({ auth }) => !!(auth?.role === "owner"),
-		},
-		{
-			isSingle: true,
-			title: "Billing",
-			url: "/dashboard/settings/billing",
-			icon: CreditCard,
-			// Only enabled for admins in cloud environments
-			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && isCloud),
-		},
+
 	],
 
 	help: [
