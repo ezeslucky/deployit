@@ -223,46 +223,46 @@ const MENU: Menu = {
 			url: "/dashboard/settings/monitoring",
 		},
 		{
-		  isSingle: false,
-		  title: "Settings",
-		  icon: Settings2,
-		  items: [
-		    {
-		      title: "Profile",
-		      url: "/dashboard/settings/profile",
-		    },
-		    {
-		      title: "Users",
-		      url: "/dashboard/settings/users",
-		    },
-		    {
-		      title: "SSH Key",
-		      url: "/dashboard/settings/ssh-keys",
-		    },
-		    {
-		      title: "Git",
-		      url: "/dashboard/settings/git-providers",
-		    },
-		  ],
+			isSingle: false,
+			title: "Settings",
+			icon: Settings2,
+			items: [
+				{
+					title: "Profile",
+					url: "/dashboard/settings/profile",
+				},
+				{
+					title: "Users",
+					url: "/dashboard/settings/users",
+				},
+				{
+					title: "SSH Key",
+					url: "/dashboard/settings/ssh-keys",
+				},
+				{
+					title: "Git",
+					url: "/dashboard/settings/git-providers",
+				},
+			],
 		},
 		{
-		  isSingle: false,
-		  title: "Integrations",
-		  icon: BlocksIcon,
-		  items: [
-		    {
-		      title: "S3 Destinations",
-		      url: "/dashboard/settings/destinations",
-		    },
-		    {
-		      title: "Registry",
-		      url: "/dashboard/settings/registry",
-		    },
-		    {
-		      title: "Notifications",
-		      url: "/dashboard/settings/notifications",
-		    },
-		  ],
+			isSingle: false,
+			title: "Integrations",
+			icon: BlocksIcon,
+			items: [
+				{
+					title: "S3 Destinations",
+					url: "/dashboard/settings/destinations",
+				},
+				{
+					title: "Registry",
+					url: "/dashboard/settings/registry",
+				},
+				{
+					title: "Notifications",
+					url: "/dashboard/settings/notifications",
+				},
+			],
 		},
 	],
 
@@ -275,7 +275,7 @@ const MENU: Menu = {
 			// Only enabled for admins in non-cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
 		},
-				{
+		{
 			isSingle: true,
 			title: "Notifications",
 			url: "/dashboard/settings/notifications",
@@ -379,7 +379,6 @@ const MENU: Menu = {
 			// Only enabled for admins in non-cloud environments
 			isEnabled: ({ auth, isCloud }) => !!(auth?.role === "owner" && !isCloud),
 		},
-
 	],
 
 	help: [

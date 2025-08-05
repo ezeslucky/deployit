@@ -29,7 +29,7 @@ export const ShowServerActions = ({ serverId }: Props) => {
 			<DialogContent className="sm:max-w-xl overflow-y-auto max-h-screen">
 				<div className="flex flex-col gap-1">
 					<DialogTitle className="text-xl"> server settings</DialogTitle>
-					<DialogDescription>Reload or clean the  server.</DialogDescription>
+					<DialogDescription>Reload or clean the server.</DialogDescription>
 				</div>
 
 				<div className="grid grid-cols-2 w-full gap-4">
