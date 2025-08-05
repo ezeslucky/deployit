@@ -4,8 +4,8 @@ packages:
   - apps/monitoring
   - apps/schedules
   - packages/server
-  - packages/workflow
-  - packages/automation
+
+
 
 onlyBuiltDependencies:
   - '@biomejs/biome'
